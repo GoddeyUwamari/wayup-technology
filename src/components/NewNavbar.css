@@ -1,0 +1,1221 @@
+/* WAYUP TECHNOLOGY - Professional Navbar CSS */
+
+/* Enhanced Top Header Styles */
+.top-header {
+  height: 40px !important;
+  background-color: rgb(2, 2, 116) !important;
+  padding: 2px 10px !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1001 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.heading-container {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.usa-image {
+  width: 30px;
+  height: 24px;
+  padding-right: 4px;
+  border-radius: 10px;
+  position: relative;
+  top: 6px;
+  margin-bottom: 10px;
+  order: 0;
+}
+
+.phone-number {
+  margin-right: 1.25rem;
+  padding-top: 0.25rem;
+  font-size: 0.9em;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  transition: color 0.3s ease;
+  order: 1;
+  width: auto;
+  height: 24px;
+  padding-right: 4px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.phone-number:hover {
+  color: yellow;
+}
+
+.yahoo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  order: 2;
+}
+
+.yahoo a {
+  font-size: 1em;
+  font-weight: bolder;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.yahoo a:hover {
+  color: yellow;
+}
+
+.envelope-icon {
+  color: #ef5a16;
+  font-size: 1.2em;
+  position: relative;
+  top: 2px;
+}
+
+.help {
+  position: relative;
+  top: 6px;
+  margin-left: auto;
+  padding-top: 4px;
+  font-size: 0.9em;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  order: 3;
+}
+
+.help:hover {
+  color: yellow;
+}
+
+.shopping-cart-icon {
+  color: #ef5a16 !important;
+  font-size: 1.2em;
+}
+
+/* Enhanced Main Navbar Styles */
+.nvbr {
+  height: 120px !important;
+  background: linear-gradient(135deg, rgb(0, 0, 72), rgb(0, 20, 100)) !important;
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  position: fixed !important;
+  top: 40px !important;
+  left: 0 !important;
+  right: 0 !important;
+  z-index: 1000 !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  margin-top: 0 !important;
+}
+
+/* LOGO BASE STYLES - No !important to allow media query overrides */
+.nvbr_logo {
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.nvbr_logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-text {
+  display: flex;
+  align-items: center;
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  flex-direction: column;
+  margin-bottom: 2px;
+  white-space: nowrap;
+  text-align: center;
+}
+
+.wayup-logo-icon {
+  height: 60px;
+  width: 60px;
+  margin-top: 20px;
+  margin-bottom: -10px;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px red;
+  transition: all 0.3s ease;
+  display: block;
+  flex-shrink: 0;
+}
+
+.logo-text-content {
+  margin-top: 18px;
+  letter-spacing: 1.5px;
+  background: linear-gradient(45deg, #fff, #ffd700);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  font-size: inherit;
+}
+
+/* Enhanced Navigation Links */
+.nvbr-links {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 40px;
+  position: relative;
+  z-index: 1;
+}
+
+.nvbr-item {
+  position: relative;
+}
+
+.nvbr-link {
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 17px;
+  color: white;
+  padding: 12px 0;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  position: relative;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.nvbr-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(45deg, #ff6b35, #ffd700);
+  transition: width 0.3s ease;
+}
+
+.nvbr-link:hover {
+  color: #ffd700;
+  transform: translateY(-2px);
+}
+
+.nvbr-link:hover::after {
+  width: 100%;
+}
+
+.dropdown-arrow {
+  font-size: 12px;
+  transition: all 0.3s ease;
+  color: #ff6b35;
+}
+
+.dropdown-container:hover .dropdown-arrow {
+  transform: rotate(180deg);
+  color: #ffd700;
+}
+
+/* Desktop Dropdown Menu */
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  background: rgba(0, 0, 72, 0.98);
+  backdrop-filter: blur(15px);
+  min-width: 280px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 12px 0;
+  list-style: none;
+  margin: 0;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: block;
+}
+
+.dropdown-container:hover .dropdown-menu,
+.nvbr-item:hover .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.dropdown-menu li {
+  padding: 12px 20px;
+  cursor: pointer;
+  color: white;
+  font-size: 18px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+
+.dropdown-menu li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0;
+  background: linear-gradient(45deg, #ff6b35, #ffd700);
+  transition: width 0.25s ease;
+}
+
+.dropdown-menu li:hover {
+  background-color: #ef5a16;
+  color: white;
+  transform: translateX(5px);
+}
+
+.dropdown-menu li:hover::before {
+  width: 3px;
+}
+
+/* Enhanced Contact Link Styling */
+.contact-link .nvbr-link {
+  background: #ef5a16;
+  color: white !important;
+  padding: 12px 18px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+  border: 2px solid transparent;
+}
+
+.contact-link .nvbr-link::after {
+  display: none;
+}
+
+.contact-link .nvbr-link:hover {
+  background: rgb(2, 40, 2);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(6, 40, 76, 0.4);
+  border-color: rgba(50, 5, 5, 0.2);
+}
+
+/* PROFESSIONAL HAMBURGER MENU - THREE LINES */
+.nvbr-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+  padding: 0;
+  background: transparent;
+  border: none;
+  position: relative;
+  z-index: 1002;
+}
+
+.burger-bar {
+  width: 100%;
+  height: 2px;
+  background-color: white;
+  border-radius: 1px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+/* Hamburger Animation */
+.show-links .burger-bar:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.show-links .burger-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.show-links .burger-bar:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Desktop Only - Ensure hamburger is always hidden on desktop */
+@media screen and (min-width: 851px) {
+  .nvbr-burger {
+    display: none !important;
+  }
+  
+  .nvbr-links {
+    display: flex !important;
+    position: static !important;
+    flex-direction: row !important;
+    background: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+    border: none !important;
+    height: auto !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    z-index: 1 !important;
+  }
+}
+
+/* Large Desktop Responsive Adjustments */
+@media screen and (min-width: 1401px) {
+  .nvbr {
+    padding: 0 24px;
+  }
+  
+  .nvbr-links {
+    gap: 40px;
+  }
+  
+  .logo-text {
+    font-size: 22px;
+  }
+  
+  .wayup-logo-icon {
+    height: 60px;
+    width: 60px;
+    margin-top: 20px;
+    margin-bottom: -10px;
+  }
+  
+  .logo-text-content {
+    display: block;
+    font-size: 22px;
+    margin-top: 18px;
+    letter-spacing: 1.5px;
+  }
+}
+
+/* Medium-Large Desktop */
+@media screen and (max-width: 1400px) and (min-width: 1201px) {
+  .nvbr {
+    padding: 0 20px;
+  }
+  
+  .nvbr-links {
+    gap: 35px;
+  }
+  
+  .logo-text {
+    font-size: 20px;
+  }
+  
+  .wayup-logo-icon {
+    height: 55px;
+    width: 55px;
+    margin-top: 18px;
+    margin-bottom: -8px;
+  }
+  
+  .logo-text-content {
+    display: block;
+    font-size: 18px;
+    margin-top: 16px;
+    letter-spacing: 1.3px;
+  }
+}
+
+/* Medium Desktop - Compact Layout */
+@media screen and (max-width: 1200px) and (min-width: 1101px) {
+  .nvbr {
+    padding: 0 18px;
+  }
+  
+  .nvbr-links {
+    gap: 28px;
+  }
+  
+  .nvbr-link {
+    font-size: 15px;
+    padding: 10px 0;
+  }
+  
+  .dropdown-menu {
+    min-width: 240px;
+  }
+  
+  .dropdown-menu li {
+    font-size: 16px;
+  }
+  
+  .logo-text {
+    font-size: 19px;
+  }
+  
+  .wayup-logo-icon {
+    height: 52px;
+    width: 52px;
+    margin-top: 16px;
+    margin-bottom: -8px;
+  }
+  
+  .logo-text-content {
+    display: block;
+    font-size: 16px;
+    margin-top: 14px;
+    letter-spacing: 1.2px;
+  }
+  
+  .contact-link .nvbr-link {
+    font-size: 12px;
+    padding: 10px 15px;
+  }
+}
+
+/* Small Desktop/Large Tablet - More Compact */
+@media screen and (max-width: 1100px) and (min-width: 1001px) {
+  .nvbr {
+    padding: 0 16px;
+  }
+  
+  .nvbr-links {
+    gap: 22px;
+  }
+  
+  .nvbr-link {
+    font-size: 14px;
+    padding: 8px 0;
+  }
+  
+  .dropdown-menu {
+    min-width: 220px;
+  }
+  
+  .dropdown-menu li {
+    font-size: 15px;
+    padding: 10px 18px;
+  }
+  
+  .logo-text {
+    font-size: 18px;
+  }
+  
+  .wayup-logo-icon {
+    height: 48px;
+    width: 48px;
+    margin-top: 14px;
+    margin-bottom: -7px;
+  }
+  
+  .logo-text-content {
+    display: block;
+    font-size: 15px;
+    margin-top: 12px;
+    letter-spacing: 1px;
+  }
+  
+  .contact-link .nvbr-link {
+    font-size: 12px;
+    margin-right: 0px;
+    padding: 8px 12px;
+  }
+}
+
+/* Tablet - Getting tighter */
+@media screen and (max-width: 1000px) and (min-width: 951px) {
+  .nvbr {
+    padding: 0 12px;
+  }
+  
+  .nvbr-links {
+    gap: 18px;
+  }
+  
+  .nvbr-link {
+    font-size: 13px;
+    padding: 6px 0;
+  }
+  
+  .dropdown-menu {
+    min-width: 200px;
+  }
+  
+  .dropdown-menu li {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+  
+  .logo-text {
+    font-size: 17px;
+  }
+  
+  .wayup-logo-icon {
+    height: 45px;
+    width: 45px;
+    margin-top: 12px;
+    margin-bottom: -6px;
+  }
+  
+  .logo-text-content {
+    display: block;
+    font-size: 14px;
+    margin-top: 10px;
+    letter-spacing: 1px;
+  }
+  
+  .contact-link .nvbr-link {
+    font-size: 11px;
+    padding: 6px 10px;
+    margin-right: 0px;
+  }
+}
+
+/* CRITICAL FIX: Split into two ranges for better control */
+
+/* Moderate compression for 920px-950px */
+@media screen and (max-width: 950px) and (min-width: 921px) {
+  .nvbr {
+    padding: 0 10px;
+  }
+  
+  .nvbr-links {
+    gap: 12px;
+  }
+  
+  .nvbr-link {
+    font-size: 12px;
+    padding: 4px 0;
+    white-space: nowrap;
+  }
+  
+  .logo-text {
+    font-size: 15px;
+  }
+  
+  .wayup-logo-icon {
+    height: 40px;
+    width: 40px;
+    margin-top: 10px;
+    margin-bottom: -5px;
+  }
+  
+  .logo-text-content {
+    display: block;
+    font-size: 13px;
+    margin-top: 8px;
+    letter-spacing: 0.8px;
+  }
+  
+  .contact-link .nvbr-link {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+}
+
+/* SUPER CRITICAL: Maximum compression for the problematic 851px-920px range */
+@media screen and (max-width: 920px) and (min-width: 851px) {
+  .nvbr {
+    padding: 0 6px;
+  }
+  
+  .nvbr-links {
+    gap: 8px;
+  }
+  
+  .nvbr-link {
+    font-size: 10px;
+    padding: 2px 0;
+    white-space: nowrap;
+  }
+  
+  .dropdown-menu {
+    min-width: 140px;
+  }
+  
+  .dropdown-menu li {
+    font-size: 11px;
+    padding: 4px 8px;
+  }
+  
+  .logo-text {
+    font-size: 13px;
+  }
+  
+  /* Make logo smaller but keep it visible */
+  .wayup-logo-icon {
+    height: 32px;
+    width: 32px;
+    margin-top: 8px;
+    margin-bottom: -4px;
+  }
+  
+  /* Keep logo text visible but much smaller */
+  .logo-text-content {
+    display: block;
+    font-size: 11px;
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+  }
+  
+  /* Shrink contact button dramatically */
+  .contact-link .nvbr-link {
+    font-size: 8px;
+    padding: 2px 4px;
+    margin-right: 0px;
+  }
+}
+
+/* Mobile responsive header spacing */
+@media screen and (max-width: 850px) {
+  .top-header {
+    height: auto;
+    min-height: 40px;
+    padding: 4px 8px;
+  }
+  
+  .heading-container {
+    gap: 6px;
+  }
+  
+  .phone-number,
+  .yahoo a,
+  .help {
+    font-size: 0.8em;
+  }
+  
+  .yahoo {
+    display: none;
+  }
+  
+  .envelope-icon {
+    display: none;
+  }
+  
+  .usa-image {
+    margin-left: 0;
+  }
+  
+  .phone-number {
+    margin-left: 4px;
+  }
+  
+  .help {
+    top: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .nvbr {
+    height: 70px !important;
+    padding: 0 16px;
+    top: 40px !important;
+  }
+  
+  body {
+    padding-top: 110px !important; /* 40px top header + 70px navbar */
+  }
+  
+  .logo-text {
+    font-size: 16px;
+    gap: 6px;
+  }
+  
+  .wayup-logo-icon {
+    height: 35px;
+    width: 35px;
+    margin-top: 10px;
+    margin-bottom: -5px;
+  }
+  
+  .logo-text-content {
+    display: block;
+    font-size: 14px;
+    margin-top: 8px;
+    letter-spacing: 0.8px;
+  }
+  
+  /* Show hamburger menu */
+  .nvbr-burger {
+    display: flex;
+  }
+  
+  /* PROFESSIONAL MOBILE MENU */
+  .nvbr-links {
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0, 0, 72, 0.98), rgba(0, 20, 100, 0.98));
+    backdrop-filter: blur(20px);
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transform: translateX(-100%);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 999;
+  }
+  
+  .show-links .nvbr-links {
+    transform: translateX(0);
+  }
+  
+  /* Navigation Items Section */
+  .nvbr-links > .nvbr-item:not(.contact-link):not(.nvbr__item) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .nvbr-item {
+    width: 100%;
+    margin: 0;
+  }
+  
+  /* Menu Links */
+  .nvbr-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 24px;
+    width: 100%;
+    font-size: 18px;
+    font-weight: 600;
+    color: white;
+    text-decoration: none;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+  }
+  
+  .nvbr-link:hover {
+    background: rgba(255, 107, 53, 0.1);
+    color: #ffd700;
+    transform: translateX(8px);
+  }
+  
+  .nvbr-link::after {
+    display: none;
+  }
+  
+  /* Dropdown arrows */
+  .dropdown-arrow {
+    font-size: 18px;
+    color:#ef5a16;
+    transition: all 0.3s ease;
+  }
+  
+  /* Mobile Dropdown Menus */
+  .dropdown-menu {
+    position: static;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    min-width: auto;
+    display: block;
+    list-style: none;
+  }
+  
+  .dropdown-menu li {
+    padding: 16px 48px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: transparent;
+  }
+  
+  .dropdown-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .dropdown-menu li:hover {
+    background: rgba(255, 107, 53, 0.15);
+    color: white;
+    transform: translateX(12px);
+    padding-left: 60px;
+  }
+  
+  /* Contact Button - Left Aligned Like Other Menu Items */
+  .contact-link {
+    margin-top: auto;
+    padding: 0;
+    border-top: 2px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.02);
+  }
+  
+  .contact-link .nvbr-link {
+    background: linear-gradient(45deg, #ff6b35, #ff8c42);
+    color: white !important;
+    margin: 24px;
+    text-align: left;
+    justify-content: flex-start;
+    border-radius: 12px;
+    padding: 18px 24px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    display: block;
+    width: 180px;
+  }
+  
+  .contact-link .nvbr-link:hover {
+    background: blue;
+    transform: translateX(8px);
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+  }
+  
+  /* Chief Image - Left Aligned Like Other Menu Items */
+  .nvbr__item {
+    padding: 20px 24px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
+    background: rgba(255, 255, 255, 0.02);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 0;
+  }
+  
+  .nvbr__item img {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    margin-right: 12px;
+  }
+  
+  .nvbr__item img:hover {
+    transform: scale(1.1);
+    border-color: #ff6b35;
+    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  }
+}
+
+/* Top header responsive adjustments for tablet-mobile transition */
+@media screen and (max-width: 850px) and (min-width: 651px) {
+  .top-header {
+    padding: 3px 8px;
+  }
+  
+  .heading-container {
+    gap: 4px;
+  }
+  
+  .phone-number {
+    font-size: 0.82em;
+    margin-right: 0.8rem;
+  }
+  
+  .help {
+    font-size: 0.82em;
+  }
+  
+  .usa-image {
+    width: 28px;
+    height: 22px;
+    top: 4px;
+  }
+  
+  .yahoo {
+    display: none;
+  }
+  
+  .envelope-icon {
+    display: none;
+  }
+}
+
+/* Fine-tuned mobile breakpoints for top header */
+@media screen and (max-width: 650px) and (min-width: 501px) {
+  .top-header {
+    padding: 3px 6px;
+  }
+  
+  .phone-number,
+  .help {
+    font-size: 0.78em;
+  }
+  
+  .usa-image {
+    width: 28px;
+    height: 22px;
+  }
+}
+
+/* Fix for breakpoint around 422px where phone number wraps */
+@media screen and (max-width: 500px) and (min-width: 385px) {
+  .heading-container {
+    gap: 2px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .phone-number {
+    font-size: 0.75em;
+    margin-right: 2px;
+    margin-bottom: 10px;
+    margin-left: 2px;
+  }
+  
+  .help {
+    font-size: 0.75em;
+    margin-left: auto;
+    margin-right: 4px;
+    margin-top:-10px ;
+    white-space: nowrap;
+    align-self: center;
+  }
+  
+  .usa-image {
+    width: 25px;
+    height: 20px;
+     margin-left:-2px ;
+    margin-top: -6px;
+    margin-right: 0;
+  }
+}
+
+@media screen and (max-width: 384px) {
+  .heading-container {
+    padding-left: 4px;
+    padding-right: 4px;
+    gap: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .phone-number, .yahoo a, .help {
+    font-size: 0.7em;
+  }
+  
+  .phone-number {
+    white-space: nowrap;
+    font-size: 10px;
+    margin-left: -10px;
+    flex-shrink: 0;
+  }
+
+  .usa-image {
+    width: 24px;
+    height: 18px;
+     margin-left:-4px ;
+    flex-shrink: 0;
+  }
+
+  .help {
+    white-space: nowrap;
+    margin-top:-10px ;
+    margin-left: -20px;
+    font-size: 10px;
+    flex-shrink: 0;
+  }
+
+  .shopping-cart-icon {
+    margin-right: -4px;
+  }
+
+  /* Hide yahoo email on very small screens */
+  .yahoo {
+    display: none;
+  }
+
+  .envelope-icon {
+    display: none;
+  }
+}
+
+@media screen and (max-width: 289px) {
+  .heading-container {
+    padding-left: 2px;
+    padding-right: 2px;
+    gap: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: nowrap;
+  }
+
+  .phone-number, .yahoo a, .help {
+    font-size: 0.65em;
+  }
+  
+  .phone-number {
+    white-space: nowrap;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .usa-image {
+    width: 22px;
+    height: 16px;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .help {
+    white-space: nowrap;
+    margin: 0;
+    flex-shrink: 0;
+  }
+
+  .shopping-cart-icon {
+    margin-right: 2px;
+  }
+
+  /* Hide yahoo email on very small screens */
+  .yahoo {
+    display: none;
+  }
+
+  .envelope-icon {
+    display: none;
+  }
+}
+
+/* HEADER OVERFLOW FIX - Prevent header from covering body content */
+
+/* Recalculate total header height and fix body spacing */
+body {
+  padding-top: 100px !important; /* Increased from 100px - accounts for both top header (40px) + navbar (120px) minus overlap */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  margin: 0 !important;
+  overflow-x: hidden !important; /* Prevent any horizontal scroll */
+}
+
+/* Additional professional touches */
+.nvbr__item img {
+  height: 45px;
+  width: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.nvbr__item img:hover {
+  box-shadow: 0 6px 20px rgba(255, 107, 53, 0.4);
+  transform: scale(1.05);
+}
+
+/* Very small mobile adjustments */
+@media screen and (max-width: 480px) {
+  .top-header {
+    height: auto !important;
+    min-height: 35px !important;
+    padding: 2px 6px !important;
+  }
+  
+  .nvbr {
+    height: 65px !important;
+    top: 35px !important;
+  }
+  
+  body {
+    padding-top: 100px !important; /* 35px + 65px */
+  }
+}
+
+/* Additional mobile fixes for content overlap */
+@media screen and (max-width: 600px) {
+  body {
+    padding-top: 100px !important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    padding-top: 100px !important;
+  }
+}
+
+/* Ensure main content doesn't get hidden behind header */
+.main-content,
+main,
+.container,
+section:first-child {
+  margin-top: 0 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Fix any hero section that might be getting covered */
+.hero-section,
+.banner-section,
+.intro-section {
+  margin-top: 0 !important;
+  padding-top: 20px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Accessibility and smooth animations */
+html {
+  scroll-behavior: smooth;
+  overflow-x: hidden !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.nvbr-link:focus,
+.nvbr-burger:focus {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+}

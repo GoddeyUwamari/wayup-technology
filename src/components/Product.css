@@ -1,0 +1,477 @@
+/* Enhanced Wrapper CSS with Tablet Layout Method */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.wrapper1 {
+  background-color: #fdd700;
+  margin-bottom: -4px;
+  padding-top: 30px;
+  padding-bottom: 64px;
+}
+
+.wrapper1 h1 {
+  font-size: 3rem;
+  padding-top: 1em;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+
+.wrapper1 p {
+  font-size: 1.3rem;
+  color: black;
+  text-align: center;
+  padding: 1rem 1.25rem 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.flex-master {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 2em;
+  margin: 2em 3em 4em;
+}
+
+.flex-master h2 {
+  font-size: 1.7rem;
+  margin-left: 20px!important;
+  margin: 1rem;
+  color: blueviolet;
+}
+
+.flex-master p {
+  text-align: left;
+  padding: 1.25rem;
+  color: white;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.wrapper1 img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.div1, .div2, .div3 {
+  background-color: #15212a;
+  width: 28%;
+  height: 550px;
+  border-radius: 1.25rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.div1 img, .div2 img, .div3 img {
+  height: 40%;
+  object-fit: cover;
+}
+
+.flex-master button, .register-button {
+  font-size: 1rem!important;
+  font-weight: bold;
+  background-color: #fdd700;
+  margin: 20px 1rem;
+  padding: 1rem 0.5rem;
+  border-radius: 20px;
+  cursor: pointer;
+  align-self: center;
+  border: none;
+}
+
+.flex-master button:hover {
+  background-color: #ef5a16;
+  color: black;
+}
+
+/* Mobile Styles */
+@media screen and (max-width: 767px) {
+  .wrapper1 h1 {
+    font-size: 2rem;
+    padding-top: 0.5em;
+  }
+
+  .wrapper1 p {
+    font-size: 1rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .flex-master {
+    flex-direction: column;
+    align-items: center;
+    margin: 1em;
+    padding-bottom: 1em;
+  }
+
+  .div1, .div2, .div3 {
+    width: 100%;
+    height: auto;
+    margin-bottom: 2em;
+  }
+
+  .flex-master h2 {
+    font-size: 1.4rem;
+    margin-left: 10px !important;
+  }
+
+  .flex-master p {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .flex-master button, .register-button {
+    font-size: 0.9rem !important;
+    padding: 0.8rem 0.4rem;
+    margin: 15px 0.5rem;
+  }
+
+  .div1 img, .div2 img, .div3 img {
+    height: 260px;
+  }
+}
+
+/* Tablet Styles - ENHANCED WITH SCREENSHOT METHOD */
+@media (min-width: 768px) and (max-width: 991px) {
+  .flex-master {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin: 2em 2em 4em;
+    justify-content: center;
+  }
+
+  /* First two cards remain vertical */
+  .div1, .div2 {
+    width: 100%;
+    height: auto;
+    min-height: 580px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Third card spans full width and becomes horizontal */
+  .div3 {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+    min-height: 320px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+  }
+
+  /* Image section for horizontal card - Left side */
+  .div3 img {
+    flex: 0 0 350px;
+    height: 100% !important;
+    width: 350px;
+    object-fit: cover;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-radius: 1.25rem 0 0 1.25rem;
+  }
+
+  /* Third card spans full width and becomes horizontal */
+  .div3 {
+    grid-column: 1 / -1;
+    width: 100%;
+    height: auto;
+    min-height: 320px;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Image section for horizontal card - Left side with title overlay */
+  .div3 img {
+    flex: 0 0 350px;
+    height: 100% !important;
+    width: 350px;
+    object-fit: cover;
+    border-radius: 1.25rem 0 0 1.25rem;
+    display: block;
+    position: relative;
+  }
+
+  /* Title overlay on image (left side) */
+  .div3 h2 {
+    position: absolute !important;
+    z-index: 3 !important;
+    left: 30px !important;
+    bottom: 60px !important;
+    font-size: 2.5rem !important;
+    margin: 0 !important;
+    color: white !important;
+    text-align: left !important;
+    font-weight: bold !important;
+    line-height: 1.2 !important;
+    display: block !important;
+    background: linear-gradient(135deg, #8b5cf6, #a855f7) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3) !important;
+    max-width: 290px !important;
+    padding: 0 !important;
+    width: auto !important;
+  }
+
+  /* Content area background - Right side */
+  .div3::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    left: 350px;
+    background-color: #15212a;
+    border-radius: 0 1.25rem 1.25rem 0;
+    z-index: 1;
+  }
+
+  /* Description text (right side content area) */
+  .div3 p {
+    position: absolute !important;
+    z-index: 2 !important;
+    left: 380px !important;
+    top: 30px !important;
+    right: 30px !important;
+    font-size: 1.1rem !important;
+    color: white !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-align: left !important;
+    line-height: 1.6 !important;
+    display: block !important;
+    background-color: transparent !important;
+    width: auto !important;
+    max-height: calc(100% - 120px) !important;
+    overflow: hidden !important;
+  }
+
+  /* Button (right side, bottom) */
+  .div3 button {
+    position: absolute !important;
+    z-index: 2 !important;
+    right: 30px !important;
+    bottom: 30px !important;
+    margin: 0 !important;
+    padding: 15px 25px !important;
+    font-size: 1rem !important;
+    font-weight: bold !important;
+    background-color: #fdd700 !important;
+    color: black !important;
+    border: none !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    box-shadow: 0 4px 15px rgba(253, 215, 0, 0.3) !important;
+    display: inline-block !important;
+    width: auto !important;
+  }
+
+  .div3 button:hover {
+    background-color: #ef5a16 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(239, 90, 22, 0.4) !important;
+  }
+
+  /* Vertical cards styling */
+  .div1 h2, .div2 h2 {
+    font-size: 1.5rem;
+    margin-left: 15px !important;
+  }
+
+  .div1 p, .div2 p {
+    font-size: 0.95rem;
+    flex-grow: 1;
+    padding: 1rem 1rem 0.5rem;
+  }
+
+  .div1 button, .div2 button {
+    font-size: 0.85rem !important;
+    padding: 0.7rem 0.3rem;
+    margin: 10px 0.5rem;
+    align-self: center;
+    position: relative;
+    bottom: 5px;
+  }
+
+  .div1 img, .div2 img {
+    height: 35%;
+  }
+}
+
+/* Desktop Styles */
+@media (min-width: 992px) {
+  .flex-master {
+    display: flex;
+    margin: 2em 1.5em 4em;
+  }
+
+  .div1, .div2, .div3 {
+    width: 31%;
+    flex-direction: column;
+  }
+
+  .div3 {
+    grid-column: auto;
+  }
+
+  .div3 img {
+    flex: initial;
+    height: 40%;
+    width: 100%;
+    border-radius: 12px 12px 0 0;
+  }
+}
+
+/* Large Desktop Styles */
+@media (min-width: 1200px) {
+  .flex-master {
+    margin: 2em 1em 4em;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .div1, .div2, .div3 {
+    width: 32%;
+  }
+}
+
+@media (min-width: 1400px) {
+  .flex-master {
+    max-width: 1400px;
+  }
+
+  .div1, .div2, .div3 {
+    width: 30%;
+    max-width: 420px;
+  }
+}
+
+@media (min-width: 1600px) {
+  .flex-master {
+    max-width: 1600px;
+  }
+
+  .div1, .div2, .div3 {
+    width: 31%;
+    max-width: 480px;
+  }
+}
+
+@media (min-width: 1800px) {
+  .flex-master {
+    max-width: 1800px;
+  }
+
+  .div1, .div2, .div3 {
+    width: 32%;
+    max-width: 540px;
+  }
+
+  .wrapper1 h1 {
+    font-size: 4.5rem;
+  }
+
+  .wrapper1 p {
+    font-size: 1.4rem;
+  }
+
+  .flex-master h2 {
+    font-size: 1.9rem;
+  }
+
+  .flex-master p {
+    font-size: 1.2rem;
+  }
+
+  .flex-master button, .register-button {
+    font-size: 1.1rem !important;
+  }
+}
+
+@media (min-width: 2001px) {
+  .flex-master {
+    max-width: none;
+    width: 90vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .div1, .div2, .div3 {
+    width: calc(30% + 1vw);
+    max-width: none;
+  }
+
+  .wrapper1 h1 {
+    font-size: calc(5rem + 0.5vw);
+  }
+
+  .wrapper1 p {
+    font-size: calc(1.5rem + 0.2vw);
+  }
+
+  .flex-master h2 {
+    font-size: calc(2rem + 0.3vw);
+  }
+
+  .flex-master p {
+    font-size: calc(1.3rem + 0.1vw);
+  }
+
+  .flex-master button, .register-button {
+    font-size: calc(1.2rem + 0.1vw) !important;
+    padding: calc(1.2rem + 0.2vw) calc(0.6rem + 0.1vw);
+  }
+
+  .flex-master h2 {
+    padding-left: calc(1rem + 0.5vw);
+    padding-right: calc(1rem + 0.5vw);
+  }
+
+  .flex-master p {
+    padding: calc(1.25rem + 0.5vw);
+  }
+
+  .div1 img, .div2 img, .div3 img {
+    height: calc(40% + 2vw);
+  }
+
+  .flex-master button, .register-button {
+    font-size: 1.1rem !important;
+    position: relative;
+    top: -6%;
+  }
+}
+
+/* Performance Optimizations */
+.div1, .div2, .div3 {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+.div1:not(:hover), .div2:not(:hover), .div3:not(:hover) {
+  will-change: auto;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .div1, .div2, .div3 {
+    transition: none;
+  }
+}
+
+/* Focus Management */
+.flex-master button:focus, .register-button:focus {
+  outline: 3px solid blueviolet;
+  outline-offset: 2px;
+}

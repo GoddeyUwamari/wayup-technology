@@ -1,0 +1,539 @@
+/* Enhanced Container Section CSS with Modern Grid Layout */
+
+/* CSS Custom Properties */
+:root {
+  /* Container Colors */
+  --container-bg: rgb(5, 29, 54);
+  --container-bg-gradient: linear-gradient(135deg, rgb(5, 29, 54) 0%, rgb(8, 42, 78) 100%);
+  --card-bg: #121f3e;
+  --card-bg-hover: linear-gradient(135deg, #121f3e, #1a2a4a);
+  --card-border: rgb(4, 54, 104);
+  --text-primary: white;
+  --text-accent: rgb(203, 192, 255);
+  --text-accent-gradient: linear-gradient(135deg, rgb(203, 192, 255), #b8a7ff);
+  
+  /* Spacing */
+  --container-padding-top: 40px;
+  --container-padding-bottom: 120px;
+  --card-border-radius: 10px;
+  --image-border-radius: 20px;
+  --card-border-width: 4px;
+  --card-gap: 20px;
+  
+  /* Typography */
+  --title-font-size: 40px;
+  --subtitle-font-size: 1.2rem;
+  --card-title-font-size: 24px;
+  --card-text-font-size: 1.1rem;
+  --font-weight-bold: 700;
+  
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Shadows */
+  --shadow-card: 0 8px 25px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 15px 35px rgba(203, 192, 255, 0.2);
+  --shadow-text: 0 2px 10px rgba(203, 192, 255, 0.3);
+}
+
+/* Enhanced Container Styles */
+.containera {
+  width: 100%;
+  height: 100%;
+  background: var(--container-bg-gradient);
+  padding-top: var(--container-padding-top);
+  padding-bottom: var(--container-padding-bottom);
+  position: relative;
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+/* Subtle background pattern */
+.containera::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(circle at 20% 80%, rgba(203, 192, 255, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(203, 192, 255, 0.06) 0%, transparent 50%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.containera > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Enhanced Typography */
+.containera h1 {
+  text-align: center;
+  background: var(--text-accent-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-size: clamp(26px, 5vw, var(--title-font-size));
+  padding-bottom: 10px;
+  font-weight: var(--font-weight-bold);
+  padding-top: 30px;
+  text-shadow: var(--shadow-text);
+}
+
+.containera p {
+  text-align: center;
+  font-size: clamp(16px, 3vw, var(--subtitle-font-size)) !important;
+  color: var(--text-primary);
+  padding-bottom: 20px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Modern Grid Layout */
+.flexbox-power {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--card-gap);
+  align-items: stretch;
+  justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Enhanced Card Styles */
+.flex1,
+.flex2,
+.flex3 {
+  color: var(--text-primary);
+  border-radius: var(--card-border-radius);
+  background: var(--card-bg);
+  border: var(--card-border-width) solid var(--card-border);
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  contain: layout style paint;
+}
+
+/* Modern shimmer effect */
+.flex1::before,
+.flex2::before,
+.flex3::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(203, 192, 255, 0.1), transparent);
+  transition: left var(--transition-slow);
+  z-index: 1;
+}
+
+.flex1:hover::before,
+.flex2:hover::before,
+.flex3:hover::before {
+  left: 100%;
+}
+
+.flex1:hover,
+.flex2:hover,
+.flex3:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--text-accent);
+  box-shadow: var(--shadow-card-hover);
+  background: var(--card-bg-hover);
+}
+
+/* Enhanced Image Styles */
+.flexbox-power img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--image-border-radius);
+  transition: var(--transition-normal);
+  filter: brightness(0.95) contrast(1.1);
+  position: relative;
+  z-index: 2;
+}
+
+.flex2 img {
+  height: 280px;
+  object-fit: cover;
+}
+
+.flexbox-power:hover img {
+  transform: scale(1.03);
+  filter: brightness(1) contrast(1.15);
+}
+
+/* Enhanced Card Typography */
+.flexbox-power h2 {
+  font-size: clamp(20px, 4vw, var(--card-title-font-size));
+  color: var(--text-accent);
+  font-weight: var(--font-weight-bold);
+  padding: 20px 30px 20px 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.flexbox-power p {
+  font-size: clamp(0.9rem, 2.5vw, var(--card-text-font-size)) !important;
+  word-spacing: 2px;
+  line-height: 1.3;
+  padding: 0 30px 20px 30px;
+  text-align: left;
+  position: relative;
+  z-index: 2;
+}
+
+/* Container Queries for Modern Responsive Design */
+@container (max-width: 768px) {
+  .flexbox-power {
+    grid-template-columns: 1fr;
+    gap: 70px;
+  }
+}
+
+@container (min-width: 769px) and (max-width: 992px) {
+  .flexbox-power {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+  
+  /* Make third card span full width horizontally */
+  .flexbox-power .flex3 {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  .flexbox-power .flex3 > * {
+    flex: 1;
+  }
+  
+  .flexbox-power .flex3::after {
+    content: '';
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: var(--text-accent-gradient);
+    border-radius: 50%;
+    margin-left: 30px;
+  }
+}
+
+@container (min-width: 993px) {
+  .flexbox-power {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--card-gap);
+  }
+  
+  /* Reset third card to vertical layout for desktop */
+  .flexbox-power .flex3 {
+    grid-column: auto;
+    display: block;
+    text-align: center;
+    gap: normal;
+    padding: 0;
+  }
+  
+  .flexbox-power .flex3::after {
+    display: none;
+  }
+}
+
+/* Traditional Media Queries for Fallback */
+
+/* Small devices (phones, 576px and down) */
+@media (max-width: 576px) {
+  .containera h1 {
+    font-size: 26px;
+    padding-top: 20px;
+  }
+
+  .containera p {
+    font-size: 18px !important;
+    margin-top: -6px;
+    margin-bottom: 18px;
+  }
+
+  .flexbox-power {
+    grid-template-columns: 1fr;
+    gap: 70px;
+    padding: 0 5%;
+  }
+
+  .flex1,
+  .flex2,
+  .flex3 {
+    width: 100%;
+  }
+
+  .flexbox-power h2 {
+    font-size: 24px;
+    padding: 20px 15px 22px 15px;
+  }
+
+  .flexbox-power p {
+    font-size: 1rem !important;
+    line-height: 1.2;
+    padding: 0 15px 20px 15px;
+  }
+
+  .flex2 img {
+    height: auto;
+  }
+}
+
+/* Medium devices (tablets, 577px to 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .containera h1 {
+    font-size: 34px;
+  }
+
+  .containera p {
+    font-size: 22px !important;
+  }
+
+  .flexbox-power {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .flexbox-power h2 {
+    font-size: 28px;
+    padding: 20px 20px 20px 20px;
+  }
+
+  .flexbox-power p {
+    font-size: 16px !important;
+    line-height: 1.6;
+    padding: 0 20px 20px 20px;
+  }
+
+  .flex2 img {
+    height: 220px;
+  }
+  
+  /* Third card spans full width */
+  .flex3 {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Large devices (desktops, 769px to 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+  .containera h1 {
+    font-size: 36px;
+  }
+
+  .containera p {
+    font-size: 24px !important;
+  }
+
+  .flexbox-power {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+  }
+
+  .flexbox-power h2 {
+    font-size: 30px;
+    padding: 20px 25px 20px 25px;
+  }
+
+  .flexbox-power p {
+    font-size: 17px !important;
+    line-height: 1.6;
+    padding: 0 25px 20px 25px;
+  }
+
+  .flex2 img {
+    height: 250px;
+  }
+
+  /* Make third card horizontal - SAME METHOD AS WORKING VERSION */
+  .flex3 {
+    grid-column: 1 / -1;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    gap: 30px;
+    padding: 30px;
+  }
+  
+  /* Create visual element like in working version */
+  .flex3::before {
+    content: '';
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    background: var(--text-accent-gradient);
+    border-radius: 50%;
+    margin-right: 30px;
+  }
+  
+  /* Override default text styles for horizontal layout */
+  .flex3 h2 {
+    padding: 0 0 10px 0;
+    margin: 0;
+    text-align: left;
+    font-size: 28px;
+  }
+  
+  .flex3 p {
+    padding: 0;
+    margin: 0;
+    text-align: left;
+    line-height: 1.5;
+  }
+}
+
+/* Extra large devices (large desktops, 993px to 1200px) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .containera h1 {
+    font-size: 38px;
+  }
+
+  .containera p {
+    font-size: 25px !important;
+  }
+
+  .flexbox-power {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--card-gap);
+  }
+
+  .flexbox-power h2 {
+    font-size: 31px;
+    padding: 20px 28px 20px 28px;
+  }
+
+  .flexbox-power p {
+    font-size: 17px !important;
+    line-height: 1.7;
+    padding: 0 28px 20px 28px;
+  }
+
+  .flex2 img {
+    height: 265px;
+  }
+
+  /* Reset third card to vertical */
+  .flex3 {
+    grid-column: auto;
+    display: block;
+    text-align: center;
+    gap: normal;
+    padding: 0;
+  }
+  
+  .flex3::after {
+    display: none;
+  }
+}
+
+/* Large Desktop (1201px+) */
+@media (min-width: 1201px) {
+  .containera h1 {
+    font-size: var(--title-font-size);
+  }
+
+  .containera p {
+    font-size: var(--subtitle-font-size) !important;
+  }
+
+  .flexbox-power {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1400px;
+  }
+
+  .flexbox-power h2 {
+    font-size: var(--card-title-font-size);
+    padding: 20px 30px 20px 30px;
+  }
+
+  .flexbox-power p {
+    font-size: var(--card-text-font-size) !important;
+    line-height: 1.6;
+    padding: 0 30px 20px 30px;
+  }
+
+  .flex2 img {
+    height: 280px;
+  }
+
+  /* Ensure third card remains vertical */
+  .flex3 {
+    grid-column: auto;
+    display: block;
+    text-align: center;
+    gap: normal;
+    padding: 0;
+  }
+  
+  .flex3::after {
+    display: none;
+  }
+}
+
+/* Performance Optimizations */
+@media (prefers-reduced-motion: reduce) {
+  .flex1,
+  .flex2,
+  .flex3,
+  .flexbox-power img {
+    transition: none;
+  }
+
+  .flex1::before,
+  .flex2::before,
+  .flex3::before {
+    display: none;
+  }
+
+  .flex1:hover,
+  .flex2:hover,
+  .flex3:hover {
+    transform: none;
+  }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .flex1,
+  .flex2,
+  .flex3 {
+    border-width: 3px;
+    outline: 2px solid transparent;
+  }
+
+  .flexbox-power h2 {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+}
+
+/* Focus Management for Accessibility */
+.flex1:focus,
+.flex2:focus,
+.flex3:focus {
+  outline: 3px solid var(--text-accent);
+  outline-offset: 2px;
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --container-bg: rgb(2, 15, 30);
+    --card-bg: #0a1525;
+  }
+}

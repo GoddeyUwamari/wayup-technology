@@ -1,0 +1,22 @@
+/* Our Clients Page Styles */
+.our-clients {
+  padding: 100px 20px;
+  text-align: center;
+  min-height: 60vh;
+  background: rgb(4, 10, 15);
+  color: white;
+}
+
+.our-clients h1 {
+  font-size: 3rem;
+  color: yellow;
+  margin-bottom: 2rem;
+}
+
+.our-clients p {
+  font-size: 1.8rem !important;
+  text-align: center;
+  color: white;
+  max-width: 600px;
+  margin: 0 auto;
+}

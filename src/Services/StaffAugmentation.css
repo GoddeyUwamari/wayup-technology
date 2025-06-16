@@ -1,0 +1,424 @@
+/* Staff Augmentation Page Styles */
+
+/* Hero Section */
+.staff-augmentation-hero-section {
+  background: linear-gradient(135deg, #101f61 0%, #5d0eac 100%);
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-augmentation-hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.staff-augmentation-hero-section .staff-augmentation-container {
+  position: relative;
+  z-index: 2;
+}
+
+.staff-augmentation-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: yellow !important;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.staff-augmentation-hero-description {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+/* Container */
+.staff-augmentation-container {
+  /* max-width: 1200px; */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Development Sections */
+.staff-augmentation-development-section {
+  padding: 100px 20px;
+  background: rgb(4, 10, 15);
+}
+
+.staff-augmentation-development-section.staff-augmentation-alternate {
+  /* background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); */
+   background-color: rgb(8, 17, 24);
+}
+
+.staff-augmentation-section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.staff-augmentation-section-header h2 {
+  font-size: 2.2rem !important;
+  font-weight: 700;
+  color: rgb(192, 39, 200);
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.staff-augmentation-alternate .staff-augmentation-section-header h2 {
+  color: white;
+}
+
+.staff-augmentation-section-header p {
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  /* max-width: 700px; */
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.staff-augmentation-alternate .staff-augmentation-section-header p {
+  color: white;
+}
+
+/* Content Layout */
+.staff-augmentation-content-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.staff-augmentation-image-column {
+  flex: 1;
+}
+
+.staff-augmentation-text-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.staff-augmentation-section-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.staff-augmentation-section-image:hover {
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Feature Items */
+.staff-augmentation-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  background: whitesmoke;
+  border-radius: 16px;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.staff-augmentation-feature-item:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: #667eea;
+}
+
+.staff-augmentation-feature-icon {
+  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
+  background-color: #ef5a16;
+  color: white;
+  padding: 16px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  min-height: 56px;
+  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
+}
+
+.staff-augmentation-feature-item:hover .staff-augmentation-feature-icon {
+  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.4);
+}
+
+.staff-augmentation-feature-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.staff-augmentation-feature-content {
+  flex: 1;
+}
+
+.staff-augmentation-feature-content h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: blue;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.staff-augmentation-feature-content p {
+  font-size: 1rem;
+  color: black;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Alternate Section - Image on Right Side */
+.staff-augmentation-alternate {
+  position: relative;
+  overflow: hidden;
+}
+
+.staff-augmentation-alternate .staff-augmentation-content-row {
+  display: block;
+  position: relative;
+}
+
+.staff-augmentation-alternate .staff-augmentation-text-column {
+  width: 46%;
+ margin-right: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.staff-augmentation-alternate .staff-augmentation-image-column {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  z-index: 1;
+
+  
+}
+
+.staff-augmentation-alternate .staff-augmentation-section-image {
+  width: 100%;
+  height: 600px;
+  /* max-height: 600px; */
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.staff-augmentation-alternate .staff-augmentation-feature-item {
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(203, 213, 224, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.staff-augmentation-alternate .staff-augmentation-feature-item:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: #764ba2;
+}
+
+.staff-augmentation-alternate .staff-augmentation-feature-icon {
+  /* background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); */
+  background-color: #ef5a16;
+  box-shadow: 0 8px 16px rgba(118, 75, 162, 0.3);
+}
+
+.staff-augmentation-alternate .staff-augmentation-feature-item:hover .staff-augmentation-feature-icon {
+  box-shadow: 0 12px 24px rgba(118, 75, 162, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .staff-augmentation-hero-title {
+    font-size: 3rem;
+  }
+  
+  .staff-augmentation-hero-description {
+    font-size: 1.1rem;
+  }
+  
+  .staff-augmentation-section-header h2 {
+    font-size: 2.5rem;
+  }
+  
+  .staff-augmentation-content-row {
+    gap: 40px;
+  }
+  
+  .staff-augmentation-section-image {
+    height: 400px;
+  }
+  
+  .staff-augmentation-alternate .staff-augmentation-text-column {
+    width: 55%;
+  }
+  
+  .staff-augmentation-alternate .staff-augmentation-image-column {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .staff-augmentation-hero-section {
+    padding: 80px 20px;
+  }
+  
+  .staff-augmentation-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .staff-augmentation-hero-description {
+    font-size: 1rem;
+  }
+  
+  .staff-augmentation-development-section {
+    padding: 60px 20px;
+  }
+  
+  .staff-augmentation-section-header {
+    margin-bottom: 50px;
+  }
+  
+  .staff-augmentation-section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .staff-augmentation-section-header p {
+    font-size: 1rem;
+  }
+  
+  .staff-augmentation-content-row {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .staff-augmentation-alternate .staff-augmentation-content-row {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .staff-augmentation-alternate .staff-augmentation-text-column {
+    width: 100%;
+    position: relative;
+  }
+  
+  .staff-augmentation-alternate .staff-augmentation-image-column {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    max-width: none;
+    order: 1;
+  }
+  
+  .staff-augmentation-text-column {
+    gap: 30px;
+  }
+  
+  .staff-augmentation-section-image {
+    height: 300px;
+  }
+  
+  .staff-augmentation-feature-item {
+    padding: 20px;
+    gap: 16px;
+  }
+  
+  .staff-augmentation-feature-icon {
+    min-width: 48px;
+    min-height: 48px;
+    padding: 12px;
+  }
+  
+  .staff-augmentation-feature-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .staff-augmentation-feature-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .staff-augmentation-feature-content p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .staff-augmentation-hero-title {
+    font-size: 2rem;
+  }
+  
+  .staff-augmentation-section-header h2 {
+    font-size: 1.75rem;
+  }
+  
+  .staff-augmentation-development-section {
+    padding: 40px 15px;
+  }
+  
+  .staff-augmentation-container {
+    padding: 0 15px;
+  }
+  
+  .staff-augmentation-feature-item {
+    padding: 16px;
+    gap: 12px;
+  }
+  
+  .staff-augmentation-section-image {
+    height: 250px;
+    border-radius: 12px;
+  }
+}
+
+/* Animation Enhancements */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.staff-augmentation-feature-item {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+.staff-augmentation-feature-item:nth-child(1) { animation-delay: 0.1s; }
+.staff-augmentation-feature-item:nth-child(2) { animation-delay: 0.2s; }
+.staff-augmentation-feature-item:nth-child(3) { animation-delay: 0.3s; }
+.staff-augmentation-feature-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* Smooth scrolling - Removed to fix loading issues */
+
+/* Focus states for accessibility */
+.staff-augmentation-feature-item:focus-within {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+.staff-augmentation-feature-icon:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.8);
+  outline-offset: 2px;
+}

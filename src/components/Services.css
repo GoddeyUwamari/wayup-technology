@@ -1,0 +1,86 @@
+.scrolling-container2 {
+  width: 100%;
+  height: 100px!important;
+  overflow: hidden;
+  background-color: rgb(13, 13, 46);
+  white-space: nowrap;
+  display: flex;
+  /* padding-bottom: 30px!important; */
+  /* padding-top: 30px!important; */
+  align-items: center; /* Center content vertically */
+}
+
+.scrolling-content2 {
+  display: inline-block;
+  padding-right: 100%; /* Ensures the content is duplicated smoothly */
+  animation: scroll 40s linear infinite;
+}
+
+.scrolling-content2 span {
+  display: inline-block;
+  padding: 0 20px;
+  font-size: 3rem;
+  color: white;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+
+.scrolling-content2 span::after {
+  content: ' ★';
+  color: #ffcc00;
+  margin-left: 5px;
+}
+
+@media (max-width: 576px) {
+  .scrolling-container2 {
+    height: 120px!important;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
+
+
+@media (max-width: 767px) {
+  .scrolling-container2 {
+    margin-top: -2px;
+    height: 60px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .scrolling-content2 {
+    font-size: 1.2rem;
+    padding-right: 200%;
+    animation: scroll 50s linear infinite;
+  }
+
+  .scrolling-content2 span {
+    padding: 0 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .scrolling-container2 {
+    height: 110px;
+  }
+
+  .scrolling-content2 {
+    font-size: 3rem;
+    padding-right: 100%;
+    animation: scroll 20s linear infinite;
+  }
+
+  .scrolling-content2 span {
+    padding: 0 20px;
+  }
+}
+
+
+

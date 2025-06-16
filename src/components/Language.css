@@ -1,0 +1,521 @@
+/* Enhanced Language Grid CSS with Vertical Tablet Layout */
+
+.grid-general-container {
+  background-color: rgb(21, 33, 42);
+  height: auto;
+  width: auto;
+  padding-bottom: 60px;
+}
+
+.grid-general-container h1 {
+  padding-top: 5rem;
+  padding-bottom: 10px;
+  text-align: center;
+  color: white;
+}
+
+.grid-general-information {
+  font-size: 1.25rem;
+  line-height: 1.2;
+  text-align: center;
+  word-spacing: 1px;
+  padding-bottom: 4rem;
+  color: white;
+}
+
+.language-grid-container {
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+}
+
+.language-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  height: auto;
+  font-size: 1rem;
+  word-spacing: 2px;
+  padding: 1.25rem;
+  color: white;
+  transition: transform 0.5s ease;
+}
+
+.language-grid:hover {
+  transform: translateY(-10px);
+}
+
+.language-grid img {
+  display: block;
+  margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 20px;
+}
+
+.language-grid h3 {
+  text-align: center;
+  padding-bottom: 10px;
+}
+
+.language-one, .language-two, .language-three, .language-four, .language-five, .language-six {
+  width: 100%;
+  height: 100%;
+  font-size: 1.2rem;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 30px;
+  border-radius: 1.25rem;
+  background-color: #121f3e;
+  border: 4px solid aqua;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.language-two, .language-four, .language-six {
+  background-color: #15212a;
+  border: 4px solid rgb(4, 54, 104);
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.language-one:hover,
+.language-two:hover,
+.language-three:hover,
+.language-four:hover,
+.language-five:hover,
+.language-six:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+  border-color: #3498db;
+  border-color: #1a3b5d;
+}
+
+.language-one:hover {
+  background-color: #1a3b5d;
+}
+
+.language-two:hover {
+  background-color: #1b425f;
+}
+
+.language-three:hover {
+  background-color: #1a3b5d;
+}
+
+.language-four:hover {
+  background-color: #1b425f;
+}
+
+.language-five:hover {
+  background-color: #1a3b5d;
+}
+
+.language-six:hover {
+  background-color: #1b425f;
+}
+
+.language-grid h3,
+.language-grid img {
+  transition: transform 0.3s ease;
+}
+
+.language-one:hover h3,
+.language-two:hover h3,
+.language-three:hover h3,
+.language-four:hover h3,
+.language-five:hover h3,
+.language-six:hover h3 {
+  transform: translateY(-10px);
+}
+
+.language-one:hover img,
+.language-two:hover img,
+.language-three:hover img,
+.language-four:hover img,
+.language-five:hover img,
+.language-six:hover img {
+  transform: translateY(-10px);
+}
+
+/* Mobile Styles */
+@media (max-width: 430px) {
+  .language-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 1rem 0;
+  }
+
+  .hide-on-smaller-screen {
+    display: none;
+  }
+
+  .grid-general-information {
+    font-size: 1rem;
+    text-align: left;
+    padding: 0 1.25rem 2rem;
+    color: white;
+  }
+
+  .language-one,
+  .language-two,
+  .language-three,
+  .language-four,
+  .language-five,
+  .language-six {
+    width: 108%;
+    max-width: 105%;
+    height: auto;
+    min-height: 360px;
+    padding: 20px;
+    margin-bottom: 0;
+    margin-left: -2.5%;
+    margin-right: -2.5%;
+    box-sizing: border-box;
+  }
+
+  .language-grid-container {
+    padding-left: 15px;
+    padding-right: 15px;
+    overflow-x: hidden;
+  }
+
+  .language-grid img {
+    padding-top: 15px;
+    padding-bottom: 10px;
+  }
+
+  .language-grid h3 {
+    padding-top: 10px;
+    padding-bottom: 16px;
+  }
+}
+
+/* Large Mobile */
+@media (min-width: 431px) and (max-width: 576px) {
+  .language-grid-container {
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 20px;
+    overflow-x: hidden;
+  }
+
+  .language-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    padding: 1rem 0;
+  }
+
+  .hide-on-smaller-screen {
+    display: none;
+  }
+
+  .grid-general-information {
+    font-size: 1.1rem;
+    text-align: center;
+    padding: 0 1.5rem 2rem;
+    color: white;
+  }
+
+  .language-one,
+  .language-two,
+  .language-three,
+  .language-four,
+  .language-five,
+  .language-six {
+    width: 105%;
+    max-width: 105%;
+    height: auto;
+    min-height: 360px;
+    padding: 25px;
+    margin-bottom: 0;
+    margin-left: -2.5%;
+    margin-right: -2.5%;
+    box-sizing: border-box;
+  }
+
+  .language-grid img {
+    padding-top: 15px;
+    padding-bottom: 15px;
+  }
+
+  .language-grid h3 {
+    padding-top: 10px;
+    padding-bottom: 16px;
+  }
+}
+
+/* Small Tablet */
+@media (min-width: 577px) and (max-width: 768px) {
+  .language-grid-container {
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    overflow-x: hidden;
+  }
+
+  .language-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 2rem 0;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .hide-on-smaller-screen {
+    display: none;
+  }
+
+  .grid-general-information {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 0 1.5rem 3rem;
+    color: white;
+  }
+
+  .language-one,
+  .language-two,
+  .language-three,
+  .language-four,
+  .language-five,
+  .language-six {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 420px;
+    padding: 30px;
+    margin: 0;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    border-radius: 1.5rem;
+  }
+
+  .language-grid img {
+    padding-top: 25px;
+    padding-bottom: 20px;
+    max-width: 120px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .language-grid h3 {
+    font-size: 1.4rem;
+    padding-bottom: 15px;
+    text-align: center;
+  }
+
+  .language-grid p {
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .language-one:hover,
+  .language-two:hover,
+  .language-three:hover,
+  .language-four:hover,
+  .language-five:hover,
+  .language-six:hover {
+    transform: translateY(-8px);
+  }
+}
+
+/* Large Tablet - 2 COLUMNS VERTICAL LAYOUT */
+@media (min-width: 769px) and (max-width: 992px) {
+  .language-grid-container {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-bottom: 60px;
+    overflow-x: hidden;
+  }
+
+  .language-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);  /* 2 columns */
+    gap: 30px;
+    padding: 2rem 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .grid-general-information {
+    font-size: 1.3rem;
+    text-align: center;
+    padding: 0 2rem 4rem;
+    color: white;
+    line-height: 1.4;
+  }
+
+  .language-one,
+  .language-two,
+  .language-three,
+  .language-four,
+  .language-five,
+  .language-six {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 420px;
+    padding: 30px;
+    margin: 0;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+    border-radius: 1.5rem;
+    border-width: 4px;
+  }
+
+  .language-grid img {
+    padding-top: 25px;
+    padding-bottom: 20px;
+    max-width: 120px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .language-grid h3 {
+    font-size: 1.4rem;
+    padding-bottom: 15px;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .language-grid p {
+    font-size: 1.1rem;
+    text-align: center;
+    line-height: 1.5;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+
+  .language-one:hover,
+  .language-two:hover,
+  .language-three:hover,
+  .language-four:hover,
+  .language-five:hover,
+  .language-six:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  }
+}
+
+/* Desktop */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .language-grid-container {
+    padding-left: 35px;
+    padding-right: 35px;
+    padding-bottom: 40px;
+    overflow-x: hidden;
+  }
+
+  .language-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    padding: 1rem 0;
+  }
+
+  .language-one,
+  .language-two,
+  .language-three,
+  .language-four,
+  .language-five,
+  .language-six {
+    width: 101%;
+    max-width: 101%;
+    height: auto;
+    min-height: 420px;
+    padding: 22px;
+    margin-bottom: 0;
+    margin-left: -0.5%;
+    margin-right: -0.5%;
+    box-sizing: border-box;
+    transition: transform 0.3s ease;
+  }
+
+  .language-grid img {
+    padding-top: 30px;
+    padding-bottom: 20px;
+    max-width: 90%;
+    display: block;
+    margin: 0 auto;
+  }
+
+  .language-grid h3 {
+    font-size: 1.2rem;
+    padding-bottom: 12px;
+    text-align: center;
+  }
+
+  .language-grid p {
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: justify;
+    hyphens: auto;
+    word-spacing: -1px;
+  }
+
+  .language-one:hover,
+  .language-two:hover,
+  .language-three:hover,
+  .language-four:hover,
+  .language-five:hover,
+  .language-six:hover {
+    transform: translateY(-10px);
+  }
+}
+
+/* Large Desktop */
+@media (min-width: 1201px) {
+  .language-grid {
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+}
+
+/* Performance Optimizations */
+.language-one, .language-two, .language-three, .language-four, .language-five, .language-six {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+.language-one:not(:hover), .language-two:not(:hover), .language-three:not(:hover), 
+.language-four:not(:hover), .language-five:not(:hover), .language-six:not(:hover) {
+  will-change: auto;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .language-grid,
+  .language-one, .language-two, .language-three, .language-four, .language-five, .language-six,
+  .language-grid h3, .language-grid img {
+    transition: none;
+  }
+  
+  .language-grid:hover {
+    transform: none;
+  }
+  
+  .language-one:hover, .language-two:hover, .language-three:hover,
+  .language-four:hover, .language-five:hover, .language-six:hover {
+    transform: none;
+  }
+}
+
+/* Focus Management */
+.language-one:focus, .language-two:focus, .language-three:focus,
+.language-four:focus, .language-five:focus, .language-six:focus {
+  outline: 3px solid aqua;
+  outline-offset: 2px;
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+  .language-one, .language-two, .language-three, .language-four, .language-five, .language-six {
+    border-width: 3px;
+  }
+  
+  .language-grid h3 {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+}

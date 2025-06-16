@@ -1,0 +1,18 @@
+.agricultural {
+  height: 40vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #556b2f, #8fbc8f);
+  color: #ffffff;
+  font-size: 2rem;
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.agricultural:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.35);
+}

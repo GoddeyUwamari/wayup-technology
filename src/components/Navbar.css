@@ -1,0 +1,347 @@
+/* 
+:root{
+    --nvbr--bg : rgb(0, 0, 72);
+    --nvbr--link:white;
+    --nvbr--link-hover:#ef5a16;
+}
+*{
+    box-sizing:border-box;
+}
+
+
+.heading-container { 
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: px;
+  padding-bottom: 4px;
+  margin-bottom: -2px;
+  color: white;
+  background-color: rgb(2, 2, 116);
+}
+
+.phone-number, .email {
+  margin-right: 1.25rem; 
+  padding-top: 0.25rem;
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.usa-image{
+width: 30px;
+height: 24px;
+padding-right: 4px;
+border-radius: 10px;
+position: relative;
+top: 6px;
+margin-bottom:10px ;
+}
+
+.phone-number {
+width: auto;
+height: 24px;
+padding-right: 4px;
+border-radius: 10px;
+position: relative;
+top: 6px;
+}
+
+.help {
+position: relative;
+top: 6px;
+margin-left: auto;
+padding-top: 4px;
+font-size: 0.9em;
+font-weight: 700;
+color: white;
+text-decoration: none;
+}
+
+.help:hover {
+    color: yellow;
+  }
+
+.help > svg {
+    margin-right: 10px;
+    margin-top: 2px;
+    color: white;
+    }
+
+.yahoo a{
+  font-size:1em;
+  font-weight: bolder;
+  margin-bottom: 16px!important;
+  color: white;
+  text-decoration: none;
+  position: relative;
+  top: 6px;
+  left: 10%;
+}
+
+
+.shopping-cart-icon {
+  
+  color: #ef5a16!important;
+  font-size: 1.2em;
+  margin-right: 10px;
+}
+
+  .envelope-icon {
+    position: relative;
+    top: 10px;
+    color:#ef5a16; 
+    left:8%;
+  }
+
+  .logo-image {
+    height: 80px;          
+    width: 160px;          
+   border-radius: 200px;
+  }
+
+
+.nvbr{
+    background-color: var(--nvbr--bg);
+    color:var(--nvbr--link);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position:fixed;
+    width:100%;
+
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.nvbr .nvbr-links{
+    list-style: none;
+    display:flex;
+    margin-top: 10px;
+    padding:10px;
+    font-size: 22px;
+    font-weight: 700 !important;
+    cursor: pointer;
+    
+}
+.nvbr_logo {
+text-decoration: none;
+margin-right: 30px;
+}
+
+.nvbr_logo h1 {
+    font-size: 1.8rem;
+   
+    color: white;
+    margin:15px;
+    z-index:1000;
+    cursor: pointer;
+}
+
+.nvbr_logo h1:hover {
+color: #ef5a16;
+}
+
+.nvbr-item{
+    margin-right:20px;
+}
+
+.nvbr__item img {
+    height: 3vw;
+    margin-right: 4px;
+    border-radius: 20px;
+   }
+.nvbr-link{
+    text-decoration: none;
+    color: var(--nvbr--link);
+}
+.nvbr-link:hover{
+    color: var(--nvbr--link-hover);
+}
+
+.nvbr-burger{
+    width:40px;
+    margin-top: 20px;
+    margin-right: 10px;
+    height:40px;
+    color: inherit;
+    display:none;
+}
+
+@media screen and (max-width: 384px) {
+  .heading-container {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .phone-number, .email, .help, .yahoo a {
+    font-size: 0.7em;
+    margin-right: 0.5rem;
+  }
+
+  .usa-image {
+   width: 20px;
+    height: 16px;
+    top: 4px777 
+  }
+
+  .phone-number {
+    height: 20px;
+    top: 4px;
+  }
+
+  .help {
+    top: 4px!important;
+    padding-top: 2px;
+  }
+
+  .help > svg {
+    margin-right: 5px;
+    margin-top: 1px;
+  }
+
+  .yahoo a {
+    top: 4px;
+    left: 5%;
+  }
+
+  .envelope-icon {
+    top: 6px;
+    left: 5%;
+  }
+}
+
+
+
+ @media screen and (max-width:768px){
+.show-links .nvbr-links{
+   width:100vw;
+   left:0;
+   visibility: visible;
+   transform:translateX(0);
+   transition: 0.5s all ease-in-out;
+   
+}
+.nvbr-links{
+    position:fixed;
+    visibility: hidden;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    font-size:2rem;
+   transform: translateX(-100vw);
+   width:0;
+    bottom:0;
+    height:100vh;
+    background-color: var(--nvbr--bg);
+    z-index:2;
+    transition: 0.5s all ease-in-out;
+}
+.nvbr-link{
+    display:block;
+    padding:1.4rem;
+    font-size:5vw;
+}
+
+.nvbr-burger{
+    display:block;
+    z-index: 100;
+    cursor:pointer;
+}
+
+.burger-bar, .burger-bar::after, .burger-bar::before{
+    display: block;
+    width:40px;
+    height:3px;
+    border-radius:3px;
+    background-color:var(--nvbr--link);
+    position:relative;
+    z-index:1000;
+    transition: 0.3s all ease-in-out;
+}
+
+.burger-bar::after{
+    content:'';
+    position:absolute;
+    left:0;
+    transform:translateY(-15px);
+  
+   
+}
+.burger-bar::before{
+    content:'';
+    position:absolute;
+    left:0;
+    transform: translateY(13px);
+}
+.show-links .burger-bar::before{
+    transform: rotate(-45deg);
+}
+.show-links .burger-bar::after{
+    transform: rotate(45deg);
+}
+.show-links .burger-bar{
+    width:0;
+}
+
+.yahoo a {
+    display: none;
+  }
+
+  .usa-image {
+  margin-left: px;
+  }
+
+  .help{
+    font-size: 0.8em;
+  }
+
+  .phone-number {
+  margin-left: 4px;
+  }
+
+
+  .help {
+    position: relative;
+    top: 8px;
+margin-bottom: 10px;
+  }
+
+  .nav__brand {
+    display: flex;
+    align-items: left; 
+  }
+  .nav h1 {
+    font-size: 2rem;
+    margin-right: 2rem;
+  }
+.yahoo,.FaEnvelope {
+display: none;
+}
+
+.nvbr_logo h1 {
+font-size: 1.2rem;
+padding-left: 4px;
+}
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .help {
+        position: relative;
+        top: 8px;
+    margin-bottom: 10px;
+      }
+    }
+
+      @media (min-width: 993px) and (max-width: 1200px) {
+        .help {
+            position: relative;
+            top: 8px;
+        margin-bottom: 10px;
+          } 
+      }
+ */

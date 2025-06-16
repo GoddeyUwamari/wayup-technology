@@ -1,0 +1,69 @@
+.company-logo3 {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  background-color: rgb(8, 17, 24);
+  /* padding: 20px 0; */
+}
+
+.scrolling-container3 {
+  display: flex;
+  white-space: nowrap;
+  animation: scrollText 10s linear infinite;
+}
+
+.scrolling-text3 {
+
+  display: inline-block;
+  color: white;
+  font-size: 3rem;
+  padding-right: 0px;
+  padding-top: 30px; 
+  padding-bottom: 30px;
+}
+
+.highlight3 {
+  font-size: 3rem !important;
+  color: #ffcc00 !important; 
+  font-weight: bold; 
+  margin-left: 14px !important ;
+  text-transform: uppercase; 
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .scrolling-text3 {
+    font-size: 1.5rem;
+    padding-right: 10px; 
+    animation: scrollText 20s linear infinite;
+  }
+
+  .highlight3 {
+    font-size: 1.5rem !important;
+    margin-left: 7px !important; 
+  }
+}
+
+@media (min-width: 768px) {
+  .scrolling-text {
+    font-size: 2.5rem;
+    padding-right: 15px; 
+    animation: scrollText 20s linear infinite;
+  }
+
+  .highlight {
+    font-size: 2.5rem !important;
+    margin-left: 10px !important; 
+  }
+}

@@ -1,0 +1,533 @@
+/* UI/UX Design Page Styles - Performance Optimized */
+
+/* Hero Section */
+.uiux-hero-section {
+  background: #101f61;
+  padding: 120px 20px;
+  text-align: center;
+  color: white;
+}
+
+.uiux-hero-section .uiux-container {
+  position: relative;
+}
+
+.uiux-hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: yellow;
+  line-height: 1.2;
+}
+
+.uiux-hero-description {
+  font-size: 1.25rem;
+  margin-bottom: 0;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.6;
+}
+
+/* Container */
+.uiux-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Development Sections */
+.uiux-development-section {
+  padding: 100px 20px;
+  background: rgb(4, 10, 15);
+}
+
+.uiux-development-section.uiux-alternate {
+  background-color: rgb(8, 17, 24);
+}
+
+.uiux-section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.uiux-section-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: rgb(192, 39, 200);
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.2;
+}
+
+.uiux-alternate .uiux-section-header h2 {
+  color: white;
+}
+
+.uiux-section-header p {
+  font-size: 1.2rem;
+  color: white;
+  text-align: center;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.uiux-alternate .uiux-section-header p {
+  color: white;
+}
+
+/* Content Layout */
+.uiux-content-row {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.uiux-image-column {
+  flex: 1;
+}
+
+.uiux-text-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.uiux-section-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+/* Feature Items */
+.uiux-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 25px;
+  background: whitesmoke;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  margin-bottom: 20px;
+}
+
+.uiux-feature-icon {
+  background-color: #ef5a16;
+  color: white;
+  padding: 16px;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 56px;
+  min-height: 56px;
+  flex-shrink: 0;
+}
+
+.uiux-feature-icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.uiux-feature-content {
+  flex: 1;
+}
+
+.uiux-feature-content h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: blue;
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.uiux-feature-content p {
+  font-size: 1rem;
+  color: black;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Alternate Section */
+.uiux-alternate {
+  position: relative;
+}
+
+.uiux-alternate .uiux-content-row {
+  display: block;
+  position: relative;
+}
+
+.uiux-alternate .uiux-text-column {
+  width: 46%;
+  margin-right: 30px;
+  position: relative;
+  z-index: 2;
+}
+
+.uiux-alternate .uiux-image-column {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50%;
+  z-index: 1;
+}
+
+.uiux-alternate .uiux-section-image {
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  border-radius: 20px;
+}
+
+.uiux-alternate .uiux-feature-item {
+  background: white;
+  border: 1px solid #cbd5e0;
+}
+
+.uiux-alternate .uiux-feature-icon {
+  background-color: #ef5a16;
+}
+
+/* RESPONSIVE DESIGN */
+
+/* Large Desktop (1025px+) */
+@media (min-width: 1025px) {
+  .uiux-hero-title {
+    font-size: 3.5rem;
+  }
+  
+  .uiux-hero-description {
+    font-size: 1.25rem;
+  }
+  
+  .uiux-section-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  .uiux-content-row {
+    gap: 60px;
+  }
+  
+  .uiux-section-image {
+    height: 600px;
+  }
+}
+
+/* Tablet (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .uiux-hero-title {
+    font-size: 3rem;
+  }
+  
+  .uiux-hero-description {
+    font-size: 1.1rem;
+  }
+  
+  .uiux-section-header h2 {
+    font-size: 2rem;
+  }
+  
+  .uiux-section-header p {
+    font-size: 1.1rem;
+  }
+  
+  .uiux-content-row {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .uiux-image-column {
+    width: 100%;
+    order: 1;
+  }
+  
+  .uiux-text-column {
+    width: 100%;
+    order: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  
+  .uiux-section-image {
+    height: 450px;
+  }
+  
+  .uiux-feature-item {
+    margin-bottom: 0;
+  }
+  
+  .uiux-alternate .uiux-content-row {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+  }
+  
+  .uiux-alternate .uiux-text-column {
+    width: 100%;
+    position: relative;
+    margin-right: 0;
+    z-index: 2;
+    order: 2;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  
+  .uiux-alternate .uiux-image-column {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    z-index: 1;
+    order: 1;
+  }
+  
+  .uiux-alternate .uiux-section-image {
+    height: 450px;
+  }
+}
+
+/* Small Tablet (577px - 768px) */
+@media (min-width: 577px) and (max-width: 768px) {
+  .uiux-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .uiux-hero-description {
+    font-size: 1rem;
+  }
+  
+  .uiux-section-header h2 {
+    font-size: 1.9rem;
+  }
+  
+  .uiux-section-header p {
+    font-size: 1rem;
+  }
+  
+  .uiux-content-row {
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .uiux-text-column {
+    gap: 20px;
+  }
+  
+  .uiux-section-image {
+    height: 350px;
+  }
+  
+  .uiux-alternate .uiux-content-row {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+  
+  .uiux-alternate .uiux-text-column {
+    width: 100%;
+    position: relative;
+    margin-right: 0;
+    order: 2;
+  }
+  
+  .uiux-alternate .uiux-image-column {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    order: 1;
+  }
+  
+  .uiux-alternate .uiux-section-image {
+    height: 350px;
+  }
+}
+
+/* Mobile (≤576px) */
+@media (max-width: 576px) {
+  .uiux-hero-section {
+    padding: 60px 15px;
+  }
+  
+  .uiux-hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .uiux-hero-description {
+    font-size: 1rem;
+  }
+  
+  .uiux-development-section {
+    padding: 40px 15px;
+  }
+  
+  .uiux-container {
+    padding: 0 10px;
+  }
+  
+  .uiux-section-header {
+    margin-bottom: 30px;
+  }
+  
+  .uiux-section-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .uiux-section-header p {
+    font-size: 0.95rem;
+  }
+  
+  .uiux-content-row {
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .uiux-alternate .uiux-content-row {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+  }
+  
+  .uiux-alternate .uiux-text-column {
+    width: 100%;
+    position: relative;
+    margin-right: 0;
+    order: 2;
+  }
+  
+  .uiux-alternate .uiux-image-column {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    order: 1;
+  }
+  
+  .uiux-text-column {
+    gap: 18px;
+  }
+  
+  .uiux-section-image {
+    height: 280px;
+    width: 510px;
+  }
+  
+  .uiux-alternate .uiux-section-image {
+    height: 280px;
+  }
+  
+  .uiux-feature-item {
+    padding: 18px;
+    gap: 14px;
+    margin-bottom: 15px;
+  }
+  
+  .uiux-feature-icon {
+    min-width: 46px;
+    min-height: 46px;
+    padding: 11px;
+  }
+  
+  .uiux-feature-icon svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  .uiux-feature-content h3 {
+    font-size: 1.15rem;
+    margin-bottom: 6px;
+  }
+  
+  .uiux-feature-content p {
+    font-size: 0.92rem;
+  }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+  .uiux-hero-section {
+    padding: 50px 10px;
+  }
+  
+  .uiux-hero-title {
+    font-size: 1.9rem;
+  }
+  
+  .uiux-development-section {
+    padding: 30px 10px;
+  }
+  
+  .uiux-container {
+    padding: 0 8px;
+  }
+  
+  .uiux-section-header {
+    margin-bottom: 25px;
+  }
+  
+  .uiux-section-header h2 {
+    font-size: 1.6rem;
+  }
+  
+  .uiux-section-header p {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+  
+  .uiux-text-column {
+    gap: 15px;
+  }
+  
+  .uiux-section-image {
+    height: 240px;
+    width: 360px;
+    border-radius: 12px;
+  }
+  
+  .uiux-alternate .uiux-section-image {
+    height: 240px;
+    border-radius: 12px;
+  }
+  
+  .uiux-feature-item {
+    padding: 16px;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+  
+  .uiux-feature-icon {
+    min-width: 42px;
+    min-height: 42px;
+    padding: 9px;
+  }
+  
+  .uiux-feature-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .uiux-feature-content h3 {
+    font-size: 1.05rem;
+    margin-bottom: 4px;
+  }
+  
+  .uiux-feature-content p {
+    font-size: 0.88rem;
+    line-height: 1.4;
+  }
+}
