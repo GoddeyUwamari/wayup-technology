@@ -1,16 +1,15 @@
 // contactApiServices.js - CONTACT FORMS ONLY (NO CHAT WIDGET)
 import axios from 'axios';
 
-
-const API_URL = process.env.NODE_ENV === 'production' 
-  ? 'http://162.0.233.208:8000/api'  // Remove || fallback
-  : 'http://localhost:8000/api';
+// AFTER (✅ HTTPS)
+const API_URL = window.location.hostname === 'localhost'
+  ? 'https://localhost:8000/api'
+  : 'https://wayuptechn.com/api';  // ✅ Use domain instead of IP
 
 console.log('=== CONTACT FORM API Configuration ===');
 console.log('API_URL:', API_URL);
 console.log('NODE_ENV:', process.env.NODE_ENV);
 console.log('Current window location:', window.location.origin);
-
 const api = axios.create({
   baseURL: API_URL,
   timeout: 15000,

@@ -10,9 +10,11 @@ import {
 } from '../chatApiServices';
 import './ChatWidget.css';
 
-const SOCKET_URL = process.env.NODE_ENV === 'production' 
-  ? 'http://162.0.233.208:8000'      // Remove || fallback
-  : 'http://localhost:8000';
+
+const SOCKET_URL = window.location.hostname === 'localhost'
+  ? 'https://localhost:8000'
+  : 'https://wayuptechn.com';      // ✅ Use domain without port
+
 
 const socket = io(SOCKET_URL, {
   transports: ['websocket', 'polling'],

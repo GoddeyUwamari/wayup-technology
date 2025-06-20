@@ -3,19 +3,20 @@ import axios from 'axios';
 import io from 'socket.io-client';
 
 
-const API_URL = process.env.NODE_ENV === 'production' 
-  ? 'http://162.0.233.208:8000/api'  // Remove || fallback  
-  : 'http://localhost:8000/api';
+const API_URL = window.location.hostname === 'localhost'
+  ? 'https://localhost:8000/api'
+  : 'https://wayuptechn.com/api';  // ✅ Use domain instead of IP
 
-const SOCKET_URL = process.env.NODE_ENV === 'production' 
-  ? 'http://162.0.233.208:8000'      // Remove || fallback
-  : 'http://localhost:8000';
+const SOCKET_URL = window.location.hostname === 'localhost'
+  ? 'https://localhost:8000'
+  : 'https://wayuptechn.com';      // ✅ Use domain instead of IP
 
-  
+
 console.log('=== CHAT WIDGET API Configuration ===');
 console.log('API_URL:', API_URL);
 console.log('SOCKET_URL:', SOCKET_URL);
 console.log('NODE_ENV:', process.env.NODE_ENV);
+
 
 const api = axios.create({
   baseURL: API_URL,
