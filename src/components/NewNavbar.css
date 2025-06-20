@@ -743,7 +743,7 @@
   }
   
   body {
-    padding-top: 110px !important; /* 40px top header + 70px navbar */
+    padding-top: 110px !important; 
   }
   
   .logo-text {
@@ -981,14 +981,42 @@
     padding: 3px 6px;
   }
   
-  .phone-number,
+  .phone-number {
+ margin-left: -6px;
+  }
   .help {
     font-size: 0.78em;
+     margin-left: auto;
+    margin-right: -2px;
+    margin-top:-14px ;
+    white-space: nowrap;
+    align-self: center;
   }
   
   .usa-image {
     width: 28px;
     height: 22px;
+     margin-left:-2px ;
+  }
+
+  .shopping-cart-icon {
+    margin-top: 2px;
+  }
+
+  .wayup-logo-icon {
+margin-top: -10px;
+  }
+
+  .logo-text-content {
+margin-top: 14px;
+  }
+
+  .logo-text {
+
+  }
+
+  .nvbr-burger {
+   margin-right: -6px; 
   }
 }
 
@@ -1005,16 +1033,21 @@
     font-size: 0.75em;
     margin-right: 2px;
     margin-bottom: 10px;
-    margin-left: 2px;
+    margin-left: -6px;
+    /* color: red; */
   }
   
   .help {
     font-size: 0.75em;
     margin-left: auto;
-    margin-right: 4px;
-    margin-top:-10px ;
+    /* margin-right: px; */
+    margin-top:-14px ;
     white-space: nowrap;
     align-self: center;
+  }
+
+  .shopping-cart-icon {
+    margin-top: 2px;
   }
   
   .usa-image {
@@ -1023,6 +1056,22 @@
      margin-left:-2px ;
     margin-top: -6px;
     margin-right: 0;
+  }
+
+  .wayup-logo-icon {
+margin-top: -10px;
+  }
+
+  .logo-text-content {
+margin-top: 14px;
+  }
+
+  .logo-text {
+
+  }
+
+  .nvbr-burger {
+   margin-right: -6px; 
   }
 }
 
@@ -1037,9 +1086,9 @@
     flex-wrap: nowrap;
   }
 
-  .phone-number, .yahoo a, .help {
-    font-size: 0.7em;
-  }
+   .yahoo a {
+
+   }
   
   .phone-number {
     white-space: nowrap;
@@ -1062,11 +1111,14 @@
     margin-left: -20px;
     font-size: 10px;
     flex-shrink: 0;
+     /* color: red; */
   }
 
   .shopping-cart-icon {
     margin-right: -4px;
+    margin-top: 2px;
   }
+  
 
   /* Hide yahoo email on very small screens */
   .yahoo {
@@ -1084,6 +1136,22 @@
   .logo-text {
     height: 40px;
     /* padding-bottom: 20px; */
+  }
+
+   .wayup-logo-icon {
+margin-top: -10px;
+  }
+
+  .logo-text-content {
+margin-top: 14px;
+  }
+
+  .logo-text {
+
+  }
+
+  .nvbr-burger {
+   margin-right: -6px; 
   }
 }
 
@@ -1201,7 +1269,7 @@ section:first-child {
 }
 
 /* Fix any hero section that might be getting covered */
-.hero-section,
+/* .hero-section, */
 .banner-section,
 .intro-section {
   margin-top: 0 !important;

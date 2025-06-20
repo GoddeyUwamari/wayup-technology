@@ -271,12 +271,19 @@
   }
   
   .hero-cta-primary {
+    /* width: 40%; */
     font-size: 0.85rem;
     min-height: 44px;
   }
   
   .hero-cta-secondary {
     display: none;
+  }
+}
+
+@media (max-width: 292px) {
+  .hero-cta-primary {
+   width: 70% !important; 
   }
 }
 

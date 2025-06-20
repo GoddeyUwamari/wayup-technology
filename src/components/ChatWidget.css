@@ -538,7 +538,7 @@
   }
 }
 
-@media (max-width: 480px) {
+/* @media (max-width: 480px) {
   .chat-widget {
     bottom: 10px;
     left: 10px;
@@ -557,16 +557,24 @@
   }
   
   .chat-toggle {
-    width: 40%;
+    width: 38%;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 20px;
   }
   
   .chat-toggle.open {
     width: auto;
     border-radius: 8px;
   }
+
+  .message.system .message-content {
+  height: 100px;
+  background: #e3f2fd;
+  padding-bottom: 50px;
+  border: 1px solid #bbdefb;
+  color: #1565c0;
 }
+} */
 
 /* Animation for form steps */
 .client-form {
