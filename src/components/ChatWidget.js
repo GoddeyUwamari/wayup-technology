@@ -11,20 +11,65 @@ import {
 import './ChatWidget.css';
 
 
-const SOCKET_URL = window.location.hostname === 'localhost'
-  ? 'https://localhost:8000'
-  : 'https://wayuptechn.com';      // ✅ Use domain without port
+// Environment-based Socket.IO configuration
+const getSocketConfig = () => {
+  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+  
+  if (isLocalhost) {
+    // LOCAL DEVELOPMENT - Use HTTP (not HTTPS)
+    return {
+      url: 'http://localhost:8000',  // Note: HTTP not HTTPS
+      options: {
+        transports: ['websocket', 'polling'],
+        path: '/socket.io',
+        pingTimeout: 60000,
+        pingInterval: 25000,
+        reconnection: true,
+        reconnectionDelay: 1000,
+        reconnectionAttempts: 5,
+        timeout: 20000,
+        forceNew: true
+      }
+    };
+  } else {
+    // PRODUCTION
+    return {
+      url: 'https://www.wayuptechn.com',  // ADD "url: " here
+      options: {
+        transports: ['websocket', 'polling'],
+        path: '/socket.io',
+        pingTimeout: 60000,
+        pingInterval: 25000,
+        reconnection: true,
+        reconnectionDelay: 1000,
+        reconnectionAttempts: 5,
+        timeout: 20000,
+        forceNew: true
+      }
+    };
+  }
+};
+
+// Initialize Socket.IO connection
+const { url, options } = getSocketConfig();
+console.log('💬 Connecting to Socket.IO:', url);
+const socket = io(url, options);
 
 
-const socket = io(SOCKET_URL, {
-  transports: ['websocket', 'polling'],
-  path: '/socket.io',
-  pingTimeout: 60000,
-  pingInterval: 25000,
-  reconnection: true,
-  reconnectionDelay: 1000,
-  reconnectionAttempts: 5
-});
+// const SOCKET_URL = window.location.hostname === 'localhost'
+//   ? 'https://localhost:8000'
+//   : 'https://wayuptechn.com';    
+
+
+// const socket = io(SOCKET_URL, {
+//   transports: ['websocket', 'polling'],
+//   path: '/socket.io',
+//   pingTimeout: 60000,
+//   pingInterval: 25000,
+//   reconnection: true,
+//   reconnectionDelay: 1000,
+//   reconnectionAttempts: 5
+// });
 
 const ChatWidget = () => {
   // Generate unique session ID for this chat instance

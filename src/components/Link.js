@@ -53,7 +53,7 @@ const gridItems = [
     description: "We are dedicated to empowering educational institutions with secure, scalable, and user-friendly software systems that streamline administrative tasks and foster academic excellence.",
     alt: "Educational Software Solutions",
     metaDescription: "Comprehensive educational software solutions for modern learning institutions. Transform education with WayUP Technology.",
-    schemaType: "SoftwareApplication",
+    schemaType: "Service", // ← CHANGED FROM "SoftwareApplication"
     category: "Educational Technology"
   },
   {
@@ -63,7 +63,7 @@ const gridItems = [
     description: "We are committed to improving hospitality operations through innovative software solutions that enhance guest experiences, streamline operations, and maximize efficiency.",
     alt: "Hospitality and Travel Software Solutions",
     metaDescription: "Advanced hospitality and travel software solutions for enhanced guest experiences. Transform your hospitality business with WayUP Technology.",
-    schemaType: "SoftwareApplication",
+    schemaType: "Service", // ← CHANGED FROM "SoftwareApplication"
     category: "Hospitality Technology"
   }
 ];

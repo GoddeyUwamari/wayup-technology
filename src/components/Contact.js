@@ -1,10 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Mail, Printer, Phone, MapPin } from 'lucide-react';
-import { submitContactForm, testConnection, contactHelpers } from '../ContactApiServices'; 
+import { submitContactForm, testConnection, contactHelpers } from '../ContactApiServices';
+import { useLocation } from 'react-router-dom'; 
 import Checkout from './Checkout';
 import './Contact.css';
 
 const Contact = () => {
+   const location = useLocation();
+  
+  useEffect(() => {
+    if (location.state?.scrollToTop) {
+      window.scrollTo({
+        top: 0,
+      behavior: 'instant',
+      });
+    }
+  }, [location]);
+
+
   // Generate unique session ID for this contact form instance
   const [sessionId] = useState(() => contactHelpers.generateSessionId());
   
@@ -546,8 +559,10 @@ const Contact = () => {
                   <div className="location-content">
                     <div>
                       <p className="bold-text">New Jersey Office</p>
-                      <p><MapPin size={16} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />20 Stahuber Street</p>
-                      <p>Union, New Jersey 07083</p>
+<p>
+  <MapPin size={16} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />
+  30 Montgomery Street, Jersey City, New Jersey 07302
+</p>
                     </div>
                    <div className="york-image">
   <img src='images/York.png' alt="" />

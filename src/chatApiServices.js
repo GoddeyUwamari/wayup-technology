@@ -3,13 +3,32 @@ import axios from 'axios';
 import io from 'socket.io-client';
 
 
-const API_URL = window.location.hostname === 'localhost'
-  ? 'https://localhost:8000/api'
-  : 'https://wayuptechn.com/api';  // ✅ Use domain instead of IP
 
-const SOCKET_URL = window.location.hostname === 'localhost'
-  ? 'https://localhost:8000'
-  : 'https://wayuptechn.com';      // ✅ Use domain instead of IP
+const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
+
+// API URL configuration  
+const API_URL = isLocalhost
+  ? 'http://localhost:8000/api'         // LOCAL: Use HTTP
+  : 'https://www.wayuptechn.com/api';   // PRODUCTION: Use domain with HTTPS
+
+const SOCKET_URL = isLocalhost
+  ? 'http://localhost:8000'             // LOCAL: Use HTTP  
+  : 'https://www.wayuptechn.com';       // PRODUCTION: Use domain with HTTPS
+
+console.log('=== CHAT WIDGET API Configuration ===');
+console.log('Environment:', isLocalhost ? 'LOCAL DEVELOPMENT' : 'PRODUCTION');
+console.log('API_URL:', API_URL);
+console.log('SOCKET_URL:', SOCKET_URL);
+console.log('NODE_ENV:', process.env.NODE_ENV);
+
+
+// const API_URL = window.location.hostname === 'localhost'
+//   ? 'https://localhost:8000/api'
+//   : 'https://wayuptechn.com/api';
+
+// const SOCKET_URL = window.location.hostname === 'localhost'
+//   ? 'https://localhost:8000'
+//   : 'https://wayuptechn.com';  
 
 
 console.log('=== CHAT WIDGET API Configuration ===');

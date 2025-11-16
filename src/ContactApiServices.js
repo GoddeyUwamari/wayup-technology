@@ -1,21 +1,27 @@
 // contactApiServices.js - CONTACT FORMS ONLY (NO CHAT WIDGET)
 import axios from 'axios';
 
-// AFTER (✅ HTTPS)
-const API_URL = window.location.hostname === 'localhost'
-  ? 'https://localhost:8000/api'
-  : 'https://wayuptechn.com/api';  // ✅ Use domain instead of IP
+// Environment detection
+const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
+const API_URL = isLocalhost 
+  ? 'http://localhost:8000/api'        // LOCAL
+  : 'https://www.wayuptechn.com/api';  // PRODUCTION: Use domain with HTTPS
+
+  
 console.log('=== CONTACT FORM API Configuration ===');
+console.log('Environment:', isLocalhost ? 'LOCAL DEVELOPMENT' : 'PRODUCTION');
 console.log('API_URL:', API_URL);
 console.log('NODE_ENV:', process.env.NODE_ENV);
 console.log('Current window location:', window.location.origin);
+
 const api = axios.create({
   baseURL: API_URL,
   timeout: 15000,
   headers: {
     'Content-Type': 'application/json'
-  }
+  },
+  withCredentials: false  // Set to true if you need cookies
 });
 
 // Token management utilities
@@ -42,9 +48,13 @@ api.interceptors.request.use(
       config.headers['x-auth-token'] = token;
     }
     
-    // Contact form only logging
-    console.log('📝 CONTACT FORM API Request:', config.baseURL + config.url);
-    console.log('📝 Request data:', config.data);
+    // Enhanced logging for local development
+    if (isLocalhost) {
+      console.log('📝 LOCAL DEV - API Request:', config.baseURL + config.url);
+      console.log('📝 LOCAL DEV - Request data:', config.data);
+    } else {
+      console.log('📝 PROD - API Request:', config.baseURL + config.url);
+    }
     return config;
   },
   (error) => {
@@ -56,12 +66,16 @@ api.interceptors.request.use(
 // Add response interceptor for debugging
 api.interceptors.response.use(
   (response) => {
-    console.log('📝 CONTACT FORM Response:', response.status, response.data);
+    if (isLocalhost) {
+      console.log('✅ LOCAL DEV - Response:', response.status, response.data);
+    } else {
+      console.log('✅ PROD - Response:', response.status);
+    }
     return response;
   },
   (error) => {
-    console.error('📝 Contact Form API Response error:', error);
-    console.error('📝 Error details:', {
+    console.error('❌ API Response error:', error);
+    console.error('❌ Error details:', {
       message: error.message,
       code: error.code,
       response: error.response?.data,
@@ -106,7 +120,9 @@ const handleApiError = (error, context = '') => {
 // Submit contact form (website forms)
 export const submitContactForm = async (formData) => {
   try {
-    console.log('📝 Submitting contact form:', formData);
+    if (isLocalhost) {
+      console.log('📝 LOCAL DEV - Submitting contact form:', formData);
+    }
     
     // Ensure proper contact form structure
     const contactFormData = {
@@ -119,7 +135,9 @@ export const submitContactForm = async (formData) => {
         : `contact_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
     };
     
-    console.log('📝 Final contact form data:', contactFormData);
+    if (isLocalhost) {
+      console.log('📝 LOCAL DEV - Final contact form data:', contactFormData);
+    }
     
     const response = await api.post('/contact/submit', contactFormData);
     return {
@@ -129,7 +147,12 @@ export const submitContactForm = async (formData) => {
     };
   } catch (error) {
     console.error('📝 Contact form submission error:', error);
-    return handleApiError(error, 'Contact Form');
+    return {
+      success: false,
+      message: error.response?.data?.message || error.response?.data?.error || 'An error occurred',
+      status: error.response?.status,
+      data: error.response?.data
+    };
   }
 };
 
@@ -286,16 +309,20 @@ export const logoutUser = () => {
 // SYSTEM UTILITIES
 // ======================
 
-// Test function
+// Enhanced test connection for debugging
 export const testConnection = async () => {
   try {
     console.log('🔧 Testing connection to:', API_URL + '/health');
     const response = await api.get('/health');
-    console.log('📝 Connection test successful:', response.data);
+    console.log('✅ Connection test successful:', response.data);
     return { success: true, data: response.data };
   } catch (error) {
-    console.error('📝 Connection test failed:', error);
-    return { success: false, error: error.message };
+    console.error('❌ Connection test failed:', error);
+    return { 
+      success: false, 
+      error: error.message,
+      details: error.response?.data 
+    };
   }
 };
 
@@ -381,7 +408,7 @@ export const contactHelpers = {
 export { tokenManager };
 
 // Default export with contact form functions only
-export default {
+const contactAPI = {
   // Contact Form System Only
   contact: {
     submit: submitContactForm,
@@ -411,3 +438,5 @@ export default {
   contactHelpers,
   tokenManager
 };
+
+export default contactAPI;

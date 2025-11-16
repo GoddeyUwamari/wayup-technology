@@ -1,4 +1,4 @@
-/* WAYUP TECHNOLOGY - Professional Navbar CSS */
+/* WAYUP TECHNOLOGY - Enhanced Professional Navbar CSS */
 
 /* Enhanced Top Header Styles */
 .top-header {
@@ -57,7 +57,7 @@
 }
 
 .phone-number:hover {
-  color: yellow;
+  color: #ffd700;
 }
 
 .yahoo {
@@ -77,7 +77,7 @@
 }
 
 .yahoo a:hover {
-  color: yellow;
+  color: #ffd700;
 }
 
 .envelope-icon {
@@ -105,7 +105,7 @@
 }
 
 .help:hover {
-  color: yellow;
+  color: #ffd700;
 }
 
 .shopping-cart-icon {
@@ -248,24 +248,27 @@
   color: #ffd700;
 }
 
-/* Desktop Dropdown Menu */
+/* Enhanced Desktop Dropdown Menu */
 .dropdown-menu {
   position: absolute;
-  top: calc(100% + 8px);
+  top: calc(100% + 12px);
   left: 0;
-  background: rgba(0, 0, 72, 0.98);
-  backdrop-filter: blur(15px);
-  min-width: 280px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  padding: 12px 0;
+  background: linear-gradient(135deg, rgba(0, 0, 72, 0.95), rgba(0, 20, 100, 0.95));
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  min-width: 300px;
+  box-shadow: 
+    0 10px 40px rgba(0, 0, 0, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 16px 0;
   list-style: none;
   margin: 0;
   z-index: 1000;
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-8px);
-  transition: all 0.3s ease;
+  transform: translateY(-12px) scale(0.95);
+  transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   border: 1px solid rgba(255, 255, 255, 0.08);
   display: block;
 }
@@ -274,18 +277,19 @@
 .nvbr-item:hover .dropdown-menu {
   opacity: 1;
   visibility: visible;
-  transform: translateY(0);
+  transform: translateY(0) scale(1);
 }
 
 .dropdown-menu li {
-  padding: 12px 20px;
+  padding: 14px 24px;
   cursor: pointer;
-  color: white;
+  color: rgba(255, 255, 255, 0.9);
   font-size: 18px;
   font-weight: 500;
-  transition: all 0.25s ease;
+  transition: all 0.3s ease;
   border-left: 3px solid transparent;
   position: relative;
+  margin: 2px 0;
 }
 
 .dropdown-menu li::before {
@@ -295,23 +299,27 @@
   top: 0;
   bottom: 0;
   width: 0;
+  /* background-color: #ef5a16; */
   background: linear-gradient(45deg, #ff6b35, #ffd700);
-  transition: width 0.25s ease;
+  transition: width 0.3s ease;
+  border-radius: 0 3px 3px 0;
 }
 
 .dropdown-menu li:hover {
-  background-color: #ef5a16;
+  /* background: linear-gradient(90deg, rgba(239, 90, 22, 0.15), rgba(239, 90, 22, 0.05)); */
+    background-color: #ef5a16;
   color: white;
-  transform: translateX(5px);
+  /* transform: translateX(4px); */
+  border-radius: 0 8px 8px 0;
 }
 
 .dropdown-menu li:hover::before {
-  width: 3px;
+  width: 4px;
 }
 
 /* Enhanced Contact Link Styling */
 .contact-link .nvbr-link {
-  background: #ef5a16;
+  background: linear-gradient(45deg, #ef5a16, #ff7043);
   color: white !important;
   padding: 12px 18px;
   border-radius: 30px;
@@ -329,13 +337,13 @@
 }
 
 .contact-link .nvbr-link:hover {
-  background: rgb(2, 40, 2);
+  background: linear-gradient(45deg, #d84315, #ef5a16);
   transform: translateY(-3px);
-  box-shadow: 0 8px 25px rgba(6, 40, 76, 0.4);
-  border-color: rgba(50, 5, 5, 0.2);
+  box-shadow: 0 8px 25px rgba(239, 90, 22, 0.4);
+  border-color: rgba(255, 255, 255, 0.2);
 }
 
-/* PROFESSIONAL HAMBURGER MENU - THREE LINES */
+/* ENHANCED HAMBURGER MENU */
 .nvbr-burger {
   display: none;
   flex-direction: column;
@@ -348,6 +356,7 @@
   border: none;
   position: relative;
   z-index: 1002;
+  margin-right: 0;
 }
 
 .burger-bar {
@@ -473,11 +482,12 @@
   }
   
   .dropdown-menu {
-    min-width: 240px;
+    min-width: 260px;
   }
   
   .dropdown-menu li {
-    font-size: 16px;
+    font-size: 15px;
+    padding: 12px 20px;
   }
   
   .logo-text {
@@ -520,11 +530,11 @@
   }
   
   .dropdown-menu {
-    min-width: 220px;
+    min-width: 240px;
   }
   
   .dropdown-menu li {
-    font-size: 15px;
+    font-size: 14px;
     padding: 10px 18px;
   }
   
@@ -569,11 +579,11 @@
   }
   
   .dropdown-menu {
-    min-width: 200px;
+    min-width: 220px;
   }
   
   .dropdown-menu li {
-    font-size: 14px;
+    font-size: 13px;
     padding: 8px 16px;
   }
   
@@ -601,8 +611,6 @@
     margin-right: 0px;
   }
 }
-
-/* CRITICAL FIX: Split into two ranges for better control */
 
 /* Moderate compression for 920px-950px */
 @media screen and (max-width: 950px) and (min-width: 921px) {
@@ -644,7 +652,7 @@
   }
 }
 
-/* SUPER CRITICAL: Maximum compression for the problematic 851px-920px range */
+/* Maximum compression for the problematic 851px-920px range */
 @media screen and (max-width: 920px) and (min-width: 851px) {
   .nvbr {
     padding: 0 6px;
@@ -661,19 +669,18 @@
   }
   
   .dropdown-menu {
-    min-width: 140px;
+    min-width: 160px;
   }
   
   .dropdown-menu li {
     font-size: 11px;
-    padding: 4px 8px;
+    padding: 6px 12px;
   }
   
   .logo-text {
     font-size: 13px;
   }
   
-  /* Make logo smaller but keep it visible */
   .wayup-logo-icon {
     height: 32px;
     width: 32px;
@@ -681,7 +688,6 @@
     margin-bottom: -4px;
   }
   
-  /* Keep logo text visible but much smaller */
   .logo-text-content {
     display: block;
     font-size: 11px;
@@ -689,7 +695,6 @@
     letter-spacing: 0.5px;
   }
   
-  /* Shrink contact button dramatically */
   .contact-link .nvbr-link {
     font-size: 8px;
     padding: 2px 4px;
@@ -697,7 +702,7 @@
   }
 }
 
-/* Mobile responsive header spacing */
+/* ENHANCED MOBILE STYLES */
 @media screen and (max-width: 850px) {
   .top-header {
     height: auto;
@@ -733,7 +738,7 @@
   
   .help {
     top: 8px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
   }
   
   .nvbr {
@@ -749,13 +754,14 @@
   .logo-text {
     font-size: 16px;
     gap: 6px;
+    margin-bottom: 0;
   }
   
   .wayup-logo-icon {
     height: 35px;
     width: 35px;
-    margin-top: 10px;
-    margin-bottom: -5px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
   
   .logo-text-content {
@@ -765,20 +771,27 @@
     letter-spacing: 0.8px;
   }
   
-  /* Show hamburger menu */
+  /* Show hamburger menu with proper spacing */
   .nvbr-burger {
     display: flex;
+    margin-right: 0;
   }
   
-  /* PROFESSIONAL MOBILE MENU */
+  /* ENHANCED MOBILE MENU */
   .nvbr-links {
     position: fixed;
-    top: 100px;
+    top: 110px;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 0, 72, 0.98), rgba(0, 20, 100, 0.98));
-    backdrop-filter: blur(20px);
+    background: linear-gradient(
+      135deg, 
+      rgba(0, 0, 72, 0.98) 0%, 
+      rgba(0, 20, 100, 0.98) 50%,
+      rgba(0, 0, 72, 0.98) 100%
+    );
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     display: flex;
     flex-direction: column;
     padding: 0;
@@ -786,7 +799,9 @@
     list-style: none;
     transform: translateX(-100%);
     transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    box-shadow: 
+      inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      0 8px 32px rgba(0, 0, 0, 0.3);
     overflow-y: auto;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     z-index: 999;
@@ -798,7 +813,7 @@
   
   /* Navigation Items Section */
   .nvbr-links > .nvbr-item:not(.contact-link):not(.nvbr__item) {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   }
   
   .nvbr-item {
@@ -806,7 +821,7 @@
     margin: 0;
   }
   
-  /* Menu Links */
+  /* Enhanced Menu Links */
   .nvbr-link {
     display: flex;
     align-items: center;
@@ -815,41 +830,68 @@
     width: 100%;
     font-size: 18px;
     font-weight: 600;
-    color: white;
+    color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
     background: transparent;
     border: none;
     cursor: pointer;
     transition: all 0.3s ease;
     letter-spacing: 0.5px;
+    position: relative;
+  }
+  
+  .nvbr-link::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: linear-gradient(45deg, #ff6b35, #ffd700);
+    transition: width 0.3s ease;
   }
   
   .nvbr-link:hover {
-    background: rgba(255, 107, 53, 0.1);
+    background: linear-gradient(90deg, rgba(255, 107, 53, 0.1), transparent);
     color: #ffd700;
     transform: translateX(8px);
+    padding-left: 32px;
+  }
+  
+  .nvbr-link:hover::before {
+    width: 4px;
   }
   
   .nvbr-link::after {
     display: none;
   }
   
-  /* Dropdown arrows */
+  /* Enhanced dropdown arrows */
   .dropdown-arrow {
-    font-size: 18px;
-    color:#ef5a16;
+    font-size: 16px;
+    color: #ef5a16;
     transition: all 0.3s ease;
   }
   
-  /* Mobile Dropdown Menus */
+  .nvbr-link:hover .dropdown-arrow {
+    color: #ffd700;
+    transform: rotate(180deg);
+  }
+  
+  /* Enhanced Mobile Dropdown Menus */
   .dropdown-menu {
     position: static;
-    background: rgba(255, 255, 255, 0.05);
-    backdrop-filter: blur(10px);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08) 0%,
+      rgba(255, 255, 255, 0.03) 100%
+    );
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
     margin: 0;
     padding: 0;
     border-radius: 0;
-    box-shadow: none;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1);
     border: none;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     opacity: 1;
@@ -862,13 +904,25 @@
   
   .dropdown-menu li {
     padding: 16px 48px;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(255, 255, 255, 0.85);
     font-size: 16px;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.25s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    transition: all 0.3s ease;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     background: transparent;
+    position: relative;
+  }
+  
+  .dropdown-menu li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0;
+    background: linear-gradient(45deg, #ff6b35, #ffd700);
+    transition: width 0.3s ease;
   }
   
   .dropdown-menu li:last-child {
@@ -876,50 +930,73 @@
   }
   
   .dropdown-menu li:hover {
-    background: rgba(255, 107, 53, 0.15);
+    background: linear-gradient(90deg, rgba(255, 107, 53, 0.15), transparent);
     color: white;
     transform: translateX(12px);
     padding-left: 60px;
   }
   
-  /* Contact Button - Left Aligned Like Other Menu Items */
+  .dropdown-menu li:hover::before {
+    width: 4px;
+  }
+  
+  /* Enhanced Contact Button */
   .contact-link {
     margin-top: auto;
-    padding: 0;
+    padding: 24px;
     border-top: 2px solid rgba(255, 255, 255, 0.1);
-    background: rgba(255, 255, 255, 0.02);
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
   }
   
   .contact-link .nvbr-link {
     background: linear-gradient(45deg, #ff6b35, #ff8c42);
     color: white !important;
-    margin: 24px;
-    text-align: left;
-    justify-content: flex-start;
+    margin: 0;
+    text-align: center;
+    justify-content: center;
     border-radius: 12px;
     padding: 18px 24px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1.2px;
-    box-shadow: 0 6px 20px rgba(255, 107, 53, 0.3);
+    box-shadow: 
+      0 6px 20px rgba(255, 107, 53, 0.3),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
     border: 2px solid rgba(255, 255, 255, 0.1);
     display: block;
-    width: 180px;
+    width: auto;
+    max-width: 200px;
+    margin: 0 auto;
   }
   
   .contact-link .nvbr-link:hover {
-    background: blue;
-    transform: translateX(8px);
-    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    background: linear-gradient(45deg, #d84315, #ef5a16);
+    transform: translateY(-2px);
+    box-shadow: 
+      0 8px 25px rgba(255, 107, 53, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    padding-left: 24px;
   }
   
-  /* Chief Image - Left Aligned Like Other Menu Items */
+  .contact-link .nvbr-link:hover::before {
+    width: 0;
+  }
+  
+  /* Enhanced Chief Image */
   .nvbr__item {
     padding: 20px 24px;
     display: flex;
-    justify-content: flex-start;
-    align-items: left;
-    background: rgba(255, 255, 255, 0.02);
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.05) 100%
+    );
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin-top: 0;
   }
@@ -931,7 +1008,6 @@
     border: 2px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
-    margin-right: 12px;
   }
   
   .nvbr__item img:hover {
@@ -953,11 +1029,14 @@
   
   .phone-number {
     font-size: 0.82em;
-    margin-right: 0.8rem;
+    margin-left: -18px;
+    /* margin-right: 0.8rem; */
   }
   
   .help {
     font-size: 0.82em;
+    margin-bottom: 0;
+    margin-right: -6px;
   }
   
   .usa-image {
@@ -973,6 +1052,18 @@
   .envelope-icon {
     display: none;
   }
+
+  .wayup-logo-icon {
+    margin-top: 10px;
+  }
+
+  .logo-text-content {
+    margin-top: 14px;
+  }
+
+  .nvbr-burger {
+    margin-right: -6px;
+  }
 }
 
 /* Fine-tuned mobile breakpoints for top header */
@@ -982,13 +1073,15 @@
   }
   
   .phone-number {
- margin-left: -6px;
+    margin-left: -6px;
   }
+  
   .help {
     font-size: 0.78em;
-     margin-left: auto;
+    margin-left: auto;
     margin-right: -2px;
-    margin-top:-14px ;
+    margin-top: -14px;
+    margin-bottom: 0;
     white-space: nowrap;
     align-self: center;
   }
@@ -996,7 +1089,7 @@
   .usa-image {
     width: 28px;
     height: 22px;
-     margin-left:-2px ;
+    margin-left: -2px;
   }
 
   .shopping-cart-icon {
@@ -1004,19 +1097,15 @@
   }
 
   .wayup-logo-icon {
-margin-top: -10px;
+    margin-top: 0;
   }
 
   .logo-text-content {
-margin-top: 14px;
-  }
-
-  .logo-text {
-
+    margin-top: 14px;
   }
 
   .nvbr-burger {
-   margin-right: -6px; 
+    margin-right: 0;
   }
 }
 
@@ -1032,16 +1121,15 @@ margin-top: 14px;
   .phone-number {
     font-size: 0.75em;
     margin-right: 2px;
-    margin-bottom: 10px;
+    margin-bottom: 0;
     margin-left: -6px;
-    /* color: red; */
   }
   
   .help {
     font-size: 0.75em;
     margin-left: auto;
-    /* margin-right: px; */
-    margin-top:-14px ;
+    margin-top: -14px;
+    margin-bottom: 0;
     white-space: nowrap;
     align-self: center;
   }
@@ -1053,25 +1141,21 @@ margin-top: 14px;
   .usa-image {
     width: 25px;
     height: 20px;
-     margin-left:-2px ;
+    margin-left: -2px;
     margin-top: -6px;
     margin-right: 0;
   }
 
   .wayup-logo-icon {
-margin-top: -10px;
+    margin-top: 0;
   }
 
   .logo-text-content {
-margin-top: 14px;
-  }
-
-  .logo-text {
-
+    margin-top: 14px;
   }
 
   .nvbr-burger {
-   margin-right: -6px; 
+    margin-right: -8px;
   }
 }
 
@@ -1085,40 +1169,35 @@ margin-top: 14px;
     align-items: center;
     flex-wrap: nowrap;
   }
-
-   .yahoo a {
-
-   }
   
   .phone-number {
     white-space: nowrap;
     font-size: 10px;
     margin-right: 80px;
-    /* flex-shrink: 0; */
+    margin-bottom: 0;
   }
 
   .usa-image {
     width: 24px;
     height: 18px;
-     margin-left:-6px ;
-     margin-right: -30px;
+    margin-left: -6px;
+    margin-right: -30px;
     flex-shrink: 0;
   }
 
   .help {
     white-space: nowrap;
-    margin-top:-10px ;
-    margin-left: -20px;
+    margin-top: -10px;
+    margin-left: -6px;
+    margin-bottom: 0;
     font-size: 10px;
     flex-shrink: 0;
-     /* color: red; */
   }
 
   .shopping-cart-icon {
     margin-right: -4px;
     margin-top: 2px;
   }
-  
 
   /* Hide yahoo email on very small screens */
   .yahoo {
@@ -1130,28 +1209,24 @@ margin-top: 14px;
   }
 
   .nvbr {
-    height: 140px;
+    height: 80px !important;
   }
 
   .logo-text {
     height: 40px;
-    /* padding-bottom: 20px; */
+    margin-bottom: 0;
   }
 
-   .wayup-logo-icon {
-margin-top: -10px;
+  .wayup-logo-icon {
+    margin-top: -10px;
   }
 
   .logo-text-content {
-margin-top: 14px;
-  }
-
-  .logo-text {
-
+    margin-top: 18px;
   }
 
   .nvbr-burger {
-   margin-right: -6px; 
+    margin-right: -6px;
   }
 }
 
@@ -1203,14 +1278,12 @@ margin-top: 14px;
   }
 }
 
-/* HEADER OVERFLOW FIX - Prevent header from covering body content */
-
-/* Recalculate total header height and fix body spacing */
+/* ENHANCED HEADER SPACING AND BODY POSITIONING */
 body {
-  padding-top: 100px !important; /* Increased from 100px - accounts for both top header (40px) + navbar (120px) minus overlap */
+  padding-top: 100px !important;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
   margin: 0 !important;
-  overflow-x: hidden !important; /* Prevent any horizontal scroll */
+  overflow-x: hidden !important;
 }
 
 /* Additional professional touches */
@@ -1236,25 +1309,25 @@ body {
   }
   
   .nvbr {
-    height: 65px !important;
+    height: 75px !important;
     top: 35px !important;
   }
   
   body {
-    padding-top: 100px !important; /* 35px + 65px */
+    padding-top: 110px !important;
   }
 }
 
 /* Additional mobile fixes for content overlap */
 @media screen and (max-width: 600px) {
   body {
-    padding-top: 100px !important;
+    padding-top: 110px !important;
   }
 }
 
 @media screen and (max-width: 400px) {
   body {
-    padding-top: 100px !important;
+    padding-top: 110px !important;
   }
 }
 
@@ -1269,7 +1342,6 @@ section:first-child {
 }
 
 /* Fix any hero section that might be getting covered */
-/* .hero-section, */
 .banner-section,
 .intro-section {
   margin-top: 0 !important;
@@ -1278,7 +1350,7 @@ section:first-child {
   z-index: 1 !important;
 }
 
-/* Accessibility and smooth animations */
+/* Enhanced accessibility and smooth animations */
 html {
   scroll-behavior: smooth;
   overflow-x: hidden !important;
@@ -1296,4 +1368,45 @@ html {
 .nvbr-burger:focus {
   outline: 2px solid #ffd700;
   outline-offset: 2px;
+}
+
+/* Enhanced overlay for mobile menu */
+@media screen and (max-width: 850px) {
+  .show-links::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    opacity: 0;
+    animation: fadeIn 0.3s ease forwards;
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+/* Professional loading states */
+.nvbr-link,
+.dropdown-menu li {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Enhanced focus states for better accessibility */
+.nvbr-link:focus-visible {
+  outline: 2px solid #ffd700;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.dropdown-menu li:focus-visible {
+  outline: 2px solid #ffd700;
+  outline-offset: -2px;
+  background: rgba(255, 107, 53, 0.2);
 }

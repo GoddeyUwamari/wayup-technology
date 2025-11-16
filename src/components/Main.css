@@ -101,7 +101,8 @@
   gap: var(--card-gap);
   align-items: stretch;
   justify-content: center;
-  max-width: 1200px;
+  width: 100%;
+  /* max-width: 1200px; */
   margin: 0 auto;
   padding: 0 20px;
 }
@@ -454,7 +455,8 @@
   .flexbox-power {
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    max-width: 1400px;
+    width: 100%;
+    /* max-width: 1400px; */
   }
 
   .flexbox-power h2 {
