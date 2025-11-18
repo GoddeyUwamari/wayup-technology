@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Factory, Wrench, Zap, Settings, BarChart3, Cog, CheckCircle, ArrowRight, TrendingUp, Shield, Boxes, Radio } from 'lucide-react';
+import { Factory, Wrench, Zap, Settings, BarChart3, Cog, CheckCircle, ArrowRight, TrendingUp, Shield, Boxes, Radio, Award, Target } from 'lucide-react';
 import './Industrial.css';
 
 const Industrial = () => {
@@ -8,9 +8,10 @@ const Industrial = () => {
   }, []);
 
   const heroStats = [
-    { value: '500+', label: 'Industrial Sites' },
-    { value: '99.7%', label: 'System Uptime' },
-    { value: '60%', label: 'Cost Reduction' }
+    { value: '500+', label: 'Industrial Sites', icon: <Factory /> },
+    { value: '99.7%', label: 'System Uptime', icon: <Target /> },
+    { value: '60%', label: 'Cost Reduction', icon: <TrendingUp /> },
+    { value: '25+', label: 'Years Experience', icon: <Award /> }
   ];
 
   const solutions = [
@@ -96,27 +97,20 @@ const Industrial = () => {
 
   return (
     <div className="industrial-page">
-      {/* Hero Section with Stats Overlay */}
+      {/* Hero Section - Split Grid Layout */}
       <section className="industrial-hero">
-        <div className="industrial-hero-bg">
-          <img
-            src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=1200&q=80"
-            alt="Large industrial facility with automated systems and machinery"
-            className="industrial-hero-img"
-          />
-          <div className="industrial-hero-overlay"></div>
-        </div>
-        <div className="industrial-hero-content">
-          <div className="hero-content-wrapper">
-            <div className="hero-tag">
-              <Factory className="hero-tag-icon" />
+        <div className="industrial-hero-grid">
+          <div className="industrial-hero-content">
+            <div className="hero-badge">
+              <Factory size={18} />
               <span>Industrial Automation & Control Systems</span>
             </div>
             <h1 className="industrial-hero-title">
-              Engineering the Future of Heavy Industry
+              Heavy Industry
+              <span className="industrial-gradient-text"> Automation Excellence</span>
             </h1>
             <p className="industrial-hero-desc">
-              Comprehensive SCADA, DCS, and IIoT solutions for mining, oil & gas, chemical processing, and heavy manufacturing. Built for extreme environments and mission-critical operations.
+              Mission-critical SCADA, DCS, and IIoT solutions engineered for mining, oil & gas, chemical processing, and heavy manufacturing. Built for extreme environments, 24/7 reliability.
             </p>
             <div className="hero-actions">
               <button className="industrial-btn-primary">
@@ -128,22 +122,56 @@ const Industrial = () => {
                 <span>Live Demo</span>
               </button>
             </div>
+
+            {/* Hero Stats Grid */}
+            <div className="hero-stats-grid">
+              {heroStats.map((stat, index) => (
+                <div key={index} className="hero-stat-card">
+                  <div className="stat-icon">{stat.icon}</div>
+                  <div className="stat-value">{stat.value}</div>
+                  <div className="stat-label">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
-          <div className="hero-stats-bar">
-            {heroStats.map((stat, index) => (
-              <div key={index} className="hero-stat-item">
-                <div className="hero-stat-value">{stat.value}</div>
-                <div className="hero-stat-label">{stat.label}</div>
+
+          <div className="industrial-hero-visual">
+            <div className="hero-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=800&q=80"
+                alt="Large industrial facility with automated systems and machinery"
+                className="industrial-hero-img"
+              />
+              <div className="hero-image-gradient"></div>
+            </div>
+            {/* Floating Metric Cards */}
+            <div className="hero-floating-metrics">
+              <div className="floating-metric floating-metric-1">
+                <Shield size={20} />
+                <div>
+                  <div className="metric-value">Zero</div>
+                  <div className="metric-label">Safety Incidents</div>
+                </div>
               </div>
-            ))}
+              <div className="floating-metric floating-metric-2">
+                <Zap size={20} />
+                <div>
+                  <div className="metric-value">24/7</div>
+                  <div className="metric-label">Remote Monitoring</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Industries Served - Horizontal Scroll */}
+      {/* Industries Served */}
       <section className="industrial-industries">
         <div className="industrial-container">
-          <h3 className="industries-title">Industries We Serve</h3>
+          <div className="industries-header">
+            <span className="section-label">Industries</span>
+            <h3 className="industries-title">Proven Across Critical Sectors</h3>
+          </div>
           <div className="industries-grid">
             {industries.map((industry, index) => (
               <div key={index} className="industry-card">
@@ -156,15 +184,16 @@ const Industrial = () => {
         </div>
       </section>
 
-      {/* Solutions Grid - Card Based */}
+      {/* Solutions Grid */}
       <section className="industrial-solutions">
         <div className="industrial-container">
           <div className="solutions-header">
+            <span className="section-label">Our Solutions</span>
             <h2 className="industrial-section-title">
-              Comprehensive Industrial IT Solutions
+              Complete Industrial Automation Platform
             </h2>
             <p className="industrial-section-subtitle">
-              From plant floor to top floor, we deliver integrated systems that drive operational excellence
+              From plant floor to top floor—integrated systems driving operational excellence
             </p>
           </div>
           <div className="solutions-grid">
@@ -252,10 +281,13 @@ const Industrial = () => {
       {/* Implementation Timeline */}
       <section className="industrial-implementation">
         <div className="industrial-container">
-          <h2 className="industrial-section-title">Our Implementation Methodology</h2>
-          <p className="industrial-section-subtitle">
-            Proven 4-phase approach minimizing downtime and ensuring seamless integration
-          </p>
+          <div className="implementation-header">
+            <span className="section-label">Implementation</span>
+            <h2 className="industrial-section-title">4-Phase Deployment Process</h2>
+            <p className="industrial-section-subtitle">
+              Zero-downtime methodology ensuring seamless integration with existing operations
+            </p>
+          </div>
           <div className="implementation-timeline">
             {implementationSteps.map((step, index) => (
               <div key={index} className="timeline-step">
@@ -281,14 +313,17 @@ const Industrial = () => {
       {/* Technology Partners */}
       <section className="industrial-tech-partners">
         <div className="industrial-container">
-          <h2 className="industrial-section-title">Certified Technology Partners</h2>
-          <p className="industrial-section-subtitle">
-            Authorized integrators for industry-leading industrial automation platforms
-          </p>
+          <div className="tech-partners-header">
+            <span className="section-label">Technology Stack</span>
+            <h2 className="industrial-section-title">Certified Automation Partners</h2>
+            <p className="industrial-section-subtitle">
+              Authorized integrators for industry-leading industrial control platforms
+            </p>
+          </div>
           <div className="tech-partners-grid">
             {technologies.map((tech, index) => (
               <div key={index} className="tech-partner-badge">
-                <Wrench className="tech-badge-icon" />
+                <CheckCircle className="tech-badge-icon" />
                 <span>{tech}</span>
               </div>
             ))}

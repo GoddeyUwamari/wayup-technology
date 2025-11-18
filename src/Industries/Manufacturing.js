@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Cpu, TrendingUp, Package, CheckCircle, Calendar, BarChart, ArrowRight, Users, Target, Zap, ClipboardCheck } from 'lucide-react';
+import { Cpu, TrendingUp, Package, CheckCircle, Calendar, BarChart, ArrowRight, Target, Zap, ClipboardCheck, Factory, Gauge, Shield, Award } from 'lucide-react';
 import './Manufacturing.css';
 
 const Manufacturing = () => {
@@ -82,6 +82,13 @@ const Manufacturing = () => {
     }
   ];
 
+  const heroStats = [
+    { value: '200+', label: 'Factories Optimized' },
+    { value: '85%', label: 'Avg. Downtime Reduction' },
+    { value: '98%', label: 'Uptime Achieved' },
+    { value: '$2.3B', label: 'Cost Savings Delivered' }
+  ];
+
   const painPoints = [
     {
       title: 'Unplanned Downtime',
@@ -101,49 +108,85 @@ const Manufacturing = () => {
     <div className="manufacturing-page">
       {/* Hero Section */}
       <section className="manufacturing-hero">
-        <div className="manufacturing-hero-overlay"></div>
-        <img
-          src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=1200&q=80"
-          alt="Smart factory with automated production lines and IoT sensors"
-          className="manufacturing-hero-image"
-        />
-        <div className="manufacturing-hero-content">
-          <h1 className="manufacturing-hero-title">Manufacturing & Industrial Solutions</h1>
-          <p className="manufacturing-hero-subtitle">Transform your factory floor with IoT, automation, and predictive maintenance</p>
-          <div className="manufacturing-hero-buttons">
-            <button className="manufacturing-btn-primary">
-              Start Your Digital Transformation
-              <ArrowRight className="btn-icon" />
-            </button>
-            <button className="manufacturing-btn-secondary">View Case Studies</button>
+        <div className="manufacturing-hero-grid">
+          <div className="manufacturing-hero-content">
+            <div className="manufacturing-hero-badge">
+              <Factory size={18} />
+              <span>Industry 4.0 Digital Transformation</span>
+            </div>
+            <h1 className="manufacturing-hero-title">
+              Smart Manufacturing
+              <span className="manufacturing-gradient-text"> That Delivers Results</span>
+            </h1>
+            <p className="manufacturing-hero-subtitle">
+              Transform production with IoT sensors, predictive AI, and real-time analytics that eliminate downtime, optimize efficiency, and drive measurable ROI.
+            </p>
+            <div className="manufacturing-hero-buttons">
+              <button className="manufacturing-btn-primary">
+                <span>Start Digital Transformation</span>
+                <ArrowRight className="btn-icon" />
+              </button>
+              <button className="manufacturing-btn-secondary">
+                <span>View Case Studies</span>
+              </button>
+            </div>
+
+            {/* Hero Stats */}
+            <div className="manufacturing-hero-stats">
+              {heroStats.map((stat, index) => (
+                <div key={index} className="hero-stat-item">
+                  <div className="hero-stat-value">{stat.value}</div>
+                  <div className="hero-stat-label">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="manufacturing-hero-visual">
+            <div className="hero-image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1565043589221-1a6fd9ae45c7?w=800&q=80"
+                alt="Smart factory with automated production lines and IoT sensors"
+                className="manufacturing-hero-image"
+              />
+              <div className="hero-image-overlay"></div>
+            </div>
+            {/* Floating Elements */}
+            <div className="hero-floating-elements">
+              <div className="floating-card floating-card-1">
+                <Gauge size={24} />
+                <div className="floating-card-text">
+                  <div className="floating-card-title">98% Uptime</div>
+                  <div className="floating-card-desc">Industry Leading</div>
+                </div>
+              </div>
+              <div className="floating-card floating-card-2">
+                <Award size={24} />
+                <div className="floating-card-text">
+                  <div className="floating-card-title">85% Less Downtime</div>
+                  <div className="floating-card-desc">Average Reduction</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Overview Section */}
-      <section className="manufacturing-overview">
+      {/* Pain Points Section */}
+      <section className="manufacturing-pain-section">
         <div className="manufacturing-container">
-          <div className="manufacturing-overview-content">
-            <div className="manufacturing-overview-text">
-              <h2 className="manufacturing-section-title">Overcome Manufacturing's Biggest Challenges</h2>
-              <p className="manufacturing-overview-intro">
-                Today's manufacturers face unprecedented pressure to reduce costs, improve quality, and accelerate production—all while managing aging infrastructure and skilled labor shortages. WayUP Technology delivers proven digital transformation solutions that turn these challenges into competitive advantages.
-              </p>
-              <div className="manufacturing-pain-points">
-                {painPoints.map((point, index) => (
-                  <div key={index} className="manufacturing-pain-point">
-                    <h3>{point.title}</h3>
-                    <p>{point.description}</p>
-                  </div>
-                ))}
+          <div className="manufacturing-section-header">
+            <span className="section-label">Critical Challenges</span>
+            <h2 className="manufacturing-section-title">Manufacturing Problems We Solve</h2>
+          </div>
+          <div className="manufacturing-pain-grid">
+            {painPoints.map((point, index) => (
+              <div key={index} className="manufacturing-pain-card">
+                <div className="pain-card-number">0{index + 1}</div>
+                <h3>{point.title}</h3>
+                <p>{point.description}</p>
               </div>
-            </div>
-            <div className="manufacturing-overview-image">
-              <img
-                src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=800&q=80"
-                alt="Industrial robots working on automated assembly line"
-              />
-            </div>
+            ))}
           </div>
         </div>
       </section>
@@ -151,10 +194,10 @@ const Manufacturing = () => {
       {/* Solutions Grid */}
       <section className="manufacturing-solutions">
         <div className="manufacturing-container">
-          <h2 className="manufacturing-section-title">Comprehensive Manufacturing Solutions</h2>
-          <p className="manufacturing-section-subtitle">
-            End-to-end technology stack designed for Industry 4.0 transformation
-          </p>
+          <div className="manufacturing-section-header">
+            <span className="section-label">Our Solutions</span>
+            <h2 className="manufacturing-section-title">Comprehensive Industry 4.0 Platform</h2>
+          </div>
           <div className="manufacturing-solutions-grid">
             {solutions.map((solution, index) => (
               <div key={index} className="manufacturing-solution-card">
@@ -170,17 +213,20 @@ const Manufacturing = () => {
       {/* Tech Stack Section */}
       <section className="manufacturing-tech-stack">
         <div className="manufacturing-container">
-          <h2 className="manufacturing-section-title">Enterprise-Grade Technology Stack</h2>
-          <p className="manufacturing-section-subtitle">
-            Industry-leading platforms and frameworks proven in Fortune 500 manufacturing environments
-          </p>
+          <div className="manufacturing-section-header">
+            <span className="section-label section-label-light">Technology Stack</span>
+            <h2 className="manufacturing-section-title">Enterprise-Grade Platforms</h2>
+          </div>
           <div className="manufacturing-tech-grid">
             {techStack.map((stack, index) => (
               <div key={index} className="manufacturing-tech-category">
                 <h3>{stack.category}</h3>
                 <ul>
                   {stack.technologies.map((tech, techIndex) => (
-                    <li key={techIndex}>{tech}</li>
+                    <li key={techIndex}>
+                      <CheckCircle size={14} />
+                      <span>{tech}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -192,10 +238,10 @@ const Manufacturing = () => {
       {/* Process/Methodology */}
       <section className="manufacturing-process">
         <div className="manufacturing-container">
-          <h2 className="manufacturing-section-title">Our Proven Implementation Process</h2>
-          <p className="manufacturing-section-subtitle">
-            Structured methodology ensures on-time, on-budget delivery with measurable ROI
-          </p>
+          <div className="manufacturing-section-header">
+            <span className="section-label">Implementation</span>
+            <h2 className="manufacturing-section-title">Proven 4-Step Process</h2>
+          </div>
           <div className="manufacturing-process-steps">
             {processSteps.map((step, index) => (
               <div key={index} className="manufacturing-process-step">
@@ -212,21 +258,34 @@ const Manufacturing = () => {
       {/* Case Study */}
       <section className="manufacturing-case-study">
         <div className="manufacturing-container">
+          <span className="manufacturing-case-study-label">Success Story</span>
           <div className="manufacturing-case-study-content">
+            <div className="manufacturing-case-study-image">
+              <img
+                src="https://images.unsplash.com/photo-1567789884554-0b844b597180?w=800&q=80"
+                alt="Modern factory floor with workers monitoring automated systems"
+              />
+              <div className="case-image-badge">
+                <Shield size={28} />
+                <div>
+                  <div className="badge-title">Tier-1 Automotive</div>
+                  <div className="badge-subtitle">12 Production Lines</div>
+                </div>
+              </div>
+            </div>
             <div className="manufacturing-case-study-text">
-              <span className="manufacturing-case-study-label">Success Story</span>
               <h2>Global Auto Parts Manufacturer</h2>
               <div className="manufacturing-case-study-details">
                 <div className="manufacturing-case-detail">
                   <h4>Challenge</h4>
-                  <p>A tier-1 automotive supplier faced chronic equipment downtime across 12 production lines, resulting in $500,000 monthly losses, missed delivery deadlines, and deteriorating customer relationships.</p>
+                  <p>Chronic equipment downtime across 12 production lines causing $500K monthly losses, missed deadlines, and deteriorating customer relationships.</p>
                 </div>
                 <div className="manufacturing-case-detail">
                   <h4>Solution</h4>
-                  <p>WayUP deployed an AI-powered predictive maintenance system with 500+ IoT sensors, real-time analytics dashboards, and automated work order generation integrated with their existing CMMS.</p>
+                  <p>AI-powered predictive maintenance with 500+ IoT sensors, real-time analytics, and automated work order generation.</p>
                 </div>
                 <div className="manufacturing-case-detail">
-                  <h4>Results</h4>
+                  <h4>Results & Impact</h4>
                   <div className="manufacturing-results-stats">
                     <div className="manufacturing-stat">
                       <span className="manufacturing-stat-number">85%</span>
@@ -244,12 +303,6 @@ const Manufacturing = () => {
                 </div>
               </div>
             </div>
-            <div className="manufacturing-case-study-image">
-              <img
-                src="https://images.unsplash.com/photo-1567789884554-0b844b597180?w=600&q=80"
-                alt="Modern factory floor with workers monitoring automated systems"
-              />
-            </div>
           </div>
         </div>
       </section>
@@ -257,34 +310,29 @@ const Manufacturing = () => {
       {/* CTA Section */}
       <section className="manufacturing-cta">
         <div className="manufacturing-container">
-          <h2>Ready to Modernize Your Manufacturing?</h2>
-          <p>Join 200+ factories achieving 98% uptime with WayUP's Industry 4.0 solutions</p>
           <div className="manufacturing-cta-content">
+            <div className="cta-icon-wrapper">
+              <Factory size={56} />
+              <div className="cta-glow"></div>
+            </div>
+            <h2>Ready to Transform Your Factory?</h2>
+            <p>Join 200+ manufacturers achieving 98% uptime and $2.3B in cost savings</p>
             <button className="manufacturing-btn-primary-large">
-              Schedule Your Free Assessment
+              <span>Schedule Free Assessment</span>
               <ArrowRight className="btn-icon" />
             </button>
-            <div className="manufacturing-trust-signals">
-              <div className="manufacturing-trust-signal">
-                <Users className="trust-icon" />
-                <div>
-                  <strong>200+</strong>
-                  <span>Factories Optimized</span>
-                </div>
+            <div className="manufacturing-cta-features">
+              <div className="cta-feature">
+                <CheckCircle size={18} />
+                <span>Zero-Disruption Implementation</span>
               </div>
-              <div className="manufacturing-trust-signal">
-                <TrendingUp className="trust-icon" />
-                <div>
-                  <strong>98%</strong>
-                  <span>Uptime Achieved</span>
-                </div>
+              <div className="cta-feature">
+                <CheckCircle size={18} />
+                <span>ROI Guarantee</span>
               </div>
-              <div className="manufacturing-trust-signal">
-                <CheckCircle className="trust-icon" />
-                <div>
-                  <strong>$2.3B</strong>
-                  <span>Cost Savings Delivered</span>
-                </div>
+              <div className="cta-feature">
+                <CheckCircle size={18} />
+                <span>24/7 Support</span>
               </div>
             </div>
           </div>

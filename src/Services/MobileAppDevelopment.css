@@ -1,13 +1,17 @@
-/* Mobile App Development Page Styles - Performance Optimized */
+/* Mobile App Development Page Styles - Professional Layout */
 
-/* Hero Section */
+/* ===========================
+   HERO SECTION
+   =========================== */
 .mobile-app-hero-section {
   background: linear-gradient(135deg, #101f61 0%, #5d0eac 100%);
-  /* background-image: url(/images/iphoto3.png); */
-  padding: 120px 20px;
+  background-size: cover;
+  background-position: center;
+  padding: 100px 40px 80px;
   text-align: center;
   color: white;
   position: relative;
+  overflow: hidden;
 }
 
 .mobile-app-hero-section::before {
@@ -17,123 +21,137 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
 .mobile-app-hero-section .mobile-app-container {
   position: relative;
   z-index: 2;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .mobile-app-hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
+  font-size: 52px;
+  font-weight: 800;
   margin-bottom: 24px;
-  color: yellow !important;
+  color: #FFD700;
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .mobile-app-hero-description {
-  font-size: 1.25rem;
+  font-size: 20px;
   margin-bottom: 0;
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
-  line-height: 1.6;
+  line-height: 1.7;
   opacity: 0.95;
 }
 
-/* Container */
+/* ===========================
+   CONTAINER
+   =========================== */
 .mobile-app-container {
-  width: 100%;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 40px;
 }
 
-/* Development Sections */
+/* ===========================
+   DEVELOPMENT SECTIONS
+   =========================== */
 .mobile-app-development-section {
-  padding: 100px 20px;
-  background: rgb(4, 10, 15);
+  padding: 80px 0;
+  background: #0A0E27;
 }
 
 .mobile-app-development-section.mobile-app-alternate {
-  background-color: rgb(8, 17, 24);
+  background: #0F1535;
 }
 
 .mobile-app-section-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 .mobile-app-section-header h2 {
-  font-size: 2.2rem !important;
+  font-size: 42px;
   font-weight: 700;
-  color: rgb(192, 39, 200);
-  text-align: center;
-  margin-bottom: 20px;
+  color: #C027C8;
+  margin-bottom: 16px;
   line-height: 1.2;
+  letter-spacing: -0.01em;
 }
 
 .mobile-app-alternate .mobile-app-section-header h2 {
-  color: white;
+  color: #FFFFFF;
 }
 
 .mobile-app-section-header p {
-  font-size: 1.2rem;
-  color: white;
-  text-align: center;
+  font-size: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
 }
 
-.mobile-app-alternate .mobile-app-section-header p {
-  color: white;
-}
-
-/* Content Layout */
+/* ===========================
+   CONTENT LAYOUT - STANDARD
+   =========================== */
 .mobile-app-content-row {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 60px;
+  align-items: center;
 }
 
 .mobile-app-image-column {
-  flex: 1;
+  position: relative;
 }
 
 .mobile-app-text-column {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 20px;
 }
 
 .mobile-app-section-image {
   width: 100%;
-  height: 600px;
+  height: 500px;
   object-fit: cover;
-  border-radius: 20px;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
   display: block;
 }
 
-/* Feature Items */
+/* ===========================
+   FEATURE ITEMS
+   =========================== */
 .mobile-app-feature-item {
   display: flex;
   align-items: flex-start;
   gap: 20px;
-  padding: 25px;
-  background: whitesmoke;
-  border-radius: 8px;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  margin-bottom: 20px;
+  padding: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  border: 2px solid rgba(226, 232, 240, 0.3);
+  transition: all 0.3s ease;
+}
+
+.mobile-app-feature-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+  border-color: #ef5a16;
 }
 
 .mobile-app-feature-icon {
-  background-color: #ef5a16;
+  background: linear-gradient(135deg, #ef5a16 0%, #ff6b35 100%);
   color: white;
-  padding: 16px;
-  border-radius: 30px;
+  padding: 14px;
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,8 +161,8 @@
 }
 
 .mobile-app-feature-icon svg {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
 }
 
 .mobile-app-feature-content {
@@ -152,399 +170,281 @@
 }
 
 .mobile-app-feature-content h3 {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: blue;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1A202C;
   margin-bottom: 8px;
   line-height: 1.3;
 }
 
 .mobile-app-feature-content p {
-  font-size: 1rem;
-  color: black;
+  font-size: 15px;
+  color: #4A5568;
   line-height: 1.6;
   margin: 0;
 }
 
-/* Alternate Section */
-.mobile-app-alternate {
-  position: relative;
-}
-
+/* ===========================
+   ALTERNATE SECTION LAYOUT
+   =========================== */
 .mobile-app-alternate .mobile-app-content-row {
-  display: block;
-  position: relative;
-}
-
-.mobile-app-alternate .mobile-app-text-column {
-  width: 46%;
-  margin-right: 30px;
-  position: relative;
-  z-index: 2;
+  grid-template-columns: 1fr 1fr;
 }
 
 .mobile-app-alternate .mobile-app-image-column {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50%;
-  z-index: 1;
+  order: 2;
 }
 
-.mobile-app-alternate .mobile-app-section-image {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  border-radius: 20px;
+.mobile-app-alternate .mobile-app-text-column {
+  order: 1;
 }
 
-.mobile-app-alternate .mobile-app-feature-item {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(203, 213, 224, 0.8);
-}
+/* ===========================
+   RESPONSIVE DESIGN
+   =========================== */
 
-.mobile-app-alternate .mobile-app-feature-icon {
-  background-color: #ef5a16;
-}
+/* Tablet Large (769px - 1024px) */
+@media (max-width: 1024px) {
+  .mobile-app-container {
+    padding: 0 32px;
+  }
 
-/* RESPONSIVE DESIGN */
-
-/* Large Desktop (1025px+) */
-@media (min-width: 1025px) {
   .mobile-app-hero-title {
-    font-size: 3.5rem;
+    font-size: 42px;
   }
-  
-  .mobile-app-hero-description {
-    font-size: 1.25rem;
-  }
-  
-  .mobile-app-section-header h2 {
-    font-size: 2.2rem !important;
-  }
-  
-  .mobile-app-content-row {
-    gap: 60px;
-  }
-  
-  .mobile-app-section-image {
-    height: 600px;
-  }
-}
 
-/* Tablet (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
-  .mobile-app-hero-title {
-    font-size: 3rem;
-  }
-  
   .mobile-app-hero-description {
-    font-size: 1.1rem;
+    font-size: 18px;
   }
-  
+
   .mobile-app-section-header h2 {
-    font-size: 2rem !important;
+    font-size: 36px;
   }
-  
+
   .mobile-app-section-header p {
-    font-size: 1.1rem;
+    font-size: 17px;
   }
-  
+
   .mobile-app-content-row {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    max-width: 900px;
-    margin: 0 auto;
+    gap: 48px;
   }
-  
+
+  .mobile-app-section-image {
+    height: 450px;
+  }
+}
+
+/* Tablet (577px - 768px) */
+@media (max-width: 768px) {
+  .mobile-app-container {
+    padding: 0 24px;
+  }
+
+  .mobile-app-hero-section {
+    padding: 80px 24px 60px;
+  }
+
+  .mobile-app-hero-title {
+    font-size: 36px;
+  }
+
+  .mobile-app-hero-description {
+    font-size: 17px;
+  }
+
+  .mobile-app-development-section {
+    padding: 60px 0;
+  }
+
+  .mobile-app-section-header {
+    margin-bottom: 48px;
+  }
+
+  .mobile-app-section-header h2 {
+    font-size: 32px;
+  }
+
+  .mobile-app-section-header p {
+    font-size: 16px;
+  }
+
+  .mobile-app-content-row {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
   .mobile-app-image-column {
-    width: 100%;
-    order: 1;
+    order: -1;
   }
-  
-  .mobile-app-text-column {
-    width: 100%;
-    order: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-  }
-  
-  .mobile-app-section-image {
-    height: 450px;
-  }
-  
-  .mobile-app-feature-item {
-    margin-bottom: 0;
-  }
-  
-  .mobile-app-alternate .mobile-app-content-row {
-    display: flex;
-    flex-direction: column;
-    gap: 50px;
-    max-width: 900px;
-    margin: 0 auto;
-    position: relative;
-  }
-  
-  .mobile-app-alternate .mobile-app-text-column {
-    width: 100%;
-    position: relative;
-    margin-right: 0;
-    z-index: 2;
-    order: 2;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-  }
-  
-  .mobile-app-alternate .mobile-app-image-column {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
-    z-index: 1;
-    order: 1;
-  }
-  
-  .mobile-app-alternate .mobile-app-section-image {
-    height: 450px;
-  }
-}
 
-/* Small Tablet (577px - 768px) */
-@media (min-width: 577px) and (max-width: 768px) {
-  .mobile-app-hero-title {
-    font-size: 2.5rem;
-  }
-  
-  .mobile-app-hero-description {
-    font-size: 1rem;
-  }
-  
-  .mobile-app-section-header h2 {
-    font-size: 1.9rem !important;
-  }
-  
-  .mobile-app-section-header p {
-    font-size: 1rem;
-  }
-  
-  .mobile-app-content-row {
-    flex-direction: column;
-    gap: 40px;
-  }
-  
   .mobile-app-text-column {
-    gap: 20px;
+    gap: 18px;
   }
-  
+
   .mobile-app-section-image {
-    height: 350px;
+    height: 400px;
   }
-  
+
+  /* Alternate section mobile layout */
   .mobile-app-alternate .mobile-app-content-row {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
+    grid-template-columns: 1fr;
   }
-  
-  .mobile-app-alternate .mobile-app-text-column {
-    width: 100%;
-    position: relative;
-    margin-right: 0;
-    order: 2;
-  }
-  
+
   .mobile-app-alternate .mobile-app-image-column {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
+    order: -1;
+  }
+
+  .mobile-app-alternate .mobile-app-text-column {
     order: 1;
   }
-  
-  .mobile-app-alternate .mobile-app-section-image {
-    height: 350px;
+
+  .mobile-app-feature-item {
+    padding: 20px;
+  }
+
+  .mobile-app-feature-content h3 {
+    font-size: 18px;
+  }
+
+  .mobile-app-feature-content p {
+    font-size: 14px;
   }
 }
 
 /* Mobile (≤576px) */
 @media (max-width: 576px) {
-  .mobile-app-hero-section {
-    padding: 60px 15px;
-  }
-  
-  .mobile-app-hero-title {
-    font-size: 2.2rem;
-  }
-  
-  .mobile-app-hero-description {
-    font-size: 1rem;
-  }
-  
-  .mobile-app-development-section {
-    padding: 40px 15px;
-  }
-  
   .mobile-app-container {
-    padding: 0 10px;
+    padding: 0 20px;
   }
-  
+
+  .mobile-app-hero-section {
+    padding: 60px 20px 48px;
+  }
+
+  .mobile-app-hero-title {
+    font-size: 28px;
+  }
+
+  .mobile-app-hero-description {
+    font-size: 16px;
+  }
+
+  .mobile-app-development-section {
+    padding: 48px 0;
+  }
+
   .mobile-app-section-header {
-    margin-bottom: 30px;
+    margin-bottom: 36px;
   }
-  
+
   .mobile-app-section-header h2 {
-    font-size: 1.8rem !important;
+    font-size: 26px;
   }
-  
+
   .mobile-app-section-header p {
-    font-size: 0.95rem;
+    font-size: 15px;
   }
-  
+
   .mobile-app-content-row {
-    flex-direction: column;
-    gap: 30px;
+    gap: 32px;
   }
-  
-  .mobile-app-alternate .mobile-app-content-row {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-  }
-  
-  .mobile-app-alternate .mobile-app-text-column {
-    width: 100%;
-    position: relative;
-    margin-right: 0;
-    order: 2;
-  }
-  
-  .mobile-app-alternate .mobile-app-image-column {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
-    order: 1;
-  }
-  
+
   .mobile-app-text-column {
-    gap: 18px;
+    gap: 16px;
   }
-  
+
   .mobile-app-section-image {
-    height: 280px;
-    width: 100%;
-    object-fit: cover;
+    height: 300px;
+    border-radius: 12px;
   }
-  
-  .mobile-app-alternate .mobile-app-section-image {
-    height: 280px;
-  }
-  
+
   .mobile-app-feature-item {
     padding: 18px;
-    gap: 14px;
-    margin-bottom: 15px;
+    gap: 16px;
+    border-radius: 10px;
   }
-  
+
   .mobile-app-feature-icon {
-    min-width: 46px;
-    min-height: 46px;
-    padding: 11px;
+    min-width: 48px;
+    min-height: 48px;
+    padding: 12px;
   }
-  
+
   .mobile-app-feature-icon svg {
-    width: 20px;
-    height: 20px;
+    width: 24px;
+    height: 24px;
   }
-  
+
   .mobile-app-feature-content h3 {
-    font-size: 1.15rem;
+    font-size: 17px;
     margin-bottom: 6px;
   }
-  
+
   .mobile-app-feature-content p {
-    font-size: 0.92rem;
+    font-size: 14px;
+    line-height: 1.5;
   }
 }
 
 /* Small Mobile (≤480px) */
 @media (max-width: 480px) {
   .mobile-app-hero-section {
-    padding: 50px 10px;
+    padding: 50px 16px 40px;
   }
-  
+
   .mobile-app-hero-title {
-    font-size: 1.9rem;
+    font-size: 26px;
   }
-  
-  .mobile-app-development-section {
-    padding: 30px 10px;
+
+  .mobile-app-hero-description {
+    font-size: 15px;
   }
-  
+
   .mobile-app-container {
-    padding: 0 8px;
+    padding: 0 16px;
   }
-  
+
+  .mobile-app-development-section {
+    padding: 40px 0;
+  }
+
   .mobile-app-section-header {
-    margin-bottom: 25px;
+    margin-bottom: 32px;
   }
-  
+
   .mobile-app-section-header h2 {
-    font-size: 1.6rem !important;
+    font-size: 24px;
   }
-  
+
   .mobile-app-section-header p {
-    font-size: 0.9rem;
-    text-align: center;
+    font-size: 14px;
   }
-  
-  .mobile-app-text-column {
-    gap: 15px;
-  }
-  
+
   .mobile-app-section-image {
-    height: 240px;
-    width: 100%;
-    border-radius: 12px;
+    height: 250px;
   }
-  
-  .mobile-app-alternate .mobile-app-section-image {
-    height: 240px;
-    border-radius: 12px;
-  }
-  
+
   .mobile-app-feature-item {
     padding: 16px;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 14px;
   }
-  
+
   .mobile-app-feature-icon {
-    min-width: 42px;
-    min-height: 42px;
-    padding: 9px;
+    min-width: 44px;
+    min-height: 44px;
+    padding: 10px;
   }
-  
+
   .mobile-app-feature-icon svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
-  
+
   .mobile-app-feature-content h3 {
-    font-size: 1.05rem;
-    margin-bottom: 4px;
+    font-size: 16px;
   }
-  
+
   .mobile-app-feature-content p {
-    font-size: 0.88rem;
-    line-height: 1.4;
+    font-size: 13px;
   }
 }

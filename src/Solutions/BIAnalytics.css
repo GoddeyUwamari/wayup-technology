@@ -1,18 +1,1076 @@
-.bi-analytics {
-  height: 40vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #283e51, #485563);
-  color: #ffffff;
-  font-size: 2rem;
-  text-align: center;
-  padding: 20px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ===================================
+   Business Intelligence & Analytics Page
+   Prefix: bia-
+   Theme: Teal/Green Data Analytics
+   =================================== */
+
+/* Root Variables */
+:root {
+  --bia-primary: #10B981;
+  --bia-secondary: #059669;
+  --bia-accent: #14B8A6;
+  --bia-dark: #064E3B;
+  --bia-light: #D1FAE5;
+  --bia-navy: #000048;
+  --bia-orange: #ef5a16;
 }
 
-.bi-analytics:hover {
+/* Container */
+.bia-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+
+.bia-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+.bia-hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: bia-pattern-move 20s linear infinite;
+}
+
+@keyframes bia-pattern-move {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(40px, 40px); }
+}
+
+.bia-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.bia-hero-content {
+  color: #ffffff;
+}
+
+.bia-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(16, 185, 129, 0.1);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 20px;
+  color: var(--bia-primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.bia-hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.bia-hero-gradient {
+  background: linear-gradient(135deg, var(--bia-primary) 0%, var(--bia-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bia-hero-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 40px;
+  max-width: 560px;
+}
+
+.bia-hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.bia-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.bia-btn-primary {
+  background: linear-gradient(135deg, var(--bia-primary) 0%, var(--bia-secondary) 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+}
+
+.bia-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+}
+
+.bia-btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.bia-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Hero Stats Grid */
+.bia-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+.bia-stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.bia-stat-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--bia-primary);
   transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.35);
+}
+
+.bia-stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--bia-primary) 0%, var(--bia-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.bia-stat-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.bia-stat-desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Hero Visual */
+.bia-hero-visual {
+  position: relative;
+}
+
+.bia-chart-container {
+  position: relative;
+}
+
+.bia-hero-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.bia-floating-chart {
+  position: absolute;
+  bottom: -40px;
+  right: -40px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.bia-floating-chart svg {
+  color: var(--bia-primary);
+}
+
+.bia-chart-bars {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 80px;
+}
+
+.bia-bar {
+  width: 16px;
+  background: linear-gradient(to top, var(--bia-primary), var(--bia-accent));
+  border-radius: 4px 4px 0 0;
+  animation: bia-bar-grow 1.5s ease-out forwards;
+  animation-delay: var(--delay);
+  height: 0;
+}
+
+@keyframes bia-bar-grow {
+  to {
+    height: var(--height);
+  }
+}
+
+/* ===================================
+   SERVICES SECTION
+   =================================== */
+
+.bia-services {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.bia-section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.bia-section-label {
+  display: inline-block;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
+  color: var(--bia-primary);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.bia-section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--bia-navy);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.bia-section-subtitle {
+  font-size: 1.125rem;
+  color: #64748b;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.bia-services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.bia-service-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.bia-service-card:hover {
+  border-color: var(--bia-primary);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
+  transform: translateY(-8px);
+}
+
+.bia-service-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.bia-service-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--bia-primary);
+}
+
+.bia-service-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--bia-navy);
+  margin-bottom: 12px;
+}
+
+.bia-service-description {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.bia-service-features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.bia-feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(16, 185, 129, 0.1);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: var(--bia-secondary);
+  font-weight: 500;
+}
+
+.bia-feature-tag svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===================================
+   CAPABILITIES SECTION
+   =================================== */
+
+.bia-capabilities {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+}
+
+.bia-capabilities-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.bia-capabilities-visual {
+  position: relative;
+}
+
+.bia-capabilities-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.bia-visual-overlay {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.bia-overlay-stat {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 20px 28px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+}
+
+.bia-overlay-stat svg {
+  color: var(--bia-primary);
+  margin-bottom: 8px;
+}
+
+.bia-overlay-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--bia-navy);
+}
+
+.bia-overlay-label {
+  font-size: 0.875rem;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.bia-capabilities-content {
+  color: var(--bia-navy);
+}
+
+.bia-capabilities-text {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: #64748b;
+  margin-bottom: 40px;
+}
+
+.bia-capabilities-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+}
+
+.bia-capability-card {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  padding: 24px;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+
+.bia-capability-card:hover {
+  border-color: var(--bia-primary);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+  transform: translateX(8px);
+}
+
+.bia-capability-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--cap-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.bia-cap-icon {
+  width: 24px;
+  height: 24px;
+  color: #ffffff;
+}
+
+.bia-capability-content {
+  flex: 1;
+}
+
+.bia-capability-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bia-navy);
+  margin-bottom: 8px;
+}
+
+.bia-capability-desc {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+/* ===================================
+   TECHNOLOGY STACK SECTION
+   =================================== */
+
+.bia-techstack {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.bia-techstack-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.bia-tech-category {
+  background: linear-gradient(135deg, #F9FAFB 0%, #ffffff 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 32px;
+  transition: all 0.3s ease;
+}
+
+.bia-tech-category:hover {
+  border-color: var(--bia-primary);
+  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+  transform: translateY(-5px);
+}
+
+.bia-tech-category-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--bia-navy);
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--bia-primary);
+}
+
+.bia-tech-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bia-tech-tool {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.bia-tech-tool svg {
+  color: var(--bia-primary);
+  flex-shrink: 0;
+}
+
+/* ===================================
+   INDUSTRIES SECTION
+   =================================== */
+
+.bia-industries {
+  padding: 120px 0;
+  background: linear-gradient(135deg, var(--bia-navy) 0%, #1e293b 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.bia-industries::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(16, 185, 129, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.bia-label-light {
+  background: rgba(16, 185, 129, 0.2);
+  color: var(--bia-light);
+}
+
+.bia-title-light {
+  color: #ffffff;
+}
+
+.bia-industries-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.bia-industry-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.bia-industry-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--bia-primary);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+}
+
+.bia-industry-name {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--bia-primary);
+}
+
+.bia-industry-apps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.bia-industry-app {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.bia-app-bullet {
+  width: 8px;
+  height: 8px;
+  background: var(--bia-primary);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ===================================
+   CASE STUDY SECTION
+   =================================== */
+
+.bia-case-study {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.bia-case-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.bia-case-image-wrapper {
+  position: relative;
+  position: sticky;
+  top: 120px;
+}
+
+.bia-case-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+.bia-case-badge {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.bia-case-badge svg {
+  color: var(--bia-primary);
+  flex-shrink: 0;
+}
+
+.bia-badge-company {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--bia-navy);
+  margin-bottom: 4px;
+}
+
+.bia-badge-industry {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.bia-case-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.bia-case-details {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.bia-case-block {
+  background: linear-gradient(135deg, #F9FAFB 0%, #ffffff 100%);
+  border-left: 4px solid var(--bia-primary);
+  border-radius: 12px;
+  padding: 32px;
+}
+
+.bia-case-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--bia-primary);
+  margin-bottom: 12px;
+}
+
+.bia-case-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #64748b;
+}
+
+.bia-case-results {
+  background: var(--bia-navy);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.bia-case-results-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.bia-case-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.bia-case-result {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.bia-case-result:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--bia-primary);
+  transform: scale(1.05);
+}
+
+.bia-result-metric {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--bia-primary) 0%, var(--bia-accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.bia-result-label {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.bia-result-desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ===================================
+   CTA SECTION
+   =================================== */
+
+.bia-cta {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+}
+
+.bia-cta-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bia-cta-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 32px;
+}
+
+.bia-cta-icon-wrapper svg {
+  color: var(--bia-primary);
+  position: relative;
+  z-index: 2;
+}
+
+.bia-cta-icon-glow {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: bia-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes bia-glow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.bia-cta-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--bia-navy);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.bia-cta-text {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #64748b;
+  margin-bottom: 40px;
+}
+
+.bia-btn-cta {
+  background: linear-gradient(135deg, var(--bia-primary) 0%, var(--bia-secondary) 100%);
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
+  padding: 20px 48px;
+  font-size: 1.125rem;
+}
+
+.bia-btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 25px 50px rgba(16, 185, 129, 0.4);
+}
+
+.bia-cta-features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.bia-cta-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.bia-cta-feature svg {
+  color: var(--bia-primary);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Large Tablets & Small Desktops (1279px and below) */
+@media (max-width: 1279px) {
+  .bia-container {
+    padding: 0 40px;
+  }
+
+  .bia-hero-title {
+    font-size: 3.5rem;
+  }
+
+  .bia-section-title {
+    font-size: 2.5rem;
+  }
+
+  .bia-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bia-techstack-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bia-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets (1023px and below) */
+@media (max-width: 1023px) {
+  .bia-hero {
+    min-height: auto;
+    padding: 80px 0 60px;
+  }
+
+  .bia-hero-layout,
+  .bia-capabilities-layout,
+  .bia-case-layout {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .bia-hero-visual {
+    order: -1;
+  }
+
+  .bia-floating-chart {
+    bottom: -30px;
+    right: -30px;
+    padding: 20px;
+  }
+
+  .bia-hero-title {
+    font-size: 3rem;
+  }
+
+  .bia-section-title {
+    font-size: 2.25rem;
+  }
+
+  .bia-services-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bia-industries-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bia-case-image-wrapper {
+    position: relative;
+    top: 0;
+  }
+
+  .bia-case-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .bia-cta-title {
+    font-size: 2.5rem;
+  }
+}
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+  .bia-container {
+    padding: 0 24px;
+  }
+
+  .bia-hero,
+  .bia-services,
+  .bia-capabilities,
+  .bia-techstack,
+  .bia-industries,
+  .bia-case-study,
+  .bia-cta {
+    padding: 80px 0;
+  }
+
+  .bia-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .bia-hero-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .bia-section-title {
+    font-size: 2rem;
+  }
+
+  .bia-section-subtitle {
+    font-size: 1rem;
+  }
+
+  .bia-hero-buttons {
+    flex-direction: column;
+  }
+
+  .bia-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .bia-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .bia-floating-chart {
+    position: static;
+    margin-top: 24px;
+  }
+
+  .bia-service-card,
+  .bia-tech-category,
+  .bia-industry-card {
+    padding: 28px;
+  }
+
+  .bia-techstack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bia-case-results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .bia-cta-title {
+    font-size: 2rem;
+  }
+
+  .bia-cta-text {
+    font-size: 1.125rem;
+  }
+
+  .bia-cta-features {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .bia-hero-title {
+    font-size: 2rem;
+  }
+
+  .bia-section-title {
+    font-size: 1.75rem;
+  }
+
+  .bia-stat-value {
+    font-size: 2rem;
+  }
+
+  .bia-service-title,
+  .bia-industry-name {
+    font-size: 1.25rem;
+  }
+
+  .bia-result-metric {
+    font-size: 2rem;
+  }
+
+  .bia-cta-title {
+    font-size: 1.75rem;
+  }
+
+  .bia-chart-bars {
+    gap: 6px;
+    height: 60px;
+  }
+
+  .bia-bar {
+    width: 12px;
+  }
 }

@@ -43,7 +43,7 @@ import Construction from './Industries/Construction';
 
 // Solutions Components - Matching your exact file names
 import DigitalMarketing from './Solutions/DigitalMarketing';
-import DesignAnimation from './Solutions/DesignAnimation';
+import AnimationGraphicDesign from './Solutions/AnimationGraphicDesign';
 import AISolutions from './Solutions/AISolutions';
 import AssetTracking from './Solutions/AssetTracking';
 import Biometrics from './Solutions/Biometrics';
@@ -103,7 +103,7 @@ function App() {
 
               {/* Solutions Routes */}
               <Route path="/solution/digital-marketing" element={<ScrollToTop><DigitalMarketing /></ScrollToTop>} />
-              <Route path="/solution/animation-graphic-design" element={<ScrollToTop><DesignAnimation /></ScrollToTop>} />
+              <Route path="/solution/animation-graphic-design" element={<ScrollToTop><AnimationGraphicDesign /></ScrollToTop>} />
               <Route path="/solution/artificial-intelligence" element={<ScrollToTop><AISolutions /></ScrollToTop>} />
               <Route path="/solution/asset-tracking" element={<ScrollToTop><AssetTracking /></ScrollToTop>} />
               <Route path="/solution/biometrics" element={<ScrollToTop><Biometrics /></ScrollToTop>} />

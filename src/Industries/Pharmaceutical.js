@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { Shield, Microscope, FileText, Database, Activity, Lock, CheckCircle2, Users2, Pill, Beaker, ClipboardList, Gauge } from 'lucide-react';
+import { Shield, Microscope, FileText, Database, Activity, Lock, CheckCircle2, Users2, Pill, Beaker, ClipboardList, Gauge, ArrowRight, Zap } from 'lucide-react';
 import './Pharmaceutical.css';
 
 const Pharmaceutical = () => {
@@ -95,33 +95,78 @@ const Pharmaceutical = () => {
     }
   ];
 
+  const heroStats = [
+    { value: '50+', label: 'FDA-Regulated Projects' },
+    { value: '15+', label: 'Years Expertise' },
+    { value: '100%', label: 'Audit Success' },
+    { value: '24/7', label: 'GxP Support' }
+  ];
+
   return (
     <div className="pharmaceutical-page">
-      {/* Hero Section */}
+      {/* New Hero Section - Split Layout with Stats */}
       <section className="pharma-hero">
-        <div className="pharma-hero-background">
-          <img
-            src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1200&q=80"
-            alt="Pharmaceutical laboratory with advanced equipment and research scientists"
-            className="pharma-hero-image"
-          />
-          <div className="pharma-hero-gradient"></div>
-        </div>
-        <div className="pharma-hero-container">
-          <div className="pharma-hero-badge">
-            <Pill className="badge-icon" />
-            <span>Life Sciences & Pharmaceutical IT</span>
+        <div className="pharma-hero-grid">
+          <div className="pharma-hero-content">
+            <div className="pharma-hero-badge">
+              <Pill className="badge-icon" />
+              <span>Life Sciences & Pharmaceutical IT</span>
+            </div>
+            <h1 className="pharma-hero-title">
+              Compliant Digital Solutions for
+              <span className="pharma-gradient-text"> Pharmaceutical Innovation</span>
+            </h1>
+            <p className="pharma-hero-subtitle">
+              FDA-validated systems, clinical trial platforms, and GMP-compliant manufacturing solutions
+              that accelerate drug development while ensuring regulatory excellence
+            </p>
+            <div className="pharma-hero-buttons">
+              <button className="pharma-btn-primary">
+                <span>Request Compliance Assessment</span>
+                <ArrowRight className="btn-icon" />
+              </button>
+              <button className="pharma-btn-outline">
+                <span>Explore Solutions</span>
+              </button>
+            </div>
+
+            {/* Hero Stats */}
+            <div className="pharma-hero-stats">
+              {heroStats.map((stat, index) => (
+                <div key={index} className="hero-stat-item">
+                  <div className="hero-stat-value">{stat.value}</div>
+                  <div className="hero-stat-label">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
-          <h1 className="pharma-hero-title">Compliant Digital Solutions for Pharmaceutical Innovation</h1>
-          <p className="pharma-hero-subtitle">
-            FDA-validated systems, clinical trial platforms, and GMP-compliant manufacturing solutions that accelerate drug development while ensuring regulatory excellence
-          </p>
-          <div className="pharma-hero-buttons">
-            <button className="pharma-btn-primary">
-              Request Compliance Assessment
-              <Shield className="btn-icon" />
-            </button>
-            <button className="pharma-btn-outline">Explore Solutions</button>
+
+          <div className="pharma-hero-visual">
+            <div className="hero-image-wrapper">
+              <img
+                src="https://images.unsplash.com/photo-1582719508461-905c673771fd?w=800&q=80"
+                alt="Pharmaceutical laboratory with advanced equipment and research scientists"
+                className="pharma-hero-image"
+              />
+              <div className="hero-image-overlay"></div>
+            </div>
+            {/* Floating Elements */}
+            <div className="hero-floating-elements">
+              <div className="floating-card floating-card-1">
+                <Shield size={24} />
+                <div className="floating-card-text">
+                  <div className="floating-card-title">FDA Validated</div>
+                  <div className="floating-card-desc">21 CFR Part 11</div>
+                </div>
+              </div>
+              <div className="floating-card floating-card-2">
+                <Zap size={24} />
+                <div className="floating-card-text">
+                  <div className="floating-card-title">40% Faster</div>
+                  <div className="floating-card-desc">Time to Market</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

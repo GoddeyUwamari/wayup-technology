@@ -1,18 +1,1047 @@
-.asset-management {
-  height: 40vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: linear-gradient(135deg, #2c3e50, #4ca1af);
-  color: #ffffff;
-  font-size: 2rem;
-  text-align: center;
-  padding: 20px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.25);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+/* ===================================
+   Digital Asset Management Page
+   Prefix: dam-
+   Theme: Orange/Amber Asset Management
+   =================================== */
+
+/* Root Variables */
+:root {
+  --dam-primary: #f97316;
+  --dam-secondary: #ea580c;
+  --dam-accent: #fb923c;
+  --dam-dark: #9a3412;
+  --dam-light: #fed7aa;
+  --dam-navy: #000048;
+  --dam-orange: #ef5a16;
 }
 
-.asset-management:hover {
+/* Container */
+.dam-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 60px;
+}
+
+/* ===================================
+   HERO SECTION
+   =================================== */
+
+.dam-hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #7c2d12 0%, #9a3412 50%, #7c2d12 100%);
+  overflow: hidden;
+  padding: 120px 0 80px;
+}
+
+.dam-hero-pattern {
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(251, 146, 60, 0.1) 0%, transparent 50%);
+}
+
+.dam-hero-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.dam-hero-content {
+  color: #ffffff;
+}
+
+.dam-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: rgba(249, 115, 22, 0.2);
+  border: 1px solid rgba(249, 115, 22, 0.4);
+  border-radius: 20px;
+  color: var(--dam-light);
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: 24px;
+}
+
+.dam-hero-title {
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.dam-hero-gradient {
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dam-hero-subtitle {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 40px;
+  max-width: 580px;
+}
+
+.dam-hero-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.dam-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dam-btn-primary {
+  background: linear-gradient(135deg, var(--dam-primary) 0%, var(--dam-secondary) 100%);
+  color: #ffffff;
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+}
+
+.dam-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 40px rgba(249, 115, 22, 0.5);
+}
+
+.dam-btn-outline {
+  background: transparent;
+  color: #ffffff;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.dam-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.5);
+}
+
+/* Hero Stats */
+.dam-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.dam-stat-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.dam-stat-card:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: var(--dam-primary);
   transform: translateY(-5px);
-  box-shadow: 0 12px 20px rgba(0,0,0,0.35);
+}
+
+.dam-stat-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.dam-stat-label {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.dam-stat-desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Asset Grid Visualization */
+.dam-hero-visual {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 500px;
+}
+
+.dam-asset-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.dam-grid-item {
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.3) 0%, rgba(251, 146, 60, 0.2) 100%);
+  border: 2px solid rgba(249, 115, 22, 0.5);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--dam-primary);
+  animation: dam-grid-float 3s ease-in-out infinite;
+  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.2);
+  transition: all 0.3s ease;
+}
+
+.dam-grid-item:hover {
+  transform: scale(1.05);
+  border-color: var(--dam-primary);
+  box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4);
+}
+
+.dam-item-1 { animation-delay: 0s; grid-column: 1; grid-row: 1; }
+.dam-item-2 { animation-delay: 0.2s; grid-column: 2; grid-row: 1; }
+.dam-item-3 { animation-delay: 0.4s; grid-column: 3; grid-row: 1; }
+.dam-item-4 { animation-delay: 0.6s; grid-column: 1 / 3; grid-row: 2; }
+.dam-item-5 { animation-delay: 0.8s; grid-column: 3; grid-row: 2; }
+.dam-item-6 { animation-delay: 1s; grid-column: 1; grid-row: 3; }
+
+@keyframes dam-grid-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ===================================
+   FEATURES SECTION
+   =================================== */
+
+.dam-features {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.dam-section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.dam-section-label {
+  display: inline-block;
+  padding: 8px 20px;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(251, 146, 60, 0.1) 100%);
+  color: var(--dam-primary);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.dam-section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--dam-navy);
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.dam-section-subtitle {
+  font-size: 1.125rem;
+  color: #64748b;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.dam-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.dam-feature-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.dam-feature-card:hover {
+  border-color: var(--dam-primary);
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
+  transform: translateY(-8px);
+}
+
+.dam-feature-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: var(--feature-color);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.dam-feature-icon {
+  width: 32px;
+  height: 32px;
+  color: #ffffff;
+}
+
+.dam-feature-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dam-navy);
+  margin-bottom: 12px;
+}
+
+.dam-feature-description {
+  font-size: 1rem;
+  color: #64748b;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.dam-feature-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dam-feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(249, 115, 22, 0.1);
+  border-radius: 20px;
+  font-size: 0.875rem;
+  color: var(--dam-primary);
+  font-weight: 500;
+}
+
+.dam-feature-tag svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ===================================
+   ASSET TYPES SECTION
+   =================================== */
+
+.dam-types {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+}
+
+.dam-types-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.dam-type-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 32px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.dam-type-card:hover {
+  border-color: var(--dam-primary);
+  box-shadow: 0 15px 35px rgba(249, 115, 22, 0.1);
+  transform: translateY(-8px);
+}
+
+.dam-type-icon-bg {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(251, 146, 60, 0.1) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+}
+
+.dam-type-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--dam-primary);
+}
+
+.dam-type-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dam-navy);
+  margin-bottom: 12px;
+}
+
+.dam-type-desc {
+  font-size: 0.95rem;
+  color: #64748b;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.dam-type-formats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+}
+
+.dam-format-badge {
+  padding: 6px 12px;
+  background: rgba(249, 115, 22, 0.08);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: var(--dam-primary);
+  font-weight: 600;
+}
+
+/* ===================================
+   CAPABILITIES SECTION
+   =================================== */
+
+.dam-capabilities {
+  padding: 120px 0;
+  background: linear-gradient(135deg, var(--dam-navy) 0%, #1e3a8a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.dam-capabilities::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(249, 115, 22, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(249, 115, 22, 0.05) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+.dam-label-light {
+  background: rgba(249, 115, 22, 0.2);
+  color: var(--dam-light);
+}
+
+.dam-title-light {
+  color: #ffffff;
+}
+
+.dam-capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  position: relative;
+  z-index: 1;
+}
+
+.dam-capability-card {
+  display: flex;
+  gap: 24px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.dam-capability-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--dam-primary);
+  transform: translateX(10px);
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.3);
+}
+
+.dam-capability-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--dam-primary) 0%, var(--dam-secondary) 100%);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.dam-cap-icon {
+  width: 32px;
+  height: 32px;
+  color: #ffffff;
+}
+
+.dam-capability-content {
+  flex: 1;
+}
+
+.dam-capability-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.dam-capability-description {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.dam-capability-metric {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.dam-metric-value {
+  font-size: 2rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.dam-metric-label {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 600;
+}
+
+/* ===================================
+   USE CASES SECTION
+   =================================== */
+
+.dam-usecases {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.dam-usecases-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.dam-usecase-card {
+  background: linear-gradient(135deg, #F9FAFB 0%, #ffffff 100%);
+  border: 1px solid #e5e7eb;
+  border-radius: 20px;
+  padding: 40px;
+  transition: all 0.3s ease;
+}
+
+.dam-usecase-card:hover {
+  border-color: var(--dam-primary);
+  box-shadow: 0 15px 35px rgba(249, 115, 22, 0.1);
+  transform: translateY(-5px);
+}
+
+.dam-usecase-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--dam-primary);
+}
+
+.dam-usecase-header svg {
+  color: var(--dam-primary);
+}
+
+.dam-usecase-industry {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--dam-navy);
+}
+
+.dam-usecase-apps {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dam-usecase-app {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: #64748b;
+}
+
+.dam-usecase-app svg {
+  color: var(--dam-primary);
+  flex-shrink: 0;
+}
+
+/* ===================================
+   CASE STUDY SECTION
+   =================================== */
+
+.dam-case-study {
+  padding: 120px 0;
+  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+}
+
+.dam-case-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.dam-case-image-section {
+  position: relative;
+  position: sticky;
+  top: 120px;
+}
+
+.dam-case-image {
+  width: 100%;
+  height: auto;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.dam-case-overlay {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dam-case-overlay svg {
+  color: var(--dam-primary);
+  flex-shrink: 0;
+}
+
+.dam-case-company {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--dam-navy);
+  margin-bottom: 4px;
+}
+
+.dam-case-industry {
+  font-size: 0.875rem;
+  color: #64748b;
+}
+
+.dam-case-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.dam-case-details {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dam-case-block {
+  background: #ffffff;
+  border-left: 4px solid var(--dam-primary);
+  border-radius: 12px;
+  padding: 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.dam-case-label {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--dam-primary);
+  margin-bottom: 12px;
+}
+
+.dam-case-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: #64748b;
+}
+
+.dam-case-results {
+  background: linear-gradient(135deg, var(--dam-primary) 0%, var(--dam-secondary) 100%);
+  border-radius: 20px;
+  padding: 40px;
+}
+
+.dam-case-results-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 32px;
+  text-align: center;
+}
+
+.dam-case-results-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+.dam-case-result {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.dam-case-result:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.05);
+}
+
+.dam-result-metric {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.dam-result-label {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 4px;
+}
+
+.dam-result-desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* ===================================
+   CTA SECTION
+   =================================== */
+
+.dam-cta {
+  padding: 120px 0;
+  background: #ffffff;
+}
+
+.dam-cta-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.dam-cta-icon-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 120px;
+  height: 120px;
+  margin-bottom: 32px;
+}
+
+.dam-cta-icon-wrapper svg {
+  color: var(--dam-primary);
+  position: relative;
+  z-index: 2;
+}
+
+.dam-cta-glow {
+  position: absolute;
+  inset: -20px;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: dam-glow-pulse 2s ease-in-out infinite;
+}
+
+@keyframes dam-glow-pulse {
+  0%, 100% { transform: scale(1); opacity: 0.5; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+.dam-cta-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--dam-navy);
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+.dam-cta-text {
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: #64748b;
+  margin-bottom: 40px;
+}
+
+.dam-btn-cta {
+  background: linear-gradient(135deg, var(--dam-primary) 0%, var(--dam-secondary) 100%);
+  color: #ffffff;
+  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.3);
+  padding: 20px 48px;
+  font-size: 1.125rem;
+}
+
+.dam-btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 25px 50px rgba(249, 115, 22, 0.4);
+}
+
+.dam-cta-features {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.dam-cta-feature {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.dam-cta-feature svg {
+  color: var(--dam-primary);
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+/* Large Tablets & Small Desktops (1279px and below) */
+@media (max-width: 1279px) {
+  .dam-container {
+    padding: 0 40px;
+  }
+
+  .dam-hero-title {
+    font-size: 3.5rem;
+  }
+
+  .dam-section-title {
+    font-size: 2.5rem;
+  }
+
+  .dam-features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dam-types-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dam-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Tablets (1023px and below) */
+@media (max-width: 1023px) {
+  .dam-hero {
+    min-height: auto;
+    padding: 80px 0 60px;
+  }
+
+  .dam-hero-layout,
+  .dam-case-layout {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .dam-hero-visual {
+    order: -1;
+    min-height: 400px;
+  }
+
+  .dam-hero-title {
+    font-size: 3rem;
+  }
+
+  .dam-section-title {
+    font-size: 2.25rem;
+  }
+
+  .dam-features-grid,
+  .dam-usecases-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dam-capabilities-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dam-case-image-section {
+    position: relative;
+    top: 0;
+  }
+
+  .dam-case-results-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dam-cta-title {
+    font-size: 2.5rem;
+  }
+
+  .dam-asset-grid {
+    max-width: 400px;
+  }
+}
+
+/* Mobile (767px and below) */
+@media (max-width: 767px) {
+  .dam-container {
+    padding: 0 24px;
+  }
+
+  .dam-hero,
+  .dam-features,
+  .dam-types,
+  .dam-capabilities,
+  .dam-usecases,
+  .dam-case-study,
+  .dam-cta {
+    padding: 80px 0;
+  }
+
+  .dam-hero-title {
+    font-size: 2.5rem;
+  }
+
+  .dam-hero-subtitle {
+    font-size: 1.125rem;
+  }
+
+  .dam-section-title {
+    font-size: 2rem;
+  }
+
+  .dam-section-subtitle {
+    font-size: 1rem;
+  }
+
+  .dam-hero-buttons {
+    flex-direction: column;
+  }
+
+  .dam-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .dam-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .dam-types-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dam-feature-card,
+  .dam-type-card,
+  .dam-usecase-card {
+    padding: 28px;
+  }
+
+  .dam-case-results-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dam-cta-title {
+    font-size: 2rem;
+  }
+
+  .dam-cta-text {
+    font-size: 1.125rem;
+  }
+
+  .dam-cta-features {
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .dam-asset-grid {
+    max-width: 300px;
+    gap: 12px;
+  }
+}
+
+/* Small Mobile (480px and below) */
+@media (max-width: 480px) {
+  .dam-hero-title {
+    font-size: 2rem;
+  }
+
+  .dam-section-title {
+    font-size: 1.75rem;
+  }
+
+  .dam-stat-value {
+    font-size: 2rem;
+  }
+
+  .dam-feature-title,
+  .dam-type-name,
+  .dam-usecase-industry {
+    font-size: 1.25rem;
+  }
+
+  .dam-result-metric {
+    font-size: 2rem;
+  }
+
+  .dam-cta-title {
+    font-size: 1.75rem;
+  }
+
+  .dam-asset-grid {
+    max-width: 250px;
+    gap: 10px;
+  }
+
+  .dam-grid-item svg {
+    width: 24px;
+    height: 24px;
+  }
 }
