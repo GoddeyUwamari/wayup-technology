@@ -1,97 +1,182 @@
-import React from 'react';
-import { 
+import { useEffect } from 'react';
+import {
   Lightbulb,
-  Zap,
-  Cog,
   Rocket,
+  Code,
+  Layers,
   Users,
   Target,
-  Shield,
-  TrendingUp,
   CheckCircle,
   ArrowRight,
-  Layers,
-  Settings
+  Zap,
+  Award,
+  TrendingUp,
+  Wrench,
+  Package,
+  Cpu,
+  ShieldCheck,
+  LineChart
 } from 'lucide-react';
 import './CustomProductDevelopment.css';
 import Checkout from '../components/Checkout';
 
 const CustomProductDevelopment = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const heroStats = [
+    { value: '200+', label: 'Products Launched', icon: <Rocket /> },
+    { value: '95%', label: 'Success Rate', icon: <Target /> },
+    { value: '$50M+', label: 'Revenue Generated', icon: <TrendingUp /> },
+    { value: '50+', label: 'Industries Served', icon: <Award /> }
+  ];
+
+  const solutions = [
+    {
+      icon: <Lightbulb />,
+      title: 'Product Strategy',
+      description: 'Strategic product roadmapping, market validation, competitive analysis, and business model development for sustainable growth.',
+      features: ['Market Research', 'Product Roadmap', 'Business Model Canvas']
+    },
+    {
+      icon: <Code />,
+      title: 'Full-Stack Development',
+      description: 'End-to-end custom software development using modern frameworks, cloud architecture, and scalable infrastructure.',
+      features: ['React/Node.js', 'Cloud Native', 'Microservices']
+    },
+    {
+      icon: <Layers />,
+      title: 'UX/UI Design',
+      description: 'User-centered design process creating intuitive, beautiful interfaces that drive engagement and conversion.',
+      features: ['User Research', 'Prototyping', 'Design Systems']
+    },
+    {
+      icon: <Cpu />,
+      title: 'AI & Machine Learning',
+      description: 'Integrate cutting-edge AI/ML capabilities to automate processes, predict outcomes, and enhance user experiences.',
+      features: ['Predictive Analytics', 'NLP Integration', 'Computer Vision']
+    },
+    {
+      icon: <ShieldCheck />,
+      title: 'Quality Assurance',
+      description: 'Comprehensive testing strategies ensuring reliability, security, and performance across all platforms.',
+      features: ['Automated Testing', 'Security Audits', 'Performance Testing']
+    },
+    {
+      icon: <Package />,
+      title: 'Launch & Scale',
+      description: 'Go-to-market strategy, deployment automation, monitoring, and continuous improvement for long-term success.',
+      features: ['DevOps Pipeline', 'Analytics Setup', 'Growth Strategy']
+    }
+  ];
+
+  const industries = [
+    { name: 'SaaS Platforms', icon: '☁️', projects: '75+' },
+    { name: 'E-commerce', icon: '🛒', projects: '50+' },
+    { name: 'HealthTech', icon: '⚕️', projects: '35+' },
+    { name: 'FinTech', icon: '💰', projects: '40+' },
+    { name: 'EdTech', icon: '📚', projects: '30+' },
+    { name: 'IoT Solutions', icon: '🔌', projects: '25+' }
+  ];
+
+  const methodologies = [
+    {
+      phase: 'Phase 1',
+      title: 'Discovery & Research',
+      duration: '2-3 weeks',
+      activities: ['Stakeholder workshops', 'Market analysis', 'User research', 'Technical feasibility']
+    },
+    {
+      phase: 'Phase 2',
+      title: 'Design & Prototyping',
+      duration: '3-4 weeks',
+      activities: ['Architecture design', 'UI/UX prototypes', 'Technology stack', 'MVP definition']
+    },
+    {
+      phase: 'Phase 3',
+      title: 'Development & Testing',
+      duration: '12-20 weeks',
+      activities: ['Agile development', 'Continuous integration', 'QA testing', 'Security review']
+    },
+    {
+      phase: 'Phase 4',
+      title: 'Launch & Growth',
+      duration: 'Ongoing',
+      activities: ['Production deployment', 'User onboarding', 'Performance optimization', 'Feature iteration']
+    }
+  ];
+
+  const technologies = [
+    'React', 'Node.js', 'Python', 'AWS',
+    'Docker', 'Kubernetes', 'MongoDB', 'PostgreSQL',
+    'GraphQL', 'TensorFlow', 'Stripe', 'Twilio'
+  ];
+
   return (
-    <>
-      {/* Hero Section */}
-      <section 
-        className="custom-product-hero-section"
-        style={{backgroundImage: 'url(/images/iphoto3.png)'}}
-      >
-        <div className="custom-product-container">
-          <h1 className="custom-product-hero-title">Custom Product Development</h1>
-          <p className="custom-product-hero-description">
-            From concept to market launch, we build innovative custom products that solve real-world problems. 
-            Our end-to-end development process ensures your vision becomes a successful, scalable product.
-          </p>
-        </div>
-      </section>
-
-      {/* Product Strategy & Innovation Section */}
-      <section className="custom-product-development-section">
-        <div className="custom-product-container">
-          <div className="custom-product-section-header">
-            <h2>Product Strategy & Innovation</h2>
-            <p>Transform your ideas into market-ready products through strategic planning, market validation, and innovative design thinking methodologies.</p>
-          </div>
-
-          <div className="custom-product-content-row">
-            <div className="custom-product-image-column">
-              <img 
-                src="/images/top.png" 
-                alt="Product Strategy & Innovation" 
-                className="custom-product-section-image" 
-              />
+    <div className="custom-product-page">
+      {/* Hero Section - Split Grid Layout */}
+      <section className="custom-product-hero">
+        <div className="custom-product-hero-grid">
+          <div className="custom-product-hero-content">
+            <div className="cp-hero-badge">
+              <Package size={18} />
+              <span>End-to-End Product Development</span>
+            </div>
+            <h1 className="custom-product-hero-title">
+              Build Products That
+              <span className="custom-product-gradient-text"> Scale & Succeed</span>
+            </h1>
+            <p className="custom-product-hero-desc">
+              From MVP to market leader—we design, develop, and launch custom products that solve real problems,
+              delight users, and drive business growth. Full ownership from concept to continuous improvement.
+            </p>
+            <div className="cp-hero-actions">
+              <button className="custom-product-btn-primary">
+                <span>Start Your Project</span>
+                <ArrowRight className="btn-arrow" />
+              </button>
+              <button className="custom-product-btn-secondary">
+                <LineChart className="btn-icon-left" />
+                <span>See Case Studies</span>
+              </button>
             </div>
 
-            <div className="custom-product-text-column">
-              {/* Ideation & Concept Development */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <Lightbulb />
+            {/* Hero Stats Grid */}
+            <div className="cp-hero-stats-grid">
+              {heroStats.map((stat, index) => (
+                <div key={index} className="cp-hero-stat-card">
+                  <div className="cp-stat-icon">{stat.icon}</div>
+                  <div className="cp-stat-value">{stat.value}</div>
+                  <div className="cp-stat-label">{stat.label}</div>
                 </div>
-                <div className="custom-product-feature-content">
-                  <h3>Ideation & Concept Development</h3>
-                  <p>Systematic approach to idea generation, concept validation, and feasibility analysis to ensure your product meets market demands and user needs.</p>
+              ))}
+            </div>
+          </div>
+
+          <div className="custom-product-hero-visual">
+            <div className="cp-hero-image-container">
+              <img
+                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
+                alt="Custom product development workspace with innovative solutions"
+                className="custom-product-hero-img"
+              />
+              <div className="cp-hero-image-gradient"></div>
+            </div>
+            {/* Floating Metric Cards */}
+            <div className="cp-hero-floating-metrics">
+              <div className="cp-floating-metric cp-floating-metric-1">
+                <Zap size={20} />
+                <div>
+                  <div className="cp-metric-value">6x</div>
+                  <div className="cp-metric-label">Faster to Market</div>
                 </div>
               </div>
-
-              {/* Market Research & Validation */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <Target />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>Market Research & Validation</h3>
-                  <p>Comprehensive market analysis, competitor research, and user validation to minimize risks and maximize product-market fit potential.</p>
-                </div>
-              </div>
-
-              {/* User Experience Design */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <Users />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>User Experience Design</h3>
-                  <p>User-centered design approach with prototyping, usability testing, and iterative design to create intuitive and engaging product experiences.</p>
-                </div>
-              </div>
-
-              {/* Product Roadmap Planning */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <TrendingUp />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>Product Roadmap Planning</h3>
-                  <p>Strategic roadmap development with clear milestones, feature prioritization, and timeline planning for successful product evolution.</p>
+              <div className="cp-floating-metric cp-floating-metric-2">
+                <Users size={20} />
+                <div>
+                  <div className="cp-metric-value">100K+</div>
+                  <div className="cp-metric-label">Active Users</div>
                 </div>
               </div>
             </div>
@@ -99,132 +184,182 @@ const CustomProductDevelopment = () => {
         </div>
       </section>
 
-      {/* Full-Stack Development & Engineering Section */}
-      <section className="custom-product-development-section custom-product-alternate">
+      {/* Industries Served */}
+      <section className="custom-product-industries">
         <div className="custom-product-container">
-          <div className="custom-product-section-header">
-            <h2>Full-Stack Development & Engineering</h2>
-            <p>Build robust, scalable products with cutting-edge technologies and engineering best practices that ensure performance, security, and maintainability.</p>
+          <div className="cp-industries-header">
+            <span className="cp-section-label">Our Expertise</span>
+            <h3 className="cp-industries-title">Products Built Across Industries</h3>
           </div>
+          <div className="cp-industries-grid">
+            {industries.map((industry, index) => (
+              <div key={index} className="cp-industry-card">
+                <div className="cp-industry-icon">{industry.icon}</div>
+                <div className="cp-industry-name">{industry.name}</div>
+                <div className="cp-industry-projects">{industry.projects} Products</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-          <div className="custom-product-content-row">
-            <div className="custom-product-image-column">
-              <img 
-                src="/images/hero.png" 
-                alt="Full-Stack Development & Engineering" 
-                className="custom-product-section-image" 
-              />
+      {/* Solutions Grid */}
+      <section className="custom-product-solutions">
+        <div className="custom-product-container">
+          <div className="cp-solutions-header">
+            <span className="cp-section-label">What We Do</span>
+            <h2 className="custom-product-section-title">
+              Complete Product Development Services
+            </h2>
+            <p className="custom-product-section-subtitle">
+              Everything you need to bring your product vision to life and beyond
+            </p>
+          </div>
+          <div className="cp-solutions-grid">
+            {solutions.map((solution, index) => (
+              <div key={index} className="cp-solution-card">
+                <div className="cp-solution-card-header">
+                  <div className="cp-solution-icon-wrapper">{solution.icon}</div>
+                  <h3>{solution.title}</h3>
+                </div>
+                <p className="cp-solution-description">{solution.description}</p>
+                <ul className="cp-solution-features">
+                  {solution.features.map((feature, fIndex) => (
+                    <li key={fIndex}>
+                      <CheckCircle className="cp-feature-check" />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Case Study */}
+      <section className="custom-product-case-study">
+        <div className="cp-case-study-container">
+          <div className="cp-case-study-content">
+            <div className="cp-case-study-badge">CLIENT SUCCESS</div>
+            <h2 className="cp-case-study-title">
+              PropertyHub: SaaS Platform Serving 50K+ Real Estate Professionals
+            </h2>
+            <div className="cp-case-study-body">
+              <div className="cp-case-study-challenge">
+                <h4>
+                  <Target className="cp-section-icon" />
+                  The Challenge
+                </h4>
+                <p>
+                  A real estate startup needed a comprehensive property management SaaS platform to compete
+                  in a crowded market. Required multi-tenant architecture, real-time collaboration, payment
+                  processing, and mobile apps—all within a 6-month timeline and limited budget.
+                </p>
+              </div>
+              <div className="cp-case-study-solution">
+                <h4>
+                  <Rocket className="cp-section-icon" />
+                  Our Solution
+                </h4>
+                <p>
+                  Delivered a cloud-native platform using React, Node.js, and AWS with real-time WebSocket
+                  communication, Stripe integration, automated workflows, and native mobile apps. Implemented
+                  CI/CD pipeline for continuous delivery and scalable infrastructure handling 10K+ concurrent users.
+                </p>
+              </div>
             </div>
-
-            <div className="custom-product-text-column">
-              {/* Frontend Development */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <Cog />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>Frontend Development</h3>
-                  <p>Modern, responsive user interfaces using React, Vue.js, or Angular with optimized performance and cross-platform compatibility.</p>
-                </div>
+            <div className="cp-case-study-results">
+              <div className="cp-result-card">
+                <div className="cp-result-value">50K+</div>
+                <div className="cp-result-label">Active Users</div>
               </div>
-
-              {/* Backend Architecture */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <Settings />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>Backend Architecture</h3>
-                  <p>Scalable server-side solutions with microservices architecture, API development, and database design for enterprise-grade performance.</p>
-                </div>
+              <div className="cp-result-card">
+                <div className="cp-result-value">$8M</div>
+                <div className="cp-result-label">ARR Achieved</div>
               </div>
-
-              {/* Security & Compliance */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <Shield />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>Security & Compliance</h3>
-                  <p>Enterprise-level security implementation with data encryption, secure authentication, and compliance with industry standards and regulations.</p>
-                </div>
+              <div className="cp-result-card">
+                <div className="cp-result-value">99.9%</div>
+                <div className="cp-result-label">Uptime SLA</div>
               </div>
-
-              {/* Cloud Integration */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <Layers />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>Cloud Integration</h3>
-                  <p>Cloud-native development with AWS, Azure, or Google Cloud integration for scalability, reliability, and cost-effective operations.</p>
-                </div>
+              <div className="cp-result-card">
+                <div className="cp-result-value">5 mo</div>
+                <div className="cp-result-label">Time to Launch</div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Launch & Growth Optimization Section */}
-      <section className="custom-product-development-section">
+      {/* Development Methodology */}
+      <section className="custom-product-methodology">
         <div className="custom-product-container">
-          <div className="custom-product-section-header">
-            <h2>Launch & Growth Optimization</h2>
-            <p>Successfully bring your product to market with comprehensive launch strategies, performance monitoring, and continuous optimization for sustained growth.</p>
+          <div className="cp-methodology-header">
+            <span className="cp-section-label">Our Approach</span>
+            <h2 className="custom-product-section-title">Agile Product Development Process</h2>
+            <p className="custom-product-section-subtitle">
+              Proven methodology delivering exceptional products on time and within budget
+            </p>
           </div>
-
-          <div className="custom-product-content-row">
-            <div className="custom-product-image-column">
-             <img 
-                src="/images/dphoto0.png" 
-                alt="Launch & Growth Optimization" 
-                className="custom-product-section-image" 
-              />
-            </div>
-
-            <div className="custom-product-text-column">
-              {/* Go-to-Market Strategy */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <Rocket />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>Go-to-Market Strategy</h3>
-                  <p>Comprehensive launch planning including market positioning, pricing strategy, distribution channels, and marketing campaign development.</p>
+          <div className="cp-methodology-timeline">
+            {methodologies.map((method, index) => (
+              <div key={index} className="cp-methodology-step">
+                <div className="cp-step-number">{method.phase}</div>
+                <div className="cp-step-content">
+                  <h3>{method.title}</h3>
+                  <div className="cp-step-duration">{method.duration}</div>
+                  <ul className="cp-step-activities">
+                    {method.activities.map((activity, aIndex) => (
+                      <li key={aIndex}>
+                        <CheckCircle size={16} />
+                        <span>{activity}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-              {/* Performance Monitoring */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <Zap />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>Performance Monitoring</h3>
-                  <p>Real-time analytics, user behavior tracking, and performance metrics to optimize product functionality and user engagement.</p>
-                </div>
+      {/* Technologies Section */}
+      <section className="custom-product-technologies">
+        <div className="custom-product-container">
+          <h3 className="cp-tech-title">Technologies & Platforms We Use</h3>
+          <div className="cp-tech-grid">
+            {technologies.map((tech, index) => (
+              <div key={index} className="cp-tech-badge">{tech}</div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="custom-product-cta">
+        <div className="custom-product-container">
+          <div className="cp-cta-content">
+            <h2>Ready to Build Your Next Great Product?</h2>
+            <p>
+              Let's transform your vision into a successful product that users love and investors fund.
+              Schedule a free consultation to discuss your project requirements and goals.
+            </p>
+            <button className="custom-product-btn-cta">
+              <span>Get Free Consultation</span>
+              <ArrowRight size={20} />
+            </button>
+            <div className="cp-cta-features">
+              <div className="cp-cta-feature">
+                <CheckCircle size={18} />
+                <span>Free Product Strategy Session</span>
               </div>
-
-              {/* Quality Assurance */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <CheckCircle />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>Quality Assurance</h3>
-                  <p>Comprehensive testing strategies including automated testing, load testing, and user acceptance testing to ensure product reliability.</p>
-                </div>
+              <div className="cp-cta-feature">
+                <CheckCircle size={18} />
+                <span>Custom Development Plan</span>
               </div>
-
-              {/* Continuous Improvement */}
-              <div className="custom-product-feature-item">
-                <div className="custom-product-feature-icon">
-                  <ArrowRight />
-                </div>
-                <div className="custom-product-feature-content">
-                  <h3>Continuous Improvement</h3>
-                  <p>Ongoing optimization based on user feedback, market trends, and performance data to ensure long-term product success and growth.</p>
-                </div>
+              <div className="cp-cta-feature">
+                <CheckCircle size={18} />
+                <span>Transparent Pricing</span>
               </div>
             </div>
           </div>
@@ -233,7 +368,7 @@ const CustomProductDevelopment = () => {
 
       {/* Checkout */}
       <Checkout />
-    </>
+    </div>
   );
 };
 

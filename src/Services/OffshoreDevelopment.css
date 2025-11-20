@@ -1,424 +1,1232 @@
-/* Offshore Development Page Styles */
+/* Offshore Development Page - WayUP Brand Colors & Industrial Accents */
 
-/* Hero Section */
-.offshore-development-hero-section {
-  background: linear-gradient(135deg, #101f61 0%, #5d0eac 100%);
-  padding: 120px 20px;
-  text-align: center;
-  color: white;
+:root {
+  /* WayUP Brand Colors */
+  --offshore-navy: #000048;
+  --offshore-navy-light: #1a1a70;
+  --offshore-orange: #ef5a16;
+  --offshore-orange-light: #ff7635;
+
+  /* Industrial Accent Colors */
+  --offshore-steel: #4A5568;
+  --offshore-gray: #2D3748;
+  --offshore-light-gray: #E2E8F0;
+  --offshore-white: #FFFFFF;
+  --offshore-dark: #0F172A;
+}
+
+/* Reset & Base */
+.offshore-development-page * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.offshore-development-page {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  color: var(--offshore-dark);
+  overflow-x: hidden;
+  background: var(--offshore-white);
+}
+
+/* ===== HERO SECTION - Asymmetric Layout ===== */
+.offshore-hero {
+  background: linear-gradient(135deg, var(--offshore-navy) 0%, var(--offshore-navy-light) 100%);
+  padding: 100px 0 80px;
   position: relative;
   overflow: hidden;
 }
 
-.offshore-development-hero-section::before {
+.offshore-hero::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(239, 90, 22, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.offshore-hero-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.offshore-hero-content {
+  animation: slideInLeft 0.8s ease-out;
+}
+
+.offshore-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(239, 90, 22, 0.15);
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  padding: 10px 20px;
+  border-radius: 30px;
+  color: var(--offshore-orange-light);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.offshore-hero-title {
+  font-size: 3.8rem;
+  font-weight: 900;
+  color: var(--offshore-white);
+  line-height: 1.1;
+  margin-bottom: 24px;
+  letter-spacing: -0.03em;
+}
+
+.offshore-gradient-text {
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+}
+
+.offshore-hero-desc {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 32px;
+  max-width: 600px;
+}
+
+/* Hero Benefits Row */
+.offshore-hero-benefits {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+}
+
+.offshore-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--offshore-white);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.offshore-benefit-item svg {
+  color: var(--offshore-orange);
+  flex-shrink: 0;
+}
+
+/* Hero Actions */
+.offshore-hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.offshore-btn-primary {
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
+  color: var(--offshore-white);
+  padding: 16px 32px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px rgba(239, 90, 22, 0.3);
+}
+
+.offshore-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(239, 90, 22, 0.4);
+}
+
+.offshore-btn-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--offshore-white);
+  padding: 16px 32px;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.offshore-btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: var(--offshore-orange);
+  transform: translateY(-2px);
+}
+
+/* Hero Stats - Compact Horizontal Grid */
+.offshore-hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.offshore-stat-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.offshore-stat-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--offshore-orange);
+  transform: translateY(-2px);
+}
+
+.offshore-stat-icon {
+  color: var(--offshore-orange);
+  flex-shrink: 0;
+}
+
+.offshore-stat-content {
+  flex: 1;
+}
+
+.offshore-stat-value {
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--offshore-white);
+  margin-bottom: 2px;
+}
+
+.offshore-stat-label {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+/* Hero Visual - Diagonal Overlay */
+.offshore-hero-visual {
+  position: relative;
+  animation: slideInRight 0.8s ease-out;
+}
+
+.offshore-hero-image-wrap {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+}
+
+.offshore-hero-img {
+  width: 100%;
+  height: 550px;
+  object-fit: cover;
+  display: block;
+}
+
+.offshore-diagonal-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg,
+    rgba(0, 0, 72, 0.7) 0%,
+    rgba(239, 90, 22, 0.3) 100%);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0 85%);
+}
+
+/* Floating Location Badge */
+.offshore-location-badge {
+  position: absolute;
+  bottom: -20px;
+  right: 40px;
+  background: var(--offshore-white);
+  padding: 20px 24px;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: floatBadge 3s ease-in-out infinite;
+}
+
+.offshore-location-badge svg {
+  color: var(--offshore-orange);
+}
+
+.location-count {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--offshore-navy);
+}
+
+.location-label {
+  font-size: 0.8rem;
+  color: var(--offshore-steel);
+  font-weight: 600;
+}
+
+/* ===== ADVANTAGES SECTION - Alternating Colors ===== */
+.offshore-advantages {
+  padding: 100px 40px;
+  background: var(--offshore-white);
+}
+
+.offshore-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.offshore-section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.offshore-label {
+  display: inline-block;
+  color: var(--offshore-orange);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.offshore-section-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--offshore-navy);
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.offshore-section-subtitle {
+  font-size: 1.2rem;
+  color: var(--offshore-steel);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+.offshore-advantages-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.offshore-advantage-card {
+  padding: 40px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.offshore-advantage-card.navy {
+  background: var(--offshore-navy);
+  color: var(--offshore-white);
+}
+
+.offshore-advantage-card.orange {
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
+  color: var(--offshore-white);
+}
+
+.offshore-advantage-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.offshore-advantage-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 150px;
+  height: 150px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 50%;
+  transform: translate(50%, -50%);
+}
+
+.advantage-icon-wrapper {
+  width: 64px;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.offshore-advantage-card:hover .advantage-icon-wrapper {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.1);
+}
+
+.advantage-icon-wrapper svg {
+  width: 32px;
+  height: 32px;
+}
+
+.offshore-advantage-card h3 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.offshore-advantage-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  opacity: 0.9;
+  margin-bottom: 20px;
+}
+
+.advantage-metric {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  backdrop-filter: blur(10px);
+}
+
+/* ===== SERVICES SECTION ===== */
+.offshore-services {
+  padding: 100px 40px;
+  background: linear-gradient(180deg, #F8FAFC 0%, var(--offshore-white) 100%);
+}
+
+.offshore-services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.offshore-service-card {
+  background: var(--offshore-white);
+  padding: 36px;
+  border-radius: 20px;
+  border: 2px solid var(--offshore-light-gray);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.offshore-service-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--offshore-navy) 0%, var(--offshore-orange) 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+  border-radius: 20px 20px 0 0;
+}
+
+.offshore-service-card:hover {
+  border-color: var(--offshore-orange);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.offshore-service-card:hover::before {
+  transform: scaleX(1);
+}
+
+.service-icon {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(135deg, var(--offshore-navy) 0%, var(--offshore-navy-light) 100%);
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--offshore-white);
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.offshore-service-card:hover .service-icon {
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
+  transform: rotate(5deg) scale(1.1);
+}
+
+.service-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.offshore-service-card h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--offshore-navy);
+  margin-bottom: 12px;
+}
+
+.offshore-service-card p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--offshore-steel);
+  margin-bottom: 20px;
+}
+
+.service-link {
+  background: none;
+  border: none;
+  color: var(--offshore-orange);
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.service-link:hover {
+  gap: 10px;
+  color: var(--offshore-navy);
+}
+
+/* ===== LOCATIONS SECTION ===== */
+.offshore-locations {
+  padding: 100px 40px;
+  background: var(--offshore-navy);
+  position: relative;
+  overflow: hidden;
+}
+
+.offshore-locations::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: radial-gradient(circle at 80% 50%, rgba(239, 90, 22, 0.1) 0%, transparent 50%);
+}
+
+.offshore-locations .offshore-label {
+  color: var(--offshore-orange);
+}
+
+.offshore-locations .offshore-section-title {
+  color: var(--offshore-white);
+}
+
+.offshore-locations .offshore-section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.offshore-locations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  position: relative;
   z-index: 1;
 }
 
-.offshore-development-hero-section .offshore-development-container {
+.offshore-location-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 48px 36px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.offshore-location-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--offshore-orange);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.location-flag {
+  font-size: 5rem;
+  margin-bottom: 24px;
+}
+
+.offshore-location-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--offshore-white);
+  margin-bottom: 12px;
+}
+
+.location-developers {
+  font-size: 1.1rem;
+  color: var(--offshore-orange);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.location-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.location-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
+  animation: fillBar 2s ease-out forwards;
+}
+
+/* ===== ENGAGEMENT MODELS ===== */
+.offshore-engagement {
+  padding: 100px 40px;
+  background: var(--offshore-white);
+}
+
+.offshore-engagement-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.offshore-engagement-card {
+  background: var(--offshore-white);
+  border: 2px solid var(--offshore-light-gray);
+  border-radius: 24px;
+  padding: 48px 36px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.offshore-engagement-card.recommended {
+  border-color: var(--offshore-orange);
+  box-shadow: 0 15px 40px rgba(239, 90, 22, 0.15);
+  transform: scale(1.05);
+}
+
+.offshore-engagement-card:not(.recommended):hover {
+  border-color: var(--offshore-navy);
+  box-shadow: 0 15px 40px rgba(0, 0, 72, 0.1);
+  transform: translateY(-8px);
+}
+
+.recommended-badge {
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
+  color: var(--offshore-white);
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(239, 90, 22, 0.3);
+}
+
+.engagement-icon {
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--offshore-navy) 0%, var(--offshore-navy-light) 100%);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--offshore-white);
+  margin-bottom: 24px;
+}
+
+.offshore-engagement-card.recommended .engagement-icon {
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
+}
+
+.engagement-icon svg {
+  width: 36px;
+  height: 36px;
+}
+
+.offshore-engagement-card h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--offshore-navy);
+  margin-bottom: 12px;
+}
+
+.offshore-engagement-card p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--offshore-steel);
+  margin-bottom: 28px;
+}
+
+.engagement-features {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+
+.engagement-features li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--offshore-dark);
+  font-weight: 500;
+}
+
+.engagement-features svg {
+  color: var(--offshore-orange);
+  flex-shrink: 0;
+}
+
+.engagement-btn {
+  width: 100%;
+  background: var(--offshore-navy);
+  color: var(--offshore-white);
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.offshore-engagement-card.recommended .engagement-btn {
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
+}
+
+.engagement-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 72, 0.3);
+}
+
+/* ===== PROCESS SECTION ===== */
+.offshore-process {
+  padding: 100px 40px;
+  background: linear-gradient(135deg, #F8FAFC 0%, var(--offshore-white) 100%);
+}
+
+.offshore-process-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  max-width: 1400px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.offshore-process-step {
+  padding: 40px 30px;
+  position: relative;
+}
+
+.process-step-number {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, var(--offshore-navy) 0%, var(--offshore-navy-light) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--offshore-white);
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+  box-shadow: 0 8px 20px rgba(0, 0, 72, 0.2);
   position: relative;
   z-index: 2;
 }
 
-.offshore-development-hero-title {
-  font-size: 3.5rem;
-  font-weight: 700;
-  margin-bottom: 24px;
-  color: yellow !important;
-  line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+.offshore-process-step:nth-child(2) .process-step-number {
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
 }
 
-.offshore-development-hero-description {
-  font-size: 1.25rem;
-  margin-bottom: 0;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  line-height: 1.6;
-  opacity: 0.95;
+.offshore-process-step:nth-child(4) .process-step-number {
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
 }
 
-/* Container */
-.offshore-development-container {
-  /* max-width: 1200px; */
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Development Sections */
-.offshore-development-development-section {
-  padding: 100px 20px;
-  background: rgb(4, 10, 15);
-}
-
-.offshore-development-development-section.offshore-development-alternate {
-  /* background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%); */
-   background-color: rgb(8, 17, 24);
-}
-
-.offshore-development-section-header {
-  text-align: center;
-  margin-bottom: 80px;
-}
-
-.offshore-development-section-header h2 {
-  font-size: 2.2rem !important;
-  font-weight: 700;
-  color: rgb(192, 39, 200);
-  text-align: center;
-  margin-bottom: 20px;
-  line-height: 1.2;
-}
-
-.offshore-development-alternate .offshore-development-section-header h2 {
-  color: white;
-}
-
-.offshore-development-section-header p {
-  font-size: 1.2rem;
-  color: white;
-  text-align: center;
-  /* max-width: 700px; */
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.offshore-development-alternate .offshore-development-section-header p {
-  color: white;
-}
-
-/* Content Layout */
-.offshore-development-content-row {
-  display: flex;
-  align-items: center;
-  gap: 60px;
-}
-
-.offshore-development-image-column {
-  flex: 1;
-}
-
-.offshore-development-text-column {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-}
-
-.offshore-development-section-image {
-  width: 100%;
-  height: 600px;
-  object-fit: cover;
-  border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-}
-
-.offshore-development-section-image:hover {
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
-}
-
-/* Feature Items */
-.offshore-development-feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  padding: 25px;
-  background: whitesmoke;
-  border-radius: 16px;
-  border: 1px solid rgba(226, 232, 240, 0.8);
-  backdrop-filter: blur(10px);
-}
-
-.offshore-development-feature-item:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: #667eea;
-}
-
-.offshore-development-feature-icon {
-  /* background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); */
-  background-color: #ef5a16;
-  color: white;
-  padding: 16px;
-  border-radius: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-width: 56px;
-  min-height: 56px;
-  box-shadow: 0 8px 16px rgba(102, 126, 234, 0.3);
-}
-
-.offshore-development-feature-item:hover .offshore-development-feature-icon {
-  box-shadow: 0 12px 24px rgba(102, 126, 234, 0.4);
-}
-
-.offshore-development-feature-icon svg {
-  width: 24px;
-  height: 24px;
-}
-
-.offshore-development-feature-content {
-  flex: 1;
-}
-
-.offshore-development-feature-content h3 {
+.process-step-content h3 {
   font-size: 1.4rem;
-  font-weight: 600;
-  color: blue;
-  margin-bottom: 8px;
-  line-height: 1.3;
+  font-weight: 700;
+  color: var(--offshore-navy);
+  margin-bottom: 12px;
 }
 
-.offshore-development-feature-content p {
-  font-size: 1rem;
-  color: black;
-  line-height: 1.6;
-  margin: 0;
+.process-step-content p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--offshore-steel);
 }
 
-/* Alternate Section - Image on Right Side */
-.offshore-development-alternate {
+.process-connector {
+  position: absolute;
+  top: 80px;
+  right: -50%;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--offshore-navy) 0%, var(--offshore-orange) 100%);
+  z-index: 1;
+}
+
+/* ===== TESTIMONIAL SECTION ===== */
+.offshore-testimonial {
+  padding: 100px 40px;
+  background: var(--offshore-navy);
   position: relative;
   overflow: hidden;
 }
 
-.offshore-development-alternate .offshore-development-content-row {
-  display: block;
-  position: relative;
-}
-
-.offshore-development-alternate .offshore-development-text-column {
-  width: 46%;
- margin-right: 30px;
-  position: relative;
-  z-index: 2;
-}
-
-.offshore-development-alternate .offshore-development-image-column {
+.offshore-testimonial::before {
+  content: '';
   position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 50%;
-  z-index: 1;
-
-  
-}
-
-.offshore-development-alternate .offshore-development-section-image {
-  width: 100%;
+  top: -50%;
+  left: -20%;
+  width: 600px;
   height: 600px;
-  /* max-height: 600px; */
-  object-fit: cover;
+  background: radial-gradient(circle, rgba(239, 90, 22, 0.15) 0%, transparent 70%);
+}
+
+.offshore-testimonial-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-content {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 64px;
+  border-radius: 24px;
+}
+
+.testimonial-quote {
+  color: var(--offshore-orange);
+  margin-bottom: 32px;
+  opacity: 0.6;
+}
+
+.testimonial-content blockquote {
+  font-size: 1.8rem;
+  line-height: 1.7;
+  color: var(--offshore-white);
+  font-weight: 500;
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.testimonial-author {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.author-name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--offshore-white);
+  margin-bottom: 4px;
+}
+
+.author-role {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.author-company {
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
+  color: var(--offshore-white);
+  padding: 10px 24px;
   border-radius: 20px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+  font-size: 0.9rem;
+  font-weight: 700;
 }
 
-.offshore-development-alternate .offshore-development-feature-item {
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(203, 213, 224, 0.8);
-  backdrop-filter: blur(10px);
+/* ===== CTA SECTION - Split Design ===== */
+.offshore-cta {
+  padding: 100px 40px;
+  background: linear-gradient(135deg, #F8FAFC 0%, var(--offshore-white) 100%);
 }
 
-.offshore-development-alternate .offshore-development-feature-item:hover {
-  background: rgba(255, 255, 255, 1);
-  border-color: #764ba2;
+.offshore-cta-container {
+  max-width: 1300px;
+  margin: 0 auto;
 }
 
-.offshore-development-alternate .offshore-development-feature-icon {
-  /* background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); */
-  background-color: #ef5a16;
-  box-shadow: 0 8px 16px rgba(118, 75, 162, 0.3);
+.offshore-cta-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  background: var(--offshore-white);
+  padding: 60px;
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border: 2px solid var(--offshore-light-gray);
 }
 
-.offshore-development-alternate .offshore-development-feature-item:hover .offshore-development-feature-icon {
-  box-shadow: 0 12px 24px rgba(118, 75, 162, 0.4);
+.cta-left h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--offshore-navy);
+  margin-bottom: 20px;
+  line-height: 1.2;
 }
 
-/* Responsive Design */
-@media (max-width: 1024px) {
-  .offshore-development-hero-title {
-    font-size: 3rem;
+.cta-left p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--offshore-steel);
+  margin-bottom: 32px;
+}
+
+.cta-benefits {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cta-benefits li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 1rem;
+  color: var(--offshore-dark);
+  font-weight: 600;
+}
+
+.cta-benefits svg {
+  color: var(--offshore-orange);
+  flex-shrink: 0;
+}
+
+.cta-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.offshore-cta-btn {
+  background: linear-gradient(135deg, var(--offshore-orange) 0%, var(--offshore-orange-light) 100%);
+  color: var(--offshore-white);
+  padding: 20px 36px;
+  border: none;
+  border-radius: 14px;
+  font-size: 1.15rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(239, 90, 22, 0.3);
+}
+
+.offshore-cta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 40px rgba(239, 90, 22, 0.4);
+}
+
+.offshore-cta-secondary {
+  background: var(--offshore-white);
+  color: var(--offshore-navy);
+  padding: 18px 36px;
+  border: 2px solid var(--offshore-navy);
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+}
+
+.offshore-cta-secondary:hover {
+  background: var(--offshore-navy);
+  color: var(--offshore-white);
+  transform: translateY(-2px);
+}
+
+.cta-trust {
+  display: flex;
+  gap: 20px;
+  margin-top: 24px;
+  padding-top: 24px;
+  border-top: 1px solid var(--offshore-light-gray);
+}
+
+.trust-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  color: var(--offshore-steel);
+  font-weight: 600;
+}
+
+.trust-item svg {
+  color: var(--offshore-orange);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
   }
-  
-  .offshore-development-hero-description {
-    font-size: 1.1rem;
+  to {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  .offshore-development-section-header h2 {
-    font-size: 2.5rem;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
   }
-  
-  .offshore-development-content-row {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes floatBadge {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1200px) {
+  .offshore-hero-container {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+
+  .offshore-hero-title {
+    font-size: 3.2rem;
+  }
+
+  .offshore-advantages-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offshore-services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .offshore-engagement-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .offshore-engagement-card.recommended {
+    transform: scale(1);
+  }
+
+  .offshore-process-timeline {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-connector {
+    display: none;
+  }
+
+  .offshore-cta-content {
+    grid-template-columns: 1fr;
     gap: 40px;
-  }
-  
-  .offshore-development-section-image {
-    height: 400px;
-  }
-  
-  .offshore-development-alternate .offshore-development-text-column {
-    width: 55%;
-  }
-  
-  .offshore-development-alternate .offshore-development-image-column {
-    width: 40%;
   }
 }
 
 @media (max-width: 768px) {
-  .offshore-development-hero-section {
-    padding: 80px 20px;
+  .offshore-hero {
+    padding: 80px 0 60px;
   }
-  
-  .offshore-development-hero-title {
-    font-size: 2.5rem;
+
+  .offshore-hero-container {
+    padding: 0 24px;
   }
-  
-  .offshore-development-hero-description {
+
+  .offshore-hero-title {
+    font-size: 2.4rem;
+  }
+
+  .offshore-hero-desc {
     font-size: 1rem;
   }
-  
-  .offshore-development-development-section {
-    padding: 60px 20px;
+
+  .offshore-hero-stats {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .offshore-development-section-header {
-    margin-bottom: 50px;
-  }
-  
-  .offshore-development-section-header h2 {
-    font-size: 2rem;
-  }
-  
-  .offshore-development-section-header p {
-    font-size: 1rem;
-  }
-  
-  .offshore-development-content-row {
-    flex-direction: column;
-    gap: 40px;
-  }
-  
-  .offshore-development-alternate .offshore-development-content-row {
-    display: flex;
+
+  .offshore-hero-actions {
     flex-direction: column;
   }
-  
-  .offshore-development-alternate .offshore-development-text-column {
+
+  .offshore-btn-primary,
+  .offshore-btn-secondary {
     width: 100%;
-    position: relative;
+    justify-content: center;
   }
-  
-  .offshore-development-alternate .offshore-development-image-column {
-    position: relative;
-    right: auto;
-    top: auto;
-    transform: none;
-    width: 100%;
-    max-width: none;
-    order: 1;
+
+  .offshore-advantages-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .offshore-development-text-column {
-    gap: 30px;
+
+  .offshore-services-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .offshore-development-section-image {
-    height: 300px;
+
+  .offshore-locations-grid {
+    grid-template-columns: 1fr;
   }
-  
-  .offshore-development-feature-item {
-    padding: 20px;
+
+  .offshore-process-timeline {
+    grid-template-columns: 1fr;
+  }
+
+  .offshore-section-title {
+    font-size: 2.2rem;
+  }
+
+  .testimonial-content {
+    padding: 40px 28px;
+  }
+
+  .testimonial-content blockquote {
+    font-size: 1.3rem;
+  }
+
+  .testimonial-author {
+    flex-direction: column;
+    align-items: flex-start;
     gap: 16px;
   }
-  
-  .offshore-development-feature-icon {
-    min-width: 48px;
-    min-height: 48px;
-    padding: 12px;
+
+  .offshore-cta-content {
+    padding: 40px 28px;
   }
-  
-  .offshore-development-feature-icon svg {
-    width: 20px;
-    height: 20px;
+
+  .cta-left h2 {
+    font-size: 2rem;
   }
-  
-  .offshore-development-feature-content h3 {
-    font-size: 1.2rem;
+
+  .offshore-location-badge {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    margin-top: 20px;
   }
-  
-  .offshore-development-feature-content p {
-    font-size: 0.95rem;
+}
+
+@media (max-width: 576px) {
+  .offshore-hero-title {
+    font-size: 2rem;
+  }
+
+  .offshore-hero-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .offshore-hero-benefits {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .offshore-section-title {
+    font-size: 1.8rem;
+  }
+
+  .offshore-advantage-card {
+    padding: 32px 24px;
+  }
+
+  .offshore-service-card {
+    padding: 28px 24px;
+  }
+
+  .testimonial-content blockquote {
+    font-size: 1.1rem;
+  }
+
+  .cta-left h2 {
+    font-size: 1.6rem;
+  }
+
+  .offshore-cta-btn,
+  .offshore-cta-secondary {
+    padding: 16px 28px;
+    font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .offshore-development-hero-title {
-    font-size: 2rem;
-  }
-  
-  .offshore-development-section-header h2 {
+  .offshore-hero-title {
     font-size: 1.75rem;
   }
-  
-  .offshore-development-development-section {
-    padding: 40px 15px;
-  }
-  
-  .offshore-development-container {
-    padding: 0 15px;
-  }
-  
-  .offshore-development-feature-item {
-    padding: 16px;
-    gap: 12px;
-  }
-  
-  .offshore-development-section-image {
-    height: 250px;
-    border-radius: 12px;
-  }
-}
 
-/* Animation Enhancements */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
+  .offshore-badge {
+    font-size: 0.8rem;
+    padding: 8px 16px;
   }
-  to {
-    opacity: 1;
-    transform: translateY(0);
+
+  .offshore-hero-img {
+    height: 300px;
   }
-}
 
-.offshore-development-feature-item {
-  animation: fadeInUp 0.6s ease-out;
-}
+  .offshore-section-title {
+    font-size: 1.6rem;
+  }
 
-.offshore-development-feature-item:nth-child(1) { animation-delay: 0.1s; }
-.offshore-development-feature-item:nth-child(2) { animation-delay: 0.2s; }
-.offshore-development-feature-item:nth-child(3) { animation-delay: 0.3s; }
-.offshore-development-feature-item:nth-child(4) { animation-delay: 0.4s; }
-
-/* Smooth scrolling - Removed to fix loading issues */
-
-/* Focus states for accessibility */
-.offshore-development-feature-item:focus-within {
-  outline: 2px solid #667eea;
-  outline-offset: 2px;
-}
-
-.offshore-development-feature-icon:focus {
-  outline: 2px solid rgba(255, 255, 255, 0.8);
-  outline-offset: 2px;
+  .offshore-service-card h3 {
+    font-size: 1.2rem;
+  }
 }

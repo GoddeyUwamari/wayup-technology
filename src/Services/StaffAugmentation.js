@@ -1,5 +1,5 @@
-import React from 'react';
-import { 
+import { useEffect } from 'react';
+import {
   Users,
   Search,
   Clock,
@@ -11,219 +11,481 @@ import {
   CheckCircle,
   ArrowRight,
   Settings,
-  Globe
+  Globe,
+  Award,
+  Briefcase,
+  UserCheck,
+  TrendingDown,
+  DollarSign,
+  Layers,
+  Code,
+  Smartphone,
+  Database,
+  Rocket,
+  HeadphonesIcon,
+  Building2,
+  BadgeCheck
 } from 'lucide-react';
 import './StaffAugmentation.css';
 import Checkout from '../components/Checkout';
 
 const StaffAugmentation = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const heroStats = [
+    { value: '2K+', label: 'Professionals', icon: <Users /> },
+    { value: '48h', label: 'Avg. Match Time', icon: <Clock /> },
+    { value: '95%', label: 'Retention Rate', icon: <TrendingUp /> },
+    { value: '500+', label: 'Active Clients', icon: <Building2 /> }
+  ];
+
+  const benefits = [
+    {
+      icon: <Clock />,
+      title: 'Rapid Deployment',
+      description: 'Get qualified professionals onboarded in 1-2 weeks',
+      metric: '48h Match',
+      color: 'teal'
+    },
+    {
+      icon: <DollarSign />,
+      title: 'Cost Efficient',
+      description: 'Save up to 50% compared to full-time hiring',
+      metric: '50% Savings',
+      color: 'navy'
+    },
+    {
+      icon: <Layers />,
+      title: 'Scalable Teams',
+      description: 'Scale from 1 to 50+ professionals seamlessly',
+      metric: 'Unlimited Scale',
+      color: 'orange'
+    },
+    {
+      icon: <Shield />,
+      title: 'Risk-Free Trials',
+      description: 'Start with 2-week trial period with no commitment',
+      metric: '2-Week Trial',
+      color: 'teal'
+    },
+    {
+      icon: <BadgeCheck />,
+      title: 'Pre-Vetted Talent',
+      description: 'All professionals pass rigorous screening process',
+      metric: 'Top 5%',
+      color: 'navy'
+    },
+    {
+      icon: <Target />,
+      title: 'Perfect Match',
+      description: 'AI-powered matching for skills and culture fit',
+      metric: '95% Success',
+      color: 'orange'
+    }
+  ];
+
+  const roles = [
+    {
+      category: 'Development',
+      icon: <Code />,
+      positions: [
+        'Full-Stack Developers',
+        'Frontend Engineers',
+        'Backend Developers',
+        'DevOps Engineers',
+        'QA Engineers',
+        'Cloud Architects'
+      ]
+    },
+    {
+      category: 'Design & UX',
+      icon: <Smartphone />,
+      positions: [
+        'UI/UX Designers',
+        'Product Designers',
+        'Graphic Designers',
+        'Motion Designers',
+        'UX Researchers',
+        'Design System Experts'
+      ]
+    },
+    {
+      category: 'Data & AI',
+      icon: <Database />,
+      positions: [
+        'Data Scientists',
+        'ML Engineers',
+        'Data Engineers',
+        'AI Specialists',
+        'Data Analysts',
+        'Business Intelligence'
+      ]
+    },
+    {
+      category: 'Management',
+      icon: <Briefcase />,
+      positions: [
+        'Project Managers',
+        'Product Managers',
+        'Scrum Masters',
+        'Business Analysts',
+        'Technical Leads',
+        'Solution Architects'
+      ]
+    }
+  ];
+
+  const process = [
+    {
+      step: '01',
+      title: 'Define Requirements',
+      description: 'Share your project needs, tech stack, and team culture',
+      duration: '1 day',
+      icon: <Search />
+    },
+    {
+      step: '02',
+      title: 'Talent Matching',
+      description: 'AI-powered system matches top candidates to your needs',
+      duration: '24-48h',
+      icon: <UserCheck />
+    },
+    {
+      step: '03',
+      title: 'Interview & Select',
+      description: 'Review profiles, conduct interviews, select your team',
+      duration: '2-3 days',
+      icon: <Star />
+    },
+    {
+      step: '04',
+      title: 'Onboard & Launch',
+      description: 'Seamless integration with your tools and processes',
+      duration: '1-2 days',
+      icon: <Rocket />
+    }
+  ];
+
+  const testimonials = [
+    {
+      quote: "We augmented our team with 5 senior developers in under 2 weeks. The quality exceeded our expectations.",
+      author: 'Sarah Martinez',
+      role: 'Engineering Director',
+      company: 'TechCorp',
+      rating: 5
+    },
+    {
+      quote: "Cost-effective, high-quality talent that integrated seamlessly. Game changer for our startup.",
+      author: 'David Chen',
+      role: 'CTO',
+      company: 'StartupXYZ',
+      rating: 5
+    }
+  ];
+
+  const pricingModels = [
+    {
+      title: 'Hourly',
+      description: 'Flexible pay-as-you-go model',
+      icon: <Clock />,
+      features: [
+        'No minimum commitment',
+        'Hourly billing',
+        'Easy scaling',
+        'Perfect for short-term needs'
+      ],
+      highlight: false
+    },
+    {
+      title: 'Monthly',
+      description: 'Dedicated resources with savings',
+      icon: <Users />,
+      features: [
+        'Full-time dedication',
+        'Up to 30% savings',
+        'Monthly billing',
+        'Best for ongoing projects'
+      ],
+      highlight: true
+    },
+    {
+      title: 'Project-Based',
+      description: 'Fixed scope and timeline',
+      icon: <Target />,
+      features: [
+        'Fixed pricing',
+        'Defined deliverables',
+        'Milestone payments',
+        'Complete project ownership'
+      ],
+      highlight: false
+    }
+  ];
+
   return (
-    <>
-      {/* Hero Section */}
-      <section 
-        className="staff-augmentation-hero-section"
-        style={{backgroundImage: 'url(/images/iphoto3.png)'}}
-      >
-        <div className="staff-augmentation-container">
-          <h1 className="staff-augmentation-hero-title">Staff Augmentation Services</h1>
-          <p className="staff-augmentation-hero-description">
-            Scale your team instantly with top-tier talent. Our staff augmentation services provide skilled professionals 
-            who integrate seamlessly with your existing team to accelerate project delivery and drive business success.
-          </p>
-        </div>
-      </section>
+    <div className="staff-augmentation-page">
+      {/* Hero Section - Modern Split with Stats Overlay */}
+      <section className="staff-hero">
+        <div className="staff-hero-container">
+          <div className="staff-hero-content">
+            <div className="staff-hero-badge">
+              <Users size={18} />
+              <span>Elite Talent Network</span>
+            </div>
+            <h1 className="staff-hero-title">
+              Scale Your Team with
+              <span className="staff-gradient-text"> Top 5% Tech Talent</span>
+            </h1>
+            <p className="staff-hero-desc">
+              Access pre-vetted developers, designers, and specialists in 48 hours.
+              No lengthy hiring processes. No long-term commitments. Just world-class professionals
+              ready to accelerate your projects.
+            </p>
 
-      {/* Talent Acquisition & Matching Section */}
-      <section className="staff-augmentation-development-section">
-        <div className="staff-augmentation-container">
-          <div className="staff-augmentation-section-header">
-            <h2>Talent Acquisition & Matching</h2>
-            <p>Access pre-vetted, highly skilled professionals who match your specific requirements, technical expertise, and company culture for seamless team integration.</p>
+            {/* Key Benefits Pills */}
+            <div className="staff-hero-benefits">
+              <div className="staff-benefit-pill">
+                <CheckCircle size={18} />
+                <span>Match in 48 hours</span>
+              </div>
+              <div className="staff-benefit-pill">
+                <CheckCircle size={18} />
+                <span>2-week risk-free trial</span>
+              </div>
+              <div className="staff-benefit-pill">
+                <CheckCircle size={18} />
+                <span>50% cost savings</span>
+              </div>
+            </div>
+
+            <div className="staff-hero-actions">
+              <button className="staff-btn-primary">
+                <span>Find Your Team</span>
+                <ArrowRight />
+              </button>
+              <button className="staff-btn-secondary">
+                <HeadphonesIcon />
+                <span>Talk to Expert</span>
+              </button>
+            </div>
           </div>
 
-          <div className="staff-augmentation-content-row">
-            <div className="staff-augmentation-image-column">
-              <img 
-                src="/images/top.png" 
-                alt="Talent Acquisition & Matching" 
-                className="staff-augmentation-section-image" 
-              />
-            </div>
-
-            <div className="staff-augmentation-text-column">
-              {/* Expert Talent Pool */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <Users />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Expert Talent Pool</h3>
-                  <p>Access our extensive network of pre-screened developers, designers, analysts, and specialists with proven expertise across all major technologies and frameworks.</p>
-                </div>
+          {/* Hero Stats Cards - Floating Grid */}
+          <div className="staff-hero-stats-grid">
+            {heroStats.map((stat, index) => (
+              <div key={index} className="staff-hero-stat-card">
+                <div className="stat-icon">{stat.icon}</div>
+                <div className="stat-value">{stat.value}</div>
+                <div className="stat-label">{stat.label}</div>
               </div>
-
-              {/* Precise Skill Matching */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <Search />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Precise Skill Matching</h3>
-                  <p>Our advanced matching algorithm considers technical skills, experience level, industry background, and cultural fit to find the perfect candidates for your team.</p>
-                </div>
-              </div>
-
-              {/* Quality Assurance */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <Star />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Quality Assurance</h3>
-                  <p>Rigorous vetting process including technical assessments, portfolio reviews, reference checks, and soft skills evaluation to ensure top-tier talent quality.</p>
-                </div>
-              </div>
-
-              {/* Cultural Integration */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <Globe />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Cultural Integration</h3>
-                  <p>Focus on cultural compatibility and communication skills to ensure augmented staff integrate smoothly with your existing team and work environment.</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Flexible Scaling Solutions Section */}
-      <section className="staff-augmentation-development-section staff-augmentation-alternate">
-        <div className="staff-augmentation-container">
-          <div className="staff-augmentation-section-header">
-            <h2>Flexible Scaling Solutions</h2>
-            <p>Scale your workforce up or down based on project demands with flexible engagement models that adapt to your changing business needs and timelines.</p>
+      {/* Benefits Section - Masonry Grid with Alternating Colors */}
+      <section className="staff-benefits">
+        <div className="staff-container">
+          <div className="staff-section-header">
+            <span className="staff-label">Why Choose Us</span>
+            <h2 className="staff-section-title">Staff Augmentation Advantages</h2>
+            <p className="staff-section-subtitle">
+              Flexible, fast, and cost-effective way to scale your technical team
+            </p>
           </div>
 
-          <div className="staff-augmentation-content-row">
-            <div className="staff-augmentation-image-column">
-              <img 
-                src="/images/hero.png" 
-                alt="Flexible Scaling Solutions" 
-                className="staff-augmentation-section-image" 
-              />
-            </div>
-
-            <div className="staff-augmentation-text-column">
-              {/* Rapid Deployment */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <Clock />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Rapid Deployment</h3>
-                  <p>Get qualified professionals onboarded within 1-2 weeks, enabling quick project kickoffs and meeting tight deadlines without compromising quality.</p>
+          <div className="staff-benefits-grid">
+            {benefits.map((benefit, index) => (
+              <div key={index} className={`staff-benefit-card ${benefit.color}`}>
+                <div className="benefit-icon-wrapper">{benefit.icon}</div>
+                <h3>{benefit.title}</h3>
+                <p>{benefit.description}</p>
+                <div className="benefit-metric">
+                  <TrendingUp size={16} />
+                  <span>{benefit.metric}</span>
                 </div>
               </div>
-
-              {/* Scalable Teams */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <TrendingUp />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Scalable Teams</h3>
-                  <p>Easily scale from individual specialists to full development teams, adjusting team size based on project phases, budget, and delivery requirements.</p>
-                </div>
-              </div>
-
-              {/* Flexible Contracts */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <Settings />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Flexible Contracts</h3>
-                  <p>Choose from short-term, long-term, or project-based engagements with flexible contract terms that align with your project timeline and budget constraints.</p>
-                </div>
-              </div>
-
-              {/* Risk Mitigation */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <Shield />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Risk Mitigation</h3>
-                  <p>Reduce hiring risks with trial periods, performance guarantees, and replacement options to ensure you get the right talent for your specific needs.</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Seamless Integration & Support Section */}
-      <section className="staff-augmentation-development-section">
-        <div className="staff-augmentation-container">
-          <div className="staff-augmentation-section-header">
-            <h2>Seamless Integration & Support</h2>
-            <p>Comprehensive onboarding and ongoing support ensure augmented staff become productive team members quickly while maintaining high performance standards.</p>
+      {/* Roles Section - 4-Column Grid with Expandable Cards */}
+      <section className="staff-roles">
+        <div className="staff-container">
+          <div className="staff-section-header">
+            <span className="staff-label">Available Talent</span>
+            <h2 className="staff-section-title">Roles We Staff</h2>
+            <p className="staff-section-subtitle">
+              From individual contributors to complete teams across all disciplines
+            </p>
           </div>
 
-          <div className="staff-augmentation-content-row">
-            <div className="staff-augmentation-image-column">
-             <img 
-                src="/images/dphoto0.png" 
-                alt="Seamless Integration & Support" 
-                className="staff-augmentation-section-image" 
-              />
+          <div className="staff-roles-grid">
+            {roles.map((role, index) => (
+              <div key={index} className="staff-role-card">
+                <div className="role-header">
+                  <div className="role-icon">{role.icon}</div>
+                  <h3>{role.category}</h3>
+                </div>
+                <ul className="role-positions">
+                  {role.positions.map((position, pIndex) => (
+                    <li key={pIndex}>
+                      <CheckCircle size={14} />
+                      <span>{position}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section - Horizontal Timeline with Icons */}
+      <section className="staff-process">
+        <div className="staff-container">
+          <div className="staff-section-header">
+            <span className="staff-label">How It Works</span>
+            <h2 className="staff-section-title">From Request to Ready in 1 Week</h2>
+          </div>
+
+          <div className="staff-process-timeline">
+            {process.map((step, index) => (
+              <div key={index} className="staff-process-step">
+                <div className="process-step-icon">{step.icon}</div>
+                <div className="process-step-number">{step.step}</div>
+                <h3>{step.title}</h3>
+                <p>{step.description}</p>
+                <div className="process-duration">{step.duration}</div>
+                {index < process.length - 1 && (
+                  <div className="process-connector">
+                    <ArrowRight size={20} />
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section - Side-by-side Cards */}
+      <section className="staff-testimonials">
+        <div className="staff-container">
+          <div className="staff-section-header">
+            <span className="staff-label">Success Stories</span>
+            <h2 className="staff-section-title">Trusted by Leading Companies</h2>
+          </div>
+
+          <div className="staff-testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="staff-testimonial-card">
+                <div className="testimonial-stars">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star key={i} size={18} fill="currentColor" />
+                  ))}
+                </div>
+                <blockquote>"{testimonial.quote}"</blockquote>
+                <div className="testimonial-author">
+                  <div className="author-info">
+                    <div className="author-name">{testimonial.author}</div>
+                    <div className="author-role">{testimonial.role}, {testimonial.company}</div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pricing Models - 3-Column Cards */}
+      <section className="staff-pricing">
+        <div className="staff-container">
+          <div className="staff-section-header">
+            <span className="staff-label">Flexible Engagement</span>
+            <h2 className="staff-section-title">Pricing Models</h2>
+            <p className="staff-section-subtitle">
+              Choose the model that fits your project needs and budget
+            </p>
+          </div>
+
+          <div className="staff-pricing-grid">
+            {pricingModels.map((model, index) => (
+              <div key={index} className={`staff-pricing-card ${model.highlight ? 'highlight' : ''}`}>
+                {model.highlight && (
+                  <div className="pricing-badge">
+                    <Award size={14} />
+                    <span>Most Popular</span>
+                  </div>
+                )}
+                <div className="pricing-icon">{model.icon}</div>
+                <h3>{model.title}</h3>
+                <p>{model.description}</p>
+                <ul className="pricing-features">
+                  {model.features.map((feature, fIndex) => (
+                    <li key={fIndex}>
+                      <CheckCircle size={16} />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button className="pricing-btn">
+                  Get Started <ArrowRight size={16} />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section - Full Width with Split Content */}
+      <section className="staff-cta">
+        <div className="staff-cta-container">
+          <div className="staff-cta-content">
+            <div className="cta-left">
+              <h2>Ready to Build Your Dream Team?</h2>
+              <p>
+                Get matched with expert professionals in 48 hours. Start with a risk-free
+                2-week trial and experience the difference top-tier talent makes.
+              </p>
+              <ul className="cta-checklist">
+                <li>
+                  <CheckCircle size={20} />
+                  <span>No upfront costs or commitments</span>
+                </li>
+                <li>
+                  <CheckCircle size={20} />
+                  <span>Replace talent within 48h if not satisfied</span>
+                </li>
+                <li>
+                  <CheckCircle size={20} />
+                  <span>Dedicated account manager included</span>
+                </li>
+              </ul>
             </div>
-
-            <div className="staff-augmentation-text-column">
-              {/* Smooth Onboarding */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <Target />
+            <div className="cta-right">
+              <button className="staff-cta-btn-primary">
+                <span>Start Your Trial</span>
+                <Rocket size={20} />
+              </button>
+              <button className="staff-cta-btn-secondary">
+                <span>Schedule Consultation</span>
+                <ArrowRight size={20} />
+              </button>
+              <div className="cta-trust-badges">
+                <div className="trust-badge">
+                  <Shield size={18} />
+                  <span>NDA Protected</span>
                 </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Smooth Onboarding</h3>
-                  <p>Comprehensive onboarding process including project briefings, tool access, team introductions, and process training for immediate productivity.</p>
+                <div className="trust-badge">
+                  <Award size={18} />
+                  <span>ISO Certified</span>
                 </div>
-              </div>
-
-              {/* Performance Management */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <Zap />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Performance Management</h3>
-                  <p>Regular performance reviews, feedback sessions, and skill development support to ensure augmented staff meet your quality and productivity expectations.</p>
-                </div>
-              </div>
-
-              {/* Dedicated Support */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <CheckCircle />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Dedicated Support</h3>
-                  <p>Dedicated account managers provide ongoing support, address concerns, facilitate communication, and ensure smooth collaboration throughout the engagement.</p>
-                </div>
-              </div>
-
-              {/* Knowledge Transfer */}
-              <div className="staff-augmentation-feature-item">
-                <div className="staff-augmentation-feature-icon">
-                  <ArrowRight />
-                </div>
-                <div className="staff-augmentation-feature-content">
-                  <h3>Knowledge Transfer</h3>
-                  <p>Structured knowledge transfer processes ensure business continuity, documentation handover, and smooth transitions when engagements conclude.</p>
+                <div className="trust-badge">
+                  <Globe size={18} />
+                  <span>Global Talent</span>
                 </div>
               </div>
             </div>
@@ -233,7 +495,7 @@ const StaffAugmentation = () => {
 
       {/* Checkout */}
       <Checkout />
-    </>
+    </div>
   );
 };
 
