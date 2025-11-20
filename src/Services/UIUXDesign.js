@@ -1,229 +1,448 @@
-import React from 'react';
-import { 
-  Palette, 
-  Users, 
-  Smartphone, 
+import { useEffect } from 'react';
+import {
+  Palette,
+  Eye,
+  Users,
+  Smartphone,
   Monitor,
+  Layers,
   Zap,
   Target,
   Heart,
   TrendingUp,
-  Eye,
-  Layers,
-  Search,
-  BarChart3
+  CheckCircle,
+  ArrowRight,
+  Sparkles,
+  Figma,
+  Grid,
+  MousePointer,
+  Layout,
+  Accessibility,
+  BarChart3,
+  PenTool,
+  Rocket,
+  Shield,
+  Globe,
+  Award
 } from 'lucide-react';
 import './UIUXDesign.css';
 import Checkout from '../components/Checkout';
 
 const UIUXDesign = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  const heroFeatures = [
+    { icon: <Palette />, label: 'Visual Design' },
+    { icon: <Users />, label: 'User Research' },
+    { icon: <Layout />, label: 'Wireframing' },
+    { icon: <MousePointer />, label: 'Prototyping' }
+  ];
+
+  const capabilities = [
+    {
+      icon: <Palette />,
+      title: 'Visual Design',
+      description: 'Stunning visual interfaces that capture attention and reflect your brand identity',
+      tech: ['Design Systems', 'Brand Guidelines', 'Typography'],
+      color: 'navy'
+    },
+    {
+      icon: <Users />,
+      title: 'User Research',
+      description: 'Deep user insights through comprehensive research and behavioral analysis',
+      tech: ['User Interviews', 'Surveys', 'Analytics'],
+      color: 'orange'
+    },
+    {
+      icon: <Layout />,
+      title: 'Wireframing & IA',
+      description: 'Strategic information architecture and wireframes for intuitive navigation',
+      tech: ['User Flows', 'Sitemaps', 'Sketches'],
+      color: 'navy'
+    },
+    {
+      icon: <MousePointer />,
+      title: 'Interactive Prototypes',
+      description: 'High-fidelity clickable prototypes that bring your vision to life',
+      tech: ['Figma', 'Adobe XD', 'Sketch'],
+      color: 'orange'
+    },
+    {
+      icon: <Accessibility />,
+      title: 'Accessibility Design',
+      description: 'Inclusive design ensuring usability for all users across abilities',
+      tech: ['WCAG 2.1', 'ARIA', 'Color Contrast'],
+      color: 'navy'
+    },
+    {
+      icon: <Smartphone />,
+      title: 'Responsive Design',
+      description: 'Seamless experiences across all devices and screen sizes',
+      tech: ['Mobile First', 'Adaptive', 'Breakpoints'],
+      color: 'orange'
+    }
+  ];
+
+  const solutions = [
+    {
+      icon: <Layout />,
+      title: 'Web Application Design',
+      description: 'Enterprise-grade web application interfaces with intuitive workflows, complex data visualization, and seamless user journeys.',
+      metrics: { users: '500K+', satisfaction: '96%' }
+    },
+    {
+      icon: <Smartphone />,
+      title: 'Mobile App Design',
+      description: 'Native iOS and Android designs optimized for touch interactions, gestures, and mobile-first experiences.',
+      metrics: { downloads: '2M+', rating: '4.8★' }
+    },
+    {
+      icon: <Grid />,
+      title: 'Design Systems',
+      description: 'Comprehensive design systems with reusable components, patterns, and guidelines for consistent brand experiences.',
+      metrics: { components: '200+', efficiency: '+60%' }
+    },
+    {
+      icon: <TrendingUp />,
+      title: 'UX Optimization',
+      description: 'Data-driven UX improvements through A/B testing, heatmaps, and conversion rate optimization strategies.',
+      metrics: { conversion: '+45%', bounce: '-38%' }
+    }
+  ];
+
+  const designProjects = [
+    {
+      category: 'FinTech',
+      icon: '💳',
+      title: 'Digital Banking Platform',
+      description: 'Complete redesign of mobile banking app with focus on security, accessibility, and ease of use',
+      result: '4.9★ rating, 85% engagement increase',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
+      alt: 'Modern banking dashboard showing financial analytics and transaction history'
+    },
+    {
+      category: 'Healthcare',
+      icon: '🏥',
+      title: 'Telemedicine App',
+      description: 'Patient-centric telehealth platform connecting doctors and patients seamlessly',
+      result: '120K+ active users, 4.7★ rating',
+      image: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&q=80',
+      alt: 'Healthcare application interface with appointment scheduling and video consultation features'
+    },
+    {
+      category: 'E-Commerce',
+      icon: '🛍️',
+      title: 'Fashion Marketplace',
+      description: 'Beautiful shopping experience with AR try-on, personalized recommendations, and social features',
+      result: '58% conversion rate increase',
+      image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&q=80',
+      alt: 'Fashion e-commerce platform with product galleries and shopping cart interface'
+    },
+    {
+      category: 'SaaS',
+      icon: '📊',
+      title: 'Analytics Dashboard',
+      description: 'Complex data visualization platform making big data accessible and actionable for enterprises',
+      result: 'Fortune 500 adoption, 92% satisfaction',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80',
+      alt: 'Analytics dashboard displaying charts, graphs, and real-time data visualization'
+    }
+  ];
+
+  const designTools = [
+    { name: 'Figma', category: 'Design Tool' },
+    { name: 'Adobe XD', category: 'Prototyping' },
+    { name: 'Sketch', category: 'UI Design' },
+    { name: 'InVision', category: 'Collaboration' },
+    { name: 'Framer', category: 'Animation' },
+    { name: 'Principle', category: 'Interaction' },
+    { name: 'Maze', category: 'User Testing' },
+    { name: 'Hotjar', category: 'Analytics' }
+  ];
+
+  const designProcess = [
+    {
+      number: '01',
+      title: 'Discovery & Research',
+      description: 'Understand users, business goals, and competitive landscape through comprehensive research',
+      deliverables: ['User personas', 'Journey maps', 'Competitive analysis']
+    },
+    {
+      number: '02',
+      title: 'Ideation & Wireframing',
+      description: 'Explore concepts and create low-fidelity wireframes to define structure and flow',
+      deliverables: ['Information architecture', 'User flows', 'Wireframes']
+    },
+    {
+      number: '03',
+      title: 'Visual Design',
+      description: 'Craft high-fidelity designs with brand identity, typography, and visual hierarchy',
+      deliverables: ['UI mockups', 'Design system', 'Style guide']
+    },
+    {
+      number: '04',
+      title: 'Prototype & Test',
+      description: 'Build interactive prototypes and validate with real users through usability testing',
+      deliverables: ['Clickable prototype', 'Test results', 'Design specs']
+    }
+  ];
+
   return (
-    <>
+    <div className="uiux-page">
       {/* Hero Section */}
-      <section 
-        className="uiux-hero-section"
-        style={{backgroundImage: 'url(/images/iphoto3.png)'}}
-      >
-        <div className="uiux-container">
-          <h1 className="uiux-hero-title">UI/UX Design Services</h1>
-          <p className="uiux-hero-description">
-            Crafting exceptional digital experiences that captivate users and drive business growth 
-            through innovative design solutions and user-centered approaches.
+      <section className="uiux-hero">
+        <div className="uiux-hero-bg-grid"></div>
+        <div className="uiux-hero-container">
+          <div className="uiux-hero-badge">
+            <Sparkles size={16} />
+            <span>Award-Winning Design Excellence</span>
+          </div>
+          <h1 className="uiux-hero-title">
+            Create Exceptional
+            <span className="uiux-gradient-text"> User Experiences</span>
+          </h1>
+          <p className="uiux-hero-desc">
+            Transform your digital products with stunning UI/UX design that delights users and drives business results.
+            From research to prototypes, we craft experiences that convert.
           </p>
-        </div>
-      </section>
 
-      {/* User Experience Strategy Section */}
-      <section className="uiux-development-section">
-        <div className="uiux-container">
-          <div className="uiux-section-header">
-            <h2>User Experience Strategy</h2>
-            <p>We develop comprehensive UX strategies that align with your business goals and create meaningful connections with your users through research-driven design decisions.</p>
+          {/* Quick Feature Pills */}
+          <div className="uiux-hero-features">
+            {heroFeatures.map((feature, index) => (
+              <div key={index} className="uiux-feature-pill">
+                {feature.icon}
+                <span>{feature.label}</span>
+              </div>
+            ))}
           </div>
 
-          <div className="uiux-content-row">
-            <div className="uiux-image-column">
-              <img 
-                src="/images/ui4.png" 
-                alt="User Experience Strategy" 
-                className="uiux-section-image" 
-              />
+          <div className="uiux-hero-actions">
+            <button className="uiux-btn-primary">
+              <span>Start Your Project</span>
+              <Rocket />
+            </button>
+            <button className="uiux-btn-secondary">
+              <Eye />
+              <span>View Portfolio</span>
+            </button>
+          </div>
+
+          {/* Floating Stats */}
+          <div className="uiux-hero-stats">
+            <div className="uiux-stat-item">
+              <div className="uiux-stat-value">300+</div>
+              <div className="uiux-stat-label">Designs Delivered</div>
             </div>
-
-            <div className="uiux-text-column">
-              {/* User Research & Analysis */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <Users />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>User Research & Analysis</h3>
-                  <p>Deep dive into user behavior, needs, and pain points through comprehensive research methodologies and data-driven insights.</p>
-                </div>
-              </div>
-
-              {/* Strategic Planning */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <Target />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>Strategic Planning</h3>
-                  <p>Develop comprehensive UX roadmaps that align design decisions with business objectives and user expectations.</p>
-                </div>
-              </div>
-
-              {/* Information Architecture */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <Eye />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>Information Architecture</h3>
-                  <p>Structure and organize content in intuitive ways that guide users naturally through your digital experience.</p>
-                </div>
-              </div>
-
-              {/* Performance Metrics */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <BarChart3 />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>Performance Metrics</h3>
-                  <p>Establish KPIs and measurement frameworks to track success and continuously optimize user experience.</p>
-                </div>
-              </div>
+            <div className="uiux-stat-item">
+              <div className="uiux-stat-value">4.9★</div>
+              <div className="uiux-stat-label">Client Rating</div>
+            </div>
+            <div className="uiux-stat-item">
+              <div className="uiux-stat-value">95%</div>
+              <div className="uiux-stat-label">User Satisfaction</div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Interface Design Excellence Section */}
-      <section className="uiux-development-section uiux-alternate">
+      {/* Capabilities Grid */}
+      <section className="uiux-capabilities">
         <div className="uiux-container">
           <div className="uiux-section-header">
-            <h2>Interface Design Excellence</h2>
-            <p>Creating visually stunning and functionally superior interfaces that deliver seamless interactions across all devices and platforms.</p>
+            <span className="uiux-label">Core Services</span>
+            <h2 className="uiux-section-title">UI/UX Design Capabilities</h2>
+            <p className="uiux-section-subtitle">
+              Comprehensive design services from research to pixel-perfect execution
+            </p>
           </div>
 
-          <div className="uiux-content-row">
-            <div className="uiux-image-column">
-              <img 
-                src="/images/ui3.png" 
-                alt="Interface Design Excellence" 
-                className="uiux-section-image" 
-              />
-            </div>
-
-            <div className="uiux-text-column">
-              {/* Visual Design Systems */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <Palette />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>Visual Design Systems</h3>
-                  <p>Comprehensive design systems with consistent colors, typography, and components that scale across your entire product ecosystem.</p>
+          <div className="uiux-capabilities-grid">
+            {capabilities.map((capability, index) => (
+              <div key={index} className={`uiux-capability-card ${capability.color}`}>
+                <div className="uiux-capability-glow"></div>
+                <div className="uiux-capability-icon">{capability.icon}</div>
+                <h3>{capability.title}</h3>
+                <p>{capability.description}</p>
+                <div className="uiux-tech-badges">
+                  {capability.tech.map((tech, tIndex) => (
+                    <span key={tIndex} className="uiux-tech-badge">{tech}</span>
+                  ))}
                 </div>
               </div>
-
-              {/* Responsive Design */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <Smartphone />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>Responsive Design</h3>
-                  <p>Pixel-perfect designs that adapt beautifully to any screen size, ensuring optimal user experience across all devices.</p>
-                </div>
-              </div>
-
-              {/* Interactive Prototypes */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <Layers />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>Interactive Prototypes</h3>
-                  <p>High-fidelity prototypes that bring designs to life, allowing stakeholders to experience the final product before development.</p>
-                </div>
-              </div>
-
-              {/* Accessibility Focus */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <Heart />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>Accessibility Focus</h3>
-                  <p>Inclusive design principles ensuring your product is accessible to users of all abilities and meets WCAG standards.</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Digital Product Optimization Section */}
-      <section className="uiux-development-section">
+      {/* Solutions */}
+      <section className="uiux-solutions">
         <div className="uiux-container">
           <div className="uiux-section-header">
-            <h2>Digital Product Optimization</h2>
-            <p>Continuous improvement through data-driven optimization, ensuring your digital products evolve with user needs and market demands.</p>
+            <span className="uiux-label">What We Design</span>
+            <h2 className="uiux-section-title">Design Solutions</h2>
           </div>
 
-          <div className="uiux-content-row">
-            <div className="uiux-image-column">
-             <img 
-                src="/images/ui2.png" 
-                alt="Digital Product Optimization" 
-                className="uiux-section-image" 
-              />
+          <div className="uiux-solutions-grid">
+            {solutions.map((solution, index) => (
+              <div key={index} className="uiux-solution-card">
+                <div className="uiux-solution-header">
+                  <div className="uiux-solution-icon">{solution.icon}</div>
+                  <h3>{solution.title}</h3>
+                </div>
+                <p>{solution.description}</p>
+                <div className="uiux-solution-metrics">
+                  {Object.entries(solution.metrics).map(([key, value], mIndex) => (
+                    <div key={mIndex} className="uiux-metric">
+                      <div className="uiux-metric-value">{value}</div>
+                      <div className="uiux-metric-label">{key.replace('_', ' ')}</div>
+                    </div>
+                  ))}
+                </div>
+                <button className="uiux-solution-link">
+                  Explore Design <ArrowRight size={16} />
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Design Projects Showcase */}
+      <section className="uiux-showcase">
+        <div className="uiux-container">
+          <div className="uiux-section-header">
+            <span className="uiux-label">Portfolio</span>
+            <h2 className="uiux-section-title">Featured Design Projects</h2>
+            <p className="uiux-section-subtitle">
+              Real-world design solutions that transformed user experiences
+            </p>
+          </div>
+
+          <div className="uiux-showcase-grid">
+            {designProjects.map((project, index) => (
+              <div key={index} className="uiux-showcase-card">
+                <div className="uiux-showcase-image">
+                  <img src={project.image} alt={project.alt} />
+                  <div className="uiux-showcase-overlay">
+                    <div className="uiux-showcase-icon">{project.icon}</div>
+                  </div>
+                </div>
+                <div className="uiux-showcase-content">
+                  <div className="uiux-showcase-category">{project.category}</div>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                  <div className="uiux-showcase-result">
+                    <CheckCircle size={18} />
+                    <span>{project.result}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Design Tools */}
+      <section className="uiux-tools">
+        <div className="uiux-container">
+          <div className="uiux-section-header">
+            <span className="uiux-label">Our Toolkit</span>
+            <h2 className="uiux-section-title">Design Tools & Software</h2>
+          </div>
+
+          <div className="uiux-tools-grid">
+            {designTools.map((tool, index) => (
+              <div key={index} className="uiux-tool-card">
+                <div className="uiux-tool-name">{tool.name}</div>
+                <div className="uiux-tool-category">{tool.category}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Design Process */}
+      <section className="uiux-process">
+        <div className="uiux-container">
+          <div className="uiux-section-header">
+            <span className="uiux-label">Our Approach</span>
+            <h2 className="uiux-section-title">Design Process</h2>
+            <p className="uiux-section-subtitle">
+              Proven methodology delivering exceptional design outcomes
+            </p>
+          </div>
+
+          <div className="uiux-process-timeline">
+            {designProcess.map((step, index) => (
+              <div key={index} className="uiux-process-step">
+                <div className="uiux-process-line"></div>
+                <div className="uiux-process-number">{step.number}</div>
+                <div className="uiux-process-content">
+                  <h3>{step.title}</h3>
+                  <p>{step.description}</p>
+                  <ul className="uiux-deliverables">
+                    {step.deliverables.map((deliverable, dIndex) => (
+                      <li key={dIndex}>
+                        <CheckCircle size={14} />
+                        <span>{deliverable}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="uiux-cta">
+        <div className="uiux-cta-container">
+          <div className="uiux-cta-content">
+            <div className="uiux-cta-left">
+              <div className="uiux-cta-badge">
+                <Palette size={20} />
+                <span>Let's Create Something Beautiful</span>
+              </div>
+              <h2>Ready to Transform Your User Experience?</h2>
+              <p>
+                Partner with our award-winning design team to create stunning interfaces that users love.
+                Get started with a free design consultation and project assessment.
+              </p>
+              <ul className="uiux-cta-benefits">
+                <li>
+                  <CheckCircle size={20} />
+                  <span>Free design consultation</span>
+                </li>
+                <li>
+                  <CheckCircle size={20} />
+                  <span>Portfolio review & analysis</span>
+                </li>
+                <li>
+                  <CheckCircle size={20} />
+                  <span>Custom design proposal</span>
+                </li>
+              </ul>
             </div>
-
-            <div className="uiux-text-column">
-              {/* Usability Testing */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <Search />
+            <div className="uiux-cta-right">
+              <button className="uiux-cta-btn">
+                <span>Schedule Design Session</span>
+                <Rocket size={20} />
+              </button>
+              <div className="uiux-cta-trust">
+                <div className="uiux-trust-item">
+                  <Award size={18} />
+                  <span>Award-Winning Designs</span>
                 </div>
-                <div className="uiux-feature-content">
-                  <h3>Usability Testing</h3>
-                  <p>Comprehensive testing methodologies to identify friction points and optimize user journeys for maximum conversion and satisfaction.</p>
+                <div className="uiux-trust-item">
+                  <Shield size={18} />
+                  <span>NDA Protection</span>
                 </div>
-              </div>
-
-              {/* Conversion Rate Optimization */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <TrendingUp />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>Conversion Rate Optimization</h3>
-                  <p>Data-driven approach to improve conversion rates through A/B testing, user behavior analysis, and strategic design iterations.</p>
-                </div>
-              </div>
-
-              {/* Performance Monitoring */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <Monitor />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>Performance Monitoring</h3>
-                  <p>Continuous monitoring of design performance with real-time analytics to ensure optimal user experience and business outcomes.</p>
-                </div>
-              </div>
-
-              {/* Rapid Iteration */}
-              <div className="uiux-feature-item">
-                <div className="uiux-feature-icon">
-                  <Zap />
-                </div>
-                <div className="uiux-feature-content">
-                  <h3>Rapid Iteration</h3>
-                  <p>Agile design process enabling quick iterations based on user feedback and market changes to stay ahead of competition.</p>
+                <div className="uiux-trust-item">
+                  <Globe size={18} />
+                  <span>Global Design Expertise</span>
                 </div>
               </div>
             </div>
@@ -233,7 +452,7 @@ const UIUXDesign = () => {
 
       {/* Checkout */}
       <Checkout />
-    </>
+    </div>
   );
 };
 

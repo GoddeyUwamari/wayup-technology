@@ -1,11 +1,79 @@
 import React, { useEffect } from 'react';
-import { Palette, Film, Layout, Video, PieChart, Share2, Lightbulb, Pencil, CheckCircle, Rocket } from 'lucide-react';
+import {
+  Palette,
+  Film,
+  Layout,
+  Video,
+  BarChart,
+  Share2,
+  Lightbulb,
+  Pencil,
+  CheckCircle,
+  Rocket,
+  Box,
+  Printer,
+  Eye,
+  Sparkles,
+  Target,
+  TrendingUp
+} from 'lucide-react';
 import './AnimationGraphicDesign.css';
 
 const AnimationGraphicDesign = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const capabilities = [
+    {
+      icon: <Palette className="capability-icon" />,
+      title: 'Logo & Brand Identity',
+      description: 'Create memorable brand identities that resonate with your target audience and stand the test of time.',
+      color: 'purple'
+    },
+    {
+      icon: <Film className="capability-icon" />,
+      title: 'Motion Graphics',
+      description: 'Dynamic animated content that captivates viewers and communicates your message with impact.',
+      color: 'pink'
+    },
+    {
+      icon: <Layout className="capability-icon" />,
+      title: 'UI/UX Visual Design',
+      description: 'Intuitive, beautiful interfaces that enhance user experience and drive engagement.',
+      color: 'cyan'
+    },
+    {
+      icon: <Video className="capability-icon" />,
+      title: 'Video Production & Editing',
+      description: 'Professional video content from concept to completion, optimized for all platforms.',
+      color: 'purple'
+    },
+    {
+      icon: <Box className="capability-icon" />,
+      title: '2D/3D Animation',
+      description: 'Bring your ideas to life with stunning 2D and 3D animations that engage and inspire.',
+      color: 'pink'
+    },
+    {
+      icon: <BarChart className="capability-icon" />,
+      title: 'Infographics',
+      description: 'Transform complex data into visually compelling stories that inform and persuade.',
+      color: 'cyan'
+    },
+    {
+      icon: <Share2 className="capability-icon" />,
+      title: 'Social Media Graphics',
+      description: 'Eye-catching social content designed to maximize engagement and brand visibility.',
+      color: 'purple'
+    },
+    {
+      icon: <Printer className="capability-icon" />,
+      title: 'Print Design',
+      description: 'Professional print materials that leave lasting impressions and elevate your brand.',
+      color: 'pink'
+    }
+  ];
 
   const solutions = [
     {
@@ -29,7 +97,7 @@ const AnimationGraphicDesign = () => {
       description: 'Produce professional-quality videos from concept to final cut, optimized for maximum impact across digital platforms.'
     },
     {
-      icon: <PieChart className="solution-icon" />,
+      icon: <BarChart className="solution-icon" />,
       title: 'Infographic Design',
       description: 'Transform complex data and information into visually compelling infographics that inform, engage, and persuade your audience.'
     },
@@ -42,44 +110,67 @@ const AnimationGraphicDesign = () => {
 
   const techStack = [
     {
-      category: 'Design Tools',
-      tools: ['Adobe Creative Suite', 'Figma', 'Sketch']
+      category: 'Adobe Creative Cloud',
+      tools: ['Photoshop', 'Illustrator', 'After Effects', 'Premiere Pro'],
+      color: 'orange'
     },
     {
-      category: 'Animation',
-      tools: ['After Effects', 'Blender', 'Cinema 4D']
+      category: 'Design Tools',
+      tools: ['Figma', 'Sketch', 'InVision'],
+      color: 'purple'
+    },
+    {
+      category: '3D & Animation',
+      tools: ['Blender', 'Cinema 4D', 'Maya'],
+      color: 'pink'
     },
     {
       category: 'Video Editing',
-      tools: ['Premiere Pro', 'DaVinci Resolve']
-    },
-    {
-      category: 'Prototyping',
-      tools: ['Framer', 'Principle', 'ProtoPie']
+      tools: ['DaVinci Resolve', 'Final Cut Pro'],
+      color: 'cyan'
     }
   ];
 
   const processSteps = [
     {
+      icon: <Eye className="process-icon" />,
+      title: 'Discovery & Brief',
+      description: 'Understanding your brand, goals, audience, and vision to create a strategic creative direction.',
+      number: '01'
+    },
+    {
       icon: <Lightbulb className="process-icon" />,
-      title: 'Discovery & Concept Development',
-      description: 'Understanding your brand, goals, and target audience to create a strategic creative direction.'
+      title: 'Concept Development',
+      description: 'Brainstorming creative concepts and developing mood boards to align on visual direction.',
+      number: '02'
     },
     {
       icon: <Pencil className="process-icon" />,
-      title: 'Design & Animation Production',
-      description: 'Crafting high-quality visuals and animations that align with your brand identity and messaging.'
+      title: 'Design & Iteration',
+      description: 'Crafting high-quality designs with iterative refinement based on your feedback.',
+      number: '03'
     },
     {
       icon: <CheckCircle className="process-icon" />,
-      title: 'Review & Refinement',
-      description: 'Collaborative feedback sessions to perfect every detail and ensure your complete satisfaction.'
+      title: 'Finalization & Delivery',
+      description: 'Final polish, quality assurance, and delivery of all assets in required formats.',
+      number: '04'
     },
     {
       icon: <Rocket className="process-icon" />,
-      title: 'Delivery & Support',
-      description: 'Final asset delivery with ongoing support to ensure successful implementation and maximum impact.'
+      title: 'Post-Launch Support',
+      description: 'Ongoing support and optimization to ensure continued success and maximum impact.',
+      number: '05'
     }
+  ];
+
+  const industries = [
+    { icon: <Sparkles />, name: 'Technology & SaaS', count: '150+' },
+    { icon: <Target />, name: 'Healthcare', count: '80+' },
+    { icon: <TrendingUp />, name: 'Finance', count: '120+' },
+    { icon: <Share2 />, name: 'E-commerce', count: '200+' },
+    { icon: <Film />, name: 'Entertainment & Media', count: '90+' },
+    { icon: <Lightbulb />, name: 'Education', count: '110+' }
   ];
 
   const painPoints = [
@@ -102,19 +193,30 @@ const AnimationGraphicDesign = () => {
       {/* Hero Section */}
       <section className="agd-hero">
         <div className="agd-hero-overlay"></div>
+        <div className="agd-hero-gradient"></div>
         <img
           src="https://images.unsplash.com/photo-1626785774573-4b799315345d?w=1200&q=80"
           alt="Creative design workspace with digital tablet, color swatches, and design tools"
           className="agd-hero-image"
         />
         <div className="agd-hero-content">
-          <h1 className="agd-hero-title">Animation & Graphic Design Solutions</h1>
+          <div className="agd-hero-badge">
+            <Sparkles size={20} />
+            <span>Creative Excellence</span>
+          </div>
+          <h1 className="agd-hero-title">Animation & Graphic Design Services</h1>
           <p className="agd-hero-subtitle">
-            Transform your brand with stunning visuals, motion graphics, and creative storytelling
+            Bring your brand to life with stunning visuals and motion graphics that captivate, engage, and convert
           </p>
           <div className="agd-hero-buttons">
-            <button className="agd-btn agd-btn-primary">Start Your Project</button>
-            <button className="agd-btn agd-btn-secondary">View Portfolio</button>
+            <button className="agd-btn agd-btn-primary">
+              <span>Start Your Project</span>
+              <Rocket size={20} />
+            </button>
+            <button className="agd-btn agd-btn-secondary">
+              <Eye size={20} />
+              <span>View Portfolio</span>
+            </button>
           </div>
         </div>
       </section>
@@ -124,6 +226,7 @@ const AnimationGraphicDesign = () => {
         <div className="agd-container">
           <div className="agd-overview-grid">
             <div className="agd-overview-content">
+              <span className="agd-section-label">Why Choose Us</span>
               <h2 className="agd-section-title">Visual Communication That Drives Results</h2>
               <p className="agd-overview-text">
                 In today's fast-paced digital landscape, businesses face unprecedented challenges in
@@ -141,6 +244,7 @@ const AnimationGraphicDesign = () => {
                 {painPoints.map((point, index) => (
                   <div key={index} className="agd-pain-point">
                     <div className="agd-pain-point-header">
+                      <CheckCircle size={20} className="agd-pain-point-icon" />
                       <span className="agd-pain-point-problem">{point.problem}</span>
                     </div>
                     <p className="agd-pain-point-solution">{point.solution}</p>
@@ -150,6 +254,7 @@ const AnimationGraphicDesign = () => {
             </div>
 
             <div className="agd-overview-image-wrapper">
+              <div className="agd-overview-image-glow"></div>
               <img
                 src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=800&q=80"
                 alt="Professional design tools including stylus, color palette, and graphic design software interface"
@@ -160,9 +265,33 @@ const AnimationGraphicDesign = () => {
         </div>
       </section>
 
+      {/* Capabilities Grid */}
+      <section className="agd-capabilities">
+        <div className="agd-container">
+          <span className="agd-section-label agd-text-center">What We Offer</span>
+          <h2 className="agd-section-title agd-text-center">Design Capabilities</h2>
+          <p className="agd-section-subtitle">
+            Comprehensive creative services delivered by expert designers and animators
+          </p>
+
+          <div className="agd-capabilities-grid">
+            {capabilities.map((capability, index) => (
+              <div key={index} className={`agd-capability-card ${capability.color}`}>
+                <div className="agd-capability-icon-wrapper">
+                  {capability.icon}
+                </div>
+                <h3 className="agd-capability-title">{capability.title}</h3>
+                <p className="agd-capability-description">{capability.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Solutions Grid */}
       <section className="agd-solutions">
         <div className="agd-container">
+          <span className="agd-section-label agd-text-center">Services</span>
           <h2 className="agd-section-title agd-text-center">Our Creative Solutions</h2>
           <p className="agd-section-subtitle">
             Comprehensive design and animation services tailored to your brand's unique needs
@@ -185,18 +314,22 @@ const AnimationGraphicDesign = () => {
       {/* Tech Stack Section */}
       <section className="agd-tech-stack">
         <div className="agd-container">
-          <h2 className="agd-section-title agd-text-center">Industry-Leading Tools & Technologies</h2>
+          <span className="agd-section-label agd-text-center">Tools & Software</span>
+          <h2 className="agd-section-title agd-text-center">Industry-Leading Technologies</h2>
           <p className="agd-section-subtitle">
             We leverage the most advanced creative software to deliver exceptional results
           </p>
 
           <div className="agd-tech-grid">
             {techStack.map((stack, index) => (
-              <div key={index} className="agd-tech-category">
+              <div key={index} className={`agd-tech-category ${stack.color}`}>
                 <h3 className="agd-tech-category-title">{stack.category}</h3>
                 <ul className="agd-tech-list">
                   {stack.tools.map((tool, toolIndex) => (
-                    <li key={toolIndex} className="agd-tech-item">{tool}</li>
+                    <li key={toolIndex} className="agd-tech-item">
+                      <CheckCircle size={16} />
+                      <span>{tool}</span>
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -208,7 +341,8 @@ const AnimationGraphicDesign = () => {
       {/* Process Section */}
       <section className="agd-process">
         <div className="agd-container">
-          <h2 className="agd-section-title agd-text-center">Our Creative Process</h2>
+          <span className="agd-section-label agd-text-center">Our Approach</span>
+          <h2 className="agd-section-title agd-text-center">Design Process</h2>
           <p className="agd-section-subtitle">
             A proven methodology that ensures exceptional results every time
           </p>
@@ -216,7 +350,7 @@ const AnimationGraphicDesign = () => {
           <div className="agd-process-grid">
             {processSteps.map((step, index) => (
               <div key={index} className="agd-process-step">
-                <div className="agd-process-number">{index + 1}</div>
+                <div className="agd-process-number">{step.number}</div>
                 <div className="agd-process-icon-wrapper">
                   {step.icon}
                 </div>
@@ -228,9 +362,31 @@ const AnimationGraphicDesign = () => {
         </div>
       </section>
 
+      {/* Industries Section */}
+      <section className="agd-industries">
+        <div className="agd-container">
+          <span className="agd-section-label agd-text-center">Who We Serve</span>
+          <h2 className="agd-section-title agd-text-center">Industries We Serve</h2>
+          <p className="agd-section-subtitle">
+            Delivering creative excellence across diverse sectors
+          </p>
+
+          <div className="agd-industries-grid">
+            {industries.map((industry, index) => (
+              <div key={index} className="agd-industry-card">
+                <div className="agd-industry-icon">{industry.icon}</div>
+                <h3 className="agd-industry-name">{industry.name}</h3>
+                <div className="agd-industry-count">{industry.count} Projects</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Case Study Section */}
       <section className="agd-case-study">
         <div className="agd-container">
+          <span className="agd-section-label agd-text-center">Portfolio</span>
           <h2 className="agd-section-title agd-text-center">Success Story</h2>
 
           <div className="agd-case-study-content">
@@ -272,12 +428,14 @@ const AnimationGraphicDesign = () => {
                 <h3 className="agd-case-study-label">Results</h3>
                 <div className="agd-results-grid">
                   <div className="agd-result-item">
-                    <div className="agd-result-number">250%</div>
-                    <div className="agd-result-label">Increase in Social Engagement</div>
+                    <TrendingUp size={32} className="agd-result-icon" />
+                    <div className="agd-result-number">300%</div>
+                    <div className="agd-result-label">Engagement Increase</div>
                   </div>
                   <div className="agd-result-item">
-                    <div className="agd-result-number">180%</div>
-                    <div className="agd-result-label">Boost in Conversion Rates</div>
+                    <Target size={32} className="agd-result-icon" />
+                    <div className="agd-result-number">85%</div>
+                    <div className="agd-result-label">Brand Recognition Up</div>
                   </div>
                 </div>
               </div>
@@ -288,23 +446,42 @@ const AnimationGraphicDesign = () => {
 
       {/* CTA Section */}
       <section className="agd-cta">
+        <div className="agd-cta-gradient"></div>
         <div className="agd-container">
           <div className="agd-cta-content">
-            <h2 className="agd-cta-title">Ready to Elevate Your Brand Visuals?</h2>
+            <Sparkles size={48} className="agd-cta-icon" />
+            <h2 className="agd-cta-title">Ready to Elevate Your Brand?</h2>
             <p className="agd-cta-text">
               Let's create stunning designs and animations that captivate your audience and drive real business results
             </p>
-            <button className="agd-btn agd-btn-cta">Get Started Today</button>
+            <div className="agd-cta-buttons">
+              <button className="agd-btn agd-btn-cta">
+                <span>Get a Free Design Consultation</span>
+                <Rocket size={20} />
+              </button>
+              <button className="agd-btn agd-btn-secondary-cta">
+                <Eye size={20} />
+                <span>View Our Portfolio</span>
+              </button>
+            </div>
 
             <div className="agd-trust-signals">
               <div className="agd-trust-item">
+                <CheckCircle size={24} className="agd-trust-icon" />
                 <span className="agd-trust-number">500+</span>
                 <span className="agd-trust-label">Projects Delivered</span>
               </div>
               <div className="agd-trust-divider"></div>
               <div className="agd-trust-item">
+                <Target size={24} className="agd-trust-icon" />
                 <span className="agd-trust-number">95%</span>
-                <span className="agd-trust-label">Client Satisfaction Rate</span>
+                <span className="agd-trust-label">Client Satisfaction</span>
+              </div>
+              <div className="agd-trust-divider"></div>
+              <div className="agd-trust-item">
+                <TrendingUp size={24} className="agd-trust-icon" />
+                <span className="agd-trust-number">250%</span>
+                <span className="agd-trust-label">Avg. ROI Increase</span>
               </div>
             </div>
           </div>

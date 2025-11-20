@@ -11,7 +11,6 @@ import {
   Star,
   Award,
   Target,
-  Palette,
   Shield,
   TrendingUp,
   Globe,
@@ -21,8 +20,9 @@ import {
   Play,
   Download,
   MessageCircle,
-  Heart,
-  Sparkles
+  Sparkles,
+  Apple,
+  Chrome
 } from 'lucide-react';
 import './MobileAppDevelopment.css';
 import Checkout from '../components/Checkout';
@@ -39,137 +39,110 @@ const MobileAppDevelopment = () => {
     { icon: <Users />, label: '10M+ Users' }
   ];
 
-  const platforms = [
+  const capabilities = [
     {
-      icon: <Smartphone />,
+      icon: <Apple />,
       title: 'iOS Development',
       description: 'Native Swift apps with stunning performance and seamless Apple ecosystem integration',
       tech: ['Swift', 'SwiftUI', 'Xcode'],
-      color: 'cyan'
+      color: 'navy'
     },
     {
-      icon: <Tablet />,
+      icon: <Chrome />,
       title: 'Android Development',
       description: 'High-performance Kotlin apps optimized for the Android platform and devices',
       tech: ['Kotlin', 'Jetpack', 'Material Design'],
-      color: 'blue'
+      color: 'orange'
     },
     {
       icon: <Layers />,
       title: 'Cross-Platform',
       description: 'Single codebase for both platforms using React Native or Flutter frameworks',
       tech: ['React Native', 'Flutter', 'Expo'],
-      color: 'cyan'
+      color: 'navy'
     },
     {
       icon: <Monitor />,
       title: 'Progressive Web Apps',
       description: 'App-like experiences on the web with offline capabilities and push notifications',
       tech: ['PWA', 'Service Workers', 'Web APIs'],
-      color: 'blue'
+      color: 'orange'
     },
     {
       icon: <Cpu />,
       title: 'Backend & APIs',
       description: 'Scalable cloud infrastructure and real-time APIs powering your mobile apps',
       tech: ['Node.js', 'Firebase', 'GraphQL'],
-      color: 'cyan'
+      color: 'navy'
     },
     {
       icon: <Shield />,
       title: 'Security & Testing',
       description: 'End-to-end encryption, automated testing, and security audits for peace of mind',
       tech: ['OAuth', 'Jest', 'Detox'],
-      color: 'blue'
+      color: 'orange'
     }
   ];
 
-  const features = [
+  const solutions = [
     {
       icon: <Sparkles />,
-      title: 'Beautiful UI/UX',
-      description: 'Pixel-perfect designs that delight users and drive engagement',
-      metric: '4.9★ Avg Rating'
+      title: 'Consumer Apps',
+      description: 'Beautiful, intuitive mobile apps for iOS and Android with engaging UX, social features, and seamless performance.',
+      metrics: { downloads: '10M+', rating: '4.8★' }
     },
     {
-      icon: <Zap />,
-      title: 'Lightning Fast',
-      description: 'Optimized performance with < 2s load times and smooth 60fps animations',
-      metric: '< 2s Load Time'
+      icon: <Target />,
+      title: 'Enterprise Mobility',
+      description: 'Secure, scalable enterprise apps with advanced features, integrations, and device management.',
+      metrics: { users: '500K+', uptime: '99.9%' }
+    },
+    {
+      icon: <TrendingUp />,
+      title: 'E-commerce Apps',
+      description: 'Mobile shopping experiences with AR try-on, personalized recommendations, and seamless checkout.',
+      metrics: { conversion: '+35%', revenue: '$50M+' }
     },
     {
       icon: <Globe />,
-      title: 'Global Scale',
-      description: 'Apps built to handle millions of users with auto-scaling infrastructure',
-      metric: '10M+ Users'
-    },
-    {
-      icon: <Heart />,
-      title: 'User Retention',
-      description: 'Engaging experiences that keep users coming back day after day',
-      metric: '92% Retention'
+      title: 'Real-time Apps',
+      description: 'Live streaming, messaging, and collaborative apps with WebSocket technology and push notifications.',
+      metrics: { latency: '< 100ms', concurrent: '1M+' }
     }
   ];
 
   const showcaseApps = [
     {
-      name: 'HealthTrack Pro',
-      category: 'Healthcare',
+      industry: 'Healthcare',
       icon: '🏥',
-      downloads: '2M+',
-      rating: '4.8★',
-      description: 'AI-powered fitness tracking with 15+ wearable integrations'
+      title: 'HealthTrack Pro',
+      description: 'AI-powered fitness tracking with 15+ wearable integrations and personalized health insights',
+      result: '2M+ downloads, 4.8★ rating',
+      image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&q=80'
     },
     {
-      name: 'FinanceFlow',
-      category: 'FinTech',
+      industry: 'FinTech',
       icon: '💳',
-      downloads: '1.5M+',
-      rating: '4.9★',
-      description: 'Personal finance management with smart budgeting AI'
+      title: 'FinanceFlow',
+      description: 'Personal finance management with smart budgeting AI and investment tracking',
+      result: '1.5M+ users, $12M managed',
+      image: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=80'
     },
     {
-      name: 'ShopSmart',
-      category: 'E-commerce',
+      industry: 'E-commerce',
       icon: '🛍️',
-      downloads: '3M+',
-      rating: '4.7★',
-      description: 'Social shopping platform with AR try-on features'
+      title: 'ShopSmart',
+      description: 'Social shopping platform with AR try-on features and personalized recommendations',
+      result: '3M+ downloads, 35% conversion',
+      image: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=600&q=80'
     },
     {
-      name: 'LearnHub',
-      category: 'Education',
+      industry: 'Education',
       icon: '📚',
-      downloads: '900K+',
-      rating: '4.9★',
-      description: 'Interactive learning platform with gamification'
-    }
-  ];
-
-  const process = [
-    {
-      number: '01',
-      title: 'Discovery & Strategy',
-      description: 'Market research, user personas, and technical roadmap planning',
-      deliverables: ['Competitive analysis', 'User stories', 'Technical specs']
-    },
-    {
-      number: '02',
-      title: 'Design & Prototyping',
-      description: 'High-fidelity mockups, interactive prototypes, and user testing',
-      deliverables: ['Figma designs', 'Clickable prototype', 'Design system']
-    },
-    {
-      number: '03',
-      title: 'Development & QA',
-      description: 'Agile sprints, continuous integration, and rigorous testing',
-      deliverables: ['MVP release', 'Automated tests', 'Beta testing']
-    },
-    {
-      number: '04',
-      title: 'Launch & Growth',
-      description: 'App store optimization, marketing support, and analytics setup',
-      deliverables: ['Store submission', 'Analytics', 'Support plan']
+      title: 'LearnHub',
+      description: 'Interactive learning platform with gamification and offline course access',
+      result: '900K+ students, 92% retention',
+      image: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=600&q=80'
     }
   ];
 
@@ -179,19 +152,46 @@ const MobileAppDevelopment = () => {
     { name: 'React Native', category: 'Cross-Platform' },
     { name: 'Flutter', category: 'Cross-Platform' },
     { name: 'Firebase', category: 'Backend' },
-    { name: 'AWS Amplify', category: 'Backend' },
+    { name: 'AWS Amplify', category: 'Cloud' },
     { name: 'Node.js', category: 'Backend' },
     { name: 'GraphQL', category: 'API' }
   ];
 
+  const process = [
+    {
+      number: '01',
+      title: 'Discovery & Strategy',
+      description: 'Market research, user personas, and technical roadmap planning for your mobile app',
+      deliverables: ['Competitive analysis', 'User stories', 'Technical specs']
+    },
+    {
+      number: '02',
+      title: 'Design & Prototyping',
+      description: 'High-fidelity mockups, interactive prototypes, and user testing for optimal UX',
+      deliverables: ['Figma designs', 'Clickable prototype', 'Design system']
+    },
+    {
+      number: '03',
+      title: 'Development & QA',
+      description: 'Agile sprints, continuous integration, and rigorous testing across all devices',
+      deliverables: ['MVP release', 'Automated tests', 'Beta testing']
+    },
+    {
+      number: '04',
+      title: 'Launch & Growth',
+      description: 'App store optimization, marketing support, and analytics setup for success',
+      deliverables: ['Store submission', 'Analytics', 'Growth plan']
+    }
+  ];
+
   return (
     <div className="mobile-app-page">
-      {/* Hero Section - Centered with Device Grid */}
+      {/* Hero Section */}
       <section className="mobile-hero">
-        <div className="mobile-hero-bg-pattern"></div>
+        <div className="mobile-hero-bg-grid"></div>
         <div className="mobile-hero-container">
           <div className="mobile-hero-badge">
-            <Smartphone size={16} />
+            <Sparkles size={16} />
             <span>500+ Apps Delivered | 10M+ Active Users</span>
           </div>
           <h1 className="mobile-hero-title">
@@ -242,26 +242,26 @@ const MobileAppDevelopment = () => {
         </div>
       </section>
 
-      {/* Platforms Grid - Hexagonal Cards */}
-      <section className="mobile-platforms">
+      {/* Capabilities Grid */}
+      <section className="mobile-capabilities">
         <div className="mobile-container">
           <div className="mobile-section-header">
-            <span className="mobile-label">Our Expertise</span>
-            <h2 className="mobile-section-title">Multi-Platform Development</h2>
+            <span className="mobile-label">Core Expertise</span>
+            <h2 className="mobile-section-title">Mobile Development Capabilities</h2>
             <p className="mobile-section-subtitle">
               Native and cross-platform solutions for every use case
             </p>
           </div>
 
-          <div className="mobile-platforms-grid">
-            {platforms.map((platform, index) => (
-              <div key={index} className={`mobile-platform-card ${platform.color}`}>
-                <div className="mobile-platform-glow"></div>
-                <div className="mobile-platform-icon">{platform.icon}</div>
-                <h3>{platform.title}</h3>
-                <p>{platform.description}</p>
+          <div className="mobile-capabilities-grid">
+            {capabilities.map((capability, index) => (
+              <div key={index} className={`mobile-capability-card ${capability.color}`}>
+                <div className="mobile-capability-glow"></div>
+                <div className="mobile-capability-icon">{capability.icon}</div>
+                <h3>{capability.title}</h3>
+                <p>{capability.description}</p>
                 <div className="mobile-tech-badges">
-                  {platform.tech.map((tech, tIndex) => (
+                  {capability.tech.map((tech, tIndex) => (
                     <span key={tIndex} className="mobile-tech-badge">{tech}</span>
                   ))}
                 </div>
@@ -271,38 +271,45 @@ const MobileAppDevelopment = () => {
         </div>
       </section>
 
-      {/* Features - Large Cards with Metrics */}
-      <section className="mobile-features">
+      {/* Solutions */}
+      <section className="mobile-solutions">
         <div className="mobile-container">
           <div className="mobile-section-header">
-            <span className="mobile-label">Why Choose Us</span>
-            <h2 className="mobile-section-title">Built for Performance & Engagement</h2>
+            <span className="mobile-label">What We Build</span>
+            <h2 className="mobile-section-title">Mobile Solutions That Scale</h2>
           </div>
 
-          <div className="mobile-features-grid">
-            {features.map((feature, index) => (
-              <div key={index} className="mobile-feature-card">
-                <div className="mobile-feature-header">
-                  <div className="mobile-feature-icon">{feature.icon}</div>
-                  <h3>{feature.title}</h3>
+          <div className="mobile-solutions-grid">
+            {solutions.map((solution, index) => (
+              <div key={index} className="mobile-solution-card">
+                <div className="mobile-solution-header">
+                  <div className="mobile-solution-icon">{solution.icon}</div>
+                  <h3>{solution.title}</h3>
                 </div>
-                <p>{feature.description}</p>
-                <div className="mobile-feature-metric">
-                  <TrendingUp size={18} />
-                  <span>{feature.metric}</span>
+                <p>{solution.description}</p>
+                <div className="mobile-solution-metrics">
+                  {Object.entries(solution.metrics).map(([key, value], mIndex) => (
+                    <div key={mIndex} className="mobile-metric">
+                      <div className="mobile-metric-value">{value}</div>
+                      <div className="mobile-metric-label">{key.replace('_', ' ')}</div>
+                    </div>
+                  ))}
                 </div>
+                <button className="mobile-solution-link">
+                  Learn More <ArrowRight size={16} />
+                </button>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Showcase Apps - Portfolio Grid */}
+      {/* Showcase Apps */}
       <section className="mobile-showcase">
         <div className="mobile-container">
           <div className="mobile-section-header">
-            <span className="mobile-label">Featured Work</span>
-            <h2 className="mobile-section-title">Apps We've Built</h2>
+            <span className="mobile-label">Real-World Success</span>
+            <h2 className="mobile-section-title">Featured Mobile Apps</h2>
             <p className="mobile-section-subtitle">
               Real projects, real results—see what we've created for our clients
             </p>
@@ -311,20 +318,19 @@ const MobileAppDevelopment = () => {
           <div className="mobile-showcase-grid">
             {showcaseApps.map((app, index) => (
               <div key={index} className="mobile-showcase-card">
-                <div className="mobile-showcase-header">
-                  <div className="mobile-showcase-icon">{app.icon}</div>
-                  <div className="mobile-showcase-category">{app.category}</div>
-                </div>
-                <h3>{app.name}</h3>
-                <p>{app.description}</p>
-                <div className="mobile-showcase-metrics">
-                  <div className="mobile-showcase-metric">
-                    <Download size={16} />
-                    <span>{app.downloads}</span>
+                <div className="mobile-showcase-image">
+                  <img src={app.image} alt={`${app.title} - ${app.industry} mobile application`} />
+                  <div className="mobile-showcase-overlay">
+                    <div className="mobile-showcase-icon">{app.icon}</div>
                   </div>
-                  <div className="mobile-showcase-metric">
-                    <Star size={16} fill="currentColor" />
-                    <span>{app.rating}</span>
+                </div>
+                <div className="mobile-showcase-content">
+                  <div className="mobile-showcase-industry">{app.industry}</div>
+                  <h3>{app.title}</h3>
+                  <p>{app.description}</p>
+                  <div className="mobile-showcase-result">
+                    <CheckCircle size={18} />
+                    <span>{app.result}</span>
                   </div>
                 </div>
               </div>
@@ -333,12 +339,12 @@ const MobileAppDevelopment = () => {
         </div>
       </section>
 
-      {/* Tech Stack - Floating Cards */}
+      {/* Technology Stack */}
       <section className="mobile-tech-stack">
         <div className="mobile-container">
           <div className="mobile-section-header">
-            <span className="mobile-label">Technologies</span>
-            <h2 className="mobile-section-title">Our Tech Stack</h2>
+            <span className="mobile-label">Our Tools</span>
+            <h2 className="mobile-section-title">Mobile Technology Stack</h2>
           </div>
 
           <div className="mobile-tech-stack-grid">
@@ -352,20 +358,21 @@ const MobileAppDevelopment = () => {
         </div>
       </section>
 
-      {/* Process - Horizontal Timeline */}
+      {/* Process Timeline */}
       <section className="mobile-process">
         <div className="mobile-container">
           <div className="mobile-section-header">
-            <span className="mobile-label">Our Process</span>
-            <h2 className="mobile-section-title">From Idea to App Store</h2>
+            <span className="mobile-label">Our Methodology</span>
+            <h2 className="mobile-section-title">App Development Process</h2>
             <p className="mobile-section-subtitle">
-              Proven methodology delivering apps on time and within budget
+              Structured approach to delivering world-class mobile applications
             </p>
           </div>
 
-          <div className="mobile-process-grid">
+          <div className="mobile-process-timeline">
             {process.map((step, index) => (
               <div key={index} className="mobile-process-step">
+                <div className="mobile-process-line"></div>
                 <div className="mobile-process-number">{step.number}</div>
                 <div className="mobile-process-content">
                   <h3>{step.title}</h3>
@@ -385,7 +392,7 @@ const MobileAppDevelopment = () => {
         </div>
       </section>
 
-      {/* CTA - Gradient Split */}
+      {/* CTA */}
       <section className="mobile-cta">
         <div className="mobile-cta-container">
           <div className="mobile-cta-content">
@@ -416,7 +423,7 @@ const MobileAppDevelopment = () => {
             </div>
             <div className="mobile-cta-right">
               <button className="mobile-cta-btn">
-                <span>Get Free Consultation</span>
+                <span>Schedule Consultation</span>
                 <Rocket size={20} />
               </button>
               <div className="mobile-cta-trust">
