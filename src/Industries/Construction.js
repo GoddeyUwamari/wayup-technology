@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { HardHat, Ruler, Building2, Wrench, Calendar, Users, TrendingUp, Shield, Clock, FileText, Smartphone, MapPin, CheckCircle, ArrowRight, Hammer, Layers, ClipboardList } from 'lucide-react';
 import './Construction.css';
 
@@ -102,11 +103,11 @@ const Construction = () => {
             ))}
           </div>
           <div className="cons-hero-actions">
-            <button className="cons-btn-primary">
+            <Link to="/contact" state={{ scrollToTop: true }} className="cons-btn-primary">
               Start Free Trial
               <ArrowRight className="btn-icon" />
-            </button>
-            <button className="cons-btn-ghost">Schedule Demo</button>
+            </Link>
+            <Link to="/contact" state={{ scrollToTop: true }} className="cons-btn-ghost">Schedule Demo</Link>
           </div>
         </div>
       </section>
@@ -170,10 +171,10 @@ const Construction = () => {
                   </div>
                 ))}
               </div>
-              <button className="cons-benefits-btn">
+              <Link to="/contact" state={{ scrollToTop: true }} className="cons-benefits-btn">
                 Explore All Features
                 <ArrowRight className="btn-icon" />
-              </button>
+              </Link>
             </div>
             <div className="benefits-right">
               <img
@@ -284,11 +285,11 @@ const Construction = () => {
               </div>
             </div>
             <div className="cta-buttons-group">
-              <button className="cons-cta-primary">
+              <Link to="/contact" state={{ scrollToTop: true }} className="cons-cta-primary">
                 Start Free Trial
                 <ArrowRight className="btn-icon" />
-              </button>
-              <button className="cons-cta-secondary">Talk to Sales</button>
+              </Link>
+              <Link to="/contact" state={{ scrollToTop: true }} className="cons-cta-secondary">Talk to Sales</Link>
             </div>
             <div className="cta-trust">
               <Shield className="trust-icon" />

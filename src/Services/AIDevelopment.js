@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Brain,
   Cpu,
@@ -207,14 +208,14 @@ const AIDevelopment = () => {
           </div>
 
           <div className="ai-hero-actions">
-            <button className="ai-btn-primary">
+            <Link to="/contact" className="ai-btn-primary">
               <span>Start AI Project</span>
               <Rocket />
-            </button>
-            <button className="ai-btn-secondary">
+            </Link>
+            <Link to="/portfolio/work" className="ai-btn-secondary">
               <Database />
               <span>Explore Use Cases</span>
-            </button>
+            </Link>
           </div>
 
           {/* Floating Stats */}
@@ -288,9 +289,9 @@ const AIDevelopment = () => {
                     </div>
                   ))}
                 </div>
-                <button className="ai-solution-link">
+                <Link to="/contact" className="ai-solution-link">
                   Explore Solution <ArrowRight size={16} />
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -410,10 +411,10 @@ const AIDevelopment = () => {
               </ul>
             </div>
             <div className="ai-cta-right">
-              <button className="ai-cta-btn">
+              <Link to="/contact" className="ai-cta-btn" onClick={() => window.scrollTo(0, 0)}>
                 <span>Schedule AI Consultation</span>
                 <Rocket size={20} />
-              </button>
+              </Link>
               <div className="ai-cta-trust">
                 <div className="ai-trust-item">
                   <Shield size={18} />

@@ -145,6 +145,7 @@
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .ecom-btn-primary:hover {
@@ -163,6 +164,10 @@
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ecom-btn-outline:hover {
@@ -410,6 +415,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   flex-shrink: 0;
+  text-decoration: none;
 }
 
 .solution-arrow-btn:hover {
@@ -695,6 +701,7 @@
   align-items: center;
   gap: 0.75rem;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .ecom-cta-btn:hover {

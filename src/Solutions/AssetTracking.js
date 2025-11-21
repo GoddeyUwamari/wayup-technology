@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { MapPin, Package, Radio, Smartphone, BarChart3, Clock, Shield, TrendingUp, CheckCircle2, Truck, Warehouse, Tag } from 'lucide-react';
 import './AssetTracking.css';
 
@@ -133,13 +134,13 @@ const AssetTracking = () => {
                 and control over your assets, anywhere in the world.
               </p>
               <div className="at-hero-buttons">
-                <button className="at-btn at-btn-primary">
+                <Link to="/contact" state={{ scrollToTop: true }} className="at-btn at-btn-primary">
                   <span>Get Started</span>
                   <CheckCircle2 size={20} />
-                </button>
-                <button className="at-btn at-btn-secondary">
+                </Link>
+                <Link to="/portfolio/work" state={{ scrollToTop: true }} className="at-btn at-btn-secondary">
                   <span>Watch Demo</span>
-                </button>
+                </Link>
               </div>
             </div>
             <div className="at-hero-visual">
@@ -344,10 +345,10 @@ const AssetTracking = () => {
             <p className="at-cta-text">
               Join hundreds of companies that trust WayUP Technology for their asset tracking needs
             </p>
-            <button className="at-btn at-btn-cta">
+            <Link to="/contact" state={{ scrollToTop: true }} className="at-btn at-btn-cta">
               <span>Start Free Trial</span>
               <CheckCircle2 size={20} />
-            </button>
+            </Link>
             <p className="at-cta-note">No credit card required • 30-day free trial • Cancel anytime</p>
           </div>
         </div>

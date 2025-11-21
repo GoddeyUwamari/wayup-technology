@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Car, Gauge, Wifi, Shield, Cpu, Eye, Zap, Radio, Smartphone, Database, CheckCircle, ArrowRight, TrendingUp, Clock, Users, Target } from 'lucide-react';
 import './Automotive.css';
 
@@ -104,11 +105,11 @@ const Automotive = () => {
             ))}
           </div>
           <div className="auto-hero-buttons">
-            <button className="auto-btn-primary">
+            <Link to="/contact" state={{ scrollToTop: true }} className="auto-btn-primary">
               Explore Our Solutions
               <ArrowRight className="btn-icon" />
-            </button>
-            <button className="auto-btn-ghost">Download Case Studies</button>
+            </Link>
+            <Link to="/contact" state={{ scrollToTop: true }} className="auto-btn-ghost">Download Case Studies</Link>
           </div>
         </div>
       </section>
@@ -131,9 +132,9 @@ const Automotive = () => {
                 </div>
                 <h3 className="solution-card-title">{solution.title}</h3>
                 <p className="solution-card-description">{solution.description}</p>
-                <button className="solution-learn-btn">
+                <Link to="/contact" state={{ scrollToTop: true }} className="solution-learn-btn">
                   Learn More <ArrowRight className="learn-icon" />
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -276,11 +277,11 @@ const Automotive = () => {
                 </li>
               </ul>
               <div className="cta-actions">
-                <button className="auto-cta-primary">
+                <Link to="/contact" state={{ scrollToTop: true }} className="auto-cta-primary">
                   Schedule Technical Consultation
                   <ArrowRight className="btn-icon" />
-                </button>
-                <button className="auto-cta-secondary">Download Capabilities Deck</button>
+                </Link>
+                <Link to="/contact" state={{ scrollToTop: true }} className="auto-cta-secondary">Download Capabilities Deck</Link>
               </div>
             </div>
             <div className="cta-card-stats">

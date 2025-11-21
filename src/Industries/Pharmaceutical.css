@@ -131,6 +131,7 @@
   align-items: center;
   gap: 10px;
   border: none;
+  text-decoration: none;
 }
 
 .pharma-btn-primary {
@@ -537,6 +538,7 @@
   padding: 0;
   display: inline-flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .solution-learn-more:hover {
@@ -845,6 +847,7 @@
   align-items: center;
   gap: 12px;
   box-shadow: 0 8px 24px rgba(239, 90, 22, 0.35);
+  text-decoration: none;
 }
 
 .pharma-cta-button:hover {

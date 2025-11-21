@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Sprout, Droplets, Cloud, Tractor, Satellite, TrendingUp, MapPin, Thermometer, Wind, Sun, CheckCircle, ArrowRight, Leaf, BarChart4, Smartphone } from 'lucide-react';
 import './Agricultural.css';
 
@@ -93,11 +94,11 @@ const Agricultural = () => {
             ))}
           </div>
           <div className="agri-hero-actions">
-            <button className="agri-btn-primary">
+            <Link to="/contact" state={{ scrollToTop: true }} className="agri-btn-primary">
               <span>Schedule Farm Assessment</span>
               <ArrowRight className="btn-icon" />
-            </button>
-            <button className="agri-btn-outline">Watch Demo Video</button>
+            </Link>
+            <Link to="/contact" state={{ scrollToTop: true }} className="agri-btn-outline">Watch Demo Video</Link>
           </div>
         </div>
         <div className="agri-hero-right">
@@ -269,10 +270,10 @@ const Agricultural = () => {
                 <span>Flexible financing & leasing options</span>
               </div>
             </div>
-            <button className="agri-cta-button">
+            <Link to="/contact" state={{ scrollToTop: true }} className="agri-cta-button">
               Get Started Today
               <ArrowRight className="btn-icon" />
-            </button>
+            </Link>
             <div className="cta-trust-line">
               <span>Trusted by 2,400+ farms across North America</span>
             </div>

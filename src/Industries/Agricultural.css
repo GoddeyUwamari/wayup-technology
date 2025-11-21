@@ -167,6 +167,7 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
+  text-decoration: none;
 }
 
 .agri-btn-primary {
@@ -690,6 +691,7 @@
   align-items: center;
   gap: 12px;
   margin-bottom: 24px;
+  text-decoration: none;
 }
 
 .agri-cta-button:hover {

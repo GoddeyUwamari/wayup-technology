@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Globe,
   Users,
@@ -190,14 +191,14 @@ const OffshoreDevelopment = () => {
             </div>
 
             <div className="offshore-hero-actions">
-              <button className="offshore-btn-primary">
+              <Link to="/contact" className="offshore-btn-primary">
                 <span>Build Your Team</span>
                 <ArrowRight />
-              </button>
-              <button className="offshore-btn-secondary">
+              </Link>
+              <Link to="/contact" className="offshore-btn-secondary">
                 <MessageCircle />
                 <span>Schedule Consultation</span>
-              </button>
+              </Link>
             </div>
 
             {/* Hero Stats - Compact Grid */}
@@ -275,9 +276,9 @@ const OffshoreDevelopment = () => {
                 <div className="service-icon">{service.icon}</div>
                 <h3>{service.title}</h3>
                 <p>{service.description}</p>
-                <button className="service-link">
+                <Link to="/contact" className="service-link">
                   Learn More <ArrowRight size={16} />
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -341,7 +342,7 @@ const OffshoreDevelopment = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="engagement-btn">Select Model</button>
+                <Link to="/contact" className="engagement-btn">Select Model</Link>
               </div>
             ))}
           </div>
@@ -422,14 +423,14 @@ const OffshoreDevelopment = () => {
               </ul>
             </div>
             <div className="cta-right">
-              <button className="offshore-cta-btn">
+              <Link to="/contact" className="offshore-cta-btn" onClick={() => window.scrollTo(0, 0)}>
                 <span>Start Your Trial</span>
                 <Rocket size={20} />
-              </button>
-              <button className="offshore-cta-secondary">
+              </Link>
+              <Link to="/contact" className="offshore-cta-secondary" onClick={() => window.scrollTo(0, 0)}>
                 <HeadphonesIcon size={20} />
                 <span>Talk to an Expert</span>
-              </button>
+              </Link>
               <div className="cta-trust">
                 <div className="trust-item">
                   <Award size={18} />

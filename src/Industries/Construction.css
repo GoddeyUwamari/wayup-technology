@@ -177,6 +177,7 @@
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .cons-btn-primary:hover {
@@ -196,6 +197,10 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cons-btn-ghost:hover {
@@ -415,6 +420,7 @@
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .cons-benefits-btn:hover {
@@ -687,6 +693,7 @@
   align-items: center;
   gap: 0.75rem;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .cons-cta-primary:hover {
@@ -705,6 +712,10 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .cons-cta-secondary:hover {

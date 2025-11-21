@@ -111,6 +111,7 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .dam-btn-primary {

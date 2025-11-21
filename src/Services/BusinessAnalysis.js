@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   BarChart3,
   TrendingUp,
@@ -131,14 +132,14 @@ const BusinessAnalysis = () => {
               We help organizations optimize operations, drive growth, and make informed strategic decisions.
             </p>
             <div className="ba-hero-actions">
-              <button className="business-analysis-btn-primary">
+              <Link to="/contact" className="business-analysis-btn-primary">
                 <span>Get Free Consultation</span>
                 <ArrowRight className="btn-arrow" />
-              </button>
-              <button className="business-analysis-btn-secondary">
+              </Link>
+              <Link to="/portfolio/work" className="business-analysis-btn-secondary">
                 <LineChart className="btn-icon-left" />
                 <span>View Case Studies</span>
-              </button>
+              </Link>
             </div>
 
             {/* Hero Stats Grid */}
@@ -341,10 +342,10 @@ const BusinessAnalysis = () => {
               Schedule a free consultation with our business analysis experts and discover how we can
               optimize your operations and drive measurable growth.
             </p>
-            <button className="business-analysis-btn-cta">
+            <Link to="/contact" className="business-analysis-btn-cta" onClick={() => window.scrollTo(0, 0)}>
               <span>Schedule Free Consultation</span>
               <ArrowRight size={20} />
-            </button>
+            </Link>
             <div className="ba-cta-features">
               <div className="ba-cta-feature">
                 <CheckCircle size={18} />

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Palette,
   Film,
@@ -209,14 +210,14 @@ const AnimationGraphicDesign = () => {
             Bring your brand to life with stunning visuals and motion graphics that captivate, engage, and convert
           </p>
           <div className="agd-hero-buttons">
-            <button className="agd-btn agd-btn-primary">
+            <Link to="/contact" className="agd-btn agd-btn-primary">
               <span>Start Your Project</span>
               <Rocket size={20} />
-            </button>
-            <button className="agd-btn agd-btn-secondary">
+            </Link>
+            <Link to="/portfolio/work" className="agd-btn agd-btn-secondary">
               <Eye size={20} />
               <span>View Portfolio</span>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -282,56 +283,6 @@ const AnimationGraphicDesign = () => {
                 </div>
                 <h3 className="agd-capability-title">{capability.title}</h3>
                 <p className="agd-capability-description">{capability.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Solutions Grid */}
-      <section className="agd-solutions">
-        <div className="agd-container">
-          <span className="agd-section-label agd-text-center">Services</span>
-          <h2 className="agd-section-title agd-text-center">Our Creative Solutions</h2>
-          <p className="agd-section-subtitle">
-            Comprehensive design and animation services tailored to your brand's unique needs
-          </p>
-
-          <div className="agd-solutions-grid">
-            {solutions.map((solution, index) => (
-              <div key={index} className="agd-solution-card">
-                <div className="agd-solution-icon-wrapper">
-                  {solution.icon}
-                </div>
-                <h3 className="agd-solution-title">{solution.title}</h3>
-                <p className="agd-solution-description">{solution.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Tech Stack Section */}
-      <section className="agd-tech-stack">
-        <div className="agd-container">
-          <span className="agd-section-label agd-text-center">Tools & Software</span>
-          <h2 className="agd-section-title agd-text-center">Industry-Leading Technologies</h2>
-          <p className="agd-section-subtitle">
-            We leverage the most advanced creative software to deliver exceptional results
-          </p>
-
-          <div className="agd-tech-grid">
-            {techStack.map((stack, index) => (
-              <div key={index} className={`agd-tech-category ${stack.color}`}>
-                <h3 className="agd-tech-category-title">{stack.category}</h3>
-                <ul className="agd-tech-list">
-                  {stack.tools.map((tool, toolIndex) => (
-                    <li key={toolIndex} className="agd-tech-item">
-                      <CheckCircle size={16} />
-                      <span>{tool}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
             ))}
           </div>
@@ -455,14 +406,14 @@ const AnimationGraphicDesign = () => {
               Let's create stunning designs and animations that captivate your audience and drive real business results
             </p>
             <div className="agd-cta-buttons">
-              <button className="agd-btn agd-btn-cta">
+              <Link to="/contact" className="agd-btn agd-btn-cta">
                 <span>Get a Free Design Consultation</span>
                 <Rocket size={20} />
-              </button>
-              <button className="agd-btn agd-btn-secondary-cta">
+              </Link>
+              <Link to="/portfolio/work" className="agd-btn agd-btn-secondary-cta">
                 <Eye size={20} />
                 <span>View Our Portfolio</span>
-              </button>
+              </Link>
             </div>
 
             <div className="agd-trust-signals">

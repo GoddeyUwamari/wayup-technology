@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Truck, Package, MapPin, Clock, TrendingUp, Globe, Route, BarChart3, Warehouse, Zap, Shield, Users, CheckCircle, ArrowRight, Radio, Compass, Navigation } from 'lucide-react';
 import './Logistics.css';
 
@@ -97,11 +98,11 @@ const Logistics = () => {
               Transform your supply chain with intelligent routing, real-time tracking, warehouse automation, and predictive analytics. Built for freight, last-mile delivery, and enterprise logistics operations.
             </p>
             <div className="log-hero-buttons">
-              <button className="log-btn-primary">
+              <Link to="/contact" state={{ scrollToTop: true }} className="log-btn-primary">
                 Request Demo
                 <ArrowRight className="btn-icon" />
-              </button>
-              <button className="log-btn-secondary">Watch Platform Tour</button>
+              </Link>
+              <Link to="/contact" state={{ scrollToTop: true }} className="log-btn-secondary">Watch Platform Tour</Link>
             </div>
           </div>
           <div className="log-hero-stats-grid">
@@ -285,11 +286,11 @@ const Logistics = () => {
                 </li>
               </ul>
               <div className="cta-action-group">
-                <button className="log-cta-primary">
+                <Link to="/contact" state={{ scrollToTop: true }} className="log-cta-primary">
                   Schedule Demo
                   <ArrowRight className="btn-icon" />
-                </button>
-                <button className="log-cta-outline">Contact Sales</button>
+                </Link>
+                <Link to="/contact" state={{ scrollToTop: true }} className="log-cta-outline">Contact Sales</Link>
               </div>
               <div className="cta-trust-line">
                 <Shield className="trust-shield" />

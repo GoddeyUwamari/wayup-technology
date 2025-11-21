@@ -167,7 +167,7 @@
 
 .work-filter-btn:hover {
   border-color: var(--work-orange);
-  color: var(--work-orange);
+  color: var(--work-light-gray);
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(239, 90, 22, 0.1);
 }
@@ -575,6 +575,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(239, 90, 22, 0.3);
+  text-decoration: none;
 }
 
 .work-cta-btn-primary:hover {
@@ -597,6 +598,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  text-decoration: none;
 }
 
 .work-cta-btn-secondary:hover {

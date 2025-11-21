@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Fingerprint, Eye, Scan, Lock, Shield, UserCheck, Server, Zap, Clock, CheckCircle, AlertTriangle, Users, Building2, Award } from 'lucide-react';
 import './Biometrics.css';
 
@@ -135,13 +136,13 @@ const Biometrics = () => {
               unmatched accuracy, speed, and reliability for identity verification and access control.
             </p>
             <div className="bio-hero-buttons">
-              <button className="bio-btn bio-btn-primary">
+              <Link to="/contact" state={{ scrollToTop: true }} className="bio-btn bio-btn-primary">
                 <span>Request Demo</span>
                 <Fingerprint size={20} />
-              </button>
-              <button className="bio-btn bio-btn-outline">
+              </Link>
+              <Link to="/portfolio/work" state={{ scrollToTop: true }} className="bio-btn bio-btn-outline">
                 <span>Learn More</span>
-              </button>
+              </Link>
             </div>
 
             {/* Stats Cards */}
@@ -333,10 +334,10 @@ const Biometrics = () => {
               Discover how biometric authentication can transform your organization's
               security posture. Schedule a personalized demo with our experts today.
             </p>
-            <button className="bio-btn bio-btn-cta">
+            <Link to="/contact" state={{ scrollToTop: true }} className="bio-btn bio-btn-cta">
               <span>Schedule Demo</span>
               <Fingerprint size={20} />
-            </button>
+            </Link>
             <div className="bio-cta-footer">
               <div className="bio-cta-footer-item">
                 <CheckCircle size={18} />

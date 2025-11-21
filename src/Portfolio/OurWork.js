@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Code,
   Smartphone,
@@ -308,14 +309,14 @@ const OurWork = () => {
               and project assessment from our expert team.
             </p>
             <div className="work-cta-actions">
-              <button className="work-cta-btn-primary">
+              <Link to="/contact" state={{ scrollToTop: true }} className="work-cta-btn-primary">
                 <span>Get a Free Consultation</span>
                 <Rocket size={20} />
-              </button>
-              <button className="work-cta-btn-secondary">
+              </Link>
+              <Link to="/contact" state={{ scrollToTop: true }} className="work-cta-btn-secondary">
                 <Users size={20} />
                 <span>Schedule a Call</span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>

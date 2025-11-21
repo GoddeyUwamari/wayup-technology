@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Database as DatabaseIcon, Server, HardDrive, Shield, Zap, CheckCircle, Cloud, Lock, TrendingUp, Users, Layers, GitBranch, Activity, BarChart3, ArrowRight, Award, RefreshCw } from 'lucide-react';
 import './Database.css';
 
@@ -172,13 +173,13 @@ const Database = () => {
                 database solutions optimized for your business needs.
               </p>
               <div className="db-hero-buttons">
-                <button className="db-btn db-btn-primary">
+                <Link to="/contact" state={{ scrollToTop: true }} className="db-btn db-btn-primary">
                   <span>Get Started</span>
                   <ArrowRight size={20} />
-                </button>
-                <button className="db-btn db-btn-outline">
+                </Link>
+                <Link to="/portfolio/work" state={{ scrollToTop: true }} className="db-btn db-btn-outline">
                   <span>View Solutions</span>
-                </button>
+                </Link>
               </div>
 
               {/* Stats Grid */}
@@ -406,10 +407,10 @@ const Database = () => {
               Partner with WayUP Technology to build high-performance, scalable database solutions
               that power your applications and drive business growth.
             </p>
-            <button className="db-btn db-btn-cta">
+            <Link to="/contact" state={{ scrollToTop: true }} className="db-btn db-btn-cta">
               <span>Schedule Consultation</span>
               <ArrowRight size={20} />
-            </button>
+            </Link>
             <div className="db-cta-features">
               <div className="db-cta-feature">
                 <CheckCircle size={18} />

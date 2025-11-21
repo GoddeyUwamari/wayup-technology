@@ -88,6 +88,7 @@ function App() {
               <Route path="/services/api-integration" element={<ScrollToTop><APIIntegration /></ScrollToTop>} />
               <Route path="/services/offshore" element={<ScrollToTop><OffshoreDevelopment /></ScrollToTop>} />
               <Route path="/services/ai" element={<ScrollToTop><AIDevelopment /></ScrollToTop>} />
+              <Route path="/services/ai-development" element={<ScrollToTop><AIDevelopment /></ScrollToTop>} />
               <Route path="/services/staff-augmentation" element={<ScrollToTop><StaffAugmentation /></ScrollToTop>} />
               
               {/* Industries Routes */}

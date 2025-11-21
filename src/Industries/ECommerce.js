@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { ShoppingCart, TrendingUp, Globe, CreditCard, Package, Smartphone, Search, Shield, Repeat, Sparkles, CheckCircle, ArrowRight, Users, BarChart4, Zap, Lock } from 'lucide-react';
 import './ECommerce.css';
 
@@ -103,11 +104,11 @@ const ECommerce = () => {
             ))}
           </div>
           <div className="ecom-hero-actions">
-            <button className="ecom-btn-primary">
+            <Link to="/contact" state={{ scrollToTop: true }} className="ecom-btn-primary">
               <span>Get ROI Analysis</span>
               <ArrowRight className="btn-icon" />
-            </button>
-            <button className="ecom-btn-outline">View Success Stories</button>
+            </Link>
+            <Link to="/portfolio/work" state={{ scrollToTop: true }} className="ecom-btn-outline">View Success Stories</Link>
           </div>
         </div>
         <div className="ecom-hero-right">
@@ -168,9 +169,9 @@ const ECommerce = () => {
                     </div>
                   </div>
                 </div>
-                <button className="solution-arrow-btn">
+                <Link to="/contact" state={{ scrollToTop: true }} className="solution-arrow-btn">
                   <ArrowRight />
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -283,10 +284,10 @@ const ECommerce = () => {
                   <span>Fixed-price project or monthly retainer options</span>
                 </li>
               </ul>
-              <button className="ecom-cta-btn">
+              <Link to="/contact" state={{ scrollToTop: true }} className="ecom-cta-btn">
                 Schedule Strategy Call
                 <ArrowRight className="btn-icon" />
-              </button>
+              </Link>
             </div>
             <div className="cta-box-right">
               <div className="cta-trust-stats">

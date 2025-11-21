@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Lightbulb,
   Rocket,
@@ -132,14 +133,14 @@ const CustomProductDevelopment = () => {
               delight users, and drive business growth. Full ownership from concept to continuous improvement.
             </p>
             <div className="cp-hero-actions">
-              <button className="custom-product-btn-primary">
+              <Link to="/contact" className="custom-product-btn-primary">
                 <span>Start Your Project</span>
                 <ArrowRight className="btn-arrow" />
-              </button>
-              <button className="custom-product-btn-secondary">
+              </Link>
+              <Link to="/portfolio/work" className="custom-product-btn-secondary">
                 <LineChart className="btn-icon-left" />
                 <span>See Case Studies</span>
-              </button>
+              </Link>
             </div>
 
             {/* Hero Stats Grid */}
@@ -344,10 +345,10 @@ const CustomProductDevelopment = () => {
               Let's transform your vision into a successful product that users love and investors fund.
               Schedule a free consultation to discuss your project requirements and goals.
             </p>
-            <button className="custom-product-btn-cta">
+            <Link to="/contact" className="custom-product-btn-cta" onClick={() => window.scrollTo(0, 0)}>
               <span>Get Free Consultation</span>
               <ArrowRight size={20} />
-            </button>
+            </Link>
             <div className="cp-cta-features">
               <div className="cp-cta-feature">
                 <CheckCircle size={18} />

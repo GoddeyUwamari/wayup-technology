@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Shield, Microscope, FileText, Database, Activity, Lock, CheckCircle2, Users2, Pill, Beaker, ClipboardList, Gauge, ArrowRight, Zap } from 'lucide-react';
 import './Pharmaceutical.css';
 
@@ -121,13 +122,13 @@ const Pharmaceutical = () => {
               that accelerate drug development while ensuring regulatory excellence
             </p>
             <div className="pharma-hero-buttons">
-              <button className="pharma-btn-primary">
+              <Link to="/contact" state={{ scrollToTop: true }} className="pharma-btn-primary">
                 <span>Request Compliance Assessment</span>
                 <ArrowRight className="btn-icon" />
-              </button>
-              <button className="pharma-btn-outline">
+              </Link>
+              <Link to="/portfolio/work" state={{ scrollToTop: true }} className="pharma-btn-outline">
                 <span>Explore Solutions</span>
-              </button>
+              </Link>
             </div>
 
             {/* Hero Stats */}
@@ -226,7 +227,7 @@ const Pharmaceutical = () => {
                 <div className="solution-content">
                   <h3>{solution.title}</h3>
                   <p>{solution.description}</p>
-                  <button className="solution-learn-more">Learn More →</button>
+                  <Link to="/contact" state={{ scrollToTop: true }} className="solution-learn-more">Learn More →</Link>
                 </div>
               </div>
             ))}
@@ -341,10 +342,10 @@ const Pharmaceutical = () => {
                   <span>24/7 GxP-critical system support</span>
                 </li>
               </ul>
-              <button className="pharma-cta-button">
+              <Link to="/contact" state={{ scrollToTop: true }} className="pharma-cta-button">
                 Schedule Validation Consultation
                 <Shield className="btn-icon" />
-              </button>
+              </Link>
             </div>
             <div className="cta-stats">
               <div className="cta-stat-card">

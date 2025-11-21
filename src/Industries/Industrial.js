@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Factory, Wrench, Zap, Settings, BarChart3, Cog, CheckCircle, ArrowRight, TrendingUp, Shield, Boxes, Radio, Award, Target } from 'lucide-react';
 import './Industrial.css';
 
@@ -113,14 +114,14 @@ const Industrial = () => {
               Mission-critical SCADA, DCS, and IIoT solutions engineered for mining, oil & gas, chemical processing, and heavy manufacturing. Built for extreme environments, 24/7 reliability.
             </p>
             <div className="hero-actions">
-              <button className="industrial-btn-primary">
+              <Link to="/contact" state={{ scrollToTop: true }} className="industrial-btn-primary">
                 <span>Request Site Assessment</span>
                 <ArrowRight className="btn-arrow" />
-              </button>
-              <button className="industrial-btn-secondary">
+              </Link>
+              <Link to="/contact" state={{ scrollToTop: true }} className="industrial-btn-secondary">
                 <Radio className="btn-icon-left" />
                 <span>Live Demo</span>
-              </button>
+              </Link>
             </div>
 
             {/* Hero Stats Grid */}
@@ -344,10 +345,10 @@ const Industrial = () => {
                 Connect with our industrial automation experts to discuss your specific challenges and explore how our proven solutions can optimize your operations, reduce costs, and improve safety.
               </p>
               <div className="cta-actions">
-                <button className="cta-primary-btn">
+                <Link to="/contact" state={{ scrollToTop: true }} className="cta-primary-btn">
                   Schedule Free Consultation
                   <ArrowRight className="btn-arrow" />
-                </button>
+                </Link>
                 <div className="cta-contact-info">
                   <div className="contact-item">
                     <CheckCircle className="contact-icon" />

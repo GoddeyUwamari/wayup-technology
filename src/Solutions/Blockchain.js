@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Link2, Lock, Database, Coins, FileCheck, TrendingUp, Users, Zap, Shield, CheckCircle, Globe, Layers, Briefcase, ShoppingCart, Building } from 'lucide-react';
 import './Blockchain.css';
 
@@ -142,13 +143,13 @@ const Blockchain = () => {
               technology that eliminates intermediaries and builds trust.
             </p>
             <div className="bc-hero-buttons">
-              <button className="bc-btn bc-btn-primary">
+              <Link to="/contact" state={{ scrollToTop: true }} className="bc-btn bc-btn-primary">
                 <span>Start Your Project</span>
                 <Zap size={20} />
-              </button>
-              <button className="bc-btn bc-btn-secondary">
+              </Link>
+              <Link to="/portfolio/work" state={{ scrollToTop: true }} className="bc-btn bc-btn-secondary">
                 <span>Explore Use Cases</span>
-              </button>
+              </Link>
             </div>
 
             {/* Benefits Grid */}
@@ -379,10 +380,10 @@ const Blockchain = () => {
               Partner with WayUP Technology to develop secure, scalable blockchain solutions
               that transform your business operations and create new opportunities.
             </p>
-            <button className="bc-btn bc-btn-cta">
+            <Link to="/contact" state={{ scrollToTop: true }} className="bc-btn bc-btn-cta">
               <span>Schedule Consultation</span>
               <Zap size={20} />
-            </button>
+            </Link>
             <div className="bc-cta-features">
               <div className="bc-cta-feature">
                 <CheckCircle size={18} />

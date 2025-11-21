@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Users,
   Search,
@@ -261,14 +262,14 @@ const StaffAugmentation = () => {
             </div>
 
             <div className="staff-hero-actions">
-              <button className="staff-btn-primary">
+              <Link to="/contact" state={{ scrollToTop: true }} className="staff-btn-primary">
                 <span>Find Your Team</span>
                 <ArrowRight />
-              </button>
-              <button className="staff-btn-secondary">
+              </Link>
+              <Link to="/contact" state={{ scrollToTop: true }} className="staff-btn-secondary">
                 <HeadphonesIcon />
                 <span>Talk to Expert</span>
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -431,9 +432,9 @@ const StaffAugmentation = () => {
                     </li>
                   ))}
                 </ul>
-                <button className="pricing-btn">
+                <Link to="/contact" state={{ scrollToTop: true }} className="pricing-btn">
                   Get Started <ArrowRight size={16} />
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -466,14 +467,14 @@ const StaffAugmentation = () => {
               </ul>
             </div>
             <div className="cta-right">
-              <button className="staff-cta-btn-primary">
+              <Link to="/contact" className="staff-cta-btn-primary" onClick={() => window.scrollTo(0, 0)}>
                 <span>Start Your Trial</span>
                 <Rocket size={20} />
-              </button>
-              <button className="staff-cta-btn-secondary">
+              </Link>
+              <Link to="/contact" className="staff-cta-btn-secondary" onClick={() => window.scrollTo(0, 0)}>
                 <span>Schedule Consultation</span>
                 <ArrowRight size={20} />
-              </button>
+              </Link>
               <div className="cta-trust-badges">
                 <div className="trust-badge">
                   <Shield size={18} />

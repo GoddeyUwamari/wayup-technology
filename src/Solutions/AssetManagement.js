@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { FolderOpen, Image, Video, FileText, Search, Tag, Cloud, Lock, Users, Zap, CheckCircle, Download, Upload, Share2, Grid3x3, Layers, Activity, ArrowRight, Award, Clock } from 'lucide-react';
 import './AssetManagement.css';
 
@@ -172,13 +173,13 @@ const AssetManagement = () => {
                 search and seamless collaboration tools.
               </p>
               <div className="dam-hero-buttons">
-                <button className="dam-btn dam-btn-primary">
+                <Link to="/contact" state={{ scrollToTop: true }} className="dam-btn dam-btn-primary">
                   <span>Start Free Trial</span>
                   <ArrowRight size={20} />
-                </button>
-                <button className="dam-btn dam-btn-outline">
+                </Link>
+                <Link to="/portfolio/work" state={{ scrollToTop: true }} className="dam-btn dam-btn-outline">
                   <span>Watch Demo</span>
-                </button>
+                </Link>
               </div>
 
               {/* Stats Grid */}
@@ -408,10 +409,10 @@ const AssetManagement = () => {
               Transform how your team manages, finds, and shares digital assets. Start your free
               trial today and experience the power of intelligent asset management.
             </p>
-            <button className="dam-btn dam-btn-cta">
+            <Link to="/contact" state={{ scrollToTop: true }} className="dam-btn dam-btn-cta">
               <span>Start Free Trial</span>
               <ArrowRight size={20} />
-            </button>
+            </Link>
             <div className="dam-cta-features">
               <div className="dam-cta-feature">
                 <CheckCircle size={18} />

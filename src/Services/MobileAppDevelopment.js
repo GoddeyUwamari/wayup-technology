@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Smartphone,
   Tablet,
@@ -214,14 +215,14 @@ const MobileAppDevelopment = () => {
           </div>
 
           <div className="mobile-hero-actions">
-            <button className="mobile-btn-primary">
+            <Link to="/contact" state={{ scrollToTop: true }} className="mobile-btn-primary">
               <span>Start Your App</span>
               <Rocket />
-            </button>
-            <button className="mobile-btn-secondary">
+            </Link>
+            <Link to="/portfolio/work" state={{ scrollToTop: true }} className="mobile-btn-secondary">
               <Play />
               <span>View Portfolio</span>
-            </button>
+            </Link>
           </div>
 
           {/* Floating Stats */}
@@ -295,9 +296,9 @@ const MobileAppDevelopment = () => {
                     </div>
                   ))}
                 </div>
-                <button className="mobile-solution-link">
+                <Link to="/contact" state={{ scrollToTop: true }} className="mobile-solution-link">
                   Learn More <ArrowRight size={16} />
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -422,10 +423,10 @@ const MobileAppDevelopment = () => {
               </ul>
             </div>
             <div className="mobile-cta-right">
-              <button className="mobile-cta-btn">
+              <Link to="/contact" state={{ scrollToTop: true }} className="mobile-cta-btn">
                 <span>Schedule Consultation</span>
                 <Rocket size={20} />
-              </button>
+              </Link>
               <div className="mobile-cta-trust">
                 <div className="mobile-trust-item">
                   <Award size={18} />

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { BarChart3, LineChart, TrendingUp, Database, PieChart, Activity, Zap, CheckCircle, Target, Users, Brain, Globe, Layers, ArrowRight, Award } from 'lucide-react';
 import './BIAnalytics.css';
 
@@ -142,13 +143,13 @@ const BIAnalytics = () => {
                 business growth and competitive advantage.
               </p>
               <div className="bia-hero-buttons">
-                <button className="bia-btn bia-btn-primary">
+                <Link to="/contact" state={{ scrollToTop: true }} className="bia-btn bia-btn-primary">
                   <span>Get Started</span>
                   <ArrowRight size={20} />
-                </button>
-                <button className="bia-btn bia-btn-outline">
+                </Link>
+                <Link to="/portfolio/work" state={{ scrollToTop: true }} className="bia-btn bia-btn-outline">
                   <span>View Demo</span>
-                </button>
+                </Link>
               </div>
 
               {/* Stats Grid */}
@@ -391,10 +392,10 @@ const BIAnalytics = () => {
               Partner with WayUP Technology to build a comprehensive business intelligence solution
               that transforms your data into actionable insights and drives measurable business outcomes.
             </p>
-            <button className="bia-btn bia-btn-cta">
+            <Link to="/contact" state={{ scrollToTop: true }} className="bia-btn bia-btn-cta">
               <span>Schedule Consultation</span>
               <ArrowRight size={20} />
-            </button>
+            </Link>
             <div className="bia-cta-features">
               <div className="bia-cta-feature">
                 <CheckCircle size={18} />

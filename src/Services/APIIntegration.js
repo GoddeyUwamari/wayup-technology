@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Zap,
   Globe,
@@ -135,14 +136,14 @@ const APIIntegration = () => {
               streamline workflows, and enable real-time data exchange across your entire tech ecosystem.
             </p>
             <div className="api-hero-actions">
-              <button className="api-integration-btn-primary">
+              <Link to="/contact" className="api-integration-btn-primary">
                 <span>Start Integration</span>
                 <ArrowRight className="btn-arrow" />
-              </button>
-              <button className="api-integration-btn-secondary">
+              </Link>
+              <Link to="/portfolio/work" className="api-integration-btn-secondary">
                 <CloudLightning className="btn-icon-left" />
                 <span>View Documentation</span>
-              </button>
+              </Link>
             </div>
 
             {/* Hero Stats Grid */}
@@ -347,10 +348,10 @@ const APIIntegration = () => {
               Transform your business operations with seamless API integrations. Get expert consultation
               and a custom integration strategy tailored to your technical requirements.
             </p>
-            <button className="api-integration-btn-cta">
+            <Link to="/contact" className="api-integration-btn-cta" onClick={() => window.scrollTo(0, 0)}>
               <span>Get Integration Consultation</span>
               <ArrowRight size={20} />
-            </button>
+            </Link>
             <div className="api-cta-features">
               <div className="api-cta-feature">
                 <CheckCircle size={18} />

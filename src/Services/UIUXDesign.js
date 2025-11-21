@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Palette,
   Eye,
@@ -219,14 +220,14 @@ const UIUXDesign = () => {
           </div>
 
           <div className="uiux-hero-actions">
-            <button className="uiux-btn-primary">
+            <Link to="/contact" className="uiux-btn-primary">
               <span>Start Your Project</span>
               <Rocket />
-            </button>
-            <button className="uiux-btn-secondary">
+            </Link>
+            <Link to="/portfolio/work" className="uiux-btn-secondary">
               <Eye />
               <span>View Portfolio</span>
-            </button>
+            </Link>
           </div>
 
           {/* Floating Stats */}
@@ -300,9 +301,9 @@ const UIUXDesign = () => {
                     </div>
                   ))}
                 </div>
-                <button className="uiux-solution-link">
+                <Link to="/contact" className="uiux-solution-link">
                   Explore Design <ArrowRight size={16} />
-                </button>
+                </Link>
               </div>
             ))}
           </div>
@@ -427,10 +428,10 @@ const UIUXDesign = () => {
               </ul>
             </div>
             <div className="uiux-cta-right">
-              <button className="uiux-cta-btn">
+              <Link to="/contact" className="uiux-cta-btn" onClick={() => window.scrollTo(0, 0)}>
                 <span>Schedule Design Session</span>
                 <Rocket size={20} />
-              </button>
+              </Link>
               <div className="uiux-cta-trust">
                 <div className="uiux-trust-item">
                   <Award size={18} />

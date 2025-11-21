@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Cpu, TrendingUp, Package, CheckCircle, Calendar, BarChart, ArrowRight, Target, Zap, ClipboardCheck, Factory, Gauge, Shield, Award } from 'lucide-react';
 import './Manufacturing.css';
 
@@ -122,13 +123,13 @@ const Manufacturing = () => {
               Transform production with IoT sensors, predictive AI, and real-time analytics that eliminate downtime, optimize efficiency, and drive measurable ROI.
             </p>
             <div className="manufacturing-hero-buttons">
-              <button className="manufacturing-btn-primary">
+              <Link to="/contact" state={{ scrollToTop: true }} className="manufacturing-btn-primary">
                 <span>Start Digital Transformation</span>
                 <ArrowRight className="btn-icon" />
-              </button>
-              <button className="manufacturing-btn-secondary">
+              </Link>
+              <Link to="/portfolio/work" state={{ scrollToTop: true }} className="manufacturing-btn-secondary">
                 <span>View Case Studies</span>
-              </button>
+              </Link>
             </div>
 
             {/* Hero Stats */}
@@ -317,10 +318,10 @@ const Manufacturing = () => {
             </div>
             <h2>Ready to Transform Your Factory?</h2>
             <p>Join 200+ manufacturers achieving 98% uptime and $2.3B in cost savings</p>
-            <button className="manufacturing-btn-primary-large">
+            <Link to="/contact" className="manufacturing-btn-primary-large" onClick={() => window.scrollTo(0, 0)}>
               <span>Schedule Free Assessment</span>
               <ArrowRight className="btn-icon" />
-            </button>
+            </Link>
             <div className="manufacturing-cta-features">
               <div className="cta-feature">
                 <CheckCircle size={18} />

@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Brain, Bot, Cpu, Database, Eye, MessageSquare, TrendingUp, Zap, Target, Code, Shield, Sparkles } from 'lucide-react';
 import './AISolutions.css';
 
@@ -172,13 +173,13 @@ const AISolutions = () => {
               that automate processes, unlock insights, and create competitive advantages
             </p>
             <div className="ai-hero-buttons">
-              <button className="ai-btn ai-btn-primary">
+              <Link to="/contact" state={{ scrollToTop: true }} className="ai-btn ai-btn-primary">
                 <span>Start AI Transformation</span>
                 <Zap size={20} />
-              </button>
-              <button className="ai-btn ai-btn-outline">
+              </Link>
+              <Link to="/services/ai-development" state={{ scrollToTop: true }} className="ai-btn ai-btn-outline">
                 <span>Explore Capabilities</span>
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -427,10 +428,10 @@ const AISolutions = () => {
               Partner with WayUP Technology to build intelligent solutions that drive innovation,
               efficiency, and growth for your business
             </p>
-            <button className="ai-btn ai-btn-cta">
+            <Link to="/contact" state={{ scrollToTop: true }} className="ai-btn ai-btn-cta">
               <span>Schedule AI Consultation</span>
               <Zap size={20} />
-            </button>
+            </Link>
 
             <div className="ai-cta-features">
               <div className="ai-cta-feature">

@@ -118,6 +118,7 @@
   align-items: center;
   gap: 0.5rem;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .log-btn-primary:hover {
@@ -137,6 +138,10 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .log-btn-secondary:hover {
@@ -693,6 +698,7 @@
   align-items: center;
   gap: 0.75rem;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .log-cta-primary:hover {
@@ -711,6 +717,10 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .log-cta-outline:hover {

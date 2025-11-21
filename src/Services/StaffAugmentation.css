@@ -158,6 +158,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+  text-decoration: none;
 }
 
 .staff-btn-primary:hover {
@@ -179,6 +180,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  text-decoration: none;
 }
 
 .staff-btn-secondary:hover {
@@ -750,6 +752,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(20, 184, 166, 0.3);
+  text-decoration: none;
 }
 
 .pricing-btn:hover {
@@ -847,6 +850,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 8px 24px rgba(20, 184, 166, 0.3);
+  text-decoration: none;
 }
 
 .staff-cta-btn-primary:hover {
@@ -869,6 +873,7 @@
   cursor: pointer;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  text-decoration: none;
 }
 
 .staff-cta-btn-secondary:hover {

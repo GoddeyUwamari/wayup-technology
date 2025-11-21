@@ -148,6 +148,7 @@
   gap: 10px;
   transition: all 0.3s ease;
   box-shadow: 0 8px 20px rgba(239, 90, 22, 0.3);
+  text-decoration: none;
 }
 
 .offshore-btn-primary:hover {
@@ -169,6 +170,7 @@
   gap: 10px;
   transition: all 0.3s ease;
   backdrop-filter: blur(10px);
+  text-decoration: none;
 }
 
 .offshore-btn-secondary:hover {
@@ -506,6 +508,7 @@
   gap: 6px;
   transition: all 0.3s ease;
   padding: 0;
+  text-decoration: none;
 }
 
 .service-link:hover {
@@ -719,6 +722,9 @@
   font-weight: 700;
   cursor: pointer;
   transition: all 0.3s ease;
+  text-decoration: none;
+  display: block;
+  text-align: center;
 }
 
 .offshore-engagement-card.recommended .engagement-btn {
@@ -954,6 +960,7 @@
   gap: 12px;
   transition: all 0.3s ease;
   box-shadow: 0 10px 30px rgba(239, 90, 22, 0.3);
+  text-decoration: none;
 }
 
 .offshore-cta-btn:hover {
@@ -975,6 +982,7 @@
   justify-content: center;
   gap: 12px;
   transition: all 0.3s ease;
+  text-decoration: none;
 }
 
 .offshore-cta-secondary:hover {
