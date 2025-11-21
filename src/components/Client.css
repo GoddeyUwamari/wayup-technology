@@ -1780,3 +1780,153 @@ html {
 .statistic-icon:not(:hover) {
   will-change: auto;
 }
+
+/* ===== NAVIGATION LINK ENHANCEMENTS ===== */
+
+/* Link Wrappers */
+.benefit-card-link,
+.success-benefit-card-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.benefit-card-link:focus,
+.success-benefit-card-link:focus {
+  outline: 3px solid var(--primary-blue);
+  outline-offset: 2px;
+  border-radius: var(--border-radius);
+}
+
+/* Card Arrow Indicator */
+.card-arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-blue);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all var(--transition-normal);
+}
+
+.success-benefit-card .card-arrow {
+  color: var(--primary-yellow);
+}
+
+.benefit-card:hover .card-arrow,
+.success-benefit-card:hover .card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Enhanced Card Clickability */
+.benefit-card,
+.success-benefit-card {
+  cursor: pointer;
+  position: relative;
+  padding-bottom: 60px; /* Add space for arrow */
+}
+
+/* Hover State Enhancements */
+.benefit-card-link:hover .benefit-card {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--primary-green);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.3), var(--shadow-lg);
+  background: var(--card-hover-gradient);
+}
+
+.success-benefit-card-link:hover .success-benefit-card {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--primary-gold);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.3), var(--shadow-yellow-lg);
+  background: var(--success-card-hover-gradient);
+}
+
+/* Touch Device Optimization */
+@media (hover: none) and (pointer: coarse) {
+  .benefit-card,
+  .success-benefit-card {
+    min-height: 44px; /* Ensure touch target size */
+    touch-action: manipulation;
+  }
+
+  .card-arrow {
+    opacity: 0.5; /* Always visible on touch devices */
+  }
+
+  .benefit-card:active,
+  .success-benefit-card:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Responsive Card Arrow */
+@media (max-width: 768px) {
+  .card-arrow {
+    bottom: 15px;
+    right: 15px;
+    font-size: 1.3rem;
+  }
+
+  .benefit-card,
+  .success-benefit-card {
+    padding-bottom: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card-arrow {
+    bottom: 12px;
+    right: 12px;
+    font-size: 1.2rem;
+    opacity: 0.4; /* Slightly visible on mobile */
+  }
+
+  .benefit-card,
+  .success-benefit-card {
+    padding-bottom: 45px;
+  }
+}
+
+/* Active State for Better Feedback */
+.benefit-card-link:active .benefit-card,
+.success-benefit-card-link:active .success-benefit-card {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Loading State (optional future enhancement) */
+.benefit-card-link.loading .benefit-card,
+.success-benefit-card-link.loading .success-benefit-card {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Keyboard Navigation Enhancement */
+.benefit-card-link:focus-visible .benefit-card,
+.success-benefit-card-link:focus-visible .success-benefit-card {
+  outline: none;
+  box-shadow: 0 0 0 4px rgba(0, 204, 255, 0.3), var(--shadow-lg);
+}
+
+/* Prevent Text Selection on Cards During Click */
+.benefit-card,
+.success-benefit-card {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* Card Content Should Remain Selectable */
+.benefit-text,
+.success-benefit-text {
+  user-select: text;
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+}
