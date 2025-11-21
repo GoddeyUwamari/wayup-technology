@@ -9,7 +9,6 @@
   --primary-yellow: yellow;
   --primary-gold: rgb(255, 215, 0);
   --primary-purple: #c751ae;
-  --primary-red: rgb(192, 43, 43);
   --hypergrowth-green: #00ff00;
   
   /* Button Colors */
@@ -235,38 +234,130 @@ body {
 
 /* ===== ICON STYLES ===== */
 
-/* Benefit Icons */
+/* Professional Icon Container Base */
 .benefit-icon {
-  font-size: 3rem;
-  color: var(--primary-green);
-  margin-bottom: 1.5rem;
-  transition: all var(--transition-normal);
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80px;
-  width: 80px;
-  margin: 0 auto 1.5rem auto;
-  /* background-color: #8b9c50; */
-  background: rgba(0, 204, 255, 0.1);
+  width: 95px;
+  height: 95px;
+  margin: 0 auto 24px;
   border-radius: 50%;
-  border: 2px solid rgba(0, 204, 255, 0.2);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
 }
 
+/* Glow Effect Layer */
+.benefit-icon::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: inherit;
+  filter: blur(8px);
+  opacity: 0;
+  transition: opacity 0.4s;
+  z-index: -1;
+}
+
+/* Icon SVG Styling */
 .benefit-icon svg {
-  transition: all var(--transition-normal);
+  font-size: 48px;
+  color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 2;
 }
 
+/* Unique Gradient Backgrounds for Each Service */
+.benefit-card:nth-child(1) .benefit-icon {
+  background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
+  --icon-glow-color: rgba(59, 130, 246, 0.6);
+}
+
+.benefit-card:nth-child(2) .benefit-icon {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  --icon-glow-color: rgba(139, 92, 246, 0.6);
+}
+
+.benefit-card:nth-child(3) .benefit-icon {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  --icon-glow-color: rgba(249, 115, 22, 0.6);
+}
+
+.benefit-card:nth-child(4) .benefit-icon {
+  background: linear-gradient(135deg, #14b8a6 0%, #0d9488 100%);
+  --icon-glow-color: rgba(20, 184, 166, 0.6);
+}
+
+.benefit-card:nth-child(5) .benefit-icon {
+  background: linear-gradient(135deg, #ec4899 0%, #db2777 100%);
+  --icon-glow-color: rgba(236, 72, 153, 0.6);
+}
+
+.benefit-card:nth-child(6) .benefit-icon {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  --icon-glow-color: rgba(16, 185, 129, 0.6);
+}
+
+.benefit-card:nth-child(7) .benefit-icon {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  --icon-glow-color: rgba(239, 68, 68, 0.6);
+}
+
+.benefit-card:nth-child(8) .benefit-icon {
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+  --icon-glow-color: rgba(6, 182, 212, 0.6);
+}
+
+/* Pulse Animation */
+@keyframes iconPulse {
+  0% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 0 0 var(--icon-glow-color);
+  }
+  70% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 0 16px rgba(0, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3), 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.benefit-icon {
+  animation: iconPulse 3s infinite;
+}
+
+/* Float Animation */
+@keyframes iconFloat {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Hover Effects */
 .benefit-card:hover .benefit-icon {
-  color: var(--primary-green);
-  transform: scale(1.1) rotateY(10deg);
-  background: rgba(0, 255, 200, 0.15);
-  border-color: rgba(0, 255, 200, 0.3);
-  box-shadow: 0 8px 25px rgba(0, 255, 200, 0.2);
+  transform: scale(1.15) rotate(5deg);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4),
+              0 0 32px var(--icon-glow-color);
+  border-color: rgba(255, 255, 255, 0.4);
+  animation: iconFloat 2s ease-in-out infinite;
+}
+
+.benefit-card:hover .benefit-icon::before {
+  opacity: 0.6;
 }
 
 .benefit-card:hover .benefit-icon svg {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 
 /* Success Benefit Icons */
@@ -302,39 +393,7 @@ body {
   transform: scale(1.1);
 }
 
-/* Statistic Icons */
-.statistic-icon {
-  font-size: 2.2rem;
-  color: var(--primary-red);
-  margin-bottom: 1rem;
-  transition: all var(--transition-normal);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 60px;
-  width: 60px;
-  margin: 0 auto 1rem auto;
-  background-color: hsl(69, 60%, 50%);
-  /* background: rgba(0, 204, 255, 0.1); */
-  border-radius: 50%;
-  border: 1px solid rgba(115, 151, 73, 0.2);
-}
-
-.statistic-icon svg {
-  transition: all var(--transition-normal);
-}
-
-.statistic-card:hover .statistic-icon {
-  color: var(--primary-blue);
-  transform: scale(1.15) rotate(5deg);
-  background: rgba(192, 43, 43, 0.1);
-  border-color: rgba(192, 43, 43, 0.3);
-  box-shadow: 0 6px 20px rgba(192, 43, 43, 0.15);
-}
-
-.statistic-card:hover .statistic-icon svg {
-  transform: scale(1.1);
-}
+/* Statistic Icons - Removed old styles, see lines 722-916 for new professional styles */
 
 /* Button Icon */
 .btn-icon {
@@ -627,54 +686,71 @@ body {
   100% { transform: translate3d(0, 0, 0); }
 }
 
-/* Enhanced Statistics Section */
+/* ===== PROFESSIONAL STATISTICS SECTION ===== */
+
+/* Statistics Section Container */
 .statistics-section {
   background-color: var(--primary-bg);
-  padding: var(--section-padding) 20px;
+  max-width: 1400px;
+  margin: 80px auto;
+  padding: 0 40px;
 }
 
+/* Statistics Grid */
 .statistics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
   margin: 0 auto;
 }
 
+/* Fade In Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Professional Stat Card */
 .statistic-card {
-  background: white;
-  border-radius: var(--border-radius-large);
-  border: 2px solid #ff6b35 !important;
-  box-shadow: var(--shadow-sm);
-  padding: 30px 20px;
+  background: rgba(15, 23, 42, 0.8) !important;
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  border-radius: 12px;
+  padding: 32px 24px;
   text-align: center;
-  transition: all var(--transition-normal);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
 }
 
-.statistic-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, var(--primary-blue), var(--primary-green));
-  transform: scaleX(0);
-  transition: transform var(--transition-normal);
-}
+/* Staggered Animation Delays */
+.statistic-card:nth-child(1) { animation-delay: 0.1s; }
+.statistic-card:nth-child(2) { animation-delay: 0.2s; }
+.statistic-card:nth-child(3) { animation-delay: 0.3s; }
+.statistic-card:nth-child(4) { animation-delay: 0.4s; }
+.statistic-card:nth-child(5) { animation-delay: 0.5s; }
+.statistic-card:nth-child(6) { animation-delay: 0.6s; }
+.statistic-card:nth-child(7) { animation-delay: 0.7s; }
+.statistic-card:nth-child(8) { animation-delay: 0.8s; }
 
-.statistic-card:hover::before {
-  transform: scaleX(1);
-}
-
+/* Card Hover Effects */
 .statistic-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-4px);
+  border-color: rgba(239, 90, 22, 0.6);
+  box-shadow: 0 8px 20px rgba(239, 90, 22, 0.2);
+  background: rgba(15, 23, 42, 0.95) !important;
 }
 
+/* Stat Content Wrapper */
 .statistic-content {
   display: flex;
   flex-direction: column;
@@ -682,22 +758,127 @@ body {
   gap: 10px;
 }
 
+/* Icon Styling - Clean, No Background Circle */
+.statistic-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+  background: none !important;
+  border: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.statistic-icon svg,
+.statistic-icon i {
+  font-size: 44px;
+  color: #ef5a16;
+  background: none !important;
+  filter: drop-shadow(0 4px 8px rgba(239, 90, 22, 0.3));
+  transition: all 0.3s ease;
+}
+
+.statistic-card:hover .statistic-icon svg,
+.statistic-card:hover .statistic-icon i {
+  transform: scale(1.05);
+  filter: drop-shadow(0 6px 12px rgba(239, 90, 22, 0.5));
+}
+
+/* Number Styling */
 .statistic-number {
-  font-size: clamp(1.5rem, 4vw, 2.2rem);
-  font-weight: var(--font-weight-bold);
-  color: var(--primary-red);
-  transition: all var(--transition-normal);
-  counter-reset: number;
+  font-size: 32px;
+  font-weight: 700;
+  color: #ef5a16;
+  letter-spacing: -1px;
+  margin-bottom: 8px;
+  line-height: 1;
+  transition: all 0.3s ease;
 }
 
 .statistic-card:hover .statistic-number {
   transform: scale(1.05);
 }
 
+/* Label Styling */
 .statistic-label {
-  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
-  font-weight: var(--font-weight-medium);
-  color: rgb(2, 33, 2);
+  font-size: 13px;
+  font-weight: 400;
+  color: #94a3b8;
+  line-height: 1.4;
+  margin: 0;
+}
+
+/* ===== STATISTICS RESPONSIVE BREAKPOINTS ===== */
+
+/* Large Desktop - 8 columns */
+@media (min-width: 1200px) {
+  .statistics-grid {
+    grid-template-columns: repeat(8, 1fr);
+  }
+}
+
+/* Laptop/Desktop - 4 columns */
+@media (min-width: 1024px) and (max-width: 1199px) {
+  .statistics-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+}
+
+/* Tablet - 4 columns */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .statistics-section {
+    padding: 0 30px;
+  }
+
+  .statistics-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+  }
+
+  .statistic-card {
+    padding: 28px 20px;
+  }
+
+  .statistic-number {
+    font-size: 32px;
+  }
+}
+
+/* Mobile - 2 columns */
+@media (max-width: 767px) {
+  .statistics-section {
+    padding: 0 20px;
+    margin: 60px auto;
+  }
+
+  .statistics-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+
+  .statistic-card {
+    padding: 24px 16px;
+  }
+
+  .statistic-icon {
+    margin-bottom: 12px;
+  }
+
+  .statistic-icon svg,
+  .statistic-icon i {
+    font-size: 40px;
+  }
+
+  .statistic-number {
+    font-size: 28px;
+  }
+
+  .statistic-label {
+    font-size: 13px;
+  }
 }
 
 /* Success Subtitle */
@@ -761,7 +942,7 @@ body {
     --section-padding: 30px;
     --card-padding: 15px;
   }
-  
+
   .page-wrapper {
     padding: 0px 0 0 0;
   }
@@ -786,7 +967,7 @@ body {
   .success-titleR .success-title, .success-benefit-title, .benefit-title {
     margin-top: 30px;
   }
-  
+
   .trusted-brands-title {
     margin-top: -20px;
   }
@@ -801,71 +982,53 @@ body {
     padding: 0 2%;
     margin: 0 0 var(--section-padding) 0;
   }
-  
- 
+
+
   .benefits-grid {
     grid-template-columns: 1fr;
     gap: 20px;
   }
 
-   
+
    .success-benefits-grid {
     grid-template-columns: 1fr;
     gap: 0px;
     margin-top: -30px;
    }
-  
+
   .benefit-card,
   .success-benefit-card {
     padding: var(--card-padding);
     /* margin-bottom: 10px; */
   }
-  
-  /* Mobile Icon Adjustments */
-  .benefit-icon,
+
+  /* Mobile Icon Adjustments - ENHANCED */
+  .benefit-icon {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 20px;
+    border-width: 2px;
+  }
+
+  .benefit-icon svg {
+    font-size: 34px;
+  }
+
   .success-benefit-icon {
     height: 60px;
     width: 60px;
     font-size: 2.2rem;
     margin-bottom: 1rem;
   }
-  
-  .statistic-icon {
-    height: 50px;
-    width: 50px;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-  }
-  
+
   .logo-container-home {
     height: 70px;
   }
-  
+
   .logo-image {
     height: 40px !important;
     margin: 0 8px;
     padding-top: 10px;
-  }
-  
-  .statistics-section {
-    padding: 30px 10px;
-  }
-  
-  .statistics-grid {
-    grid-template-columns: 1fr;
-    gap: 15px;
-  }
-  
-  .statistic-card {
-    display: none;
-    padding: 20px 15px 10px 10px;
-    margin-bottom: 10px;
-    margin-left: 8px;
-    margin-right: 8px;
-  }
-  
-  .statistic-label {
-    font-size: 17px;
   }
   /* Reduce motion for small screens */
   .benefit-card:hover,
@@ -929,24 +1092,23 @@ body {
     margin-top: -30px;
    }
   
-  /* Mobile Icon Adjustments */
-  .benefit-icon,
+  /* Mobile Icon Adjustments - ENHANCED */
+  .benefit-icon {
+    width: 75px;
+    height: 75px;
+    margin-bottom: 20px;
+    border-width: 2px;
+  }
+
+  .benefit-icon svg {
+    font-size: 36px;
+  }
+
   .success-benefit-icon {
     height: 65px;
     width: 65px;
     font-size: 2.4rem;
     margin-bottom: 1rem;
-  }
-
-  .statistic-card {
-    display: none;
-  }
-  
-  .statistic-icon {
-    height: 50px;
-    width: 50px;
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
   }
   
   .logo-container-home {
@@ -1033,39 +1195,38 @@ body {
     margin-bottom: -30px;
   }
   
-  /* Large Mobile Icon Adjustments */
-  .benefit-icon,
+  /* Large Mobile Icon Adjustments - ENHANCED */
+  .benefit-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 22px;
+    border-width: 2.5px;
+  }
+
+  .benefit-icon svg {
+    font-size: 40px;
+  }
+
   .success-benefit-icon {
     height: 70px;
     width: 70px;
     font-size: 2.6rem;
     margin-bottom: 1.2rem;
   }
-  
-  .statistic-icon {
-    height: 55px;
-    width: 55px;
-    font-size: 2rem;
-    margin-bottom: 0.8rem;
-  }
-  
+
   .logo-container-home {
     height: 90px;
   }
-  
+
   .logo-image {
     height: 60px !important;
     margin: 0 12px;
     padding-top: 15px;
   }
-  
+
   .statistics-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 22px;
-  }
-  
-  .statistic-card {
-    display: none;
   }
 
   .benefit-card:hover,
@@ -1113,7 +1274,6 @@ body {
   .trusted-brands-subtitle {
     margin-bottom: -10px;
     margin-top: -12px;
-    color: rgb(190, 14, 14); 
   }
 
   .benefits-section,
@@ -1128,22 +1288,25 @@ body {
     margin-bottom: -30px;
   }
   
-  /* Small Tablet Icon Adjustments */
-  .benefit-icon,
+  /* Small Tablet Icon Adjustments - ENHANCED */
+  .benefit-icon {
+    width: 85px;
+    height: 85px;
+    margin-bottom: 22px;
+    border-width: 2.5px;
+  }
+
+  .benefit-icon svg {
+    font-size: 42px;
+  }
+
   .success-benefit-icon {
     height: 75px;
     width: 75px;
     font-size: 2.8rem;
     margin-bottom: 1.3rem;
   }
-  
-  .statistic-icon {
-    height: 58px;
-    width: 58px;
-    font-size: 2.1rem;
-    margin-bottom: 0.8rem;
-  }
-  
+
   .logo-container-home {
     height: 100px;
   }
@@ -1188,22 +1351,25 @@ body {
     gap: 28px;
   }
   
-  /* Large Tablet Icon Adjustments */
-  .benefit-icon,
+  /* Large Tablet Icon Adjustments - ENHANCED */
+  .benefit-icon {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 24px;
+    border-width: 3px;
+  }
+
+  .benefit-icon svg {
+    font-size: 44px;
+  }
+
   .success-benefit-icon {
     height: 80px;
     width: 80px;
     font-size: 3rem;
     margin-bottom: 1.5rem;
   }
-  
-  .statistic-icon {
-    height: 60px;
-    width: 60px;
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-  }
-  
+
   /* Make the fourth card span full width horizontally */
   .benefits-grid .benefit-card:nth-child(4),
   .success-benefits-grid .success-benefit-card:nth-child(4) {
@@ -1297,22 +1463,25 @@ body {
     gap: 30px;
   }
   
-  /* Small Desktop Icon Adjustments */
-  .benefit-icon,
+  /* Small Desktop Icon Adjustments - ENHANCED */
+  .benefit-icon {
+    width: 95px;
+    height: 95px;
+    margin-bottom: 24px;
+    border-width: 3px;
+  }
+
+  .benefit-icon svg {
+    font-size: 48px;
+  }
+
   .success-benefit-icon {
     height: 80px;
     width: 80px;
     font-size: 3rem;
     margin-bottom: 1.5rem;
   }
-  
-  .statistic-icon {
-    height: 60px;
-    width: 60px;
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-  }
-  
+
   /* Reset fourth card to vertical layout for desktop */
   .benefits-grid .benefit-card:nth-child(4),
   .success-benefits-grid .success-benefit-card:nth-child(4) {
@@ -1360,14 +1529,7 @@ body {
     font-size: 3rem;
     margin-bottom: 1.5rem;
   }
-  
-  .statistic-icon {
-    height: 60px;
-    width: 60px;
-    font-size: 2.2rem;
-    margin-bottom: 1rem;
-  }
-  
+
   /* Ensure fourth card remains vertical for large desktop */
   .benefits-grid .benefit-card:nth-child(4),
   .success-benefits-grid .success-benefit-card:nth-child(4) {
@@ -1412,14 +1574,7 @@ body {
     font-size: 3.2rem;
     margin-bottom: 1.5rem;
   }
-  
-  .statistic-icon {
-    height: 65px;
-    width: 65px;
-    font-size: 2.4rem;
-    margin-bottom: 1rem;
-  }
-  
+
   /* Ensure fourth card remains vertical for extra large desktop */
   .benefits-grid .benefit-card:nth-child(4),
   .success-benefits-grid .success-benefit-card:nth-child(4) {
@@ -1469,14 +1624,7 @@ body {
     font-size: 3.5rem;
     margin-bottom: 1.8rem;
   }
-  
-  .statistic-icon {
-    height: 70px;
-    width: 70px;
-    font-size: 2.6rem;
-    margin-bottom: 1.2rem;
-  }
-  
+
   .logo-container-home {
     height: 140px;
   }
@@ -1505,12 +1653,12 @@ body {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
-  
+
   .logo-slide-home,
   .logo-slide-home-reverse {
     animation: none;
   }
-  
+
   .benefit-card:hover,
   .success-benefit-card:hover,
   .statistic-card:hover,
@@ -1522,17 +1670,25 @@ body {
   .king {
     animation: none;
   }
-  
+
   .king:hover {
     transform: none;
   }
-  
+
   .btn-icon {
     animation: none;
   }
-  
-  /* Icon animations disabled */
-  .benefit-icon:hover,
+
+  /* Icon animations disabled - ENHANCED */
+  .benefit-icon {
+    animation: none !important;
+  }
+
+  .benefit-icon:hover {
+    transform: none !important;
+    animation: none !important;
+  }
+
   .success-benefit-icon:hover,
   .statistic-icon:hover {
     transform: none !important;
@@ -1633,13 +1789,6 @@ body {
     font-size: 2rem;
     margin-bottom: 0.8rem;
   }
-  
-  .statistic-icon {
-    height: 40px;
-    width: 40px;
-    font-size: 1.6rem;
-    margin-bottom: 0.5rem;
-  }
 }
 
 /* Print Styles */
@@ -1702,12 +1851,17 @@ body {
   
   /* Print icon styles */
   .benefit-icon,
-  .success-benefit-icon,
-  .statistic-icon {
+  .success-benefit-icon {
     color: #333 !important;
     background: #f0f0f0 !important;
     border: 1px solid #333 !important;
     box-shadow: none !important;
+  }
+
+  .statistic-icon svg,
+  .statistic-icon i {
+    -webkit-text-fill-color: #333 !important;
+    filter: none !important;
   }
 }
 
