@@ -120,6 +120,8 @@
   overflow: hidden;
   box-shadow: var(--shadow-card);
   contain: layout style paint;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Modern shimmer effect */
@@ -152,43 +154,86 @@
   background: var(--card-bg-hover);
 }
 
-/* Enhanced Image Styles */
-.flexbox-power img {
+/* Enhanced Image Styles with Professional Overflow */
+.flex1,
+.flex2,
+.flex3 {
+  position: relative;
+}
+
+.flex1 > img,
+.flex2 > img,
+.flex3 > img {
   width: 100%;
-  height: auto;
-  border-radius: var(--image-border-radius);
-  transition: var(--transition-normal);
-  filter: brightness(0.95) contrast(1.1);
+  height: 250px;
+  object-fit: cover;
+  border-radius: 0;
+  transition: transform var(--transition-slow), filter var(--transition-normal);
+  filter: brightness(0.9) contrast(1.1);
   position: relative;
   z-index: 2;
 }
 
 .flex2 img {
   height: 280px;
-  object-fit: cover;
 }
 
-.flexbox-power:hover img {
-  transform: scale(1.03);
+.flex1:hover > img,
+.flex2:hover > img,
+.flex3:hover > img {
+  transform: scale(1.08);
   filter: brightness(1) contrast(1.15);
 }
 
+/* Image overlay gradient */
+.flex1 > img::after,
+.flex2 > img::after,
+.flex3 > img::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(5, 29, 54, 0.4) 100%);
+  pointer-events: none;
+  z-index: 3;
+}
+
 /* Enhanced Card Typography */
-.flexbox-power h2 {
+.flex1 > h2,
+.flex2 > h2,
+.flex3 > h2 {
   font-size: clamp(20px, 4vw, var(--card-title-font-size));
   color: var(--text-accent);
   font-weight: var(--font-weight-bold);
-  padding: 20px 30px 20px 30px;
+  padding: 24px 30px 16px 30px;
   position: relative;
   z-index: 2;
+  margin: 0;
+  line-height: 1.3;
 }
 
-.flexbox-power p {
-  font-size: clamp(0.9rem, 2.5vw, var(--card-text-font-size)) !important;
-  word-spacing: 2px;
-  line-height: 1.3;
-  padding: 0 30px 20px 30px;
+.flex1 > p,
+.flex2 > p,
+.flex3 > p {
+  font-size: clamp(0.9rem, 2.5vw, 1rem) !important;
+  word-spacing: 1px;
+  line-height: 1.6;
+  padding: 0 30px 16px 30px;
   text-align: left;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.9);
+  flex-grow: 1;
+}
+
+/* ReadMore container styling */
+.flex1 > div,
+.flex2 > div,
+.flex3 > div {
+  padding: 0 30px 24px 30px;
   position: relative;
   z-index: 2;
 }
