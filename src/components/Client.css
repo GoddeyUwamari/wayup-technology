@@ -235,10 +235,11 @@ body {
 /* ===== ICON STYLES ===== */
 
 /* Professional Icon Container Base */
-.benefit-icon {
+.benefit-icons {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 48px;
   width: 95px;
   height: 95px;
   margin: 0 auto 24px;
@@ -254,7 +255,7 @@ body {
 }
 
 /* Glow Effect Layer */
-.benefit-icon::before {
+.benefit-icons::before {
   content: '';
   position: absolute;
   inset: -3px;
@@ -281,7 +282,7 @@ body {
   --icon-glow-color: rgba(59, 130, 246, 0.6);
 }
 
-.benefit-card:nth-child(2) .benefit-icon {
+.benefit-card:nth-child(2) .benefit-icons {
   background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
   --icon-glow-color: rgba(139, 92, 246, 0.6);
 }
@@ -845,6 +846,44 @@ body {
   .statistic-number {
     font-size: 32px;
   }
+
+  /* Service Cards Section - Tablet */
+  .benefits-section {
+    padding: 0 30px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .benefit-card {
+    padding: 32px 24px;
+  }
+
+  .benefit-icons {
+    width: 70px;
+    height: 70px;
+  }
+
+  .benefit-icons svg,
+  .benefit-icons i {
+    font-size: 32px;
+  }
+
+  .benefit-title {
+    font-size: 20px;
+  }
+
+  .benefit-text {
+    font-size: 14px;
+  }
+
+  /* Section Heading - Tablet */
+  .king {
+    font-size: 32px !important;
+    padding: 0.75rem 1.5rem;
+  }
 }
 
 /* Mobile - 2 columns */
@@ -877,6 +916,97 @@ body {
   }
 
   .statistic-label {
+    font-size: 13px;
+  }
+
+  /* Service Cards Section - Mobile */
+  .benefits-section {
+    padding: 60px 20px;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .benefit-card {
+    padding: 28px 20px;
+    margin: 0 auto;
+    max-width: 400px;
+  }
+
+  .benefit-icons {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 20px;
+  }
+
+  .benefit-icons svg,
+  .benefit-icons i {
+    font-size: 28px;
+  }
+
+  .benefit-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .benefit-text {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Section Heading - Mobile */
+  .king {
+    font-size: 28px !important;
+    padding: 0.5rem 1rem;
+  }
+}
+
+/* Large Mobile - 2 columns for service cards */
+@media (min-width: 576px) and (max-width: 767px) {
+  .benefits-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .benefit-card {
+    max-width: none;
+  }
+
+  .benefit-icons {
+    width: 70px;
+    height: 70px;
+  }
+
+  .benefit-icons svg,
+  .benefit-icons i {
+    font-size: 32px;
+  }
+}
+
+/* Extra Small Mobile - Additional adjustments */
+@media (max-width: 480px) {
+  .king {
+    font-size: 24px !important;
+    padding: 0.5rem 0.75rem;
+  }
+
+  .benefit-icons {
+    width: 60px;
+    height: 60px;
+  }
+
+  .benefit-icons svg,
+  .benefit-icons i {
+    font-size: 26px;
+  }
+
+  .benefit-title {
+    font-size: 16px;
+  }
+
+  .benefit-text {
     font-size: 13px;
   }
 }

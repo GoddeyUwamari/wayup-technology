@@ -111,7 +111,7 @@ const Client = () => {
                 className="benefit-card-link"
               >
                 <div className="benefit-card">
-                  <div className="benefit-icon">{card.icon}</div>
+                  <div className="benefit-icons">{card.icon}</div>
                   <h3 className="benefit-title">{card.title}</h3>
                   <p className="benefit-text">{card.text}</p>
                   <div className="card-arrow">→</div>
