@@ -26,7 +26,7 @@
 
 /* Global Styles */
 .staff-augmentation-page {
-  background: var(--staff-white);
+  background: linear-gradient(135deg, var(--staff-navy) 0%, #1e293b 100%);
   min-height: 100vh;
 }
 
@@ -242,7 +242,7 @@
 /* Benefits Section - Masonry Grid */
 .staff-benefits {
   padding: 100px 40px;
-  background: var(--staff-lighter);
+  background: linear-gradient(135deg, var(--staff-navy) 0%, #1e293b 100%);
 }
 
 .staff-section-header {
@@ -266,14 +266,14 @@
 .staff-section-title {
   font-size: 2.75rem;
   font-weight: 800;
-  color: var(--staff-dark);
+  color: var(--staff-white);
   margin-bottom: 16px;
   line-height: 1.2;
 }
 
 .staff-section-subtitle {
   font-size: 1.125rem;
-  color: var(--staff-gray);
+  color: rgba(255, 255, 255, 0.8);
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -286,11 +286,12 @@
 }
 
 .staff-benefit-card {
-  background: var(--staff-white);
-  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
   padding: 32px;
   transition: all 0.3s ease;
-  border: 2px solid transparent;
+  border: 1px solid rgba(239, 90, 22, 0.3);
   position: relative;
   overflow: hidden;
 }
@@ -318,20 +319,21 @@
 }
 
 .staff-benefit-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
+  border-color: rgba(239, 90, 22, 0.6);
 }
 
 .staff-benefit-card.teal:hover {
-  border-color: var(--staff-teal);
+  border-color: rgba(239, 90, 22, 0.6);
 }
 
 .staff-benefit-card.navy:hover {
-  border-color: var(--staff-navy);
+  border-color: rgba(239, 90, 22, 0.6);
 }
 
 .staff-benefit-card.orange:hover {
-  border-color: var(--staff-orange);
+  border-color: rgba(239, 90, 22, 0.6);
 }
 
 .benefit-icon-wrapper {
@@ -367,13 +369,13 @@
 .staff-benefit-card h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--staff-dark);
+  color: var(--staff-white);
   margin-bottom: 12px;
 }
 
 .staff-benefit-card p {
   font-size: 1rem;
-  color: var(--staff-gray);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.6;
   margin-bottom: 16px;
 }
@@ -407,7 +409,7 @@
 /* Roles Section - 4-Column Grid */
 .staff-roles {
   padding: 100px 40px;
-  background: var(--staff-white);
+  background: #0f172a;
 }
 
 .staff-roles-grid {
@@ -417,17 +419,18 @@
 }
 
 .staff-role-card {
-  background: var(--staff-white);
-  border: 2px solid var(--staff-lighter);
-  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  border-radius: 12px;
   padding: 28px;
   transition: all 0.3s ease;
 }
 
 .staff-role-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--staff-teal);
-  box-shadow: 0 12px 32px rgba(20, 184, 166, 0.15);
+  transform: translateY(-4px);
+  border-color: rgba(239, 90, 22, 0.6);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
 }
 
 .role-header {
@@ -449,7 +452,7 @@
 .role-header h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--staff-dark);
+  color: var(--staff-white);
 }
 
 .role-positions {
@@ -466,7 +469,7 @@
   align-items: center;
   gap: 8px;
   font-size: 0.9375rem;
-  color: var(--staff-gray);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .role-positions li svg {
@@ -577,7 +580,7 @@
 /* Testimonials Section */
 .staff-testimonials {
   padding: 100px 40px;
-  background: var(--staff-lighter);
+  background: linear-gradient(135deg, var(--staff-navy) 0%, #1e293b 100%);
 }
 
 .staff-testimonials-grid {
@@ -589,17 +592,18 @@
 }
 
 .staff-testimonial-card {
-  background: var(--staff-white);
-  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border-radius: 12px;
   padding: 32px;
-  border: 2px solid transparent;
+  border: 1px solid rgba(239, 90, 22, 0.3);
   transition: all 0.3s ease;
 }
 
 .staff-testimonial-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--staff-teal);
-  box-shadow: 0 12px 32px rgba(20, 184, 166, 0.15);
+  transform: translateY(-4px);
+  border-color: rgba(239, 90, 22, 0.6);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
 }
 
 .testimonial-stars {
@@ -612,7 +616,7 @@
 .staff-testimonial-card blockquote {
   font-size: 1.125rem;
   line-height: 1.7;
-  color: var(--staff-dark);
+  color: var(--staff-white);
   font-style: italic;
   margin: 0 0 24px 0;
 }
@@ -630,19 +634,19 @@
 .author-name {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--staff-dark);
+  color: var(--staff-white);
   margin-bottom: 4px;
 }
 
 .author-role {
   font-size: 0.875rem;
-  color: var(--staff-gray);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 /* Pricing Section */
 .staff-pricing {
   padding: 100px 40px;
-  background: var(--staff-white);
+  background: #0f172a;
 }
 
 .staff-pricing-grid {
@@ -654,23 +658,24 @@
 }
 
 .staff-pricing-card {
-  background: var(--staff-white);
-  border: 2px solid var(--staff-lighter);
-  border-radius: 16px;
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  border-radius: 12px;
   padding: 32px;
   transition: all 0.3s ease;
   position: relative;
 }
 
 .staff-pricing-card.highlight {
-  border-color: var(--staff-teal);
-  box-shadow: 0 12px 32px rgba(20, 184, 166, 0.15);
+  border-color: rgba(239, 90, 22, 0.6);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
 }
 
 .staff-pricing-card:hover {
-  transform: translateY(-5px);
-  border-color: var(--staff-teal);
-  box-shadow: 0 12px 32px rgba(20, 184, 166, 0.15);
+  transform: translateY(-4px);
+  border-color: rgba(239, 90, 22, 0.6);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
 }
 
 .pricing-badge {
@@ -704,13 +709,13 @@
 .staff-pricing-card h3 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--staff-dark);
+  color: var(--staff-white);
   margin-bottom: 8px;
 }
 
 .staff-pricing-card p {
   font-size: 1rem;
-  color: var(--staff-gray);
+  color: rgba(255, 255, 255, 0.8);
   margin-bottom: 24px;
 }
 
@@ -728,7 +733,7 @@
   align-items: center;
   gap: 8px;
   font-size: 0.9375rem;
-  color: var(--staff-dark);
+  color: var(--staff-white);
 }
 
 .pricing-features li svg {
