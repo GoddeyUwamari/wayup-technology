@@ -219,14 +219,19 @@ const Industrial = () => {
         </div>
       </section>
 
-      {/* Case Study - Full Width Design */}
+      {/* Case Study - Centered Clean Layout */}
       <section className="industrial-case-study">
         <div className="case-study-container">
           <div className="case-study-content">
-            <div className="case-study-badge">CASE STUDY</div>
-            <h2 className="case-study-title">
-              Global Mining Operation: 24/7 Remote Monitoring & Control
-            </h2>
+            {/* Header - Centered */}
+            <div className="case-study-header">
+              <div className="case-study-badge">CASE STUDY</div>
+              <h2 className="case-study-title">
+                Global Mining Operation: 24/7 Remote Monitoring & Control
+              </h2>
+            </div>
+
+            {/* Challenge/Solution - Side by Side, Equal Height */}
             <div className="case-study-body">
               <div className="case-study-challenge">
                 <h4>
@@ -247,34 +252,43 @@ const Industrial = () => {
                 </p>
               </div>
             </div>
-            <div className="case-study-results">
-              <div className="result-metric">
-                <TrendingUp className="result-icon" />
-                <div className="result-value">$127M</div>
-                <div className="result-label">Annual Cost Savings</div>
+
+            {/* Results Section */}
+            <div className="case-study-results-section">
+              <div className="case-study-results-header">
+                <h3>Results & Impact</h3>
               </div>
-              <div className="result-metric">
-                <Zap className="result-icon" />
-                <div className="result-value">99.8%</div>
-                <div className="result-label">Equipment Uptime</div>
-              </div>
-              <div className="result-metric">
-                <BarChart3 className="result-icon" />
-                <div className="result-value">73%</div>
-                <div className="result-label">Faster Issue Resolution</div>
-              </div>
-              <div className="result-metric">
-                <CheckCircle className="result-icon" />
-                <div className="result-value">Zero</div>
-                <div className="result-label">Safety Incidents</div>
+              <div className="case-study-results">
+                <div className="result-metric">
+                  <TrendingUp className="result-icon" />
+                  <div className="result-value">$127M</div>
+                  <div className="result-label">Annual Cost Savings</div>
+                </div>
+                <div className="result-metric">
+                  <Zap className="result-icon" />
+                  <div className="result-value">99.8%</div>
+                  <div className="result-label">Equipment Uptime</div>
+                </div>
+                <div className="result-metric">
+                  <BarChart3 className="result-icon" />
+                  <div className="result-value">73%</div>
+                  <div className="result-label">Faster Issue Resolution</div>
+                </div>
+                <div className="result-metric">
+                  <CheckCircle className="result-icon" />
+                  <div className="result-value">Zero</div>
+                  <div className="result-label">Safety Incidents</div>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="case-study-image">
-            <img
-              src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80"
-              alt="Mining control room with multiple monitoring screens"
-            />
+
+            {/* Optional: Image at bottom */}
+            <div className="case-study-image">
+              <img
+                src="https://images.unsplash.com/photo-1587293852726-70cdb56c2866?w=800&q=80"
+                alt="Mining control room with multiple monitoring screens"
+              />
+            </div>
           </div>
         </div>
       </section>

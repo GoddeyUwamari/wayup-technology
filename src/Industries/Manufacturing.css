@@ -3,11 +3,14 @@
 /* Color Variables */
 :root {
   --mfg-navy: #000048;
+  --mfg-navy-light: #1e293b;
   --mfg-orange: #ef5a16;
-  --mfg-dark: #1a1a2e;
-  --mfg-steel: #4A5568;
+  --mfg-orange-light: #f97316;
+  --mfg-dark: #0f172a;
+  --mfg-steel: #cbd5e0;
   --mfg-light: #F7FAFC;
-  --mfg-border: #E2E8F0;
+  --mfg-border: rgba(239, 90, 22, 0.3);
+  --mfg-border-hover: rgba(239, 90, 22, 0.6);
   --mfg-white: #FFFFFF;
 }
 
@@ -293,11 +296,14 @@
 .manufacturing-section-title {
   font-size: 42px;
   font-weight: 700;
-  color: var(--mfg-navy);
+  color: var(--mfg-white);
   line-height: 1.2;
   letter-spacing: -0.01em;
 }
 
+.manufacturing-solutions .manufacturing-section-title,
+.manufacturing-pain-section .manufacturing-section-title,
+.manufacturing-process .manufacturing-section-title,
 .manufacturing-tech-stack .manufacturing-section-title {
   color: var(--mfg-white);
 }
@@ -307,7 +313,7 @@
    =========================== */
 .manufacturing-pain-section {
   padding: 60px 0;
-  background: var(--mfg-white);
+  background: linear-gradient(135deg, var(--mfg-navy) 0%, var(--mfg-navy-light) 100%);
 }
 
 .manufacturing-pain-grid {
@@ -319,16 +325,17 @@
 .manufacturing-pain-card {
   position: relative;
   padding: 32px 28px;
-  background: var(--mfg-light);
-  border: 2px solid var(--mfg-border);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--mfg-border);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
 .manufacturing-pain-card:hover {
-  border-color: var(--mfg-orange);
+  border-color: var(--mfg-border-hover);
   transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
 }
 
 .pain-card-number {
@@ -344,7 +351,7 @@
 .manufacturing-pain-card h3 {
   font-size: 20px;
   font-weight: 700;
-  color: var(--mfg-navy);
+  color: var(--mfg-white);
   margin-bottom: 12px;
 }
 
@@ -360,7 +367,7 @@
    =========================== */
 .manufacturing-solutions {
   padding: 60px 0;
-  background: linear-gradient(135deg, var(--mfg-light) 0%, var(--mfg-white) 100%);
+  background: var(--mfg-dark);
 }
 
 .manufacturing-solutions-grid {
@@ -370,7 +377,8 @@
 }
 
 .manufacturing-solution-card {
-  background: var(--mfg-white);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
   padding: 32px 28px;
   border-radius: 12px;
   border: 1px solid var(--mfg-border);
@@ -378,21 +386,27 @@
 }
 
 .manufacturing-solution-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
-  border-color: var(--mfg-orange);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
+  border-color: var(--mfg-border-hover);
 }
 
 .manufacturing-solution-icon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, var(--mfg-orange) 0%, #ff6b35 100%);
-  border-radius: 10px;
+  background: linear-gradient(135deg, var(--mfg-orange) 0%, var(--mfg-orange-light) 100%);
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
   color: var(--mfg-white);
+  transition: all 0.3s ease;
+}
+
+.manufacturing-solution-card:hover .manufacturing-solution-icon {
+  transform: scale(1.1);
+  box-shadow: 0 0 24px rgba(239, 90, 22, 0.6);
 }
 
 .manufacturing-solution-icon svg {
@@ -403,7 +417,7 @@
 .manufacturing-solution-card h3 {
   font-size: 20px;
   font-weight: 700;
-  color: var(--mfg-navy);
+  color: var(--mfg-white);
   margin-bottom: 12px;
 }
 
@@ -477,7 +491,7 @@
    =========================== */
 .manufacturing-process {
   padding: 60px 0;
-  background: var(--mfg-white);
+  background: linear-gradient(135deg, var(--mfg-navy) 0%, var(--mfg-navy-light) 100%);
 }
 
 .manufacturing-process-steps {
@@ -490,23 +504,24 @@
   position: relative;
   text-align: center;
   padding: 32px 20px;
-  background: var(--mfg-light);
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(20px);
   border-radius: 12px;
-  border: 2px solid var(--mfg-border);
+  border: 1px solid var(--mfg-border);
   transition: all 0.3s ease;
 }
 
 .manufacturing-process-step:hover {
-  background: var(--mfg-white);
-  border-color: var(--mfg-orange);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  background: rgba(15, 23, 42, 0.8);
+  border-color: var(--mfg-border-hover);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
   transform: translateY(-4px);
 }
 
 .manufacturing-process-icon {
   width: 64px;
   height: 64px;
-  background: var(--mfg-steel);
+  background: linear-gradient(135deg, var(--mfg-orange) 0%, var(--mfg-orange-light) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -517,8 +532,8 @@
 }
 
 .manufacturing-process-step:hover .manufacturing-process-icon {
-  background: var(--mfg-orange);
   transform: scale(1.1);
+  box-shadow: 0 0 24px rgba(239, 90, 22, 0.6);
 }
 
 .manufacturing-process-icon svg {
@@ -545,7 +560,7 @@
 .manufacturing-process-step h3 {
   font-size: 18px;
   font-weight: 700;
-  color: var(--mfg-navy);
+  color: var(--mfg-white);
   margin-bottom: 10px;
 }
 
