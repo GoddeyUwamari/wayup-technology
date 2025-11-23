@@ -1,21 +1,29 @@
-/* Construction Page Styles */
+/* Construction Page - Professional Dark Theme */
 :root {
-  --cons-primary: #D97706; /* Amber/Construction Orange */
-  --cons-secondary: #F59E0B; /* Bright Orange */
-  --cons-dark: #78350F; /* Dark Brown */
-  --cons-accent: #FB923C; /* Light Orange */
-  --cons-gray: #1F2937;
-  --cons-light: #F9FAFB;
-  --cons-white: #FFFFFF;
+  --dark-navy: #0f172a;
+  --deep-blue: #000048;
+  --slate-blue: #1e293b;
+  --darker-slate: #0a0f1e;
   --wayup-orange: #ef5a16;
-  --text-dark: #111827;
-  --text-light: #6B7280;
+  --accent-orange: #f97316;
+  --text-white: #ffffff;
+  --text-light-gray: #cbd5e0;
+  --text-muted: #94a3b8;
+  --card-bg: rgba(15, 23, 42, 0.6);
+  --border-orange: rgba(239, 90, 22, 0.3);
   --success-green: #10B981;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .construction-page {
   min-height: 100vh;
-  background-color: var(--cons-white);
+  background: var(--dark-navy);
+  color: var(--text-white);
+  margin: 0;
+  padding: 0;
 }
 
 /* Container */
@@ -33,6 +41,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  margin: 0;
 }
 
 .cons-hero-bg {
@@ -56,7 +65,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(31, 41, 55, 0.92) 0%, rgba(15, 23, 42, 0.85) 100%);
+  background: linear-gradient(135deg, rgba(15, 23, 42, 0.92) 0%, rgba(30, 41, 59, 0.85) 100%);
 }
 
 .cons-hero-content {
@@ -75,14 +84,14 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(251, 146, 60, 0.2);
+  background: rgba(239, 90, 22, 0.15);
   backdrop-filter: blur(10px);
-  color: var(--cons-accent);
+  color: var(--wayup-orange);
   padding: 0.5rem 1.5rem;
   border-radius: 50px;
   font-size: 0.875rem;
   font-weight: 600;
-  border: 1px solid rgba(251, 146, 60, 0.3);
+  border: 1px solid var(--border-orange);
   margin: 0 auto;
 }
 
@@ -94,7 +103,7 @@
 .cons-hero-title {
   font-size: 4rem;
   font-weight: 900;
-  color: var(--cons-white);
+  color: var(--text-white);
   line-height: 1.1;
   margin: 0;
   text-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
@@ -102,7 +111,7 @@
 
 .cons-hero-subtitle {
   font-size: 1.375rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-light-gray);
   line-height: 1.7;
   margin: 0;
   max-width: 800px;
@@ -117,25 +126,26 @@
 }
 
 .cons-metric-item {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   padding: 1.75rem 1.25rem;
   border-radius: 12px;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid var(--border-orange);
   transition: all 0.3s ease;
 }
 
 .cons-metric-item:hover {
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(15, 23, 42, 0.8);
   transform: translateY(-4px);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 12px 30px rgba(239, 90, 22, 0.25);
+  border-color: var(--wayup-orange);
 }
 
 .metric-icon {
   width: 40px;
   height: 40px;
-  color: var(--cons-accent);
+  color: var(--wayup-orange);
   margin: 0 auto 0.75rem;
 }
 
@@ -147,13 +157,13 @@
 .metric-value {
   font-size: 2rem;
   font-weight: 800;
-  color: var(--cons-white);
+  color: var(--text-white);
   margin-bottom: 0.5rem;
 }
 
 .metric-label {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--text-light-gray);
   font-weight: 500;
 }
 
@@ -165,8 +175,8 @@
 }
 
 .cons-btn-primary {
-  background: var(--wayup-orange);
-  color: var(--cons-white);
+  background: linear-gradient(135deg, var(--wayup-orange) 0%, var(--accent-orange) 100%);
+  color: var(--text-white);
   padding: 1.125rem 2.5rem;
   border: none;
   border-radius: 8px;
@@ -181,7 +191,6 @@
 }
 
 .cons-btn-primary:hover {
-  background: #d94d12;
   transform: translateY(-2px);
   box-shadow: 0 12px 30px rgba(239, 90, 22, 0.4);
 }
@@ -189,7 +198,7 @@
 .cons-btn-ghost {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
-  color: var(--cons-white);
+  color: var(--text-white);
   padding: 1.125rem 2.5rem;
   border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 8px;
@@ -206,6 +215,7 @@
 .cons-btn-ghost:hover {
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
 }
 
 .btn-icon {
@@ -215,14 +225,15 @@
 
 /* ===== PROJECT TYPES SECTION ===== */
 .cons-project-types {
-  padding: 5rem 0;
-  background: var(--cons-light);
+  padding: 70px 0;
+  background: var(--dark-navy);
+  margin: 0;
 }
 
 .cons-section-title {
   font-size: 2.75rem;
   font-weight: 800;
-  color: var(--text-dark);
+  color: var(--text-white);
   text-align: center;
   margin-bottom: 3rem;
 }
@@ -234,19 +245,20 @@
 }
 
 .project-type-card {
-  background: var(--cons-white);
+  background: var(--card-bg);
   padding: 2.5rem 2rem;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
   transition: all 0.3s ease;
-  border-top: 4px solid var(--cons-primary);
+  border: 1px solid var(--border-orange);
+  border-top: 4px solid var(--wayup-orange);
 }
 
 .project-type-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 16px 40px rgba(217, 119, 6, 0.2);
-  border-top-color: var(--wayup-orange);
+  box-shadow: 0 16px 40px rgba(239, 90, 22, 0.25);
+  background: rgba(15, 23, 42, 0.8);
+  border-color: var(--wayup-orange);
 }
 
 .project-icon {
@@ -257,20 +269,21 @@
 .project-type-card h3 {
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--text-white);
   margin-bottom: 0.75rem;
 }
 
 .project-type-card p {
   font-size: 0.9375rem;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   margin: 0;
 }
 
 /* ===== SERVICES SECTION ===== */
 .cons-services {
-  padding: 6rem 0;
-  background: var(--cons-white);
+  padding: 80px 0;
+  background: var(--slate-blue);
+  margin: 0;
 }
 
 .cons-section-header {
@@ -280,7 +293,7 @@
 
 .cons-section-subtitle {
   font-size: 1.25rem;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   max-width: 700px;
   margin: 1rem auto 0;
 }
@@ -292,29 +305,31 @@
 }
 
 .cons-service-card {
-  background: var(--cons-light);
+  background: var(--card-bg);
   padding: 2.5rem;
   border-radius: 16px;
   transition: all 0.3s ease;
-  border-left: 4px solid transparent;
+  border: 1px solid var(--border-orange);
+  border-left: 4px solid var(--wayup-orange);
+  backdrop-filter: blur(10px);
 }
 
 .cons-service-card:hover {
-  background: var(--cons-white);
-  border-left-color: var(--cons-primary);
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  background: rgba(15, 23, 42, 0.8);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.25);
   transform: translateY(-4px);
+  border-color: var(--wayup-orange);
 }
 
 .service-icon-wrapper {
   width: 70px;
   height: 70px;
-  background: linear-gradient(135deg, var(--cons-primary), var(--cons-secondary));
+  background: linear-gradient(135deg, var(--wayup-orange) 0%, var(--accent-orange) 100%);
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--cons-white);
+  color: var(--text-white);
   margin-bottom: 1.5rem;
 }
 
@@ -326,13 +341,13 @@
 .cons-service-card h3 {
   font-size: 1.375rem;
   font-weight: 700;
-  color: var(--text-dark);
+  color: var(--text-white);
   margin-bottom: 1rem;
 }
 
 .cons-service-card p {
   font-size: 1rem;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
@@ -344,19 +359,20 @@
 }
 
 .feature-badge {
-  background: var(--cons-white);
-  color: var(--cons-primary);
+  background: rgba(239, 90, 22, 0.15);
+  color: var(--wayup-orange);
   padding: 0.375rem 0.875rem;
   border-radius: 6px;
   font-size: 0.8125rem;
   font-weight: 600;
-  border: 1px solid rgba(217, 119, 6, 0.2);
+  border: 1px solid var(--border-orange);
 }
 
 /* ===== BENEFITS SECTION ===== */
 .cons-benefits {
-  padding: 6rem 0;
-  background: var(--cons-light);
+  padding: 80px 0;
+  background: var(--dark-navy);
+  margin: 0;
 }
 
 .cons-benefits-layout {
@@ -369,13 +385,13 @@
 .benefits-left h2 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--text-dark);
+  color: var(--text-white);
   margin-bottom: 1.25rem;
 }
 
 .benefits-intro {
   font-size: 1.125rem;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   line-height: 1.8;
   margin-bottom: 2rem;
 }
@@ -403,13 +419,13 @@
 
 .benefit-item span {
   font-size: 1.0625rem;
-  color: var(--text-dark);
+  color: var(--text-white);
   line-height: 1.6;
 }
 
 .cons-benefits-btn {
-  background: var(--cons-primary);
-  color: var(--cons-white);
+  background: linear-gradient(135deg, var(--wayup-orange) 0%, var(--accent-orange) 100%);
+  color: var(--text-white);
   padding: 1rem 2rem;
   border: none;
   border-radius: 8px;
@@ -424,9 +440,8 @@
 }
 
 .cons-benefits-btn:hover {
-  background: var(--cons-dark);
   transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(217, 119, 6, 0.3);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
 }
 
 .benefits-right {
@@ -438,52 +453,56 @@
   height: 500px;
   object-fit: cover;
   border-radius: 20px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border-orange);
 }
 
 .benefits-stat-box {
   position: absolute;
   bottom: 2rem;
   right: 2rem;
-  background: var(--cons-white);
+  background: var(--card-bg);
   padding: 2rem;
   border-radius: 16px;
   text-align: center;
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
   min-width: 180px;
+  border: 1px solid var(--border-orange);
+  backdrop-filter: blur(10px);
 }
 
 .stat-box-icon {
   width: 50px;
   height: 50px;
-  color: var(--cons-primary);
+  color: var(--wayup-orange);
   margin: 0 auto 1rem;
 }
 
 .stat-box-value {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--text-dark);
+  color: var(--text-white);
   margin-bottom: 0.5rem;
 }
 
 .stat-box-label {
   font-size: 0.9375rem;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   font-weight: 600;
 }
 
 /* ===== CASE STUDY SECTION ===== */
 .cons-case-study {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #1F2937 0%, #111827 100%);
-  color: var(--cons-white);
+  padding: 80px 0;
+  background: linear-gradient(135deg, var(--deep-blue) 0%, var(--darker-slate) 100%);
+  color: var(--text-white);
+  margin: 0;
 }
 
 .case-study-badge {
   display: inline-block;
   background: var(--success-green);
-  color: var(--cons-white);
+  color: var(--text-white);
   padding: 0.5rem 1.25rem;
   border-radius: 6px;
   font-size: 0.75rem;
@@ -495,7 +514,7 @@
 .case-study-heading {
   font-size: 2.75rem;
   font-weight: 800;
-  color: var(--cons-white);
+  color: var(--text-white);
   margin-bottom: 3rem;
 }
 
@@ -514,29 +533,29 @@
 .story-block h4 {
   font-size: 1.375rem;
   font-weight: 700;
-  color: var(--cons-white);
+  color: var(--text-white);
   margin-bottom: 1rem;
 }
 
 .story-block p {
   font-size: 1.0625rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-light-gray);
   line-height: 1.8;
   margin: 0;
 }
 
 .case-study-results-panel {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--card-bg);
   backdrop-filter: blur(10px);
   padding: 3rem;
   border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--border-orange);
 }
 
 .case-study-results-panel h4 {
   font-size: 1.5rem;
   font-weight: 700;
-  color: var(--cons-white);
+  color: var(--text-white);
   margin-bottom: 2rem;
 }
 
@@ -548,23 +567,23 @@
 }
 
 .result-card {
-  background: rgba(217, 119, 6, 0.2);
+  background: rgba(239, 90, 22, 0.1);
   padding: 2rem 1.5rem;
   border-radius: 12px;
   text-align: center;
-  border: 1px solid rgba(217, 119, 6, 0.3);
+  border: 1px solid var(--border-orange);
 }
 
 .result-number {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--cons-white);
+  color: var(--text-white);
   margin-bottom: 0.5rem;
 }
 
 .result-text {
   font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: var(--text-light-gray);
 }
 
 .case-highlights {
@@ -572,7 +591,7 @@
   flex-direction: column;
   gap: 1rem;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid var(--border-orange);
 }
 
 .highlight-item {
@@ -591,37 +610,40 @@
 
 .highlight-item span {
   font-size: 0.9375rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--text-light-gray);
   line-height: 1.6;
 }
 
 /* ===== CTA SECTION ===== */
 .cons-cta {
-  padding: 6rem 0;
-  background: var(--cons-light);
+  padding: 80px 0;
+  background: var(--slate-blue);
+  margin: 0;
 }
 
 .cons-cta-card {
   max-width: 900px;
   margin: 0 auto;
-  background: var(--cons-white);
+  background: var(--card-bg);
   padding: 4rem;
   border-radius: 24px;
   text-align: center;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-orange);
+  backdrop-filter: blur(10px);
 }
 
 .cta-card-icon {
   width: 100px;
   height: 100px;
-  background: linear-gradient(135deg, var(--cons-primary), var(--cons-secondary));
+  background: linear-gradient(135deg, var(--wayup-orange) 0%, var(--accent-orange) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--cons-white);
+  color: var(--text-white);
   margin: 0 auto 2rem;
-  box-shadow: 0 12px 30px rgba(217, 119, 6, 0.3);
+  box-shadow: 0 12px 30px rgba(239, 90, 22, 0.3);
 }
 
 .clipboard-icon {
@@ -632,13 +654,13 @@
 .cons-cta-card h2 {
   font-size: 2.75rem;
   font-weight: 800;
-  color: var(--text-dark);
+  color: var(--text-white);
   margin-bottom: 1.25rem;
 }
 
 .cons-cta-card p {
   font-size: 1.25rem;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   line-height: 1.8;
   margin-bottom: 2.5rem;
 }
@@ -656,8 +678,9 @@
   align-items: center;
   gap: 0.75rem;
   padding: 1.5rem 1rem;
-  background: var(--cons-light);
+  background: rgba(239, 90, 22, 0.1);
   border-radius: 12px;
+  border: 1px solid var(--border-orange);
 }
 
 .cta-feature-check {
@@ -668,7 +691,7 @@
 
 .cta-feature span {
   font-size: 0.9375rem;
-  color: var(--text-dark);
+  color: var(--text-white);
   font-weight: 600;
   text-align: center;
 }
@@ -681,8 +704,8 @@
 }
 
 .cons-cta-primary {
-  background: var(--wayup-orange);
-  color: var(--cons-white);
+  background: linear-gradient(135deg, var(--wayup-orange) 0%, var(--accent-orange) 100%);
+  color: var(--text-white);
   padding: 1.125rem 2.5rem;
   border: none;
   border-radius: 10px;
@@ -697,16 +720,15 @@
 }
 
 .cons-cta-primary:hover {
-  background: #d94d12;
   transform: translateY(-2px);
-  box-shadow: 0 12px 30px rgba(239, 90, 22, 0.3);
+  box-shadow: 0 12px 30px rgba(239, 90, 22, 0.4);
 }
 
 .cons-cta-secondary {
   background: transparent;
-  color: var(--cons-primary);
+  color: var(--wayup-orange);
   padding: 1.125rem 2.5rem;
-  border: 2px solid var(--cons-primary);
+  border: 2px solid var(--wayup-orange);
   border-radius: 10px;
   font-size: 1.125rem;
   font-weight: 700;
@@ -719,8 +741,9 @@
 }
 
 .cons-cta-secondary:hover {
-  background: var(--cons-primary);
-  color: var(--cons-white);
+  background: var(--wayup-orange);
+  color: var(--text-white);
+  transform: translateY(-2px);
 }
 
 .cta-trust {
@@ -729,7 +752,7 @@
   justify-content: center;
   gap: 0.75rem;
   padding-top: 2rem;
-  border-top: 1px solid #E5E7EB;
+  border-top: 1px solid var(--border-orange);
 }
 
 .trust-icon {
@@ -740,7 +763,7 @@
 
 .cta-trust span {
   font-size: 0.9375rem;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   font-weight: 500;
 }
 
@@ -762,6 +785,14 @@
 
   .cons-hero-metrics {
     grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cons-project-types,
+  .cons-services,
+  .cons-benefits,
+  .cons-case-study,
+  .cons-cta {
+    padding: 60px 0;
   }
 
   .project-types-grid {
@@ -840,6 +871,14 @@
   .cons-btn-ghost {
     width: 100%;
     justify-content: center;
+  }
+
+  .cons-project-types,
+  .cons-services,
+  .cons-benefits,
+  .cons-case-study,
+  .cons-cta {
+    padding: 50px 0;
   }
 
   .cons-section-title {
@@ -977,6 +1016,14 @@
   .cons-btn-ghost {
     padding: 1rem 1.5rem;
     font-size: 1rem;
+  }
+
+  .cons-project-types,
+  .cons-services,
+  .cons-benefits,
+  .cons-case-study,
+  .cons-cta {
+    padding: 40px 0;
   }
 
   .cons-section-title {
