@@ -1,13 +1,19 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom'; // Assuming you're using React Router
-import './NewNavbar.css'
-import { FaEnvelope, FaShoppingCart } from 'react-icons/fa'; // Added icons
+import { Link, useLocation } from 'react-router-dom';
+import './NewNavbar.css';
+import { FaEnvelope, FaShoppingCart } from 'react-icons/fa';
 
 const NewNavbar = () => {
   const [showBurger, setShowBurger] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const dropdownRef = useRef(null);
   const timeoutRef = useRef(null);
+  const location = useLocation();
+
+  // Helper function to check if a route is active
+  const isActive = (path) => {
+    return location.pathname === path || location.pathname.startsWith(path + '/');
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -111,13 +117,13 @@ const NewNavbar = () => {
 
         <ul className="nvbr-links" ref={dropdownRef}>
           {/* SERVICES Dropdown */}
-          <li 
+          <li
             className="nvbr-item dropdown-container"
             onMouseEnter={() => handleMouseEnter('services')}
             onMouseLeave={handleMouseLeave}
           >
-            <div 
-              className="nvbr-link dropdown-trigger" 
+            <div
+              className={`nvbr-link dropdown-trigger ${isActive('/services') ? 'active' : ''}`}
               onClick={(e) => toggleDropdown('services', e)}
             >
               SERVICES <span className="dropdown-arrow">▼</span>
@@ -138,13 +144,13 @@ const NewNavbar = () => {
           </li>
 
           {/* INDUSTRIES Dropdown */}
-          <li 
+          <li
             className="nvbr-item dropdown-container"
             onMouseEnter={() => handleMouseEnter('industries')}
             onMouseLeave={handleMouseLeave}
           >
-            <div 
-              className="nvbr-link dropdown-trigger" 
+            <div
+              className={`nvbr-link dropdown-trigger ${isActive('/industries') ? 'active' : ''}`}
               onClick={(e) => toggleDropdown('industries', e)}
             >
               INDUSTRIES <span className="dropdown-arrow">▼</span>
@@ -165,13 +171,13 @@ const NewNavbar = () => {
           </li>
 
           {/* SOLUTIONS Dropdown */}
-          <li 
+          <li
             className="nvbr-item dropdown-container"
             onMouseEnter={() => handleMouseEnter('solutions')}
             onMouseLeave={handleMouseLeave}
           >
-            <div 
-              className="nvbr-link dropdown-trigger" 
+            <div
+              className={`nvbr-link dropdown-trigger ${isActive('/solution') ? 'active' : ''}`}
               onClick={(e) => toggleDropdown('solutions', e)}
             >
               SOLUTIONS <span className="dropdown-arrow">▼</span>
@@ -192,13 +198,13 @@ const NewNavbar = () => {
           </li>
 
           {/* PORTFOLIO Dropdown */}
-          <li 
+          <li
             className="nvbr-item dropdown-container"
             onMouseEnter={() => handleMouseEnter('portfolio')}
             onMouseLeave={handleMouseLeave}
           >
-            <div 
-              className="nvbr-link dropdown-trigger" 
+            <div
+              className={`nvbr-link dropdown-trigger ${isActive('/portfolio') ? 'active' : ''}`}
               onClick={(e) => toggleDropdown('portfolio', e)}
             >
               PORTFOLIO <span className="dropdown-arrow">▼</span>
@@ -213,7 +219,7 @@ const NewNavbar = () => {
 
           {/* CONTACT */}
           <li className="nvbr-item contact-link" onClick={() => handleLinkClick('/contact')}>
-            <div className="nvbr-link">CONTACT US</div>
+            <div className={`nvbr-link ${isActive('/contact') ? 'active' : ''}`}>CONTACT US</div>
           </li>
 
           {/* Additional Image */}
