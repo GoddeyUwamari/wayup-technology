@@ -1,37 +1,38 @@
-/* Biometrics Solution Page */
+/* Biometrics Solution Page - Professional Dark Theme */
 
-/* Root Variables */
+/* Root Variables - Unified Orange Brand Theme */
 :root {
-  --bio-primary: #000048;
-  --bio-accent: #ef5a16;
-  --bio-cyan: #00D4FF;
-  --bio-blue: #0066FF;
-  --bio-purple: #6C5CE7;
-  --bio-green: #00B894;
-  --bio-dark: #0F172A;
-  --bio-gray: #64748b;
-  --bio-light: #f1f5f9;
+  --bio-navy: #000048;
+  --bio-dark-navy: #0f172a;
+  --bio-slate: #1e293b;
+  --bio-orange: #ef5a16;
+  --bio-orange-light: #f97316;
   --bio-white: #ffffff;
-  --bio-gradient-primary: linear-gradient(135deg, #00D4FF 0%, #0066FF 100%);
-  --bio-gradient-dark: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
-  --bio-shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
-  --bio-shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
-  --bio-shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.15);
-  --bio-shadow-xl: 0 16px 40px rgba(0, 0, 0, 0.2);
+  --bio-gray-text: #cbd5e0;
+  --bio-light-gray-text: #94a3b8;
+  --bio-card-bg: rgba(15, 23, 42, 0.6);
+  --bio-card-border: rgba(239, 90, 22, 0.3);
   --bio-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Container */
-.bio-container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 24px;
+/* Global Reset */
+.biometrics {
+  background: var(--bio-dark-navy);
+  color: var(--bio-gray-text);
 }
 
-/* Hero Section */
+/* Container - 1400px max-width */
+.bio-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ==================== HERO SECTION ==================== */
 .bio-hero {
-  background: var(--bio-dark);
-  padding: 120px 0 100px;
+  background: linear-gradient(135deg, var(--bio-navy) 0%, var(--bio-dark-navy) 50%, var(--bio-slate) 100%);
+  padding: 60px 40px;
+  margin: 0;
   position: relative;
   overflow: hidden;
 }
@@ -46,14 +47,14 @@
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(0, 102, 255, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(239, 90, 22, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(239, 90, 22, 0.06) 0%, transparent 50%);
 }
 
 .bio-hero .bio-container {
   display: grid;
   grid-template-columns: 1.2fr 1fr;
-  gap: 80px;
+  gap: 60px;
   align-items: center;
   position: relative;
   z-index: 2;
@@ -63,29 +64,29 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(0, 212, 255, 0.15);
+  background: rgba(239, 90, 22, 0.1);
   backdrop-filter: blur(12px);
-  color: var(--bio-cyan);
-  padding: 10px 20px;
+  color: var(--bio-orange);
+  padding: 8px 18px;
   border-radius: 50px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 28px;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  margin-bottom: 24px;
+  border: 1px solid var(--bio-card-border);
 }
 
 .bio-hero-title {
-  font-size: 4.2rem;
+  font-size: 3.75rem;
   font-weight: 900;
   color: var(--bio-white);
   line-height: 1.1;
-  margin-bottom: 28px;
+  margin-bottom: 24px;
 }
 
 .bio-hero-highlight {
-  background: var(--bio-gradient-primary);
+  background: linear-gradient(135deg, var(--bio-orange) 0%, var(--bio-orange-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -93,10 +94,10 @@
 }
 
 .bio-hero-subtitle {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 40px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--bio-gray-text);
+  margin-bottom: 32px;
   max-width: 580px;
 }
 
@@ -104,7 +105,7 @@
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
 }
 
 /* Buttons */
@@ -112,8 +113,8 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 32px;
-  font-size: 1rem;
+  padding: 14px 28px;
+  font-size: 0.95rem;
   font-weight: 700;
   border-radius: 10px;
   border: none;
@@ -125,14 +126,14 @@
 }
 
 .bio-btn-primary {
-  background: var(--bio-gradient-primary);
+  background: linear-gradient(135deg, var(--bio-orange) 0%, var(--bio-orange-light) 100%);
   color: var(--bio-white);
-  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
 }
 
 .bio-btn-primary:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0, 212, 255, 0.5);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.5);
 }
 
 .bio-btn-outline {
@@ -149,16 +150,16 @@
 }
 
 .bio-btn-cta {
-  background: var(--bio-gradient-primary);
+  background: linear-gradient(135deg, var(--bio-orange) 0%, var(--bio-orange-light) 100%);
   color: var(--bio-white);
-  box-shadow: 0 8px 24px rgba(0, 212, 255, 0.4);
-  font-size: 1.15rem;
-  padding: 18px 40px;
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
+  font-size: 1.05rem;
+  padding: 16px 36px;
 }
 
 .bio-btn-cta:hover {
   transform: translateY(-3px);
-  box-shadow: 0 12px 36px rgba(0, 212, 255, 0.5);
+  box-shadow: 0 12px 36px rgba(239, 90, 22, 0.5);
 }
 
 /* Hero Stats */
@@ -169,24 +170,25 @@
 }
 
 .bio-hero-stat-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bio-card-bg);
   backdrop-filter: blur(12px);
-  padding: 24px 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--bio-card-border);
   text-align: center;
   transition: var(--bio-transition);
 }
 
 .bio-hero-stat-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.8);
   transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.2);
 }
 
 .bio-stat-value {
-  font-size: 2.5rem;
+  font-size: 2.25rem;
   font-weight: 900;
-  background: var(--bio-gradient-primary);
+  background: linear-gradient(135deg, var(--bio-orange) 0%, var(--bio-orange-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -194,15 +196,15 @@
 }
 
 .bio-stat-label {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 700;
   color: var(--bio-white);
   margin-bottom: 4px;
 }
 
 .bio-stat-sublabel {
-  font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.75rem;
+  color: var(--bio-light-gray-text);
 }
 
 /* Hero Visual */
@@ -213,14 +215,15 @@
 .bio-hero-image {
   width: 100%;
   height: auto;
-  border-radius: 20px;
-  box-shadow: var(--bio-shadow-xl);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
   transition: var(--bio-transition);
+  border: 1px solid var(--bio-card-border);
 }
 
 .bio-hero-image:hover {
   transform: scale(1.02);
-  box-shadow: 0 20px 50px rgba(0, 212, 255, 0.3);
+  box-shadow: 0 16px 48px rgba(239, 90, 22, 0.3);
 }
 
 .bio-hero-float-badge {
@@ -228,19 +231,21 @@
   top: 50%;
   right: -30px;
   transform: translateY(-50%);
-  width: 100px;
-  height: 100px;
-  background: var(--bio-white);
+  width: 90px;
+  height: 90px;
+  background: var(--bio-card-bg);
+  backdrop-filter: blur(16px);
+  border: 2px solid var(--bio-card-border);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
   z-index: 3;
 }
 
 .bio-float-icon {
-  color: var(--bio-cyan);
+  color: var(--bio-orange);
   animation: float 3s ease-in-out infinite;
   position: relative;
   z-index: 2;
@@ -254,7 +259,7 @@
 .bio-float-pulse {
   position: absolute;
   inset: -10px;
-  border: 2px solid var(--bio-cyan);
+  border: 2px solid var(--bio-orange);
   border-radius: 50%;
   opacity: 0.5;
   animation: pulse 2s ease-in-out infinite;
@@ -265,38 +270,38 @@
   50% { transform: scale(1.1); opacity: 0.2; }
 }
 
-/* Section Header */
+/* ==================== SECTION HEADERS ==================== */
 .bio-section-header {
   text-align: center;
-  margin-bottom: 64px;
+  margin-bottom: 48px;
 }
 
 .bio-section-label {
   display: inline-block;
-  background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 102, 255, 0.1) 100%);
-  color: var(--bio-cyan);
-  padding: 8px 20px;
+  background: rgba(239, 90, 22, 0.1);
+  color: var(--bio-orange);
+  padding: 6px 16px;
   border-radius: 50px;
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 20px;
-  border: 1px solid rgba(0, 212, 255, 0.3);
+  margin-bottom: 16px;
+  border: 1px solid var(--bio-card-border);
 }
 
 .bio-label-light {
-  background: rgba(255, 255, 255, 0.1);
-  color: var(--bio-white);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(239, 90, 22, 0.15);
+  color: var(--bio-orange-light);
+  border-color: var(--bio-card-border);
 }
 
 .bio-section-title {
-  font-size: 3rem;
+  font-size: 2.75rem;
   font-weight: 900;
-  color: var(--bio-primary);
+  color: var(--bio-white);
   line-height: 1.2;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
 }
 
 .bio-title-light {
@@ -304,140 +309,146 @@
 }
 
 .bio-section-subtitle {
-  font-size: 1.2rem;
-  color: var(--bio-gray);
+  font-size: 1.1rem;
+  color: var(--bio-gray-text);
   line-height: 1.6;
   max-width: 700px;
   margin: 0 auto;
 }
 
-/* Biometric Types Section */
+/* ==================== BIOMETRIC TYPES SECTION ==================== */
 .bio-types {
-  padding: 100px 0;
-  background: var(--bio-white);
+  padding: 60px 40px;
+  background: var(--bio-dark-navy);
+  margin: 0;
 }
 
 .bio-types-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: 24px;
 }
 
 .bio-type-card {
-  background: var(--bio-light);
-  padding: 40px 28px;
-  border-radius: 16px;
-  box-shadow: var(--bio-shadow-sm);
+  background: var(--bio-card-bg);
+  backdrop-filter: blur(12px);
+  padding: 36px 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
   transition: var(--bio-transition);
   text-align: center;
-  border: 2px solid transparent;
+  border: 1px solid var(--bio-card-border);
 }
 
 .bio-type-card:hover {
-  border-color: var(--bio-cyan);
+  border-color: var(--bio-orange);
   transform: translateY(-8px);
-  box-shadow: var(--bio-shadow-lg);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.2);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .bio-type-icon-wrapper {
   position: relative;
-  width: 80px;
-  height: 80px;
-  background: var(--bio-white);
-  border-radius: 16px;
+  width: 72px;
+  height: 72px;
+  background: rgba(239, 90, 22, 0.1);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 24px;
-  box-shadow: var(--bio-shadow-sm);
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .bio-type-icon {
-  width: 40px;
-  height: 40px;
-  color: var(--bio-cyan);
+  width: 36px;
+  height: 36px;
+  color: var(--bio-orange);
 }
 
 .bio-type-accuracy {
   position: absolute;
   top: -10px;
   right: -10px;
-  background: var(--bio-gradient-primary);
+  background: linear-gradient(135deg, var(--bio-orange) 0%, var(--bio-orange-light) 100%);
   color: var(--bio-white);
   padding: 4px 10px;
   border-radius: 20px;
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 800;
-  box-shadow: 0 4px 12px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 4px 12px rgba(239, 90, 22, 0.4);
 }
 
 .bio-type-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  color: var(--bio-primary);
-  margin-bottom: 14px;
+  color: var(--bio-white);
+  margin-bottom: 12px;
 }
 
 .bio-type-description {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.6;
-  color: var(--bio-gray);
+  color: var(--bio-gray-text);
 }
 
-/* Use Cases Section */
+/* ==================== USE CASES SECTION ==================== */
 .bio-usecases {
-  padding: 100px 0;
-  background: linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 100%);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--bio-navy) 0%, var(--bio-slate) 100%);
+  margin: 0;
 }
 
 .bio-usecases-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 24px;
 }
 
 .bio-usecase-card {
-  background: var(--bio-white);
-  padding: 44px 40px;
-  border-radius: 16px;
-  box-shadow: var(--bio-shadow-sm);
+  background: var(--bio-card-bg);
+  backdrop-filter: blur(12px);
+  padding: 36px 32px;
+  border-radius: 12px;
+  border: 1px solid var(--bio-card-border);
   transition: var(--bio-transition);
 }
 
 .bio-usecase-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--bio-shadow-lg);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.2);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .bio-usecase-icon-bg {
-  width: 72px;
-  height: 72px;
-  background: var(--bio-gradient-primary);
-  border-radius: 14px;
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, var(--bio-orange) 0%, var(--bio-orange-light) 100%);
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .usecase-icon {
-  width: 36px;
-  height: 36px;
+  width: 32px;
+  height: 32px;
   color: var(--bio-white);
 }
 
 .bio-usecase-title {
-  font-size: 1.6rem;
+  font-size: 1.45rem;
   font-weight: 800;
-  color: var(--bio-primary);
-  margin-bottom: 16px;
+  color: var(--bio-white);
+  margin-bottom: 14px;
 }
 
 .bio-usecase-description {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--bio-gray);
-  margin-bottom: 24px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--bio-gray-text);
+  margin-bottom: 20px;
 }
 
 .bio-usecase-features {
@@ -450,20 +461,21 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 0.9rem;
-  color: var(--bio-primary);
+  font-size: 0.85rem;
+  color: var(--bio-white);
   font-weight: 600;
 }
 
 .bio-feature-tag svg {
-  color: var(--bio-green);
+  color: var(--bio-orange);
   flex-shrink: 0;
 }
 
-/* Advantages Section */
+/* ==================== ADVANTAGES SECTION ==================== */
 .bio-advantages {
-  padding: 100px 0;
-  background: var(--bio-gradient-dark);
+  padding: 60px 40px;
+  background: var(--bio-dark-navy);
+  margin: 0;
   position: relative;
   overflow: hidden;
 }
@@ -475,83 +487,84 @@
   left: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(239, 90, 22, 0.08) 0%, transparent 70%);
   border-radius: 50%;
 }
 
 .bio-advantages-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 60px;
   align-items: start;
   position: relative;
   z-index: 2;
 }
 
 .bio-advantages-text {
-  font-size: 1.15rem;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 40px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--bio-gray-text);
+  margin-bottom: 32px;
 }
 
 .bio-security-features {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
+  gap: 14px;
 }
 
 .bio-security-feature {
   display: flex;
   align-items: center;
   gap: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  padding: 14px 18px;
+  background: var(--bio-card-bg);
+  padding: 12px 16px;
   border-radius: 8px;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   font-weight: 600;
   color: var(--bio-white);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--bio-card-border);
   transition: var(--bio-transition);
 }
 
 .bio-security-feature:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.8);
   transform: translateX(5px);
 }
 
 .bio-security-feature svg {
-  color: var(--bio-cyan);
+  color: var(--bio-orange);
   flex-shrink: 0;
 }
 
 .bio-advantages-cards {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 20px;
 }
 
 .bio-advantage-card {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--bio-card-bg);
   backdrop-filter: blur(12px);
-  padding: 36px 32px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 32px 28px;
+  border-radius: 12px;
+  border: 1px solid var(--bio-card-border);
   transition: var(--bio-transition);
   display: flex;
   gap: 20px;
 }
 
 .bio-advantage-card:hover {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(15, 23, 42, 0.8);
   transform: translateX(8px);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.2);
 }
 
 .bio-advantage-icon-wrapper {
-  width: 56px;
-  height: 56px;
-  background: var(--bio-gradient-primary);
-  border-radius: 12px;
+  width: 52px;
+  height: 52px;
+  background: linear-gradient(135deg, var(--bio-orange) 0%, var(--bio-orange-light) 100%);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -559,34 +572,36 @@
 }
 
 .adv-icon {
-  width: 28px;
-  height: 28px;
+  width: 26px;
+  height: 26px;
   color: var(--bio-white);
 }
 
 .bio-advantage-title {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   font-weight: 700;
   color: var(--bio-white);
   margin-bottom: 8px;
 }
 
 .bio-advantage-description {
-  font-size: 1rem;
+  font-size: 0.95rem;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--bio-gray-text);
 }
 
-/* Case Study Section */
+/* ==================== CASE STUDY SECTION ==================== */
 .bio-case-study {
-  padding: 100px 0;
-  background: var(--bio-white);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--bio-navy) 0%, var(--bio-slate) 100%);
+  margin: 0;
 }
 
 .bio-case-wrapper {
-  background: var(--bio-light);
-  border-radius: 20px;
-  box-shadow: var(--bio-shadow-lg);
+  background: var(--bio-card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  border: 1px solid var(--bio-card-border);
   overflow: hidden;
 }
 
@@ -594,16 +609,16 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  padding: 48px;
-  background: var(--bio-white);
-  border-bottom: 2px solid #e2e8f0;
+  padding: 40px;
+  background: rgba(0, 0, 72, 0.3);
+  border-bottom: 1px solid var(--bio-card-border);
 }
 
 .bio-case-company-badge {
-  width: 80px;
-  height: 80px;
-  background: var(--bio-gradient-primary);
-  border-radius: 16px;
+  width: 72px;
+  height: 72px;
+  background: linear-gradient(135deg, var(--bio-orange) 0%, var(--bio-orange-light) 100%);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -612,78 +627,79 @@
 }
 
 .bio-case-company-name {
-  font-size: 2rem;
+  font-size: 1.75rem;
   font-weight: 800;
-  color: var(--bio-primary);
+  color: var(--bio-white);
   margin-bottom: 4px;
 }
 
 .bio-case-industry {
-  font-size: 1.05rem;
-  color: var(--bio-gray);
+  font-size: 0.95rem;
+  color: var(--bio-light-gray-text);
   font-weight: 600;
 }
 
 .bio-case-content-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 48px;
-  padding: 48px;
+  gap: 40px;
+  padding: 40px;
 }
 
 .bio-case-challenge-solution {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 28px;
 }
 
 .bio-case-block-title {
-  font-size: 1rem;
+  font-size: 0.9rem;
   font-weight: 700;
-  color: var(--bio-cyan);
+  color: var(--bio-orange);
   text-transform: uppercase;
   letter-spacing: 1px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .bio-case-block-text {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: var(--bio-gray);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--bio-gray-text);
 }
 
 .bio-case-results-title {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 800;
-  color: var(--bio-primary);
-  margin-bottom: 28px;
+  color: var(--bio-white);
+  margin-bottom: 24px;
 }
 
 .bio-case-results-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
+  gap: 16px;
 }
 
 .bio-case-result {
-  background: var(--bio-white);
-  padding: 28px 24px;
-  border-radius: 12px;
-  box-shadow: var(--bio-shadow-sm);
+  background: rgba(0, 0, 72, 0.3);
+  padding: 24px 20px;
+  border-radius: 10px;
   text-align: center;
-  border-top: 3px solid var(--bio-cyan);
+  border: 1px solid var(--bio-card-border);
+  border-top: 3px solid var(--bio-orange);
   transition: var(--bio-transition);
 }
 
 .bio-case-result:hover {
   transform: translateY(-5px);
-  box-shadow: var(--bio-shadow-md);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.2);
+  background: rgba(15, 23, 42, 0.5);
 }
 
 .bio-result-metric {
-  font-size: 2.8rem;
+  font-size: 2.5rem;
   font-weight: 900;
-  background: var(--bio-gradient-primary);
+  background: linear-gradient(135deg, var(--bio-orange) 0%, var(--bio-orange-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -691,21 +707,22 @@
 }
 
 .bio-result-label {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--bio-primary);
+  color: var(--bio-white);
   margin-bottom: 6px;
 }
 
 .bio-result-description {
-  font-size: 0.9rem;
-  color: var(--bio-gray);
+  font-size: 0.85rem;
+  color: var(--bio-light-gray-text);
 }
 
-/* CTA Section */
+/* ==================== CTA SECTION ==================== */
 .bio-cta {
-  padding: 100px 0;
-  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  padding: 60px 40px;
+  background: var(--bio-dark-navy);
+  margin: 0;
 }
 
 .bio-cta-content {
@@ -716,47 +733,47 @@
 
 .bio-cta-icon-wrapper {
   position: relative;
-  width: 120px;
-  height: 120px;
-  background: var(--bio-gradient-primary);
+  width: 110px;
+  height: 110px;
+  background: linear-gradient(135deg, var(--bio-orange) 0%, var(--bio-orange-light) 100%);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 32px;
+  margin: 0 auto 28px;
   color: var(--bio-white);
-  box-shadow: 0 12px 36px rgba(0, 212, 255, 0.4);
+  box-shadow: 0 12px 36px rgba(239, 90, 22, 0.4);
 }
 
 .bio-cta-icon-glow {
   position: absolute;
   inset: -10px;
-  border: 2px solid var(--bio-cyan);
+  border: 2px solid var(--bio-orange);
   border-radius: 50%;
   opacity: 0.3;
   animation: pulse 2s ease-in-out infinite;
 }
 
 .bio-cta-title {
-  font-size: 3.2rem;
+  font-size: 2.75rem;
   font-weight: 900;
-  color: var(--bio-primary);
-  margin-bottom: 24px;
+  color: var(--bio-white);
+  margin-bottom: 20px;
   line-height: 1.2;
 }
 
 .bio-cta-text {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   line-height: 1.6;
-  color: var(--bio-gray);
-  margin-bottom: 40px;
+  color: var(--bio-gray-text);
+  margin-bottom: 32px;
 }
 
 .bio-cta-footer {
   display: flex;
   justify-content: center;
-  gap: 48px;
-  margin-top: 48px;
+  gap: 40px;
+  margin-top: 40px;
   flex-wrap: wrap;
 }
 
@@ -764,25 +781,25 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 1rem;
-  color: var(--bio-primary);
+  font-size: 0.95rem;
+  color: var(--bio-white);
   font-weight: 600;
 }
 
 .bio-cta-footer-item svg {
-  color: var(--bio-green);
+  color: var(--bio-orange);
 }
 
-/* Responsive Design */
+/* ==================== RESPONSIVE DESIGN ==================== */
 
 /* Large Tablets (1024px - 1279px) */
 @media (max-width: 1279px) {
   .bio-hero .bio-container {
-    gap: 60px;
+    gap: 48px;
   }
 
   .bio-hero-title {
-    font-size: 3.5rem;
+    font-size: 3.25rem;
   }
 
   .bio-types-grid {
@@ -800,13 +817,18 @@
     padding: 0 20px;
   }
 
-  .bio-hero {
-    padding: 100px 0 80px;
+  .bio-hero,
+  .bio-types,
+  .bio-usecases,
+  .bio-advantages,
+  .bio-case-study,
+  .bio-cta {
+    padding: 50px 20px;
   }
 
   .bio-hero .bio-container {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 40px;
   }
 
   .bio-hero-visual {
@@ -818,11 +840,11 @@
   }
 
   .bio-hero-title {
-    font-size: 3rem;
+    font-size: 2.75rem;
   }
 
   .bio-section-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .bio-usecases-grid,
@@ -838,16 +860,21 @@
 
 /* Mobile (max-width: 767px) */
 @media (max-width: 767px) {
-  .bio-hero {
-    padding: 80px 0 60px;
+  .bio-hero,
+  .bio-types,
+  .bio-usecases,
+  .bio-advantages,
+  .bio-case-study,
+  .bio-cta {
+    padding: 40px 20px;
   }
 
   .bio-hero-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .bio-hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .bio-hero-buttons {
@@ -873,20 +900,12 @@
     margin: 20px auto 0;
   }
 
-  .bio-types,
-  .bio-usecases,
-  .bio-advantages,
-  .bio-case-study,
-  .bio-cta {
-    padding: 70px 0;
-  }
-
   .bio-section-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
   .bio-section-subtitle {
-    font-size: 1.05rem;
+    font-size: 1rem;
   }
 
   .bio-types-grid {
@@ -900,11 +919,11 @@
   .bio-case-header-section {
     flex-direction: column;
     text-align: center;
-    padding: 32px 24px;
+    padding: 28px 20px;
   }
 
   .bio-case-content-grid {
-    padding: 32px 24px;
+    padding: 28px 20px;
   }
 
   .bio-case-results-grid {
@@ -912,11 +931,11 @@
   }
 
   .bio-cta-title {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 
   .bio-cta-text {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
   }
 
   .bio-cta-footer {
@@ -933,25 +952,25 @@
   }
 
   .bio-hero-title {
-    font-size: 1.9rem;
+    font-size: 1.75rem;
   }
 
   .bio-section-title {
-    font-size: 1.75rem;
+    font-size: 1.6rem;
   }
 
   .bio-type-card,
   .bio-usecase-card,
   .bio-advantage-card {
-    padding: 28px 20px;
+    padding: 24px 20px;
   }
 
   .bio-cta-title {
-    font-size: 1.9rem;
+    font-size: 1.75rem;
   }
 
   .bio-cta-icon-wrapper {
-    width: 100px;
-    height: 100px;
+    width: 90px;
+    height: 90px;
   }
 }

@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FolderOpen, Image, Video, FileText, Search, Tag, Cloud, Lock, Users, Zap, CheckCircle, Download, Upload, Share2, Grid3x3, Layers, Activity, ArrowRight, Award, Clock } from 'lucide-react';
+import { FolderOpen, Image, Video, FileText, Search, Tag, Lock, Users, CheckCircle, Download, Upload, Share2, Grid3x3, Layers, Activity, ArrowRight, Award, Clock } from 'lucide-react';
 import './AssetManagement.css';
 
 const AssetManagement = () => {
@@ -195,26 +195,11 @@ const AssetManagement = () => {
             </div>
 
             <div className="dam-hero-visual">
-              <div className="dam-asset-grid">
-                <div className="dam-grid-item dam-item-1">
-                  <Image size={32} />
-                </div>
-                <div className="dam-grid-item dam-item-2">
-                  <Video size={32} />
-                </div>
-                <div className="dam-grid-item dam-item-3">
-                  <FileText size={32} />
-                </div>
-                <div className="dam-grid-item dam-item-4">
-                  <FolderOpen size={32} />
-                </div>
-                <div className="dam-grid-item dam-item-5">
-                  <Image size={24} />
-                </div>
-                <div className="dam-grid-item dam-item-6">
-                  <Video size={24} />
-                </div>
-              </div>
+              <img
+                src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80"
+                alt="Professional team collaborating on digital asset management platform"
+                className="dam-hero-image"
+              />
             </div>
           </div>
         </div>

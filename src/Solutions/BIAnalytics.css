@@ -1,47 +1,51 @@
-/* ===================================
-   Business Intelligence & Analytics Page
-   Prefix: bia-
-   Theme: Teal/Green Data Analytics
-   =================================== */
+/* Business Intelligence & Analytics Page - Professional Dark Theme */
 
-/* Root Variables */
+/* Root Variables - Unified Orange Brand Theme */
 :root {
-  --bia-primary: #10B981;
-  --bia-secondary: #059669;
-  --bia-accent: #14B8A6;
-  --bia-dark: #064E3B;
-  --bia-light: #D1FAE5;
   --bia-navy: #000048;
+  --bia-dark-navy: #0f172a;
+  --bia-slate: #1e293b;
   --bia-orange: #ef5a16;
+  --bia-orange-light: #f97316;
+  --bia-white: #ffffff;
+  --bia-gray-text: #cbd5e0;
+  --bia-light-gray-text: #94a3b8;
+  --bia-card-bg: rgba(15, 23, 42, 0.6);
+  --bia-card-border: rgba(239, 90, 22, 0.3);
+  --bia-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Container */
+/* Global Reset */
+.bia {
+  background: var(--bia-dark-navy);
+  color: var(--bia-gray-text);
+}
+
+/* Container - 1400px max-width */
 .bia-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 0 40px;
 }
 
-/* ===================================
-   HERO SECTION
-   =================================== */
-
+/* ==================== HERO SECTION ==================== */
 .bia-hero {
   position: relative;
-  min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #0F172A 100%);
+  background: linear-gradient(135deg, var(--bia-navy) 0%, var(--bia-dark-navy) 50%, var(--bia-slate) 100%);
   overflow: hidden;
-  padding: 120px 0 80px;
+  padding: 60px 40px;
+  margin: 0;
+  min-height: auto;
 }
 
 .bia-hero-pattern {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(16, 185, 129, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(16, 185, 129, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(239, 90, 22, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(239, 90, 22, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   animation: bia-pattern-move 20s linear infinite;
 }
@@ -54,122 +58,135 @@
 .bia-hero-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 60px;
   align-items: center;
   position: relative;
   z-index: 1;
-}
-
-.bia-hero-content {
-  color: #ffffff;
 }
 
 .bia-hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.3);
+  padding: 8px 18px;
+  background: rgba(239, 90, 22, 0.1);
+  border: 1px solid var(--bia-card-border);
   border-radius: 20px;
-  color: var(--bia-primary);
-  font-size: 0.875rem;
-  font-weight: 500;
+  color: var(--bia-orange);
+  font-size: 0.8rem;
+  font-weight: 700;
   margin-bottom: 24px;
 }
 
 .bia-hero-title {
-  font-size: 4rem;
-  font-weight: 800;
+  font-size: 3.75rem;
+  font-weight: 900;
   line-height: 1.1;
   margin-bottom: 24px;
+  color: var(--bia-white);
   letter-spacing: -0.02em;
 }
 
 .bia-hero-gradient {
-  background: linear-gradient(135deg, var(--bia-primary) 0%, var(--bia-accent) 100%);
+  background: linear-gradient(135deg, var(--bia-orange) 0%, var(--bia-orange-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bia-hero-subtitle {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 40px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--bia-gray-text);
+  margin-bottom: 32px;
   max-width: 560px;
 }
 
 .bia-hero-buttons {
   display: flex;
   gap: 16px;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
 }
 
 .bia-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 32px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--bia-transition);
   text-decoration: none;
 }
 
 .bia-btn-primary {
-  background: linear-gradient(135deg, var(--bia-primary) 0%, var(--bia-secondary) 100%);
-  color: #ffffff;
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3);
+  background: linear-gradient(135deg, var(--bia-orange) 0%, var(--bia-orange-light) 100%);
+  color: var(--bia-white);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
 }
 
 .bia-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(16, 185, 129, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.5);
 }
 
 .bia-btn-outline {
   background: transparent;
-  color: #ffffff;
+  color: var(--bia-white);
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .bia-btn-outline:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.bia-btn-cta {
+  background: linear-gradient(135deg, var(--bia-orange) 0%, var(--bia-orange-light) 100%);
+  color: var(--bia-white);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
+  padding: 16px 40px;
+  font-size: 1.05rem;
+}
+
+.bia-btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(239, 90, 22, 0.5);
 }
 
 /* Hero Stats Grid */
 .bia-hero-stats {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
 .bia-stat-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 24px;
+  background: var(--bia-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bia-card-border);
+  border-radius: 12px;
+  padding: 20px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: var(--bia-transition);
 }
 
 .bia-stat-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--bia-primary);
+  background: rgba(15, 23, 42, 0.8);
+  border-color: var(--bia-orange);
   transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.2);
 }
 
 .bia-stat-value {
-  font-size: 2.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--bia-primary) 0%, var(--bia-accent) 100%);
+  font-size: 2.25rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--bia-orange) 0%, var(--bia-orange-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -177,15 +194,15 @@
 }
 
 .bia-stat-label {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--bia-white);
   margin-bottom: 4px;
 }
 
 .bia-stat-desc {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.8rem;
+  color: var(--bia-light-gray-text);
 }
 
 /* Hero Visual */
@@ -200,39 +217,41 @@
 .bia-hero-image {
   width: 100%;
   height: auto;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--bia-card-border);
 }
 
 .bia-floating-chart {
   position: absolute;
-  bottom: -40px;
-  right: -40px;
-  background: rgba(255, 255, 255, 0.95);
+  bottom: -30px;
+  right: -30px;
+  background: var(--bia-card-bg);
   backdrop-filter: blur(20px);
-  border-radius: 20px;
-  padding: 24px;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--bia-card-border);
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .bia-floating-chart svg {
-  color: var(--bia-primary);
+  color: var(--bia-orange);
 }
 
 .bia-chart-bars {
   display: flex;
   align-items: flex-end;
   gap: 8px;
-  height: 80px;
+  height: 70px;
 }
 
 .bia-bar {
-  width: 16px;
-  background: linear-gradient(to top, var(--bia-primary), var(--bia-accent));
+  width: 14px;
+  background: linear-gradient(to top, var(--bia-orange), var(--bia-orange-light));
   border-radius: 4px 4px 0 0;
   animation: bia-bar-grow 1.5s ease-out forwards;
   animation-delay: var(--delay);
@@ -245,98 +264,109 @@
   }
 }
 
-/* ===================================
-   SERVICES SECTION
-   =================================== */
-
-.bia-services {
-  padding: 120px 0;
-  background: #ffffff;
-}
-
+/* ==================== SECTION HEADERS ==================== */
 .bia-section-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 }
 
 .bia-section-label {
   display: inline-block;
-  padding: 8px 20px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
-  color: var(--bia-primary);
+  padding: 6px 16px;
+  background: rgba(239, 90, 22, 0.1);
+  color: var(--bia-orange);
   border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  border: 1px solid var(--bia-card-border);
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 16px;
 }
 
 .bia-section-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--bia-navy);
+  font-size: 2.75rem;
+  font-weight: 900;
+  color: var(--bia-white);
   margin-bottom: 16px;
   line-height: 1.2;
 }
 
 .bia-section-subtitle {
-  font-size: 1.125rem;
-  color: #64748b;
+  font-size: 1.1rem;
+  color: var(--bia-gray-text);
   max-width: 700px;
   margin: 0 auto;
-  line-height: 1.7;
+  line-height: 1.6;
+}
+
+.bia-label-light {
+  background: rgba(239, 90, 22, 0.15);
+  color: var(--bia-orange-light);
+}
+
+.bia-title-light {
+  color: var(--bia-white);
+}
+
+/* ==================== SERVICES SECTION ==================== */
+.bia-services {
+  padding: 60px 40px;
+  background: var(--bia-dark-navy);
+  margin: 0;
 }
 
 .bia-services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 24px;
 }
 
 .bia-service-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  padding: 40px;
-  transition: all 0.3s ease;
+  background: var(--bia-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bia-card-border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  transition: var(--bia-transition);
 }
 
 .bia-service-card:hover {
-  border-color: var(--bia-primary);
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.1);
+  border-color: var(--bia-orange);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.2);
   transform: translateY(-8px);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .bia-service-icon-wrapper {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(20, 184, 166, 0.1) 100%);
-  border-radius: 16px;
+  background: linear-gradient(135deg, var(--bia-orange) 0%, var(--bia-orange-light) 100%);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 }
 
 .bia-service-icon {
   width: 32px;
   height: 32px;
-  color: var(--bia-primary);
+  color: var(--bia-white);
 }
 
 .bia-service-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--bia-navy);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--bia-white);
   margin-bottom: 12px;
 }
 
 .bia-service-description {
-  font-size: 1rem;
-  color: #64748b;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  font-size: 0.95rem;
+  color: var(--bia-gray-text);
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .bia-service-features {
@@ -350,11 +380,11 @@
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: rgba(16, 185, 129, 0.1);
-  border-radius: 20px;
-  font-size: 0.875rem;
-  color: var(--bia-secondary);
-  font-weight: 500;
+  background: rgba(239, 90, 22, 0.1);
+  border-radius: 16px;
+  font-size: 0.8rem;
+  color: var(--bia-orange-light);
+  font-weight: 600;
 }
 
 .bia-feature-tag svg {
@@ -362,19 +392,17 @@
   height: 14px;
 }
 
-/* ===================================
-   CAPABILITIES SECTION
-   =================================== */
-
+/* ==================== CAPABILITIES SECTION ==================== */
 .bia-capabilities {
-  padding: 120px 0;
-  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--bia-navy) 0%, var(--bia-slate) 100%);
+  margin: 0;
 }
 
 .bia-capabilities-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 60px;
   align-items: center;
 }
 
@@ -385,81 +413,81 @@
 .bia-capabilities-image {
   width: 100%;
   height: auto;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--bia-card-border);
 }
 
 .bia-visual-overlay {
   position: absolute;
-  top: 24px;
-  right: 24px;
+  top: 20px;
+  right: 20px;
 }
 
 .bia-overlay-stat {
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--bia-card-bg);
   backdrop-filter: blur(20px);
-  border-radius: 16px;
-  padding: 20px 28px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  padding: 18px 24px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--bia-card-border);
   text-align: center;
 }
 
 .bia-overlay-stat svg {
-  color: var(--bia-primary);
+  color: var(--bia-orange);
   margin-bottom: 8px;
 }
 
 .bia-overlay-value {
-  font-size: 2rem;
-  font-weight: 800;
-  color: var(--bia-navy);
+  font-size: 1.75rem;
+  font-weight: 900;
+  color: var(--bia-white);
 }
 
 .bia-overlay-label {
-  font-size: 0.875rem;
-  color: #64748b;
+  font-size: 0.85rem;
+  color: var(--bia-light-gray-text);
   font-weight: 600;
 }
 
-.bia-capabilities-content {
-  color: var(--bia-navy);
-}
-
 .bia-capabilities-text {
-  font-size: 1.125rem;
-  line-height: 1.8;
-  color: #64748b;
-  margin-bottom: 40px;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--bia-gray-text);
+  margin-bottom: 32px;
 }
 
 .bia-capabilities-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px;
+  gap: 16px;
 }
 
 .bia-capability-card {
   display: flex;
-  gap: 20px;
+  gap: 18px;
   align-items: flex-start;
-  padding: 24px;
-  background: #ffffff;
-  border-radius: 16px;
-  border: 1px solid #e5e7eb;
-  transition: all 0.3s ease;
+  padding: 20px;
+  background: var(--bia-card-bg);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  border: 1px solid var(--bia-card-border);
+  transition: var(--bia-transition);
 }
 
 .bia-capability-card:hover {
-  border-color: var(--bia-primary);
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+  border-color: var(--bia-orange);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.2);
   transform: translateX(8px);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .bia-capability-icon {
   width: 48px;
   height: 48px;
-  border-radius: 12px;
-  background: var(--cap-color);
+  border-radius: 10px;
+  background: linear-gradient(135deg, var(--bia-orange) 0%, var(--bia-orange-light) 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -469,7 +497,7 @@
 .bia-cap-icon {
   width: 24px;
   height: 24px;
-  color: #ffffff;
+  color: var(--bia-white);
 }
 
 .bia-capability-content {
@@ -477,83 +505,81 @@
 }
 
 .bia-capability-title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: var(--bia-navy);
-  margin-bottom: 8px;
+  color: var(--bia-white);
+  margin-bottom: 6px;
 }
 
 .bia-capability-desc {
-  font-size: 1rem;
-  color: #64748b;
+  font-size: 0.95rem;
+  color: var(--bia-gray-text);
   line-height: 1.6;
 }
 
-/* ===================================
-   TECHNOLOGY STACK SECTION
-   =================================== */
-
+/* ==================== TECHNOLOGY STACK SECTION ==================== */
 .bia-techstack {
-  padding: 120px 0;
-  background: #ffffff;
+  padding: 60px 40px;
+  background: var(--bia-dark-navy);
+  margin: 0;
 }
 
 .bia-techstack-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
+  gap: 24px;
 }
 
 .bia-tech-category {
-  background: linear-gradient(135deg, #F9FAFB 0%, #ffffff 100%);
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  padding: 32px;
-  transition: all 0.3s ease;
+  background: var(--bia-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bia-card-border);
+  border-radius: 16px;
+  padding: 28px 24px;
+  transition: var(--bia-transition);
 }
 
 .bia-tech-category:hover {
-  border-color: var(--bia-primary);
-  box-shadow: 0 10px 30px rgba(16, 185, 129, 0.1);
+  border-color: var(--bia-orange);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.2);
   transform: translateY(-5px);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .bia-tech-category-title {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 700;
-  color: var(--bia-navy);
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--bia-primary);
+  color: var(--bia-white);
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--bia-orange);
 }
 
 .bia-tech-tools {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .bia-tech-tool {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-size: 0.95rem;
-  color: #64748b;
+  font-size: 0.9rem;
+  color: var(--bia-gray-text);
   font-weight: 500;
 }
 
 .bia-tech-tool svg {
-  color: var(--bia-primary);
+  color: var(--bia-orange);
   flex-shrink: 0;
 }
 
-/* ===================================
-   INDUSTRIES SECTION
-   =================================== */
-
+/* ==================== INDUSTRIES SECTION ==================== */
 .bia-industries {
-  padding: 120px 0;
-  background: linear-gradient(135deg, var(--bia-navy) 0%, #1e293b 100%);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--bia-navy) 0%, var(--bia-slate) 100%);
+  margin: 0;
   position: relative;
   overflow: hidden;
 }
@@ -563,208 +589,203 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(16, 185, 129, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(16, 185, 129, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(239, 90, 22, 0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(239, 90, 22, 0.02) 1px, transparent 1px);
   background-size: 50px 50px;
-}
-
-.bia-label-light {
-  background: rgba(16, 185, 129, 0.2);
-  color: var(--bia-light);
-}
-
-.bia-title-light {
-  color: #ffffff;
 }
 
 .bia-industries-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 24px;
   position: relative;
   z-index: 1;
 }
 
 .bia-industry-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 40px;
-  transition: all 0.3s ease;
+  background: var(--bia-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bia-card-border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  transition: var(--bia-transition);
 }
 
 .bia-industry-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--bia-primary);
+  background: rgba(15, 23, 42, 0.8);
+  border-color: var(--bia-orange);
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.2);
 }
 
 .bia-industry-name {
-  font-size: 1.75rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 2px solid var(--bia-primary);
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: var(--bia-white);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 2px solid var(--bia-orange);
 }
 
 .bia-industry-apps {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .bia-industry-app {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--bia-gray-text);
 }
 
 .bia-app-bullet {
-  width: 8px;
-  height: 8px;
-  background: var(--bia-primary);
+  width: 6px;
+  height: 6px;
+  background: var(--bia-orange);
   border-radius: 50%;
   flex-shrink: 0;
 }
 
-/* ===================================
-   CASE STUDY SECTION
-   =================================== */
-
+/* ==================== CASE STUDY SECTION ==================== */
 .bia-case-study {
-  padding: 120px 0;
-  background: #ffffff;
+  padding: 60px 40px;
+  background: var(--bia-dark-navy);
+  margin: 0;
 }
 
 .bia-case-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 48px;
   align-items: start;
 }
 
 .bia-case-image-wrapper {
-  position: relative;
   position: sticky;
-  top: 120px;
+  top: 100px;
 }
 
 .bia-case-image {
   width: 100%;
   height: auto;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--bia-card-border);
 }
 
 .bia-case-badge {
   position: absolute;
-  bottom: 24px;
-  left: 24px;
-  background: rgba(255, 255, 255, 0.95);
+  bottom: 20px;
+  left: 20px;
+  background: var(--bia-card-bg);
   backdrop-filter: blur(20px);
-  border-radius: 16px;
-  padding: 20px 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 18px 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--bia-card-border);
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
 }
 
 .bia-case-badge svg {
-  color: var(--bia-primary);
+  color: var(--bia-orange);
   flex-shrink: 0;
 }
 
 .bia-badge-company {
-  font-size: 1.125rem;
+  font-size: 1.05rem;
   font-weight: 700;
-  color: var(--bia-navy);
+  color: var(--bia-white);
   margin-bottom: 4px;
 }
 
 .bia-badge-industry {
-  font-size: 0.875rem;
-  color: #64748b;
+  font-size: 0.85rem;
+  color: var(--bia-light-gray-text);
 }
 
 .bia-case-content {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
 }
 
 .bia-case-details {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
 }
 
 .bia-case-block {
-  background: linear-gradient(135deg, #F9FAFB 0%, #ffffff 100%);
-  border-left: 4px solid var(--bia-primary);
-  border-radius: 12px;
-  padding: 32px;
+  background: var(--bia-card-bg);
+  backdrop-filter: blur(12px);
+  border-left: 4px solid var(--bia-orange);
+  border-radius: 10px;
+  padding: 28px 24px;
+  border: 1px solid var(--bia-card-border);
+  border-left: 4px solid var(--bia-orange);
 }
 
 .bia-case-label {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--bia-primary);
-  margin-bottom: 12px;
+  color: var(--bia-orange);
+  margin-bottom: 10px;
 }
 
 .bia-case-text {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--bia-gray-text);
 }
 
 .bia-case-results {
-  background: var(--bia-navy);
-  border-radius: 20px;
-  padding: 40px;
+  background: rgba(0, 0, 72, 0.4);
+  border-radius: 16px;
+  padding: 32px 28px;
+  border: 1px solid var(--bia-card-border);
 }
 
 .bia-case-results-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 32px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--bia-white);
+  margin-bottom: 24px;
   text-align: center;
 }
 
 .bia-case-results-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 16px;
 }
 
 .bia-case-result {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 24px;
+  background: var(--bia-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--bia-card-border);
+  border-radius: 10px;
+  padding: 20px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: var(--bia-transition);
 }
 
 .bia-case-result:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--bia-primary);
-  transform: scale(1.05);
+  background: rgba(15, 23, 42, 0.8);
+  border-color: var(--bia-orange);
+  transform: scale(1.03);
 }
 
 .bia-result-metric {
-  font-size: 2.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--bia-primary) 0%, var(--bia-accent) 100%);
+  font-size: 2.25rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--bia-orange) 0%, var(--bia-orange-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -772,24 +793,22 @@
 }
 
 .bia-result-label {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--bia-white);
   margin-bottom: 4px;
 }
 
 .bia-result-desc {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  color: var(--bia-light-gray-text);
 }
 
-/* ===================================
-   CTA SECTION
-   =================================== */
-
+/* ==================== CTA SECTION ==================== */
 .bia-cta {
-  padding: 120px 0;
-  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--bia-navy) 0%, var(--bia-slate) 100%);
+  margin: 0;
 }
 
 .bia-cta-content {
@@ -803,13 +822,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 32px;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 28px;
 }
 
 .bia-cta-icon-wrapper svg {
-  color: var(--bia-primary);
+  color: var(--bia-orange);
   position: relative;
   z-index: 2;
 }
@@ -817,7 +836,7 @@
 .bia-cta-icon-glow {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle, rgba(16, 185, 129, 0.3) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(239, 90, 22, 0.3) 0%, transparent 70%);
   border-radius: 50%;
   animation: bia-glow-pulse 2s ease-in-out infinite;
 }
@@ -828,38 +847,25 @@
 }
 
 .bia-cta-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--bia-navy);
-  margin-bottom: 24px;
+  font-size: 2.75rem;
+  font-weight: 900;
+  color: var(--bia-white);
+  margin-bottom: 20px;
   line-height: 1.2;
 }
 
 .bia-cta-text {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: #64748b;
-  margin-bottom: 40px;
-}
-
-.bia-btn-cta {
-  background: linear-gradient(135deg, var(--bia-primary) 0%, var(--bia-secondary) 100%);
-  color: #ffffff;
-  box-shadow: 0 20px 40px rgba(16, 185, 129, 0.3);
-  padding: 20px 48px;
-  font-size: 1.125rem;
-}
-
-.bia-btn-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 25px 50px rgba(16, 185, 129, 0.4);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--bia-gray-text);
+  margin-bottom: 32px;
 }
 
 .bia-cta-features {
   display: flex;
   justify-content: center;
   gap: 32px;
-  margin-top: 40px;
+  margin-top: 32px;
   flex-wrap: wrap;
 }
 
@@ -867,30 +873,25 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #64748b;
+  color: var(--bia-white);
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .bia-cta-feature svg {
-  color: var(--bia-primary);
+  color: var(--bia-orange);
 }
 
-/* ===================================
-   RESPONSIVE DESIGN
-   =================================== */
+/* ==================== RESPONSIVE DESIGN ==================== */
 
-/* Large Tablets & Small Desktops (1279px and below) */
+/* Large Tablets (1024px - 1279px) */
 @media (max-width: 1279px) {
-  .bia-container {
-    padding: 0 40px;
-  }
-
   .bia-hero-title {
-    font-size: 3.5rem;
+    font-size: 3.25rem;
   }
 
   .bia-section-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .bia-services-grid {
@@ -906,18 +907,31 @@
   }
 }
 
-/* Tablets (1023px and below) */
+/* Tablets (768px - 1023px) */
 @media (max-width: 1023px) {
+  .bia-container {
+    padding: 0 20px;
+  }
+
+  .bia-hero,
+  .bia-services,
+  .bia-capabilities,
+  .bia-techstack,
+  .bia-industries,
+  .bia-case-study,
+  .bia-cta {
+    padding: 50px 20px;
+  }
+
   .bia-hero {
     min-height: auto;
-    padding: 80px 0 60px;
   }
 
   .bia-hero-layout,
   .bia-capabilities-layout,
   .bia-case-layout {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 40px;
   }
 
   .bia-hero-visual {
@@ -925,17 +939,17 @@
   }
 
   .bia-floating-chart {
-    bottom: -30px;
-    right: -30px;
-    padding: 20px;
+    bottom: -25px;
+    right: -25px;
+    padding: 18px;
   }
 
   .bia-hero-title {
-    font-size: 3rem;
+    font-size: 2.75rem;
   }
 
   .bia-section-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .bia-services-grid {
@@ -956,16 +970,12 @@
   }
 
   .bia-cta-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 }
 
-/* Mobile (767px and below) */
+/* Mobile (max-width: 767px) */
 @media (max-width: 767px) {
-  .bia-container {
-    padding: 0 24px;
-  }
-
   .bia-hero,
   .bia-services,
   .bia-capabilities,
@@ -973,19 +983,19 @@
   .bia-industries,
   .bia-case-study,
   .bia-cta {
-    padding: 80px 0;
+    padding: 40px 20px;
   }
 
   .bia-hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .bia-hero-subtitle {
-    font-size: 1.125rem;
+    font-size: 1.05rem;
   }
 
   .bia-section-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
   .bia-section-subtitle {
@@ -1007,13 +1017,13 @@
 
   .bia-floating-chart {
     position: static;
-    margin-top: 24px;
+    margin-top: 20px;
   }
 
   .bia-service-card,
   .bia-tech-category,
   .bia-industry-card {
-    padding: 28px;
+    padding: 28px 24px;
   }
 
   .bia-techstack-grid {
@@ -1029,7 +1039,7 @@
   }
 
   .bia-cta-text {
-    font-size: 1.125rem;
+    font-size: 1.05rem;
   }
 
   .bia-cta-features {
@@ -1039,27 +1049,31 @@
   }
 }
 
-/* Small Mobile (480px and below) */
+/* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-  .bia-hero-title {
-    font-size: 2rem;
+  .bia-container {
+    padding: 0 16px;
   }
 
-  .bia-section-title {
+  .bia-hero-title {
     font-size: 1.75rem;
   }
 
+  .bia-section-title {
+    font-size: 1.6rem;
+  }
+
   .bia-stat-value {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
   .bia-service-title,
   .bia-industry-name {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .bia-result-metric {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
   .bia-cta-title {

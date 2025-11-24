@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { Database as DatabaseIcon, Server, HardDrive, Shield, Zap, CheckCircle, Cloud, Lock, TrendingUp, Users, Layers, GitBranch, Activity, BarChart3, ArrowRight, Award, RefreshCw } from 'lucide-react';
+import { Database as DatabaseIcon, Server, HardDrive, Shield, Zap, CheckCircle, Cloud, TrendingUp, Layers, GitBranch, Activity, BarChart3, ArrowRight, Award, RefreshCw } from 'lucide-react';
 import './Database.css';
 
 const Database = () => {
@@ -148,7 +148,7 @@ const Database = () => {
       { metric: '0', label: 'Downtime', description: 'During migration' },
       { metric: '99.99%', label: 'Uptime', description: 'Since launch' }
     ],
-    image: 'https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80'
   };
 
   return (
@@ -195,20 +195,11 @@ const Database = () => {
             </div>
 
             <div className="db-hero-visual">
-              <div className="db-database-stack">
-                <div className="db-stack-layer" style={{ '--index': 0 }}></div>
-                <div className="db-stack-layer" style={{ '--index': 1 }}></div>
-                <div className="db-stack-layer" style={{ '--index': 2 }}></div>
-                <div className="db-stack-layer" style={{ '--index': 3 }}></div>
-                <div className="db-stack-layer" style={{ '--index': 4 }}></div>
-              </div>
-              <div className="db-floating-nodes">
-                <div className="db-node" style={{ '--x': '20%', '--y': '10%', '--delay': '0s' }}></div>
-                <div className="db-node" style={{ '--x': '80%', '--y': '20%', '--delay': '0.5s' }}></div>
-                <div className="db-node" style={{ '--x': '50%', '--y': '80%', '--delay': '1s' }}></div>
-                <div className="db-node" style={{ '--x': '15%', '--y': '60%', '--delay': '1.5s' }}></div>
-                <div className="db-node" style={{ '--x': '85%', '--y': '70%', '--delay': '2s' }}></div>
-              </div>
+              <img
+                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&q=80"
+                alt="Professional database team collaborating on enterprise solutions"
+                className="db-hero-image"
+              />
             </div>
           </div>
         </div>
@@ -348,7 +339,7 @@ const Database = () => {
             <div className="db-case-image-section">
               <img
                 src={caseStudy.image}
-                alt="Database infrastructure and server management visualization"
+                alt="Database analytics dashboard showing performance metrics and transaction data"
                 className="db-case-image"
               />
               <div className="db-case-overlay">

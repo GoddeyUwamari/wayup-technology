@@ -1,139 +1,156 @@
-/* ===================================
-   Digital Asset Management Page
-   Prefix: dam-
-   Theme: Orange/Amber Asset Management
-   =================================== */
+/* Digital Asset Management Page - Professional Dark Theme */
 
-/* Root Variables */
+/* Root Variables - Unified Orange Brand Theme */
 :root {
-  --dam-primary: #f97316;
-  --dam-secondary: #ea580c;
-  --dam-accent: #fb923c;
-  --dam-dark: #9a3412;
-  --dam-light: #fed7aa;
   --dam-navy: #000048;
+  --dam-dark-navy: #0f172a;
+  --dam-slate: #1e293b;
   --dam-orange: #ef5a16;
+  --dam-orange-light: #f97316;
+  --dam-white: #ffffff;
+  --dam-gray-text: #cbd5e0;
+  --dam-light-gray-text: #94a3b8;
+  --dam-card-bg: rgba(15, 23, 42, 0.6);
+  --dam-card-border: rgba(239, 90, 22, 0.3);
+  --dam-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Container */
+/* Global Reset */
+.dam {
+  background: var(--dam-dark-navy);
+  color: var(--dam-gray-text);
+}
+
+/* Container - 1400px max-width */
 .dam-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 60px;
+  padding: 0 40px;
 }
 
-/* ===================================
-   HERO SECTION
-   =================================== */
-
+/* ==================== HERO SECTION ==================== */
 .dam-hero {
   position: relative;
-  min-height: 100vh;
   display: flex;
   align-items: center;
-  background: linear-gradient(135deg, #7c2d12 0%, #9a3412 50%, #7c2d12 100%);
-  overflow: hidden;
-  padding: 120px 0 80px;
+  background: linear-gradient(135deg, var(--dam-navy) 0%, var(--dam-dark-navy) 50%, var(--dam-slate) 100%);
+  overflow: visible;
+  padding: 60px 40px;
+  margin: 0;
+  min-height: auto;
 }
 
 .dam-hero-pattern {
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(circle at 20% 50%, rgba(249, 115, 22, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 80%, rgba(251, 146, 60, 0.1) 0%, transparent 50%);
+    linear-gradient(to right, rgba(239, 90, 22, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(239, 90, 22, 0.05) 1px, transparent 1px);
+  background-size: 60px 60px;
 }
 
 .dam-hero-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 80px;
+  gap: 60px;
   align-items: center;
   position: relative;
   z-index: 1;
-}
-
-.dam-hero-content {
-  color: #ffffff;
 }
 
 .dam-hero-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 8px 16px;
-  background: rgba(249, 115, 22, 0.2);
-  border: 1px solid rgba(249, 115, 22, 0.4);
+  padding: 8px 18px;
+  background: rgba(239, 90, 22, 0.1);
+  border: 1px solid var(--dam-card-border);
   border-radius: 20px;
-  color: var(--dam-light);
-  font-size: 0.875rem;
-  font-weight: 500;
+  color: var(--dam-orange);
+  font-size: 0.8rem;
+  font-weight: 700;
   margin-bottom: 24px;
 }
 
 .dam-hero-title {
-  font-size: 4rem;
-  font-weight: 800;
+  font-size: 3.75rem;
+  font-weight: 900;
   line-height: 1.1;
   margin-bottom: 24px;
+  color: var(--dam-white);
   letter-spacing: -0.02em;
 }
 
 .dam-hero-gradient {
-  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+  background: linear-gradient(135deg, var(--dam-orange) 0%, var(--dam-orange-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .dam-hero-subtitle {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.85);
-  margin-bottom: 40px;
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--dam-gray-text);
+  margin-bottom: 32px;
   max-width: 580px;
 }
 
 .dam-hero-buttons {
   display: flex;
   gap: 16px;
-  margin-bottom: 60px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
 }
 
 .dam-btn {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  padding: 16px 32px;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 12px;
+  padding: 14px 28px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  border-radius: 10px;
   border: none;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: var(--dam-transition);
   text-decoration: none;
 }
 
 .dam-btn-primary {
-  background: linear-gradient(135deg, var(--dam-primary) 0%, var(--dam-secondary) 100%);
-  color: #ffffff;
-  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.4);
+  background: linear-gradient(135deg, var(--dam-orange) 0%, var(--dam-orange-light) 100%);
+  color: var(--dam-white);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
 }
 
 .dam-btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 15px 40px rgba(249, 115, 22, 0.5);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.5);
 }
 
 .dam-btn-outline {
   background: transparent;
-  color: #ffffff;
+  color: var(--dam-white);
   border: 2px solid rgba(255, 255, 255, 0.3);
 }
 
 .dam-btn-outline:hover {
   background: rgba(255, 255, 255, 0.1);
   border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+}
+
+.dam-btn-cta {
+  background: linear-gradient(135deg, var(--dam-orange) 0%, var(--dam-orange-light) 100%);
+  color: var(--dam-white);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
+  padding: 16px 40px;
+  font-size: 1.05rem;
+}
+
+.dam-btn-cta:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 36px rgba(239, 90, 22, 0.5);
 }
 
 /* Hero Stats */
@@ -144,25 +161,26 @@
 }
 
 .dam-stat-card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 16px;
-  padding: 24px;
+  background: var(--dam-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--dam-card-border);
+  border-radius: 12px;
+  padding: 20px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: var(--dam-transition);
 }
 
 .dam-stat-card:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: var(--dam-primary);
+  background: rgba(15, 23, 42, 0.8);
+  border-color: var(--dam-orange);
   transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.2);
 }
 
 .dam-stat-value {
-  font-size: 2.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+  font-size: 2.25rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--dam-orange) 0%, var(--dam-orange-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -170,158 +188,152 @@
 }
 
 .dam-stat-label {
-  font-size: 1rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--dam-white);
   margin-bottom: 4px;
 }
 
 .dam-stat-desc {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  color: var(--dam-light-gray-text);
 }
 
-/* Asset Grid Visualization */
+/* Hero Image Visualization */
 .dam-hero-visual {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 500px;
-}
-
-.dam-asset-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
   width: 100%;
-  max-width: 500px;
+  height: 100%;
+  overflow: visible;
 }
 
-.dam-grid-item {
-  aspect-ratio: 1;
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.3) 0%, rgba(251, 146, 60, 0.2) 100%);
-  border: 2px solid rgba(249, 115, 22, 0.5);
+.dam-hero-image {
+  width: 100%;
+  max-width: 600px;
+  height: auto;
   border-radius: 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--dam-primary);
-  animation: dam-grid-float 3s ease-in-out infinite;
-  box-shadow: 0 10px 30px rgba(249, 115, 22, 0.2);
-  transition: all 0.3s ease;
+  opacity: 1 !important;
+  display: block !important;
+  visibility: visible !important;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 20px 60px rgba(239, 90, 22, 0.4);
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  transition: var(--dam-transition);
+  object-fit: cover;
 }
 
-.dam-grid-item:hover {
-  transform: scale(1.05);
-  border-color: var(--dam-primary);
-  box-shadow: 0 15px 40px rgba(249, 115, 22, 0.4);
+.dam-hero-image:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 80px rgba(239, 90, 22, 0.5);
 }
 
-.dam-item-1 { animation-delay: 0s; grid-column: 1; grid-row: 1; }
-.dam-item-2 { animation-delay: 0.2s; grid-column: 2; grid-row: 1; }
-.dam-item-3 { animation-delay: 0.4s; grid-column: 3; grid-row: 1; }
-.dam-item-4 { animation-delay: 0.6s; grid-column: 1 / 3; grid-row: 2; }
-.dam-item-5 { animation-delay: 0.8s; grid-column: 3; grid-row: 2; }
-.dam-item-6 { animation-delay: 1s; grid-column: 1; grid-row: 3; }
-
-@keyframes dam-grid-float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
-
-/* ===================================
-   FEATURES SECTION
-   =================================== */
-
-.dam-features {
-  padding: 120px 0;
-  background: #ffffff;
-}
-
+/* ==================== SECTION HEADERS ==================== */
 .dam-section-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 48px;
 }
 
 .dam-section-label {
   display: inline-block;
-  padding: 8px 20px;
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(251, 146, 60, 0.1) 100%);
-  color: var(--dam-primary);
+  padding: 6px 16px;
+  background: rgba(239, 90, 22, 0.1);
+  color: var(--dam-orange);
   border-radius: 20px;
-  font-size: 0.875rem;
-  font-weight: 600;
+  border: 1px solid var(--dam-card-border);
+  font-size: 0.8rem;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 16px;
 }
 
 .dam-section-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--dam-navy);
+  font-size: 2.75rem;
+  font-weight: 900;
+  color: var(--dam-white);
   margin-bottom: 16px;
   line-height: 1.2;
 }
 
 .dam-section-subtitle {
-  font-size: 1.125rem;
-  color: #64748b;
+  font-size: 1.1rem;
+  color: var(--dam-gray-text);
   max-width: 700px;
   margin: 0 auto;
-  line-height: 1.7;
+  line-height: 1.6;
+}
+
+.dam-label-light {
+  background: rgba(239, 90, 22, 0.15);
+  color: var(--dam-orange-light);
+}
+
+.dam-title-light {
+  color: var(--dam-white);
+}
+
+/* ==================== FEATURES SECTION ==================== */
+.dam-features {
+  padding: 60px 40px;
+  background: var(--dam-dark-navy);
+  margin: 0;
 }
 
 .dam-features-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 24px;
 }
 
 .dam-feature-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  padding: 40px;
-  transition: all 0.3s ease;
+  background: var(--dam-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--dam-card-border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  transition: var(--dam-transition);
 }
 
 .dam-feature-card:hover {
-  border-color: var(--dam-primary);
-  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.15);
+  border-color: var(--dam-orange);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.2);
   transform: translateY(-8px);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .dam-feature-icon-wrapper {
   width: 64px;
   height: 64px;
-  background: var(--feature-color);
-  border-radius: 16px;
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 24px;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--dam-orange) 0%, var(--dam-orange-light) 100%);
 }
 
 .dam-feature-icon {
   width: 32px;
   height: 32px;
-  color: #ffffff;
+  color: var(--dam-white);
 }
 
 .dam-feature-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--dam-navy);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dam-white);
   margin-bottom: 12px;
 }
 
 .dam-feature-description {
-  font-size: 1rem;
-  color: #64748b;
-  line-height: 1.7;
-  margin-bottom: 24px;
+  font-size: 0.95rem;
+  color: var(--dam-gray-text);
+  line-height: 1.6;
+  margin-bottom: 20px;
 }
 
 .dam-feature-tags {
@@ -335,11 +347,11 @@
   align-items: center;
   gap: 6px;
   padding: 6px 12px;
-  background: rgba(249, 115, 22, 0.1);
-  border-radius: 20px;
-  font-size: 0.875rem;
-  color: var(--dam-primary);
-  font-weight: 500;
+  background: rgba(239, 90, 22, 0.1);
+  border-radius: 16px;
+  font-size: 0.8rem;
+  color: var(--dam-orange-light);
+  font-weight: 600;
 }
 
 .dam-feature-tag svg {
@@ -347,64 +359,64 @@
   height: 14px;
 }
 
-/* ===================================
-   ASSET TYPES SECTION
-   =================================== */
-
+/* ==================== ASSET TYPES SECTION ==================== */
 .dam-types {
-  padding: 120px 0;
-  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--dam-navy) 0%, var(--dam-slate) 100%);
+  margin: 0;
 }
 
 .dam-types-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 28px;
+  gap: 24px;
 }
 
 .dam-type-card {
-  background: #ffffff;
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  padding: 32px;
+  background: var(--dam-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--dam-card-border);
+  border-radius: 16px;
+  padding: 28px 24px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: var(--dam-transition);
 }
 
 .dam-type-card:hover {
-  border-color: var(--dam-primary);
-  box-shadow: 0 15px 35px rgba(249, 115, 22, 0.1);
+  border-color: var(--dam-orange);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.2);
   transform: translateY(-8px);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .dam-type-icon-bg {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, rgba(249, 115, 22, 0.1) 0%, rgba(251, 146, 60, 0.1) 100%);
-  border-radius: 16px;
+  background: linear-gradient(135deg, var(--dam-orange) 0%, var(--dam-orange-light) 100%);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 24px;
+  margin: 0 auto 20px;
 }
 
 .dam-type-icon {
   width: 32px;
   height: 32px;
-  color: var(--dam-primary);
+  color: var(--dam-white);
 }
 
 .dam-type-name {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--dam-navy);
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--dam-white);
   margin-bottom: 12px;
 }
 
 .dam-type-desc {
-  font-size: 0.95rem;
-  color: #64748b;
-  margin-bottom: 20px;
+  font-size: 0.9rem;
+  color: var(--dam-gray-text);
+  margin-bottom: 18px;
   line-height: 1.5;
 }
 
@@ -417,20 +429,18 @@
 
 .dam-format-badge {
   padding: 6px 12px;
-  background: rgba(249, 115, 22, 0.08);
+  background: rgba(239, 90, 22, 0.1);
   border-radius: 8px;
-  font-size: 0.875rem;
-  color: var(--dam-primary);
+  font-size: 0.75rem;
+  color: var(--dam-orange-light);
   font-weight: 600;
 }
 
-/* ===================================
-   CAPABILITIES SECTION
-   =================================== */
-
+/* ==================== CAPABILITIES SECTION ==================== */
 .dam-capabilities {
-  padding: 120px 0;
-  background: linear-gradient(135deg, var(--dam-navy) 0%, #1e3a8a 100%);
+  padding: 60px 40px;
+  background: var(--dam-dark-navy);
+  margin: 0;
   position: relative;
   overflow: hidden;
 }
@@ -440,51 +450,42 @@
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(249, 115, 22, 0.05) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(249, 115, 22, 0.05) 1px, transparent 1px);
+    linear-gradient(to right, rgba(239, 90, 22, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(239, 90, 22, 0.03) 1px, transparent 1px);
   background-size: 50px 50px;
-}
-
-.dam-label-light {
-  background: rgba(249, 115, 22, 0.2);
-  color: var(--dam-light);
-}
-
-.dam-title-light {
-  color: #ffffff;
 }
 
 .dam-capabilities-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 24px;
   position: relative;
   z-index: 1;
 }
 
 .dam-capability-card {
   display: flex;
-  gap: 24px;
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 20px;
-  padding: 40px;
-  transition: all 0.3s ease;
+  gap: 20px;
+  background: var(--dam-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--dam-card-border);
+  border-radius: 16px;
+  padding: 32px 28px;
+  transition: var(--dam-transition);
 }
 
 .dam-capability-card:hover {
-  background: rgba(255, 255, 255, 0.08);
-  border-color: var(--dam-primary);
+  background: rgba(15, 23, 42, 0.8);
+  border-color: var(--dam-orange);
   transform: translateX(10px);
-  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.3);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.2);
 }
 
 .dam-capability-icon-wrapper {
   width: 64px;
   height: 64px;
-  background: linear-gradient(135deg, var(--dam-primary) 0%, var(--dam-secondary) 100%);
-  border-radius: 16px;
+  background: linear-gradient(135deg, var(--dam-orange) 0%, var(--dam-orange-light) 100%);
+  border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -494,7 +495,7 @@
 .dam-cap-icon {
   width: 32px;
   height: 32px;
-  color: #ffffff;
+  color: var(--dam-white);
 }
 
 .dam-capability-content {
@@ -502,264 +503,266 @@
 }
 
 .dam-capability-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dam-white);
   margin-bottom: 12px;
 }
 
 .dam-capability-description {
-  font-size: 1rem;
-  color: rgba(255, 255, 255, 0.8);
-  line-height: 1.7;
-  margin-bottom: 20px;
+  font-size: 0.95rem;
+  color: var(--dam-gray-text);
+  line-height: 1.6;
+  margin-bottom: 16px;
 }
 
 .dam-capability-metric {
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 10px;
 }
 
 .dam-metric-value {
-  font-size: 2rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, #f97316 0%, #fb923c 100%);
+  font-size: 1.75rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--dam-orange) 0%, var(--dam-orange-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .dam-metric-label {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.85rem;
+  color: var(--dam-light-gray-text);
   font-weight: 600;
 }
 
-/* ===================================
-   USE CASES SECTION
-   =================================== */
-
+/* ==================== USE CASES SECTION ==================== */
 .dam-usecases {
-  padding: 120px 0;
-  background: #ffffff;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--dam-navy) 0%, var(--dam-slate) 100%);
+  margin: 0;
 }
 
 .dam-usecases-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 24px;
 }
 
 .dam-usecase-card {
-  background: linear-gradient(135deg, #F9FAFB 0%, #ffffff 100%);
-  border: 1px solid #e5e7eb;
-  border-radius: 20px;
-  padding: 40px;
-  transition: all 0.3s ease;
+  background: var(--dam-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--dam-card-border);
+  border-radius: 16px;
+  padding: 36px 32px;
+  transition: var(--dam-transition);
 }
 
 .dam-usecase-card:hover {
-  border-color: var(--dam-primary);
-  box-shadow: 0 15px 35px rgba(249, 115, 22, 0.1);
+  border-color: var(--dam-orange);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.2);
   transform: translateY(-5px);
+  background: rgba(15, 23, 42, 0.8);
 }
 
 .dam-usecase-header {
   display: flex;
   align-items: center;
-  gap: 16px;
-  margin-bottom: 24px;
-  padding-bottom: 20px;
-  border-bottom: 2px solid var(--dam-primary);
+  gap: 14px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 2px solid var(--dam-orange);
 }
 
 .dam-usecase-header svg {
-  color: var(--dam-primary);
+  color: var(--dam-orange);
 }
 
 .dam-usecase-industry {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--dam-navy);
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dam-white);
 }
 
 .dam-usecase-apps {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .dam-usecase-app {
   display: flex;
   align-items: center;
-  gap: 12px;
-  font-size: 1rem;
-  color: #64748b;
+  gap: 10px;
+  font-size: 0.95rem;
+  color: var(--dam-gray-text);
 }
 
 .dam-usecase-app svg {
-  color: var(--dam-primary);
+  color: var(--dam-orange);
   flex-shrink: 0;
 }
 
-/* ===================================
-   CASE STUDY SECTION
-   =================================== */
-
+/* ==================== CASE STUDY SECTION ==================== */
 .dam-case-study {
-  padding: 120px 0;
-  background: linear-gradient(135deg, #F9FAFB 0%, #F3F4F6 100%);
+  padding: 60px 40px;
+  background: var(--dam-dark-navy);
+  margin: 0;
 }
 
 .dam-case-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 48px;
   align-items: start;
 }
 
 .dam-case-image-section {
-  position: relative;
   position: sticky;
-  top: 120px;
+  top: 100px;
 }
 
 .dam-case-image {
   width: 100%;
   height: auto;
-  border-radius: 24px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid var(--dam-card-border);
 }
 
 .dam-case-overlay {
   position: absolute;
-  bottom: 24px;
-  left: 24px;
-  right: 24px;
-  background: rgba(255, 255, 255, 0.95);
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: var(--dam-card-bg);
   backdrop-filter: blur(20px);
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--dam-card-border);
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 16px;
 }
 
 .dam-case-overlay svg {
-  color: var(--dam-primary);
+  color: var(--dam-orange);
   flex-shrink: 0;
 }
 
 .dam-case-company {
-  font-size: 1.25rem;
-  font-weight: 700;
-  color: var(--dam-navy);
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--dam-white);
   margin-bottom: 4px;
 }
 
 .dam-case-industry {
-  font-size: 0.875rem;
-  color: #64748b;
+  font-size: 0.85rem;
+  color: var(--dam-light-gray-text);
 }
 
 .dam-case-content {
   display: flex;
   flex-direction: column;
-  gap: 40px;
+  gap: 32px;
 }
 
 .dam-case-details {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
 }
 
 .dam-case-block {
-  background: #ffffff;
-  border-left: 4px solid var(--dam-primary);
-  border-radius: 12px;
-  padding: 32px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  background: var(--dam-card-bg);
+  backdrop-filter: blur(12px);
+  border-left: 4px solid var(--dam-orange);
+  border-radius: 10px;
+  padding: 28px 24px;
+  border: 1px solid var(--dam-card-border);
+  border-left: 4px solid var(--dam-orange);
 }
 
 .dam-case-label {
-  font-size: 0.875rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--dam-primary);
-  margin-bottom: 12px;
+  color: var(--dam-orange);
+  margin-bottom: 10px;
 }
 
 .dam-case-text {
-  font-size: 1rem;
-  line-height: 1.8;
-  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--dam-gray-text);
 }
 
 .dam-case-results {
-  background: linear-gradient(135deg, var(--dam-primary) 0%, var(--dam-secondary) 100%);
-  border-radius: 20px;
-  padding: 40px;
+  background: rgba(15, 23, 42, 0.8);
+  border-radius: 16px;
+  padding: 32px 28px;
+  border: 1px solid var(--dam-card-border);
 }
 
 .dam-case-results-title {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 32px;
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--dam-white);
+  margin-bottom: 24px;
   text-align: center;
 }
 
 .dam-case-results-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 24px;
+  gap: 16px;
 }
 
 .dam-case-result {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 16px;
-  padding: 24px;
+  background: var(--dam-card-bg);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--dam-card-border);
+  border-radius: 10px;
+  padding: 20px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: var(--dam-transition);
 }
 
 .dam-case-result:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.4);
-  transform: scale(1.05);
+  background: rgba(15, 23, 42, 0.9);
+  border-color: rgba(239, 90, 22, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
 }
 
 .dam-result-metric {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: #ffffff;
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--dam-white);
   margin-bottom: 8px;
 }
 
 .dam-result-label {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: #ffffff;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--dam-white);
   margin-bottom: 4px;
 }
 
 .dam-result-desc {
-  font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+  color: var(--dam-light-gray-text);
 }
 
-/* ===================================
-   CTA SECTION
-   =================================== */
-
+/* ==================== CTA SECTION ==================== */
 .dam-cta {
-  padding: 120px 0;
-  background: #ffffff;
+  padding: 60px 40px;
+  background: linear-gradient(135deg, var(--dam-navy) 0%, var(--dam-slate) 100%);
+  margin: 0;
 }
 
 .dam-cta-content {
@@ -773,63 +776,49 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 120px;
-  height: 120px;
-  margin-bottom: 32px;
+  width: 110px;
+  height: 110px;
+  margin-bottom: 28px;
 }
 
 .dam-cta-icon-wrapper svg {
-  color: var(--dam-primary);
+  color: var(--dam-orange);
   position: relative;
   z-index: 2;
 }
 
 .dam-cta-glow {
   position: absolute;
-  inset: -20px;
-  background: radial-gradient(circle, rgba(249, 115, 22, 0.3) 0%, transparent 70%);
-  border-radius: 50%;
-  animation: dam-glow-pulse 2s ease-in-out infinite;
+  inset: 0;
+  background: radial-gradient(circle, rgba(239, 90, 22, 0.3) 0%, transparent 70%);
+  animation: dam-pulse 2s ease-in-out infinite;
 }
 
-@keyframes dam-glow-pulse {
+@keyframes dam-pulse {
   0%, 100% { transform: scale(1); opacity: 0.5; }
   50% { transform: scale(1.2); opacity: 0.8; }
 }
 
 .dam-cta-title {
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--dam-navy);
-  margin-bottom: 24px;
+  font-size: 2.75rem;
+  font-weight: 900;
+  color: var(--dam-white);
+  margin-bottom: 20px;
   line-height: 1.2;
 }
 
 .dam-cta-text {
-  font-size: 1.25rem;
-  line-height: 1.7;
-  color: #64748b;
-  margin-bottom: 40px;
-}
-
-.dam-btn-cta {
-  background: linear-gradient(135deg, var(--dam-primary) 0%, var(--dam-secondary) 100%);
-  color: #ffffff;
-  box-shadow: 0 20px 40px rgba(249, 115, 22, 0.3);
-  padding: 20px 48px;
-  font-size: 1.125rem;
-}
-
-.dam-btn-cta:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 25px 50px rgba(249, 115, 22, 0.4);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--dam-gray-text);
+  margin-bottom: 32px;
 }
 
 .dam-cta-features {
   display: flex;
   justify-content: center;
   gap: 32px;
-  margin-top: 40px;
+  margin-top: 32px;
   flex-wrap: wrap;
 }
 
@@ -837,30 +826,25 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  color: #64748b;
+  color: var(--dam-white);
   font-weight: 600;
+  font-size: 0.95rem;
 }
 
 .dam-cta-feature svg {
-  color: var(--dam-primary);
+  color: var(--dam-orange);
 }
 
-/* ===================================
-   RESPONSIVE DESIGN
-   =================================== */
+/* ==================== RESPONSIVE DESIGN ==================== */
 
-/* Large Tablets & Small Desktops (1279px and below) */
+/* Large Tablets (1024px - 1279px) */
 @media (max-width: 1279px) {
-  .dam-container {
-    padding: 0 40px;
-  }
-
   .dam-hero-title {
-    font-size: 3.5rem;
+    font-size: 3.25rem;
   }
 
   .dam-section-title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .dam-features-grid {
@@ -876,30 +860,47 @@
   }
 }
 
-/* Tablets (1023px and below) */
+/* Tablets (768px - 1023px) */
 @media (max-width: 1023px) {
+  .dam-container {
+    padding: 0 20px;
+  }
+
+  .dam-hero,
+  .dam-features,
+  .dam-types,
+  .dam-capabilities,
+  .dam-usecases,
+  .dam-case-study,
+  .dam-cta {
+    padding: 50px 20px;
+  }
+
   .dam-hero {
     min-height: auto;
-    padding: 80px 0 60px;
   }
 
   .dam-hero-layout,
   .dam-case-layout {
     grid-template-columns: 1fr;
-    gap: 60px;
+    gap: 40px;
   }
 
   .dam-hero-visual {
     order: -1;
-    min-height: 400px;
+    min-height: auto;
+  }
+
+  .dam-hero-image {
+    max-width: 450px;
   }
 
   .dam-hero-title {
-    font-size: 3rem;
+    font-size: 2.75rem;
   }
 
   .dam-section-title {
-    font-size: 2.25rem;
+    font-size: 2rem;
   }
 
   .dam-features-grid,
@@ -921,20 +922,12 @@
   }
 
   .dam-cta-title {
-    font-size: 2.5rem;
-  }
-
-  .dam-asset-grid {
-    max-width: 400px;
+    font-size: 2.25rem;
   }
 }
 
-/* Mobile (767px and below) */
+/* Mobile (max-width: 767px) */
 @media (max-width: 767px) {
-  .dam-container {
-    padding: 0 24px;
-  }
-
   .dam-hero,
   .dam-features,
   .dam-types,
@@ -942,19 +935,19 @@
   .dam-usecases,
   .dam-case-study,
   .dam-cta {
-    padding: 80px 0;
+    padding: 40px 20px;
   }
 
   .dam-hero-title {
-    font-size: 2.5rem;
+    font-size: 2rem;
   }
 
   .dam-hero-subtitle {
-    font-size: 1.125rem;
+    font-size: 1.05rem;
   }
 
   .dam-section-title {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
   .dam-section-subtitle {
@@ -981,7 +974,7 @@
   .dam-feature-card,
   .dam-type-card,
   .dam-usecase-card {
-    padding: 28px;
+    padding: 28px 24px;
   }
 
   .dam-case-results-grid {
@@ -993,7 +986,7 @@
   }
 
   .dam-cta-text {
-    font-size: 1.125rem;
+    font-size: 1.05rem;
   }
 
   .dam-cta-features {
@@ -1002,47 +995,45 @@
     align-items: center;
   }
 
-  .dam-asset-grid {
-    max-width: 300px;
-    gap: 12px;
+  .dam-hero-image {
+    max-width: 100%;
   }
 }
 
-/* Small Mobile (480px and below) */
+/* Small Mobile (max-width: 480px) */
 @media (max-width: 480px) {
-  .dam-hero-title {
-    font-size: 2rem;
+  .dam-container {
+    padding: 0 16px;
   }
 
-  .dam-section-title {
+  .dam-hero-title {
     font-size: 1.75rem;
   }
 
+  .dam-section-title {
+    font-size: 1.6rem;
+  }
+
   .dam-stat-value {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
   .dam-feature-title,
   .dam-type-name,
   .dam-usecase-industry {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 
   .dam-result-metric {
-    font-size: 2rem;
+    font-size: 1.85rem;
   }
 
   .dam-cta-title {
     font-size: 1.75rem;
   }
 
-  .dam-asset-grid {
-    max-width: 250px;
-    gap: 10px;
-  }
-
-  .dam-grid-item svg {
-    width: 24px;
-    height: 24px;
+  .dam-hero-image {
+    max-width: 100%;
+    border-radius: 12px;
   }
 }
