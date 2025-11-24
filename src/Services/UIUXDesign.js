@@ -34,13 +34,6 @@ const UIUXDesign = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const heroFeatures = [
-    { icon: <Palette />, label: 'Visual Design' },
-    { icon: <Users />, label: 'User Research' },
-    { icon: <Layout />, label: 'Wireframing' },
-    { icon: <MousePointer />, label: 'Prototyping' }
-  ];
-
   const capabilities = [
     {
       icon: <Palette />,
@@ -195,55 +188,35 @@ const UIUXDesign = () => {
       {/* Hero Section */}
       <section className="uiux-hero">
         <div className="uiux-hero-bg-grid"></div>
-        <div className="uiux-hero-container">
-          <div className="uiux-hero-badge">
-            <Sparkles size={16} />
-            <span>Award-Winning Design Excellence</span>
-          </div>
-          <h1 className="uiux-hero-title">
-            Create Exceptional
-            <span className="uiux-gradient-text"> User Experiences</span>
-          </h1>
-          <p className="uiux-hero-desc">
-            Transform your digital products with stunning UI/UX design that delights users and drives business results.
-            From research to prototypes, we craft experiences that convert.
-          </p>
+        <div className="uiux-hero-content-wrapper">
+          <div className="uiux-hero-text">
+            <div className="uiux-hero-badge">
+              <Sparkles size={16} />
+              <span>Award-Winning Design Excellence</span>
+            </div>
+            <h1 className="uiux-hero-title">
+              UI/UX <span className="uiux-highlight">Design</span>
+            </h1>
+            <p className="uiux-hero-subtitle">
+              Create exceptional user experiences that delight users and drive business results
+            </p>
 
-          {/* Quick Feature Pills */}
-          <div className="uiux-hero-features">
-            {heroFeatures.map((feature, index) => (
-              <div key={index} className="uiux-feature-pill">
-                {feature.icon}
-                <span>{feature.label}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="uiux-hero-actions">
-            <Link to="/contact" className="uiux-btn-primary">
-              <span>Start Your Project</span>
-              <Rocket />
-            </Link>
-            <Link to="/portfolio/work" className="uiux-btn-secondary">
-              <Eye />
-              <span>View Portfolio</span>
-            </Link>
+            <div className="uiux-hero-buttons">
+              <Link to="/contact" className="uiux-btn-primary">
+                Start Your Project
+              </Link>
+              <Link to="/portfolio/work" className="uiux-btn-secondary">
+                View Portfolio
+              </Link>
+            </div>
           </div>
 
-          {/* Floating Stats */}
-          <div className="uiux-hero-stats">
-            <div className="uiux-stat-item">
-              <div className="uiux-stat-value">300+</div>
-              <div className="uiux-stat-label">Designs Delivered</div>
-            </div>
-            <div className="uiux-stat-item">
-              <div className="uiux-stat-value">4.9★</div>
-              <div className="uiux-stat-label">Client Rating</div>
-            </div>
-            <div className="uiux-stat-item">
-              <div className="uiux-stat-value">95%</div>
-              <div className="uiux-stat-label">User Satisfaction</div>
-            </div>
+          <div className="uiux-hero-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
+              alt="Professional UX designers collaborating on user interface design"
+              className="uiux-hero-image"
+            />
           </div>
         </div>
       </section>

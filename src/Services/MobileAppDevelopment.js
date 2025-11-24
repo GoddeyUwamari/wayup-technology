@@ -18,7 +18,6 @@ import {
   Cpu,
   Layers,
   Monitor,
-  Play,
   Download,
   MessageCircle,
   Sparkles,
@@ -32,13 +31,6 @@ const MobileAppDevelopment = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const heroFeatures = [
-    { icon: <Smartphone />, label: 'iOS & Android' },
-    { icon: <Code />, label: 'Cross-Platform' },
-    { icon: <Zap />, label: 'Fast Delivery' },
-    { icon: <Users />, label: '10M+ Users' }
-  ];
 
   const capabilities = [
     {
@@ -190,55 +182,35 @@ const MobileAppDevelopment = () => {
       {/* Hero Section */}
       <section className="mobile-hero">
         <div className="mobile-hero-bg-grid"></div>
-        <div className="mobile-hero-container">
-          <div className="mobile-hero-badge">
-            <Sparkles size={16} />
-            <span>500+ Apps Delivered | 10M+ Active Users</span>
-          </div>
-          <h1 className="mobile-hero-title">
-            Build Mobile Apps That
-            <span className="mobile-gradient-text"> Users Love</span>
-          </h1>
-          <p className="mobile-hero-desc">
-            Award-winning iOS and Android app development. From startup MVPs to enterprise-scale applications,
-            we create powerful, beautiful mobile experiences that drive engagement and revenue.
-          </p>
+        <div className="mobile-hero-content-wrapper">
+          <div className="mobile-hero-text">
+            <div className="mobile-hero-badge">
+              <Sparkles size={16} />
+              <span>500+ Apps Delivered | 10M+ Active Users</span>
+            </div>
+            <h1 className="mobile-hero-title">
+              Mobile App <span className="mobile-highlight">Development</span>
+            </h1>
+            <p className="mobile-hero-subtitle">
+              Build powerful iOS and Android apps that engage users and drive business growth
+            </p>
 
-          {/* Quick Feature Pills */}
-          <div className="mobile-hero-features">
-            {heroFeatures.map((feature, index) => (
-              <div key={index} className="mobile-feature-pill">
-                {feature.icon}
-                <span>{feature.label}</span>
-              </div>
-            ))}
-          </div>
-
-          <div className="mobile-hero-actions">
-            <Link to="/contact" state={{ scrollToTop: true }} className="mobile-btn-primary">
-              <span>Start Your App</span>
-              <Rocket />
-            </Link>
-            <Link to="/portfolio/work" state={{ scrollToTop: true }} className="mobile-btn-secondary">
-              <Play />
-              <span>View Portfolio</span>
-            </Link>
+            <div className="mobile-hero-buttons">
+              <Link to="/contact" state={{ scrollToTop: true }} className="mobile-btn-primary">
+                Start Your Project
+              </Link>
+              <Link to="/portfolio/work" state={{ scrollToTop: true }} className="mobile-btn-secondary">
+                View Portfolio
+              </Link>
+            </div>
           </div>
 
-          {/* Floating Stats */}
-          <div className="mobile-hero-stats">
-            <div className="mobile-stat-item">
-              <div className="mobile-stat-value">500+</div>
-              <div className="mobile-stat-label">Apps Delivered</div>
-            </div>
-            <div className="mobile-stat-item">
-              <div className="mobile-stat-value">4.9★</div>
-              <div className="mobile-stat-label">App Store Rating</div>
-            </div>
-            <div className="mobile-stat-item">
-              <div className="mobile-stat-value">10M+</div>
-              <div className="mobile-stat-label">Active Users</div>
-            </div>
+          <div className="mobile-hero-image-container">
+            <img
+              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
+              alt="Professional team working on mobile app development"
+              className="mobile-hero-image"
+            />
           </div>
         </div>
       </section>
