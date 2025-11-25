@@ -1,0 +1,656 @@
+/* ============================================
+   TECH STACK COMPONENT - PROFESSIONAL STYLES
+   All styles scoped to .tech-stack-component
+   ============================================ */
+
+/* ===== 1. BASE SECTION STYLES (SCOPED) ===== */
+.tech-stack-component {
+  background: #15212a;
+  padding: 80px 40px;
+  position: relative;
+  width: 100%;
+}
+
+.tech-stack-component .tech-stack-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ===== 2. THEME VARIANTS (SCOPED) ===== */
+
+/* Dark theme (default) */
+.tech-stack-component.tech-stack-theme-dark {
+  background: #15212a;
+}
+
+/* Gradient theme */
+.tech-stack-component.tech-stack-theme-gradient {
+  background: linear-gradient(135deg, #000048 0%, #15212a 50%, #1e293b 100%);
+}
+
+/* Branded theme (with WayUP colors) */
+.tech-stack-component.tech-stack-theme-branded {
+  background: linear-gradient(135deg, #0f172a 0%, #15212a 100%);
+  position: relative;
+}
+
+.tech-stack-component.tech-stack-theme-branded::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: radial-gradient(circle, #ef5a16 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+}
+
+/* ===== 3. HEADER STYLES (SCOPED) ===== */
+.tech-stack-component .tech-stack-header {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: tech-fadeInDown 0.8s ease;
+}
+
+.tech-stack-component .tech-stack-title {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 20px 0;
+  line-height: 1.2;
+}
+
+.tech-stack-component .tech-stack-subtitle {
+  font-size: 1.25rem;
+  color: #cbd5e0;
+  max-width: 900px;
+  margin: 0 auto;
+  line-height: 1.6;
+  word-spacing: 1px;
+}
+
+/* ===== 4. GRID WRAPPER (SCOPED) ===== */
+.tech-stack-component .tech-stack-grid-wrapper {
+  padding: 0;
+}
+
+/* ===== 5. GRID LAYOUTS (SCOPED) ===== */
+.tech-stack-grid {
+  display: grid;
+  gap: 30px;
+  padding: 20px;
+  animation: tech-fadeInUp 0.8s ease;
+}
+
+/* Default variant - 3 columns */
+.tech-stack-grid.tech-stack-grid-default {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Compact variant - 4 columns */
+.tech-stack-grid.tech-stack-grid-compact {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Large variant - 2 columns */
+.tech-stack-grid.tech-stack-grid-large {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 40px;
+}
+
+/* Column-based classes */
+.tech-stack-grid.tech-stack-grid-cols-two {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.tech-stack-grid.tech-stack-grid-cols-three {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.tech-stack-grid.tech-stack-grid-cols-four {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Gap sizes */
+.tech-stack-grid.tech-stack-grid-gap-sm {
+  gap: 20px;
+}
+
+.tech-stack-grid.tech-stack-grid-gap-md {
+  gap: 30px;
+}
+
+.tech-stack-grid.tech-stack-grid-gap-lg {
+  gap: 40px;
+}
+
+/* ===== 6. TECH CARD STYLES (SCOPED) ===== */
+.tech-card {
+  background: #121f3e;
+  border: 4px solid #00ffff;
+  border-radius: 20px;
+  padding: 30px 20px;
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 380px;
+  position: relative;
+}
+
+/* Alternating card styles */
+.tech-card.tech-card-primary {
+  background: #121f3e;
+  border-color: #00ffff;
+}
+
+.tech-card.tech-card-secondary {
+  background: #15212a;
+  border-color: #043668;
+}
+
+/* ===== 7. HOVER EFFECTS (SCOPED) ===== */
+.tech-card.tech-card-hover:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+  border-color: #1a3b5d;
+}
+
+.tech-card.tech-card-primary.tech-card-hover:hover {
+  background: #1a3b5d;
+  border-color: #3498db;
+}
+
+.tech-card.tech-card-secondary.tech-card-hover:hover {
+  background: #1b425f;
+  border-color: #3498db;
+}
+
+.tech-card.tech-card-hover:hover .tech-card-name,
+.tech-card.tech-card-hover:hover .tech-card-icon {
+  transform: translateY(-10px);
+}
+
+/* Custom color support */
+.tech-card[style*="--tech-card-color"]:hover {
+  border-color: var(--tech-card-color);
+  box-shadow: 0 10px 30px var(--tech-card-color, rgba(0, 0, 0, 0.4));
+}
+
+/* ===== 8. ICON CONTAINER (SCOPED) ===== */
+.tech-card .tech-card-icon-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0 20px 0;
+  transition: transform 0.3s ease;
+}
+
+.tech-card .tech-card-icon {
+  max-width: 100px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+.tech-card .tech-card-icon-wrapper {
+  font-size: 64px;
+  color: #ef5a16;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== 9. NAME/TITLE STYLES (SCOPED) ===== */
+.tech-card .tech-card-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 10px 0;
+  transition: transform 0.3s ease;
+}
+
+/* ===== 10. DESCRIPTION STYLES (SCOPED) ===== */
+.tech-card .tech-card-description {
+  font-size: 1.05rem;
+  color: #cbd5e0;
+  line-height: 1.6;
+  margin: 10px 0 0 0;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+/* ===== 11. RESPONSIVE BREAKPOINTS (SCOPED) ===== */
+
+/* Large Tablet (769px-992px) - 2 columns */
+@media (min-width: 769px) and (max-width: 992px) {
+  .tech-stack-component {
+    padding: 60px 30px;
+  }
+
+  .tech-stack-component .tech-stack-title {
+    font-size: 2.5rem;
+  }
+
+  .tech-stack-component .tech-stack-subtitle {
+    font-size: 1.2rem;
+    padding: 0 20px;
+  }
+
+  .tech-stack-grid.tech-stack-grid-default,
+  .tech-stack-grid.tech-stack-grid-compact,
+  .tech-stack-grid.tech-stack-grid-cols-three,
+  .tech-stack-grid.tech-stack-grid-cols-four {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .tech-stack-grid {
+    gap: 30px;
+    padding: 30px 0;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .tech-card {
+    min-height: 420px;
+    padding: 30px;
+  }
+
+  .tech-card .tech-card-icon-container {
+    padding: 25px 0 20px 0;
+  }
+
+  .tech-card .tech-card-icon {
+    max-width: 120px;
+    max-height: 120px;
+  }
+
+  .tech-card .tech-card-name {
+    font-size: 1.4rem;
+  }
+
+  .tech-card .tech-card-description {
+    font-size: 1.1rem;
+  }
+}
+
+/* Small Tablet (577px-768px) - 1 column */
+@media (min-width: 577px) and (max-width: 768px) {
+  .tech-stack-component {
+    padding: 50px 20px;
+  }
+
+  .tech-stack-component .tech-stack-title {
+    font-size: 2.2rem;
+  }
+
+  .tech-stack-component .tech-stack-subtitle {
+    font-size: 1.15rem;
+    padding: 0 15px;
+  }
+
+  .tech-stack-grid {
+    grid-template-columns: 1fr !important;
+    gap: 40px;
+    padding: 30px 0;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .tech-card {
+    min-height: 420px;
+    padding: 30px;
+  }
+
+  .tech-card .tech-card-icon-container {
+    padding: 25px 0 20px 0;
+  }
+
+  .tech-card .tech-card-icon {
+    max-width: 120px;
+    max-height: 120px;
+  }
+
+  .tech-card .tech-card-name {
+    font-size: 1.4rem;
+  }
+
+  .tech-card .tech-card-description {
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobile Large (431px-576px) - 1 column */
+@media (min-width: 431px) and (max-width: 576px) {
+  .tech-stack-component {
+    padding: 40px 15px;
+  }
+
+  .tech-stack-component .tech-stack-title {
+    font-size: 2rem;
+  }
+
+  .tech-stack-component .tech-stack-subtitle {
+    font-size: 1.1rem;
+    padding: 0 10px;
+  }
+
+  .tech-stack-grid-wrapper {
+    padding: 0;
+  }
+
+  .tech-stack-grid {
+    grid-template-columns: 1fr !important;
+    gap: 25px;
+    padding: 15px 0;
+  }
+
+  .tech-card {
+    width: 100%;
+    min-height: 360px;
+    padding: 25px;
+  }
+
+  .tech-card .tech-card-icon-container {
+    padding: 15px 0 15px 0;
+  }
+
+  .tech-card .tech-card-icon {
+    max-width: 100px;
+    max-height: 100px;
+  }
+
+  .tech-card .tech-card-name {
+    font-size: 1.3rem;
+    padding: 10px 0 16px 0;
+  }
+
+  .tech-card .tech-card-description {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile Small (max-width: 430px) - 1 column */
+@media (max-width: 430px) {
+  .tech-stack-component {
+    padding: 30px 10px;
+  }
+
+  .tech-stack-component .tech-stack-title {
+    font-size: 1.8rem;
+    padding-top: 0;
+  }
+
+  .tech-stack-component .tech-stack-subtitle {
+    font-size: 1rem;
+    text-align: left;
+    padding: 0 10px;
+  }
+
+  .tech-stack-grid-wrapper {
+    padding: 0 5px;
+  }
+
+  .tech-stack-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+    padding: 15px 0;
+  }
+
+  .tech-card {
+    width: 100%;
+    min-height: 360px;
+    padding: 20px;
+  }
+
+  .tech-card .tech-card-icon-container {
+    padding: 15px 0 10px 0;
+  }
+
+  .tech-card .tech-card-icon {
+    max-width: 90px;
+    max-height: 90px;
+  }
+
+  .tech-card .tech-card-name {
+    font-size: 1.25rem;
+    padding: 10px 0 16px 0;
+  }
+
+  .tech-card .tech-card-description {
+    font-size: 1rem;
+  }
+}
+
+/* Desktop (993px-1200px) */
+@media (min-width: 993px) and (max-width: 1200px) {
+  .tech-stack-component {
+    padding: 70px 35px;
+  }
+
+  .tech-stack-grid {
+    gap: 25px;
+    padding: 15px 0;
+  }
+
+  .tech-card {
+    min-height: 420px;
+    padding: 22px;
+  }
+
+  .tech-card .tech-card-icon-container {
+    padding: 30px 0 20px 0;
+  }
+
+  .tech-card .tech-card-icon {
+    max-width: 90%;
+  }
+
+  .tech-card .tech-card-name {
+    font-size: 1.2rem;
+    padding-bottom: 12px;
+  }
+
+  .tech-card .tech-card-description {
+    font-size: 1rem;
+    line-height: 1.4;
+    text-align: justify;
+    hyphens: auto;
+    word-spacing: -1px;
+  }
+}
+
+/* Large Desktop (1201px+) */
+@media (min-width: 1201px) {
+  .tech-stack-grid {
+    max-width: 100%;
+    margin: 0 auto;
+  }
+}
+
+/* ===== 12. ANIMATIONS (SCOPED) ===== */
+@keyframes tech-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tech-fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tech-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 90, 22, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 15px rgba(239, 90, 22, 0);
+  }
+}
+
+/* ===== 13. ACCESSIBILITY (SCOPED) ===== */
+
+/* Focus states */
+.tech-card:focus {
+  outline: 3px solid #00ffff;
+  outline-offset: 2px;
+}
+
+.tech-card:focus-visible {
+  outline: 3px solid #00ffff;
+  outline-offset: 2px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .tech-stack-grid,
+  .tech-card,
+  .tech-card .tech-card-name,
+  .tech-card .tech-card-icon-container,
+  .tech-stack-component .tech-stack-header {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .tech-card.tech-card-hover:hover {
+    transform: none;
+  }
+
+  .tech-card.tech-card-hover:hover .tech-card-name,
+  .tech-card.tech-card-hover:hover .tech-card-icon {
+    transform: none;
+  }
+}
+
+/* High contrast mode */
+@media (prefers-contrast: high) {
+  .tech-card {
+    border-width: 3px;
+  }
+
+  .tech-card .tech-card-name {
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  }
+
+  .tech-stack-component .tech-stack-title {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+  }
+}
+
+/* ===== 14. PERFORMANCE OPTIMIZATIONS (SCOPED) ===== */
+.tech-card {
+  contain: layout style paint;
+  will-change: transform;
+}
+
+.tech-card:not(:hover) {
+  will-change: auto;
+}
+
+/* ===== 15. LOADING STATE (SCOPED) ===== */
+.tech-card.tech-card-loading {
+  opacity: 0.6;
+  pointer-events: none;
+  position: relative;
+}
+
+.tech-card.tech-card-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 -20px;
+  border: 4px solid rgba(0, 255, 255, 0.3);
+  border-top-color: #00ffff;
+  border-radius: 50%;
+  animation: tech-spin 0.8s linear infinite;
+}
+
+@keyframes tech-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== 16. ICON-ONLY VARIANT (SCOPED) ===== */
+.tech-card.tech-card-icon-only {
+  min-height: 200px;
+  padding: 30px 20px;
+}
+
+.tech-card.tech-card-icon-only .tech-card-icon-container {
+  padding: 20px 0;
+}
+
+.tech-card.tech-card-icon-only .tech-card-name {
+  font-size: 1.1rem;
+  margin-top: 15px;
+}
+
+/* ===== 17. SPECIAL EFFECTS (SCOPED) ===== */
+
+/* Glow effect on hover */
+.tech-card.tech-card-glow:hover {
+  animation: tech-pulse 2s infinite;
+}
+
+/* Branded card with orange accent */
+.tech-card.tech-card-branded {
+  border-color: #ef5a16;
+}
+
+.tech-card.tech-card-branded:hover {
+  border-color: #f97316;
+  box-shadow: 0 10px 30px rgba(239, 90, 22, 0.4);
+}
+
+/* ===== 18. PRINT STYLES (SCOPED) ===== */
+@media print {
+  .tech-stack-component {
+    background: #ffffff;
+    color: #000000;
+    padding: 20px;
+  }
+
+  .tech-stack-grid {
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 15px;
+    break-inside: avoid;
+  }
+
+  .tech-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    border: 1px solid #000000;
+    background: #ffffff;
+    min-height: auto;
+  }
+
+  .tech-card .tech-card-name,
+  .tech-card .tech-card-description {
+    color: #000000;
+  }
+
+  .tech-stack-component .tech-stack-title,
+  .tech-stack-component .tech-stack-subtitle {
+    color: #000000;
+  }
+}

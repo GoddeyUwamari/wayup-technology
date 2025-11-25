@@ -2171,6 +2171,21 @@ html {
     opacity: 0.4; /* Slightly visible on mobile */
   }
 
+  .logo-container-home {
+    height: 70px;
+  }
+
+.trusted-brands-subtitle {
+  margin-bottom: -10px;
+  text-align: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+ .statistics-section {
+  margin-top: 20px;
+ }
+
   .benefit-card,
   .success-benefit-card {
     padding-bottom: 45px;

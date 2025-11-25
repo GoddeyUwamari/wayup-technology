@@ -1,347 +1,518 @@
-/* 
-:root{
-    --nvbr--bg : rgb(0, 0, 72);
-    --nvbr--link:white;
-    --nvbr--link-hover:#ef5a16;
-}
-*{
-    box-sizing:border-box;
+/* ===================================
+   NAVBAR COMPONENT - PROFESSIONAL STYLING
+   =================================== */
+
+:root {
+  --nvbr-bg: #000048;
+  --nvbr-link: white;
+  --nvbr-link-hover: #ef5a16;
+  --nvbr-orange: #ef5a16;
+  --nvbr-orange-gradient: linear-gradient(135deg, #ef5a16, #f97316);
 }
 
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-.heading-container { 
-  max-width: 100%;
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ===================================
+   TOP INFO BAR
+   =================================== */
+
+.heading-container {
+  background: #000048;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px 60px;
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
-  padding-left: 10px;
-  padding-right: 10px;
-  padding-top: px;
-  padding-bottom: 4px;
-  margin-bottom: -2px;
+  align-items: center;
   color: white;
-  background-color: rgb(2, 2, 116);
 }
 
-.phone-number, .email {
-  margin-right: 1.25rem; 
-  padding-top: 0.25rem;
-  font-size: 0.9em;
-  font-weight: bold;
+.top-info-left,
+.top-info-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
 }
 
-.usa-image{
-width: 30px;
-height: 24px;
-padding-right: 4px;
-border-radius: 10px;
-position: relative;
-top: 6px;
-margin-bottom:10px ;
+.usa-image {
+  width: 30px;
+  height: 24px;
+  border-radius: 4px;
 }
 
 .phone-number {
-width: auto;
-height: 24px;
-padding-right: 4px;
-border-radius: 10px;
-position: relative;
-top: 6px;
-}
-
-.help {
-position: relative;
-top: 6px;
-margin-left: auto;
-padding-top: 4px;
-font-size: 0.9em;
-font-weight: 700;
-color: white;
-text-decoration: none;
-}
-
-.help:hover {
-    color: yellow;
-  }
-
-.help > svg {
-    margin-right: 10px;
-    margin-top: 2px;
-    color: white;
-    }
-
-.yahoo a{
-  font-size:1em;
-  font-weight: bolder;
-  margin-bottom: 16px!important;
   color: white;
+  font-size: 14px;
+  font-weight: 600;
   text-decoration: none;
-  position: relative;
-  top: 6px;
-  left: 10%;
+  transition: color 0.3s ease;
 }
 
-
-.shopping-cart-icon {
-  
-  color: #ef5a16!important;
-  font-size: 1.2em;
-  margin-right: 10px;
+.phone-number:hover {
+  color: #ef5a16;
 }
 
-  .envelope-icon {
-    position: relative;
-    top: 10px;
-    color:#ef5a16; 
-    left:8%;
-  }
-
-  .logo-image {
-    height: 80px;          
-    width: 160px;          
-   border-radius: 200px;
-  }
-
-
-.nvbr{
-    background-color: var(--nvbr--bg);
-    color:var(--nvbr--link);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position:fixed;
-    width:100%;
-
-    position: sticky;
-    top: 0;
-    left: 0;
-    z-index: 1000;
-}
-
-.nvbr .nvbr-links{
-    list-style: none;
-    display:flex;
-    margin-top: 10px;
-    padding:10px;
-    font-size: 22px;
-    font-weight: 700 !important;
-    cursor: pointer;
-    
-}
-.nvbr_logo {
-text-decoration: none;
-margin-right: 30px;
-}
-
-.nvbr_logo h1 {
-    font-size: 1.8rem;
-   
-    color: white;
-    margin:15px;
-    z-index:1000;
-    cursor: pointer;
-}
-
-.nvbr_logo h1:hover {
-color: #ef5a16;
-}
-
-.nvbr-item{
-    margin-right:20px;
-}
-
-.nvbr__item img {
-    height: 3vw;
-    margin-right: 4px;
-    border-radius: 20px;
-   }
-.nvbr-link{
-    text-decoration: none;
-    color: var(--nvbr--link);
-}
-.nvbr-link:hover{
-    color: var(--nvbr--link-hover);
-}
-
-.nvbr-burger{
-    width:40px;
-    margin-top: 20px;
-    margin-right: 10px;
-    height:40px;
-    color: inherit;
-    display:none;
-}
-
-@media screen and (max-width: 384px) {
-  .heading-container {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  .phone-number, .email, .help, .yahoo a {
-    font-size: 0.7em;
-    margin-right: 0.5rem;
-  }
-
-  .usa-image {
-   width: 20px;
-    height: 16px;
-    top: 4px777 
-  }
-
-  .phone-number {
-    height: 20px;
-    top: 4px;
-  }
-
-  .help {
-    top: 4px!important;
-    padding-top: 2px;
-  }
-
-  .help > svg {
-    margin-right: 5px;
-    margin-top: 1px;
-  }
-
-  .yahoo a {
-    top: 4px;
-    left: 5%;
-  }
-
-  .envelope-icon {
-    top: 6px;
-    left: 5%;
-  }
-}
-
-
-
- @media screen and (max-width:768px){
-.show-links .nvbr-links{
-   width:100vw;
-   left:0;
-   visibility: visible;
-   transform:translateX(0);
-   transition: 0.5s all ease-in-out;
-   
-}
-.nvbr-links{
-    position:fixed;
-    visibility: hidden;
-    flex-direction: column;
-    justify-content:center;
-    align-items:center;
-    font-size:2rem;
-   transform: translateX(-100vw);
-   width:0;
-    bottom:0;
-    height:100vh;
-    background-color: var(--nvbr--bg);
-    z-index:2;
-    transition: 0.5s all ease-in-out;
-}
-.nvbr-link{
-    display:block;
-    padding:1.4rem;
-    font-size:5vw;
-}
-
-.nvbr-burger{
-    display:block;
-    z-index: 100;
-    cursor:pointer;
-}
-
-.burger-bar, .burger-bar::after, .burger-bar::before{
-    display: block;
-    width:40px;
-    height:3px;
-    border-radius:3px;
-    background-color:var(--nvbr--link);
-    position:relative;
-    z-index:1000;
-    transition: 0.3s all ease-in-out;
-}
-
-.burger-bar::after{
-    content:'';
-    position:absolute;
-    left:0;
-    transform:translateY(-15px);
-  
-   
-}
-.burger-bar::before{
-    content:'';
-    position:absolute;
-    left:0;
-    transform: translateY(13px);
-}
-.show-links .burger-bar::before{
-    transform: rotate(-45deg);
-}
-.show-links .burger-bar::after{
-    transform: rotate(45deg);
-}
-.show-links .burger-bar{
-    width:0;
+.yahoo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .yahoo a {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.yahoo a:hover {
+  color: #ef5a16;
+}
+
+.envelope-icon {
+  color: #ef5a16;
+  font-size: 16px;
+}
+
+.help {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.help:hover {
+  color: #f4d03f;
+}
+
+.shopping-cart-icon {
+  color: #ef5a16;
+  font-size: 18px;
+}
+
+/* ===================================
+   MAIN NAVIGATION BAR
+   =================================== */
+
+.nvbr {
+  background: #000048;
+  padding: 16px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.nvbr.nvbr-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.nvbr_logo {
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.nvbr_logo:hover {
+  opacity: 0.9;
+}
+
+.logo-image {
+  height: 60px;
+  width: 120px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+/* Desktop Navigation Links */
+.nvbr-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nvbr-item {
+  cursor: pointer;
+}
+
+.nvbr-link {
+  color: var(--nvbr-link);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 8px 12px;
+  transition: color 0.3s ease;
+  white-space: nowrap;
+}
+
+.nvbr-link:hover {
+  color: var(--nvbr-link-hover);
+}
+
+.nvbr-link.contact-button {
+  background: var(--nvbr-orange-gradient);
+  color: white;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(239, 90, 22, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nvbr-link.contact-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(239, 90, 22, 0.5);
+  color: white;
+}
+
+.nvbr__item img {
+  height: 32px;
+  width: 32px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+/* Hamburger Button - Hidden on Desktop */
+.nvbr-burger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 12px;
+  transition: all 0.3s ease;
+}
+
+.nvbr-burger:hover {
+  background: rgba(239, 90, 22, 0.1);
+  border-radius: 8px;
+}
+
+.burger-bar {
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: white;
+  position: relative;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+.burger-bar::before,
+.burger-bar::after {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: white;
+  position: absolute;
+  left: 0;
+  transition: all 0.3s ease;
+  border-radius: 3px;
+}
+
+.burger-bar::before {
+  transform: translateY(-10px);
+}
+
+.burger-bar::after {
+  transform: translateY(10px);
+}
+
+/* Hamburger Animation when Open */
+.burger-bar.open {
+  background: transparent;
+}
+
+.burger-bar.open::before {
+  transform: rotate(45deg) translateY(0);
+}
+
+.burger-bar.open::after {
+  transform: rotate(-45deg) translateY(0);
+}
+
+/* ===================================
+   MOBILE MENU OVERLAY
+   =================================== */
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 998;
+}
+
+.mobile-menu-overlay.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* ===================================
+   MOBILE MENU
+   =================================== */
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  background: #000048;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.3);
+  transition: right 0.3s ease;
+  z-index: 999;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu.open {
+  right: 0;
+}
+
+/* Mobile Menu Close Button */
+.mobile-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  background: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+}
+
+.mobile-menu-close:hover {
+  background: rgba(239, 90, 22, 0.1);
+}
+
+/* Mobile Menu Header */
+.mobile-menu-header {
+  padding: 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mobile-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.logo-image-mobile {
+  height: 60px;
+  width: 120px;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+/* Mobile Menu Navigation */
+.mobile-menu-nav {
+  flex: 1;
+  padding: 20px 0;
+}
+
+.mobile-menu-item {
+  display: block;
+  padding: 18px 32px;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-item:hover {
+  background: rgba(239, 90, 22, 0.1);
+  padding-left: 40px;
+  color: #ef5a16;
+}
+
+.mobile-menu-cta {
+  background: var(--nvbr-orange-gradient);
+  color: white;
+  margin: 16px 24px;
+  border-radius: 8px;
+  text-align: center;
+  border-bottom: none;
+}
+
+.mobile-menu-cta:hover {
+  background: linear-gradient(135deg, #f97316, #ef5a16);
+  padding-left: 32px;
+}
+
+/* Mobile Menu Footer */
+.mobile-menu-footer {
+  padding: 24px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.mobile-contact-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #cbd5e0;
+  font-size: 14px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.mobile-contact-item:hover {
+  color: #ef5a16;
+}
+
+.mobile-contact-item svg {
+  color: #ef5a16;
+  flex-shrink: 0;
+}
+
+/* ===================================
+   RESPONSIVE BREAKPOINTS
+   =================================== */
+
+/* CRITICAL: Tablet and Mobile (≤1024px) - SHOW HAMBURGER */
+@media (max-width: 1024px) {
+  /* Hide desktop menu */
+  .nvbr-links-desktop {
+    display: none !important;
+  }
+
+  /* Show hamburger button */
+  .nvbr-burger {
+    display: flex;
+  }
+
+  /* Adjust spacing */
+  .heading-container {
+    padding: 10px 30px;
+  }
+
+  .nvbr {
+    padding: 16px 30px;
+  }
+
+  /* Hide email on tablets */
+  .yahoo {
     display: none;
   }
 
+  /* Reduce mobile menu width on tablets */
+  .mobile-menu {
+    max-width: 320px;
+  }
+}
+
+/* Mobile (≤768px) */
+@media (max-width: 768px) {
+  /* Further reduce spacing */
+  .heading-container,
+  .nvbr {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  /* Hide "How can we help" on mobile */
+  .top-info-right {
+    display: none;
+  }
+
+  /* Smaller logo on mobile */
+  .logo-image {
+    height: 50px;
+    width: 100px;
+  }
+
+  /* Full width mobile menu on mobile */
+  .mobile-menu {
+    max-width: 100%;
+  }
+
+  /* Adjust top bar layout */
+  .top-info-left {
+    gap: 16px;
+  }
+}
+
+/* Small Mobile (≤480px) */
+@media (max-width: 480px) {
+  .heading-container {
+    padding: 8px 16px;
+  }
+
+  .nvbr {
+    padding: 12px 16px;
+  }
+
+  .top-info-left {
+    gap: 12px;
+  }
+
+  .phone-number,
+  .yahoo a {
+    font-size: 12px;
+  }
+
   .usa-image {
-  margin-left: px;
+    width: 24px;
+    height: 20px;
   }
 
-  .help{
-    font-size: 0.8em;
+  .logo-image {
+    height: 40px;
+    width: 80px;
   }
 
+  /* Hide phone number text on very small screens */
   .phone-number {
-  margin-left: 4px;
+    font-size: 0;
   }
 
-
-  .help {
-    position: relative;
-    top: 8px;
-margin-bottom: 10px;
+  .phone-number::before {
+    content: '📞';
+    font-size: 16px;
   }
-
-  .nav__brand {
-    display: flex;
-    align-items: left; 
-  }
-  .nav h1 {
-    font-size: 2rem;
-    margin-right: 2rem;
-  }
-.yahoo,.FaEnvelope {
-display: none;
 }
-
-.nvbr_logo h1 {
-font-size: 1.2rem;
-padding-left: 4px;
-}
-}
-
-@media (min-width: 769px) and (max-width: 992px) {
-    .help {
-        position: relative;
-        top: 8px;
-    margin-bottom: 10px;
-      }
-    }
-
-      @media (min-width: 993px) and (max-width: 1200px) {
-        .help {
-            position: relative;
-            top: 8px;
-        margin-bottom: 10px;
-          } 
-      }
- */

@@ -1,0 +1,604 @@
+/* ============================================
+   LINK COMPONENT - PROFESSIONAL STYLES
+   All styles scoped to .link-component
+   ============================================ */
+
+/* ===== 1. BASE LINK STYLES (SCOPED) ===== */
+.link-component {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* Default link variant */
+.link-component.link-default {
+  color: #cbd5e0;
+}
+
+.link-component.link-default:hover {
+  color: #ffffff;
+}
+
+/* Primary link variant */
+.link-component.link-primary {
+  color: #ef5a16;
+}
+
+.link-component.link-primary:hover {
+  color: #f97316;
+}
+
+/* White link variant */
+.link-component.link-white {
+  color: #ffffff;
+}
+
+.link-component.link-white:hover {
+  color: #ef5a16;
+}
+
+/* ===== 2. LINK WITH UNDERLINE ANIMATION (SCOPED) ===== */
+.link-component.link-underline {
+  position: relative;
+  padding-bottom: 4px;
+}
+
+.link-component.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ef5a16, #f97316);
+  transition: width 0.3s ease;
+}
+
+.link-component.link-underline:hover::after {
+  width: 100%;
+}
+
+/* ===== 3. LINK WITH ARROW (SCOPED) ===== */
+.link-component.link-arrow {
+  gap: 8px;
+}
+
+.link-component.link-arrow .link-icon-wrapper {
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.link-component.link-arrow:hover .link-icon-wrapper {
+  transform: translateX(4px);
+}
+
+/* Arrow on left */
+.link-component.link-arrow-left .link-icon-wrapper {
+  order: -1;
+}
+
+.link-component.link-arrow-left:hover .link-icon-wrapper {
+  transform: translateX(-4px);
+}
+
+/* ===== 4. BUTTON-STYLE LINKS (SCOPED) ===== */
+
+/* Primary button link */
+.link-component.link-button-primary {
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #ef5a16, #f97316);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
+  text-align: center;
+}
+
+.link-component.link-button-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.6);
+  color: white;
+}
+
+.link-component.link-button-primary:active {
+  transform: translateY(0);
+  box-shadow: 0 6px 20px rgba(239, 90, 22, 0.5);
+}
+
+/* Secondary button link */
+.link-component.link-button-secondary {
+  padding: 14px 32px;
+  background: transparent;
+  color: white;
+  border: 2px solid #ef5a16;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.link-component.link-button-secondary:hover {
+  background: rgba(239, 90, 22, 0.1);
+  border-color: #f97316;
+  transform: translateY(-2px);
+  color: white;
+}
+
+.link-component.link-button-secondary:active {
+  transform: translateY(0);
+}
+
+/* Outline button link */
+.link-component.link-button-outline {
+  padding: 14px 32px;
+  background: transparent;
+  color: #cbd5e0;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.link-component.link-button-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: white;
+}
+
+/* ===== 5. NAV LINK STYLES (SCOPED) ===== */
+.link-component.link-nav {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 8px 0;
+  position: relative;
+}
+
+.link-component.link-nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 2px;
+  background: #ef5a16;
+  transition: width 0.3s ease;
+}
+
+.link-component.link-nav:hover::after,
+.link-component.link-nav.active::after {
+  width: 100%;
+}
+
+.link-component.link-nav.active {
+  color: #ef5a16;
+}
+
+/* ===== 6. BADGE LINK (SCOPED) ===== */
+.link-component.link-badge {
+  padding: 8px 16px;
+  background: rgba(239, 90, 22, 0.2);
+  border: 1px solid rgba(239, 90, 22, 0.4);
+  border-radius: 20px;
+  color: #ef5a16;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.link-component.link-badge:hover {
+  background: rgba(239, 90, 22, 0.3);
+  border-color: rgba(239, 90, 22, 0.6);
+  color: #f97316;
+}
+
+/* ===== 7. ICON-ONLY LINK (SCOPED) ===== */
+.link-component.link-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  color: #ef5a16;
+  transition: all 0.3s ease;
+}
+
+.link-component.link-icon:hover {
+  background: rgba(239, 90, 22, 0.2);
+  border-color: rgba(239, 90, 22, 0.6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.3);
+}
+
+.link-component.link-icon svg {
+  font-size: 20px;
+}
+
+/* ===== 8. BREADCRUMB LINK (SCOPED) ===== */
+.link-component.link-breadcrumb {
+  color: #cbd5e0;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.link-component.link-breadcrumb:hover {
+  color: #ef5a16;
+}
+
+.link-component.link-breadcrumb.active {
+  color: #ef5a16;
+  pointer-events: none;
+}
+
+/* ===== 9. CARD LINK (SCOPED) ===== */
+.link-component.link-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  border-radius: 12px;
+  padding: 24px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  width: 100%;
+}
+
+.link-component.link-card:hover {
+  border-color: rgba(239, 90, 22, 0.6);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
+}
+
+.link-component.link-card .link-card-title {
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.link-component.link-card .link-card-description {
+  color: #cbd5e0;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===== 10. EXTERNAL LINK INDICATOR (SCOPED) ===== */
+.link-component.link-external::after {
+  content: '↗';
+  font-size: 14px;
+  margin-left: 4px;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.link-component.link-external:hover::after {
+  opacity: 1;
+}
+
+/* Prevent double external indicators */
+.link-component.link-button-primary.link-external::after,
+.link-component.link-button-secondary.link-external::after,
+.link-component.link-button-outline.link-external::after,
+.link-component.link-icon.link-external::after {
+  content: none;
+}
+
+/* ===== 11. DISABLED STATE (SCOPED) ===== */
+.link-component.link-disabled,
+.link-component:disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
+/* ===== 12. LINK SIZES (SCOPED) ===== */
+
+/* Small link */
+.link-component.link-sm {
+  font-size: 14px;
+}
+
+.link-component.link-sm.link-button-primary,
+.link-component.link-sm.link-button-secondary,
+.link-component.link-sm.link-button-outline {
+  padding: 10px 20px;
+  font-size: 14px;
+}
+
+.link-component.link-sm.link-icon {
+  width: 32px;
+  height: 32px;
+}
+
+.link-component.link-sm.link-icon svg {
+  font-size: 16px;
+}
+
+/* Large link */
+.link-component.link-lg {
+  font-size: 18px;
+}
+
+.link-component.link-lg.link-button-primary,
+.link-component.link-lg.link-button-secondary,
+.link-component.link-lg.link-button-outline {
+  padding: 18px 40px;
+  font-size: 18px;
+}
+
+.link-component.link-lg.link-icon {
+  width: 48px;
+  height: 48px;
+}
+
+.link-component.link-lg.link-icon svg {
+  font-size: 24px;
+}
+
+/* ===== 13. ANIMATIONS (SCOPED) ===== */
+
+@keyframes link-pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(239, 90, 22, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 10px rgba(239, 90, 22, 0);
+  }
+}
+
+.link-component.link-pulse {
+  animation: link-pulse 2s infinite;
+}
+
+@keyframes link-bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.link-component.link-bounce:hover {
+  animation: link-bounce 0.6s ease;
+}
+
+/* ===== 14. FOCUS STATES (SCOPED) ===== */
+.link-component:focus {
+  outline: 3px solid #ef5a16;
+  outline-offset: 2px;
+}
+
+.link-component:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.link-component:focus-visible {
+  outline: 3px solid #ef5a16;
+  outline-offset: 2px;
+}
+
+/* ===== 15. RESPONSIVE ADJUSTMENTS (SCOPED) ===== */
+
+@media (max-width: 768px) {
+  .link-component.link-button-primary,
+  .link-component.link-button-secondary,
+  .link-component.link-button-outline {
+    padding: 14px 24px;
+    font-size: 15px;
+  }
+
+  .link-component.link-lg.link-button-primary,
+  .link-component.link-lg.link-button-secondary,
+  .link-component.link-lg.link-button-outline {
+    padding: 16px 32px;
+    font-size: 16px;
+  }
+
+  .link-component.link-sm.link-button-primary,
+  .link-component.link-sm.link-button-secondary,
+  .link-component.link-sm.link-button-outline {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 480px) {
+  .link-component.link-button-primary,
+  .link-component.link-button-secondary,
+  .link-component.link-button-outline {
+    padding: 12px 20px;
+    font-size: 14px;
+  }
+}
+
+/* ===== 16. GROUP VARIATIONS (SCOPED) ===== */
+
+/* Link group - for multiple links in a row */
+.link-group {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.link-group .link-component {
+  flex-shrink: 0;
+}
+
+@media (max-width: 576px) {
+  .link-group {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .link-group .link-component.link-button-primary,
+  .link-group .link-component.link-button-secondary,
+  .link-group .link-component.link-button-outline {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+/* ===== 17. ACCESSIBILITY IMPROVEMENTS (SCOPED) ===== */
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .link-component {
+    border-width: 2px;
+  }
+
+  .link-component.link-button-primary {
+    border: 2px solid #ffffff;
+  }
+
+  .link-component.link-underline::after {
+    height: 3px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .link-component,
+  .link-component *,
+  .link-component::before,
+  .link-component::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .link-component:hover {
+    transform: none !important;
+  }
+
+  .link-component.link-pulse {
+    animation: none;
+  }
+
+  .link-component.link-bounce:hover {
+    animation: none;
+  }
+}
+
+/* Screen reader only text */
+.link-component .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* ===== 18. SPECIAL VARIANTS (SCOPED) ===== */
+
+/* Ghost link - minimal style */
+.link-component.link-ghost {
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 500;
+}
+
+.link-component.link-ghost:hover {
+  color: rgba(255, 255, 255, 1);
+}
+
+/* Danger link - for destructive actions */
+.link-component.link-danger {
+  color: #ef4444;
+}
+
+.link-component.link-danger:hover {
+  color: #dc2626;
+}
+
+.link-component.link-button-primary.link-danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  box-shadow: 0 8px 24px rgba(239, 68, 68, 0.4);
+}
+
+.link-component.link-button-primary.link-danger:hover {
+  box-shadow: 0 12px 32px rgba(239, 68, 68, 0.6);
+}
+
+/* Success link */
+.link-component.link-success {
+  color: #10b981;
+}
+
+.link-component.link-success:hover {
+  color: #059669;
+}
+
+/* ===== 19. LOADING STATE (SCOPED) ===== */
+
+.link-component.link-loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.link-component.link-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  margin: -8px 0 0 -8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: link-spin 0.6s linear infinite;
+}
+
+@keyframes link-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ===== 20. PRINT STYLES (SCOPED) ===== */
+
+@media print {
+  .link-component {
+    color: #000000;
+    text-decoration: underline;
+  }
+
+  .link-component.link-button-primary,
+  .link-component.link-button-secondary,
+  .link-component.link-button-outline {
+    border: 1px solid #000000;
+    background: transparent;
+    color: #000000;
+    padding: 4px 8px;
+  }
+
+  .link-component::after {
+    content: " (" attr(href) ")";
+    font-size: 0.8em;
+  }
+}

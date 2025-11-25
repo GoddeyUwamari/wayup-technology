@@ -1,4 +1,443 @@
-/* Enhanced Grid Layout CSS with Horizontal Cards for Tablets */
+/* ============================================
+   SECTION COMPONENT - PROFESSIONAL STYLES
+   All styles scoped to .section-component
+   ============================================ */
+
+/* ===== 1. DARK THEME BASE (SCOPED) ===== */
+.section-component {
+  background: #0f172a;
+  padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-component .section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Alternating section backgrounds */
+.section-component.section-dark {
+  background: linear-gradient(135deg, #000048 0%, #1e293b 100%);
+}
+
+.section-component.section-light {
+  background: #0f172a;
+}
+
+/* ===== 2. SECTION HEADER (SCOPED) ===== */
+.section-component .section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: section-fadeInUp 0.8s ease;
+}
+
+.section-component .section-badge {
+  display: inline-block;
+  padding: 8px 20px;
+  background: rgba(239, 90, 22, 0.2);
+  border: 1px solid rgba(239, 90, 22, 0.4);
+  border-radius: 20px;
+  color: #ef5a16;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 16px;
+}
+
+.section-component .section-title {
+  font-size: 42px;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 16px;
+  line-height: 1.2;
+}
+
+.section-component .section-title .highlight {
+  color: #ef5a16;
+  position: relative;
+}
+
+.section-component .section-subtitle {
+  font-size: 18px;
+  color: #cbd5e0;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ===== 3. CONTENT GRID LAYOUTS (SCOPED) ===== */
+/* Two-column layout */
+.section-component .section-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Three-column layout */
+.section-component .section-three-column {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+/* Four-column layout */
+.section-component .section-four-column {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+/* ===== 4. CARD STYLING (SCOPED) ===== */
+.section-component .section-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  border-radius: 12px;
+  padding: 32px;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.section-component .section-card:hover {
+  border-color: rgba(239, 90, 22, 0.6);
+  transform: translateY(-8px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
+}
+
+.section-component .card-icon {
+  width: 64px;
+  height: 64px;
+  background: linear-gradient(135deg, #ef5a16, #f97316);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.3s ease;
+}
+
+.section-component .section-card:hover .card-icon {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.5);
+}
+
+.section-component .card-icon svg {
+  color: white;
+  font-size: 32px;
+}
+
+.section-component .card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 12px;
+}
+
+.section-component .card-description {
+  font-size: 15px;
+  color: #cbd5e0;
+  line-height: 1.7;
+}
+
+/* ===== 5. FEATURE LIST STYLING (SCOPED) ===== */
+.section-component .feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 24px 0;
+}
+
+.section-component .feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section-component .feature-item:last-child {
+  border-bottom: none;
+}
+
+.section-component .feature-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgba(239, 90, 22, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.section-component .feature-icon svg {
+  color: #ef5a16;
+  font-size: 14px;
+}
+
+.section-component .feature-text {
+  flex: 1;
+  color: #cbd5e0;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+/* ===== 6. IMAGE STYLING (SCOPED) ===== */
+.section-component .section-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.section-component .section-image:hover {
+  transform: scale(1.02);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.5);
+}
+
+.section-component .image-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.section-component .image-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 72, 0.6) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.section-component .image-container:hover .image-overlay {
+  opacity: 1;
+}
+
+/* ===== 7. STATS/METRICS DISPLAY (SCOPED) ===== */
+.section-component .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+  margin: 40px 0;
+}
+
+.section-component .stat-item {
+  text-align: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.section-component .stat-item:hover {
+  border-color: rgba(239, 90, 22, 0.6);
+  transform: translateY(-4px);
+}
+
+.section-component .stat-number {
+  font-size: 36px;
+  font-weight: 800;
+  color: #ef5a16;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.section-component .stat-label {
+  font-size: 14px;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* ===== 8. CALL-TO-ACTION BUTTONS (SCOPED) ===== */
+.section-component .section-cta {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.section-component .cta-primary {
+  padding: 16px 40px;
+  background: linear-gradient(135deg, #ef5a16, #f97316);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
+}
+
+.section-component .cta-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.6);
+}
+
+.section-component .cta-secondary {
+  padding: 16px 40px;
+  background: transparent;
+  color: white;
+  border: 2px solid #ef5a16;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.section-component .cta-secondary:hover {
+  background: rgba(239, 90, 22, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ===== 9. ANIMATIONS (SCOPED) ===== */
+@keyframes section-fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes section-fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.section-component .animate-on-scroll {
+  opacity: 0;
+  animation: section-fadeInUp 0.8s ease forwards;
+}
+
+.section-component .animate-delay-1 {
+  animation-delay: 0.2s;
+}
+
+.section-component .animate-delay-2 {
+  animation-delay: 0.4s;
+}
+
+.section-component .animate-delay-3 {
+  animation-delay: 0.6s;
+}
+
+/* ===== 10. BACKGROUND PATTERNS (SCOPED) ===== */
+.section-component .section-pattern {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  pointer-events: none;
+  background-image: radial-gradient(circle, #ef5a16 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* ===== 11. RESPONSIVE BREAKPOINTS (SCOPED) ===== */
+@media (max-width: 1024px) {
+  .section-component {
+    padding: 60px 30px;
+  }
+
+  .section-component .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-component .section-title {
+    font-size: 36px;
+  }
+
+  .section-component .section-three-column,
+  .section-component .section-four-column {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-component {
+    padding: 40px 20px;
+  }
+
+  .section-component .section-title {
+    font-size: 28px;
+  }
+
+  .section-component .section-subtitle {
+    font-size: 16px;
+  }
+
+  .section-component .section-card {
+    padding: 24px;
+  }
+
+  .section-component .section-two-column,
+  .section-component .section-three-column,
+  .section-component .section-four-column {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .section-component .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .section-component .section-cta {
+    flex-direction: column;
+  }
+
+  .section-component .cta-primary,
+  .section-component .cta-secondary {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===== 12. ACCESSIBILITY IMPROVEMENTS (SCOPED) ===== */
+.section-component .section-card:focus,
+.section-component .cta-primary:focus,
+.section-component .cta-secondary:focus {
+  outline: 3px solid #ef5a16;
+  outline-offset: 2px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .section-component *,
+  .section-component *::before,
+  .section-component *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .section-component .section-card:hover,
+  .section-component .section-image:hover,
+  .section-component .card-icon:hover {
+    transform: none;
+  }
+}
+
+/* ============================================
+   LEGACY SECTION STYLES (PRESERVED)
+   Original pricing card styles
+   ============================================ */
 
 /* CSS Custom Properties */
 :root {
@@ -13,17 +452,17 @@
   --button-bg: #fdd700;
   --button-hover: red;
   --text-dark: black;
-  
+
   /* Spacing */
   --grid-gap: 20px;
   --card-padding: 20px;
   --border-radius: 8px;
   --image-border-radius: 16px;
   --button-border-radius: 20px;
-  
+
   /* Transitions */
   --transition-normal: 0.3s ease;
-  
+
   /* Shadows */
   --shadow-base: 0 4px 6px rgba(0, 0, 0, 0.1);
   --shadow-hover: 0 8px 12px rgba(0, 0, 0, 0.2);
@@ -99,7 +538,7 @@
   transform: scale(1.05);
 }
 
-h2 {
+.ruler h2 {
   margin: 10px 0;
   color: var(--title-color);
   font-size: 1.4rem !important;
@@ -108,13 +547,13 @@ h2 {
   text-align: left;
 }
 
-h3 {
+.ruler h3 {
   color: var(--text-color);
   width: 100%;
   text-align: left;
 }
 
-p {
+.ruler p {
   color: var(--text-color);
   font-size: 1.1rem !important;
   line-height: 1.5;
@@ -123,7 +562,7 @@ p {
   width: 100%;
 }
 
-button {
+.ruler button {
   background-color: var(--button-bg);
   color: var(--text-dark);
   border: none;
@@ -136,11 +575,11 @@ button {
   align-self: flex-start;
 }
 
-button:hover {
+.ruler button:hover {
   background-color: var(--button-hover);
 }
 
-.feature-item {
+.ruler .feature-item {
   text-align: left;
   font-size: 1.2rem;
   line-height: 1;
@@ -152,7 +591,7 @@ button:hover {
   width: calc(100% - 16px);
 }
 
-.feature-item:hover {
+.ruler .feature-item:hover {
   background-color: var(--lower-bg-hover);
   border-color: var(--lower-bg-hover);
 }
@@ -170,13 +609,13 @@ button:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 25px;
   }
-  
+
   /* Keep vertical layout for first two cards */
   .grid-box {
     flex-direction: column;
     max-width: 100%;
   }
-  
+
   .upper-div {
     flex: 1;
     margin-right: 0;
@@ -184,35 +623,35 @@ button:hover {
     border-radius: 4px;
     width: 100%;
   }
-  
+
   .lower-div {
     flex: 1;
     margin-left: 4px;
     width: 98%;
   }
-  
+
   .upper-div img {
     height: 180px;
   }
-  
+
   /* Make third card full width and horizontal */
   .grid-container1 > .grid-box:nth-child(3) {
     grid-column: 1 / -1;
     flex-direction: row;
     align-items: stretch;
   }
-  
+
   .grid-container1 > .grid-box:nth-child(3) .upper-div {
     flex: 0 0 300px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     border-right: none;
   }
-  
+
   .grid-container1 > .grid-box:nth-child(3) .upper-div img {
     height: 200px;
   }
-  
+
   .grid-container1 > .grid-box:nth-child(3) .lower-div {
     flex: 1;
     margin-left: 0;
@@ -227,19 +666,19 @@ button:hover {
     grid-template-columns: repeat(3, 1fr);
     gap: 25px;
   }
-  
+
   /* Reset to vertical layout for desktop */
   .grid-box {
     flex-direction: column;
   }
-  
+
   .upper-div {
     flex: 1;
     margin-right: 0;
     border-right: 4px solid var(--upper-border);
     border-radius: 4px;
   }
-  
+
   .lower-div {
     flex: 1;
     margin-left: 4px;
@@ -253,18 +692,18 @@ button:hover {
 /* Large Desktop (1200px+) */
 @media (min-width: 1200px) {
   .ruler {
-    padding: 0 40px; 
+    padding: 0 40px;
   }
 
   .grid-container1 {
-    gap: 30px; 
+    gap: 30px;
   }
 
-  h2 {
+  .ruler h2 {
     font-size: 1.8rem !important;
   }
 
-  p {
+  .ruler p {
     font-size: 1.1rem !important;
   }
 
@@ -282,19 +721,19 @@ button:hover {
   .grid-container1 {
     gap: 25px;
   }
-  
+
   /* Ensure vertical layout for desktop */
   .grid-box {
     flex-direction: column;
   }
-  
+
   .upper-div {
     flex: 1;
     margin-right: 0;
     border: 4px solid var(--upper-border);
     border-radius: 4px;
   }
-  
+
   .lower-div {
     flex: 1;
     margin-left: 4px;
@@ -320,7 +759,7 @@ button:hover {
     flex-direction: column;
     max-width: 100%;
   }
-  
+
   .upper-div {
     padding: 18px;
     width: 100%;
@@ -328,36 +767,36 @@ button:hover {
     border: 4px solid var(--upper-border);
     border-radius: 4px;
   }
-  
+
   .upper-div img {
     height: 180px;
     margin-bottom: 12px;
   }
-  
+
   .lower-div {
     padding: 18px;
     width: 98%;
     margin-left: 4px;
   }
 
-  h2 {
+  .ruler h2 {
     font-size: 1.4rem !important;
     margin: 8px 0 10px 0;
   }
-  
-  p {
+
+  .ruler p {
     font-size: 1rem !important;
     line-height: 1.4;
     margin: 5px 0;
   }
-  
-  button {
+
+  .ruler button {
     padding: 12px 20px;
     font-size: 0.9rem;
     margin-top: 12px;
   }
-  
-  .feature-item {
+
+  .ruler .feature-item {
     font-size: 1rem;
     margin: 4px 0;
   }
@@ -369,7 +808,7 @@ button:hover {
     align-items: stretch;
     max-width: 100%;
   }
-  
+
   /* Image section for horizontal card */
   .grid-container1 > .grid-box:nth-child(3) .upper-div {
     flex: 0 0 300px;
@@ -382,14 +821,14 @@ button:hover {
     border-bottom-right-radius: 0;
     border-right: none;
   }
-  
+
   .grid-container1 > .grid-box:nth-child(3) .upper-div img {
     height: 200px;
     width: 100%;
     object-fit: cover;
     margin-bottom: 0;
   }
-  
+
   /* Content section for horizontal card */
   .grid-container1 > .grid-box:nth-child(3) .lower-div {
     flex: 1;
@@ -403,26 +842,26 @@ button:hover {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  
+
   /* Text styling for horizontal card */
   .grid-container1 > .grid-box:nth-child(3) h2 {
     font-size: 1.6rem !important;
     margin: 0 0 15px 0;
     text-align: left;
   }
-  
+
   .grid-container1 > .grid-box:nth-child(3) p {
     font-size: 1.1rem !important;
     line-height: 1.5;
     margin: 8px 0;
     text-align: left;
   }
-  
+
   .grid-container1 > .grid-box:nth-child(3) button {
     align-self: flex-start;
     margin-top: 15px;
   }
-  
+
   .grid-container1 > .grid-box:nth-child(3) .feature-item {
     font-size: 1.1rem;
     margin: 6px 0;
@@ -449,14 +888,14 @@ button:hover {
   .upper-div, .lower-div {
     padding: 15px;
   }
-  
+
   .upper-div {
     width: 100%;
     margin-right: 0;
     border: 4px solid var(--upper-border);
     border-radius: 4px;
   }
-  
+
   .lower-div {
     width: 98%;
     margin-left: 4px;
@@ -471,6 +910,7 @@ button:hover {
 @media (max-width: 575px) {
   .ruler {
     padding: 0 10px;
+    margin-top: -60px;
   }
 
   .grid-container1 {
@@ -478,15 +918,15 @@ button:hover {
     gap: 15px;
   }
 
-  h2 {
+  .ruler h2 {
     font-size: 1.3rem !important;
   }
 
-  p {
+  .ruler p {
     font-size: 0.9rem !important;
   }
 
-  button {
+  .ruler button {
     font-size: 0.9rem;
     padding: 8px 16px;
   }
@@ -508,16 +948,16 @@ button:hover {
 @media (prefers-reduced-motion: reduce) {
   .grid-box,
   .upper-div img,
-  button,
+  .ruler button,
   .upper-div,
   .lower-div {
     transition: none;
   }
-  
+
   .grid-box:hover {
     transform: none;
   }
-  
+
   .upper-div img:hover {
     transform: none;
   }
@@ -528,15 +968,15 @@ button:hover {
   .grid-box {
     border: 2px solid white;
   }
-  
-  h2, h3, p {
+
+  .ruler h2, .ruler h3, .ruler p {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   }
 }
 
 /* Focus Management for Accessibility */
 .grid-box:focus,
-button:focus {
+.ruler button:focus {
   outline: 3px solid var(--title-color);
   outline-offset: 2px;
 }
