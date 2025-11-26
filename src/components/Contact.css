@@ -51,7 +51,7 @@
 /* ============================================
    TYPOGRAPHY - ENHANCED HIERARCHY
    ============================================ */
-h1 {
+.contact-container h1 {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
@@ -66,7 +66,7 @@ h1 {
   animation: fadeInDown 0.8s ease;
 }
 
-h2 {
+.contact-container h2 {
   font-size: 2rem;
   font-weight: 700;
   margin-bottom: 1.5rem;
@@ -76,7 +76,7 @@ h2 {
   text-transform: uppercase;
 }
 
-h3 {
+.contact-container h3 {
   color: #f97316;
   font-weight: 600;
   font-size: 1.3rem;
@@ -115,7 +115,7 @@ h3 {
    ============================================ */
 .input-field {
   width: 100%;
-  border: 2px solid rgba(255, 255, 255, 0.15);
+  border: 2px solid rgba(255, 255, 255, 0.15); /* Subtle border by default */
   border-radius: 12px;
   background: rgba(15, 23, 42, 0.8);
   color: white;
@@ -134,9 +134,10 @@ h3 {
 
 .input-field:focus {
   background: rgba(15, 23, 42, 0.95);
-  border-color: #f97316;
-  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.15);
+  border: 2px solid #f97316; /* Single clean orange border on click/focus */
+  box-shadow: none; /* Remove double border effect */
   color: white;
+  outline: none;
   transform: translateY(-1px);
 }
 
@@ -146,8 +147,8 @@ h3 {
 
 /* Error state */
 .input-field.error {
-  border-color: #ef4444;
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
+  border: 2px solid #ef4444; /* Single red border */
+  box-shadow: none; /* Remove double border effect */
   animation: shake 0.5s ease;
 }
 
@@ -167,28 +168,57 @@ h3 {
   transition: background-color 5000s ease-in-out 0s;
 }
 
-/* Select dropdown styling */
+/* ============================================
+   SELECT DROPDOWN - SINGLE STATIC ARROW ONLY
+   ============================================ */
+/* Remove ALL browser default arrows and animations */
 .input-field select,
-select.input-field {
+select.input-field,
+select[name="projectType"] {
+  position: relative;
   cursor: pointer;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f97316' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 1rem center;
-  background-size: 1.2em;
-  padding-right: 3rem;
+  appearance: none !important;
+  -webkit-appearance: none !important;
+  -moz-appearance: none !important;
+  animation: none !important;
+  padding-right: 40px; /* Space for single arrow */
+}
+
+/* Remove ALL pseudo-element arrows */
+.input-field select::before,
+.input-field select::after,
+select.input-field::before,
+select.input-field::after,
+select[name="projectType"]::before,
+select[name="projectType"]::after {
+  display: none !important;
+  content: none !important;
+  animation: none !important;
+}
+
+/* Single static arrow using simple SVG - NO ANIMATION */
+.input-field select,
+select.input-field,
+select[name="projectType"] {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ef5a16' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 16px center !important;
+  background-size: 12px !important;
 }
 
 .input-field select:hover,
-select.input-field:hover {
+select.input-field:hover,
+select[name="projectType"]:hover {
   border-color: rgba(255, 255, 255, 0.25);
 }
 
+/* Maintain single arrow on focus - NO ANIMATION */
 .input-field select:focus,
-select.input-field:focus {
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23f97316' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+select.input-field:focus,
+select[name="projectType"]:focus {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23ef5a16' d='M6 9L1 4h10z'/%3E%3C/svg%3E") !important;
+  background-position: right 16px center !important;
+  animation: none !important;
 }
 
 .input-field select option {
@@ -202,6 +232,25 @@ select.input-field:focus {
 .input-field select option:hover {
   background: linear-gradient(135deg, #ef5a16, #f97316);
   color: white;
+}
+
+/* Remove any wrapper arrows and prevent arrow animations */
+.select-wrapper::before,
+.select-wrapper::after,
+.dropdown-arrow,
+.arrow-icon {
+  display: none !important;
+}
+
+/* Prevent any transitions or animations on select background */
+.input-field select,
+select.input-field,
+select[name="projectType"] {
+  background-attachment: scroll !important;
+  transition: border-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              background-color 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              transform 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  /* Do NOT animate background-image or background-position */
 }
 
 .input-grid {
@@ -346,14 +395,14 @@ select.input-field:focus {
   background: linear-gradient(135deg, #d4edda 0%, #c3e6cb 100%);
   border: 3px solid #28a745;
   border-radius: 20px;
-  padding: 3rem;
+  padding: 4rem 3rem 3rem; /* Extra top padding to prevent checkmark cut-off */
   max-width: 600px;
   width: 100%;
   text-align: center;
   box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
   animation: slideUp 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   position: relative;
-  overflow: hidden;
+  overflow: visible; /* Allow checkmark to show fully */
 }
 
 .success-content::before {
@@ -375,9 +424,11 @@ select.input-field:focus {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto 1.5rem;
+  margin: 20px auto 1.5rem; /* Add top margin to prevent cut-off */
   animation: checkmarkPop 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.2s both;
   box-shadow: 0 10px 30px rgba(40, 167, 69, 0.4);
+  overflow: visible; /* Ensure icon isn't clipped */
+  position: relative;
 }
 
 .success-message .checkmark::after {
@@ -385,6 +436,12 @@ select.input-field:focus {
   color: white;
   font-size: 2.5rem;
   font-weight: bold;
+  position: relative;
+  z-index: 2;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .success-message h3 {
@@ -798,7 +855,7 @@ select.input-field:focus {
     grid-template-columns: 1fr 1fr;
   }
 
-  h1 {
+  .contact-container h1 {
     font-size: 3rem;
   }
 }
@@ -822,7 +879,7 @@ select.input-field:focus {
     grid-template-columns: 1fr 1fr;
   }
 
-  h1 {
+  .contact-container h1 {
     font-size: 2.75rem;
   }
 
@@ -852,11 +909,11 @@ select.input-field:focus {
     gap: 1.5rem;
   }
 
-  h1 {
+  .contact-container h1 {
     font-size: 2.5rem;
   }
 
-  h2 {
+  .contact-container h2 {
     font-size: 1.75rem;
   }
 
@@ -864,13 +921,27 @@ select.input-field:focus {
     max-width: 100%;
   }
 
+  /* Success modal - prevent checkmark cut-off */
   .success-content {
-    padding: 2.5rem 2rem;
+    padding: 3.5rem 2rem 2.5rem; /* Extra top padding */
+    overflow: visible;
   }
 
   .success-message .checkmark {
     width: 70px;
     height: 70px;
+    margin-top: 20px; /* Ensure top margin */
+  }
+
+  .success-message .checkmark::after {
+    font-size: 2rem;
+  }
+
+  /* Dropdown - single arrow on tablet */
+  .input-field select,
+  select.input-field {
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
   }
 
   .location-content {
@@ -898,11 +969,11 @@ select.input-field:focus {
     gap: 1.5rem;
   }
 
-  h1 {
+  .contact-container h1 {
     font-size: 2rem;
   }
 
-  h2 {
+  .contact-container h2 {
     font-size: 1.5rem;
   }
 
@@ -911,12 +982,25 @@ select.input-field:focus {
     padding: 1rem;
   }
 
+  /* Success modal - mobile fixes */
   .success-content {
-    padding: 2rem 1.5rem;
+    padding: 3rem 1.5rem 2rem; /* Extra top padding */
+    overflow: visible;
+  }
+
+  .success-message .checkmark {
+    margin-top: 20px;
   }
 
   .success-message h3 {
     font-size: 1.5rem;
+  }
+
+  /* Dropdown - mobile arrow position */
+  .input-field select,
+  select.input-field {
+    background-position: right 0.75rem center;
+    padding-right: 2.5rem;
   }
 
   .contact-info {
@@ -944,15 +1028,15 @@ select.input-field:focus {
     gap: 1.5rem;
   }
 
-  h1 {
+  .contact-container h1 {
     font-size: 1.75rem;
   }
 
-  h2 {
+  .contact-container h2 {
     font-size: 1.25rem;
   }
 
-  h3 {
+  .contact-container h3 {
     font-size: 1.1rem;
   }
 
@@ -975,8 +1059,10 @@ select.input-field:focus {
     min-height: 48px;
   }
 
+  /* Success modal - small mobile fixes */
   .success-content {
-    padding: 1.75rem 1.25rem;
+    padding: 2.5rem 1.25rem 1.75rem; /* Extra top padding */
+    overflow: visible;
   }
 
   .success-message h3 {
@@ -986,10 +1072,19 @@ select.input-field:focus {
   .success-message .checkmark {
     width: 60px;
     height: 60px;
+    margin-top: 20px; /* Prevent cut-off */
   }
 
   .success-message .checkmark::after {
     font-size: 2rem;
+  }
+
+  /* Dropdown - small mobile arrow */
+  .input-field select,
+  select.input-field {
+    background-position: right 0.75rem center;
+    background-size: 10px;
+    padding-right: 2.25rem;
   }
 
   .send-another-button {
@@ -1044,7 +1139,7 @@ select.input-field:focus {
     padding: 30px 15px;
   }
 
-  h1 {
+  .contact-container h1 {
     font-size: 1.5rem;
   }
 
@@ -1079,7 +1174,13 @@ select.input-field:focus {
 /* ============================================
    ACCESSIBILITY
    ============================================ */
-.input-field:focus-visible,
+/* Remove outline on input fields to prevent double border */
+.input-field:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Keep outline for buttons and interactive elements */
 .submit-button:focus-visible,
 .send-another-button:focus-visible,
 .location-header:focus-visible {
