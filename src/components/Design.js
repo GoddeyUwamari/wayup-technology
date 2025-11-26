@@ -3,6 +3,7 @@ import { useNavigate, Link } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faDatabase, faProjectDiagram, faUserTie, faLaptopCode } from '@fortawesome/free-solid-svg-icons';
 import { faGraduationCap, faUtensils, faBus, faUniversity, faHeartbeat, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import Checkout from '../components/Checkout';
 
 import './Design.css'
 
@@ -188,8 +189,8 @@ function Design() {
         </div>
       </div>
 
-      <p className='heading'>AVAILABLE PRODUCT AND SERVICES</p>  
-      <div className='second-checkout-container'>
+      {/* <p className='heading'>AVAILABLE PRODUCT AND SERVICES</p>   */}
+      {/* <div className='second-checkout-container'>
         <div className='checkout-first-div'>
           <img src="/images/mphoto8.png" alt="Hosting Options" />
           <p className='checkout-content'>
@@ -249,7 +250,9 @@ function Design() {
             <Link to="/order">VPN</Link><br/>
           </p>
         </div>
-      </div>
+      </div> */}
+      {/* Checkout */}
+      <Checkout />
 
       <div>  
         <p className='special-package'> AMAZING SPECIAL PACKAGES</p>
