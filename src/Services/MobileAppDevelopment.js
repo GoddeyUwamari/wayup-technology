@@ -179,38 +179,34 @@ const MobileAppDevelopment = () => {
 
   return (
     <div className="mobile-app-page">
-      {/* Hero Section */}
-      <section className="mobile-hero">
-        <div className="mobile-hero-bg-grid"></div>
-        <div className="mobile-hero-content-wrapper">
-          <div className="mobile-hero-text">
-            <div className="mobile-hero-badge">
-              <Sparkles size={16} />
-              <span>500+ Apps Delivered | 10M+ Active Users</span>
-            </div>
-            <h1 className="mobile-hero-title">
-              Mobile App <span className="mobile-highlight">Development</span>
-            </h1>
-            <p className="mobile-hero-subtitle">
-              Build powerful iOS and Android apps that engage users and drive business growth
-            </p>
+      {/* Full-Width Hero Section */}
+      <section className="mobile-full-hero">
+        <div className="mobile-hero-background">
+          <img
+            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=85"
+            alt="Professional team working on mobile app development"
+            className="mobile-bg-image"
+          />
+          <div className="mobile-hero-overlay"></div>
+        </div>
 
-            <div className="mobile-hero-buttons">
-              <Link to="/contact" state={{ scrollToTop: true }} className="mobile-btn-primary">
-                Start Your Project
-              </Link>
-              <Link to="/portfolio/work" state={{ scrollToTop: true }} className="mobile-btn-secondary">
-                View Portfolio
-              </Link>
-            </div>
+        <div className="mobile-hero-content-center">
+          <div className="mobile-badge">
+            <Sparkles size={16} />
+            500+ APPS DELIVERED | 10M+ ACTIVE USERS
           </div>
 
-          <div className="mobile-hero-image-container">
-            <img
-              src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
-              alt="Professional team working on mobile app development"
-              className="mobile-hero-image"
-            />
+          <h1 className="mobile-main-title">
+            Mobile App <span className="mobile-highlight-text">Development</span>
+          </h1>
+
+          <p className="mobile-subtitle">
+            Build powerful iOS and Android apps that engage users and drive business growth
+          </p>
+
+          <div className="mobile-cta-buttons">
+            <Link to="/contact" className="mobile-btn-speak-now">Start Your Project</Link>
+            <Link to="/portfolio/work" className="mobile-btn-secondary-outline">View Portfolio</Link>
           </div>
         </div>
       </section>

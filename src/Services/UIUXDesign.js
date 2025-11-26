@@ -184,39 +184,35 @@ const UIUXDesign = () => {
   ];
 
   return (
-    <div className="uiux-page">
-      {/* Hero Section */}
-      <section className="uiux-hero">
-        <div className="uiux-hero-bg-grid"></div>
-        <div className="uiux-hero-content-wrapper">
-          <div className="uiux-hero-text">
-            <div className="uiux-hero-badge">
-              <Sparkles size={16} />
-              <span>Award-Winning Design Excellence</span>
-            </div>
-            <h1 className="uiux-hero-title">
-              UI/UX <span className="uiux-highlight">Design</span>
-            </h1>
-            <p className="uiux-hero-subtitle">
-              Create exceptional user experiences that delight users and drive business results
-            </p>
+    <div className="uiux-design-page">
+      {/* Full-Width Hero Section */}
+      <section className="uiux-full-hero">
+        <div className="uiux-hero-background">
+          <img
+            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=85"
+            alt="Professional UX designers collaborating on user interface design"
+            className="uiux-bg-image"
+          />
+          <div className="uiux-hero-overlay"></div>
+        </div>
 
-            <div className="uiux-hero-buttons">
-              <Link to="/contact" className="uiux-btn-primary">
-                Start Your Project
-              </Link>
-              <Link to="/portfolio/work" className="uiux-btn-secondary">
-                View Portfolio
-              </Link>
-            </div>
+        <div className="uiux-hero-content-center">
+          <div className="uiux-badge">
+            <Award size={16} />
+            AWARD-WINNING DESIGN EXCELLENCE
           </div>
 
-          <div className="uiux-hero-image-container">
-            <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&q=80"
-              alt="Professional UX designers collaborating on user interface design"
-              className="uiux-hero-image"
-            />
+          <h1 className="uiux-main-title">
+            UI/UX <span className="highlight-text">Design</span>
+          </h1>
+
+          <p className="uiux-subtitle">
+            Create exceptional user experiences that delight users and drive business results
+          </p>
+
+          <div className="uiux-cta-buttons">
+            <Link to="/contact" className="btn-speak-now">Start Your Project</Link>
+            <Link to="/portfolio/work" className="btn-secondary-outline">View Portfolio</Link>
           </div>
         </div>
       </section>

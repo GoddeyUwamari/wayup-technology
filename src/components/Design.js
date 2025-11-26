@@ -188,69 +188,15 @@ function Design() {
           </div>
         </div>
       </div>
-
-      {/* <p className='heading'>AVAILABLE PRODUCT AND SERVICES</p>   */}
-      {/* <div className='second-checkout-container'>
-        <div className='checkout-first-div'>
-          <img src="/images/mphoto8.png" alt="Hosting Options" />
-          <p className='checkout-content'>
-            <Link to="/order">Software Development</Link><br/>
-            <Link to="/order">Website Development</Link><br/>
-            <Link to="/order">Responsive Web Design</Link><br/>
-            <Link to="/order">Frontend Development</Link><br/>
-            <Link to="/order">Backend Development</Link><br/>
-            <Link to="/order">E-commerce Development</Link><br/>
-            <Link to="/order">Web Application Development</Link><br/>
-            <Link to="/order">User Experience (UX) Design</Link><br/>
-            <Link to="/order">Backup and Disaster Recovery</Link><br/>
-            <Link to="/order">Consulting and Support</Link><br/>
-            <Link to="/order">Performance Optimization</Link><br/>
-            <Link to="/order">WordPress Hosting</Link><br/>
-            <Link to="/order">Email Hosting</Link><br/>
-            <Link to="/order">E-commerce Hosting</Link><br/>
-          </p>
-        </div>
-
-        <div className='checkout-second-div'>
-          <img src="/images/photo9.png" alt="Hosting Options"  />
-          <p>
-            <Link to="/order">Shared Hosting</Link><br/>
-            <Link to="/order">Wordpress Hosting</Link><br/>
-            <Link to="/order">eCommerce Hosting</Link><br/>
-            <Link to="/order">Website Development</Link><br/>
-            <Link to="/order">eCommerce Design</Link><br/>
-            <Link to="/order">Email Hosting</Link><br/>
-            <Link to="/order">Virtual Private Servers</Link><br/>
-            <Link to="/order">Cloud Dedicated Servers</Link><br/>
-            <Link to="/order">SSL Certificates</Link><br/>
-            <Link to="/order">Company Registration</Link><br/>
-            <Link to="/order">E-mail Services</Link><br/>
-            <Link to="/order">Website Security</Link><br/>
-            <Link to="/order">Site SSL</Link><br/>
-            <Link to="/order">VPN</Link><br/>
-          </p>
-        </div>
-
-        <div className='checkout-third-div'>
-          <img src="/images/rphoto8.png" alt="Hosting Options"  />
-          <p>
-            <Link to="/order">Flyer & Brochure</Link><br/>
-            <Link to="/order">Marketing Video</Link><br/>
-            <Link to="/order">Social Media Management</Link><br/>
-            <Link to="/order">Social Media Graphics Design</Link><br/>
-            <Link to="/order">Business Plan and Proposal</Link><br/>
-            <Link to="/order">Graphics Design</Link><br/>
-            <Link to="/order">App Development</Link><br/>
-            <Link to="/order">Facebook Monthly Advert</Link><br/>
-            <Link to="/order">Reseller Hosting</Link><br/>
-            <Link to="/order">Flyers, Handbills and Posters</Link><br/>
-            <Link to="/order">Banners</Link><br/>
-            <Link to="/order">Virtual Call Center</Link><br/>
-            <Link to="/order">Brand Identity</Link><br/>
-            <Link to="/order">VPN</Link><br/>
-          </p>
-        </div>
-      </div> */}
+bashgit restore .
+Option 2: Undo changes to a specific file
+bashgit restore src/components/Client.css
+Option 3: See what you've changed first
+bashgit status
+git diff
+Option 4: Undo ALL changes and clean untracked files
+bashgit reset --hard HEAD
+git clean -fd
       {/* Checkout */}
       <Checkout />
 

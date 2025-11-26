@@ -19,7 +19,8 @@ import {
   Rocket,
   Users,
   GitBranch,
-  Server
+  Server,
+  Sparkles
 } from 'lucide-react';
 import './APIIntegration.css';
 import Checkout from '../components/Checkout';
@@ -119,71 +120,49 @@ const APIIntegration = () => {
 
   return (
     <div className="api-integration-page">
-      {/* Hero Section - Split Grid Layout */}
-      <section className="api-integration-hero">
-        <div className="api-integration-hero-grid">
-          <div className="api-integration-hero-content">
-            <div className="api-hero-badge">
-              <Layers size={18} />
-              <span>Enterprise-Grade Integration Solutions</span>
-            </div>
-            <h1 className="api-integration-hero-title">
-              API Integrations That
-              <span className="api-integration-gradient-text"> Power Growth</span>
-            </h1>
-            <p className="api-integration-hero-desc">
-              Build secure, scalable, and reliable API solutions that seamlessly connect your systems,
-              streamline workflows, and enable real-time data exchange across your entire tech ecosystem.
-            </p>
-            <div className="api-hero-actions">
-              <Link to="/contact" className="api-integration-btn-primary">
-                <span>Start Integration</span>
-                <ArrowRight className="btn-arrow" />
-              </Link>
-              <Link to="/portfolio/work" className="api-integration-btn-secondary">
-                <CloudLightning className="btn-icon-left" />
-                <span>View Documentation</span>
-              </Link>
-            </div>
+      {/* Full-Width Hero Section */}
+      <section className="api-full-hero">
+        <div className="api-hero-background">
+          <img
+            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&q=85"
+            alt="Professional executives in business suits collaborating on technology solutions"
+            className="api-bg-image"
+          />
+          <div className="api-hero-overlay"></div>
+        </div>
 
-            {/* Hero Stats Grid */}
-            <div className="api-hero-stats-grid">
-              {heroStats.map((stat, index) => (
-                <div key={index} className="api-hero-stat-card">
-                  <div className="api-stat-icon">{stat.icon}</div>
-                  <div className="api-stat-value">{stat.value}</div>
-                  <div className="api-stat-label">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+        <div className="api-hero-content-center">
+          <div className="api-badge">
+            <Sparkles size={16} />
+            1,000+ APIs INTEGRATED | 500M+ CALLS/MONTH
           </div>
 
-          <div className="api-integration-hero-visual">
-            <div className="api-hero-image-container">
-              <img
-                src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=800&q=80"
-                alt="API integration dashboard with real-time data synchronization"
-                className="api-integration-hero-img"
-              />
-              <div className="api-hero-image-gradient"></div>
-            </div>
-            {/* Floating Metric Cards */}
-            <div className="api-hero-floating-metrics">
-              <div className="api-floating-metric api-floating-metric-1">
-                <Zap size={20} />
-                <div>
-                  <div className="api-metric-value">&lt;50ms</div>
-                  <div className="api-metric-label">Response Time</div>
-                </div>
+          <h1 className="api-main-title">
+            API <span className="api-highlight-text">Integration</span>
+          </h1>
+
+          <p className="api-subtitle">
+            Build secure, scalable, and reliable API solutions that seamlessly connect your systems and enable real-time data exchange
+          </p>
+
+          <div className="api-cta-buttons">
+            <Link to="/contact" className="api-btn-speak-now">Start Integration</Link>
+            <Link to="/portfolio/work" className="api-btn-secondary-outline">View Documentation</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Stats Grid */}
+      <section className="api-hero-stats-section">
+        <div className="api-integration-container">
+          <div className="api-hero-stats-grid">
+            {heroStats.map((stat, index) => (
+              <div key={index} className="api-hero-stat-card">
+                <div className="api-stat-icon">{stat.icon}</div>
+                <div className="api-stat-value">{stat.value}</div>
+                <div className="api-stat-label">{stat.label}</div>
               </div>
-              <div className="api-floating-metric api-floating-metric-2">
-                <Users size={20} />
-                <div>
-                  <div className="api-metric-value">24/7</div>
-                  <div className="api-metric-label">Support Available</div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>

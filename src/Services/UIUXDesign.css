@@ -1,4 +1,7 @@
-/* UI/UX Design Page - Professional Dark Theme */
+/* ============================================
+   UI/UX DESIGN PAGE - SCOPED STYLES
+   All styles scoped to .uiux-design-page
+   ============================================ */
 
 :root {
   /* WayUP Brand Colors - Dark Theme */
@@ -7,220 +10,256 @@
   --uiux-darker-navy: #1e293b;
   --uiux-orange: #ef5a16;
   --uiux-light-orange: #f97316;
+  --uiux-yellow: #fbbf24;
   --uiux-white: #ffffff;
   --uiux-gray-text: #cbd5e0;
   --uiux-light-gray-text: #94a3b8;
   --uiux-dark: #0a0a0a;
 }
 
-/* Base */
-.uiux-page * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-.uiux-page {
+/* Base Container */
+.uiux-design-page {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   color: var(--uiux-gray-text);
   overflow-x: hidden;
   background: var(--uiux-dark-navy);
 }
 
-/* ===== HERO SECTION ===== */
-.uiux-hero {
-  background: linear-gradient(135deg, var(--uiux-navy) 0%, var(--uiux-darker-navy) 100%);
-  min-height: 600px;
+/* ============================================
+   FULL-WIDTH HERO SECTION - CENTERED TEXT
+   ============================================ */
+.uiux-design-page .uiux-full-hero {
+  position: relative;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  min-height: 650px;
   display: flex;
   align-items: center;
-  padding: 80px 40px;
-  position: relative;
+  justify-content: center;
   overflow: hidden;
 }
 
-/* Animated Grid Background */
-.uiux-hero-bg-grid {
+.uiux-design-page .uiux-hero-background {
   position: absolute;
   inset: 0;
-  background-image:
-    linear-gradient(rgba(239, 90, 22, 0.05) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(239, 90, 22, 0.05) 1px, transparent 1px);
-  background-size: 50px 50px;
-  animation: gridMove 20s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes gridMove {
-  0% { transform: translate(0, 0); }
-  100% { transform: translate(50px, 50px); }
-}
-
-.uiux-hero::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 1000px;
-  height: 1000px;
-  background: radial-gradient(circle, rgba(239, 90, 22, 0.15) 0%, transparent 70%);
-  pointer-events: none;
-  animation: pulse 4s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% {
-    transform: translateX(-50%) scale(1);
-    opacity: 0.3;
-  }
-  50% {
-    transform: translateX(-50%) scale(1.1);
-    opacity: 0.5;
-  }
-}
-
-.uiux-hero-content-wrapper {
-  max-width: 1400px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  align-items: center;
-  width: 100%;
-  position: relative;
   z-index: 1;
 }
 
-.uiux-hero-text {
-  /* Text content on left */
+.uiux-design-page .uiux-bg-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
 
-.uiux-hero-badge {
+.uiux-design-page .uiux-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 0, 72, 0.75) 0%,
+    rgba(30, 41, 59, 0.70) 50%,
+    rgba(0, 0, 72, 0.75) 100%
+  );
+  z-index: 2;
+}
+
+.uiux-design-page .uiux-hero-content-center {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+  max-width: 900px;
+  padding: 40px;
+}
+
+/* Badge - Centered */
+.uiux-design-page .uiux-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  background: rgba(239, 90, 22, 0.15);
-  border: 1px solid rgba(239, 90, 22, 0.3);
   padding: 10px 24px;
-  border-radius: 30px;
+  background: rgba(239, 90, 22, 0.15);
+  border: 1px solid rgba(239, 90, 22, 0.5);
+  border-radius: 24px;
   color: var(--uiux-orange);
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 24px;
-  backdrop-filter: blur(10px);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 32px;
+  animation: fadeInDown 0.8s ease;
 }
 
-.uiux-hero-title {
-  font-size: 48px;
+/* Main Title - Centered with Yellow Highlight */
+.uiux-design-page .uiux-main-title {
+  font-size: 64px;
   font-weight: 800;
   color: white;
   margin-bottom: 24px;
   line-height: 1.2;
+  text-align: center;
+  animation: fadeInUp 0.8s ease 0.2s both;
+  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
 }
 
-.uiux-highlight {
-  color: #ef5a16;
+.uiux-design-page .highlight-text {
+  color: var(--uiux-yellow);
+  position: relative;
+  text-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
 }
 
-.uiux-hero-subtitle {
+/* Subtitle - Centered */
+.uiux-design-page .uiux-subtitle {
   font-size: 20px;
-  color: #cbd5e0;
+  color: #ffffff;
   line-height: 1.6;
-  margin-bottom: 32px;
+  margin-bottom: 40px;
+  text-align: center;
+  animation: fadeInUp 0.8s ease 0.4s both;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Hero Buttons */
-.uiux-hero-buttons {
+/* CTA Buttons - Centered */
+.uiux-design-page .uiux-cta-buttons {
   display: flex;
   gap: 16px;
+  justify-content: center;
+  animation: fadeInUp 0.8s ease 0.6s both;
 }
 
-.uiux-btn-primary {
-  background: linear-gradient(135deg, var(--uiux-orange), var(--uiux-light-orange));
-  color: var(--uiux-white);
-  padding: 16px 32px;
-  border: none;
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 700;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(239, 90, 22, 0.3);
-  text-decoration: none;
-}
-
-.uiux-btn-primary:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(239, 90, 22, 0.5);
-}
-
-.uiux-btn-secondary {
+.uiux-design-page .btn-speak-now {
+  padding: 16px 48px;
   background: transparent;
-  color: var(--uiux-white);
-  padding: 16px 32px;
-  border: 2px solid var(--uiux-orange);
-  border-radius: 12px;
-  font-size: 1rem;
-  font-weight: 600;
+  color: white;
+  border: 3px solid var(--uiux-orange);
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
   cursor: pointer;
   transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
   text-decoration: none;
+  display: inline-block;
 }
 
-.uiux-btn-secondary:hover {
-  background: rgba(239, 90, 22, 0.1);
+.uiux-design-page .btn-speak-now:hover {
+  background: rgba(239, 90, 22, 0.2);
+  border-color: var(--uiux-light-orange);
   transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
 }
 
-/* Hero Image Styling */
-.uiux-hero-image-container {
-  position: relative;
-  height: 500px;
-  overflow: hidden;
-  border-radius: 12px;
-  border: 2px solid rgba(239, 90, 22, 0.3);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+.uiux-design-page .btn-secondary-outline {
+  padding: 16px 48px;
+  background: linear-gradient(135deg, var(--uiux-orange), var(--uiux-light-orange));
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
+  text-decoration: none;
+  display: inline-block;
 }
 
-.uiux-hero-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: transform 0.3s ease;
+.uiux-design-page .btn-secondary-outline:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.6);
 }
 
-.uiux-hero-image-container:hover .uiux-hero-image {
-  transform: scale(1.05);
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* Add subtle overlay */
-.uiux-hero-image-container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(0, 0, 72, 0.3) 0%, transparent 100%);
-  z-index: 1;
-  pointer-events: none;
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-/* ===== CAPABILITIES SECTION ===== */
-.uiux-capabilities {
+/* ============================================
+   CONTENT SECTIONS
+   ============================================ */
+.uiux-design-page .uiux-capabilities,
+.uiux-design-page .uiux-solutions,
+.uiux-design-page .uiux-showcase,
+.uiux-design-page .uiux-tools,
+.uiux-design-page .uiux-process,
+.uiux-design-page .uiux-cta {
   padding: 80px 40px;
+}
+
+.uiux-design-page .uiux-capabilities {
   background: var(--uiux-dark-navy);
 }
 
-.uiux-container {
+.uiux-design-page .uiux-solutions {
+  background: linear-gradient(135deg, var(--uiux-navy) 0%, var(--uiux-darker-navy) 100%);
+}
+
+.uiux-design-page .uiux-showcase {
+  background: var(--uiux-dark-navy);
+}
+
+.uiux-design-page .uiux-tools {
+  background: linear-gradient(135deg, var(--uiux-navy) 0%, var(--uiux-darker-navy) 100%);
+}
+
+.uiux-design-page .uiux-process {
+  background: var(--uiux-dark-navy);
+}
+
+.uiux-design-page .uiux-cta {
+  background: linear-gradient(135deg, var(--uiux-navy) 0%, var(--uiux-darker-navy) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.uiux-design-page .uiux-cta::before {
+  content: '';
+  position: absolute;
+  top: -30%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(239, 90, 22, 0.15) 0%, transparent 70%);
+}
+
+.uiux-design-page .uiux-container {
   max-width: 1400px;
   margin: 0 auto;
 }
 
-.uiux-section-header {
+/* Section Headers */
+.uiux-design-page .uiux-section-header {
   text-align: center;
   margin-bottom: 64px;
 }
 
-.uiux-label {
+.uiux-design-page .uiux-label {
   display: inline-block;
   color: var(--uiux-orange);
   font-weight: 700;
@@ -230,7 +269,7 @@
   margin-bottom: 16px;
 }
 
-.uiux-section-title {
+.uiux-design-page .uiux-section-title {
   font-size: 3.2rem;
   font-weight: 800;
   color: var(--uiux-white);
@@ -238,7 +277,7 @@
   letter-spacing: -0.02em;
 }
 
-.uiux-section-subtitle {
+.uiux-design-page .uiux-section-subtitle {
   font-size: 1.2rem;
   color: var(--uiux-gray-text);
   max-width: 700px;
@@ -246,13 +285,16 @@
   line-height: 1.7;
 }
 
-.uiux-capabilities-grid {
+/* ============================================
+   CAPABILITIES SECTION
+   ============================================ */
+.uiux-design-page .uiux-capabilities-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 32px;
 }
 
-.uiux-capability-card {
+.uiux-design-page .uiux-capability-card {
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(239, 90, 22, 0.3);
   padding: 40px;
@@ -262,13 +304,13 @@
   overflow: hidden;
 }
 
-.uiux-capability-card:hover {
+.uiux-design-page .uiux-capability-card:hover {
   border-color: rgba(239, 90, 22, 0.6);
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
 }
 
-.uiux-capability-glow {
+.uiux-design-page .uiux-capability-glow {
   position: absolute;
   top: -50%;
   right: -50%;
@@ -279,11 +321,11 @@
   transition: opacity 0.3s ease;
 }
 
-.uiux-capability-card:hover .uiux-capability-glow {
+.uiux-design-page .uiux-capability-card:hover .uiux-capability-glow {
   opacity: 1;
 }
 
-.uiux-capability-icon {
+.uiux-design-page .uiux-capability-icon {
   width: 64px;
   height: 64px;
   background: linear-gradient(135deg, var(--uiux-orange), var(--uiux-light-orange));
@@ -296,37 +338,37 @@
   transition: all 0.3s ease;
 }
 
-.uiux-capability-card:hover .uiux-capability-icon {
+.uiux-design-page .uiux-capability-card:hover .uiux-capability-icon {
   transform: scale(1.1);
   box-shadow: 0 0 24px rgba(239, 90, 22, 0.6);
 }
 
-.uiux-capability-icon svg {
+.uiux-design-page .uiux-capability-icon svg {
   width: 32px;
   height: 32px;
 }
 
-.uiux-capability-card h3 {
+.uiux-design-page .uiux-capability-card h3 {
   font-size: 1.6rem;
   font-weight: 700;
   color: var(--uiux-white);
   margin-bottom: 12px;
 }
 
-.uiux-capability-card p {
+.uiux-design-page .uiux-capability-card p {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--uiux-gray-text);
   margin-bottom: 20px;
 }
 
-.uiux-tech-badges {
+.uiux-design-page .uiux-tech-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
 
-.uiux-tech-badge {
+.uiux-design-page .uiux-tech-badge {
   font-size: 0.75rem;
   padding: 6px 14px;
   background: rgba(239, 90, 22, 0.2);
@@ -336,13 +378,10 @@
   font-weight: 600;
 }
 
-/* ===== SOLUTIONS SECTION ===== */
-.uiux-solutions {
-  padding: 80px 40px;
-  background: linear-gradient(135deg, var(--uiux-navy) 0%, var(--uiux-darker-navy) 100%);
-}
-
-.uiux-solutions-grid {
+/* ============================================
+   SOLUTIONS SECTION
+   ============================================ */
+.uiux-design-page .uiux-solutions-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
@@ -350,7 +389,7 @@
   margin: 0 auto;
 }
 
-.uiux-solution-card {
+.uiux-design-page .uiux-solution-card {
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(239, 90, 22, 0.3);
   border-radius: 16px;
@@ -358,20 +397,20 @@
   transition: all 0.3s ease;
 }
 
-.uiux-solution-card:hover {
+.uiux-design-page .uiux-solution-card:hover {
   border-color: rgba(239, 90, 22, 0.6);
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
 }
 
-.uiux-solution-header {
+.uiux-design-page .uiux-solution-header {
   display: flex;
   align-items: center;
   gap: 16px;
   margin-bottom: 20px;
 }
 
-.uiux-solution-icon {
+.uiux-design-page .uiux-solution-icon {
   width: 56px;
   height: 56px;
   background: linear-gradient(135deg, var(--uiux-orange), var(--uiux-light-orange));
@@ -383,20 +422,20 @@
   flex-shrink: 0;
 }
 
-.uiux-solution-card h3 {
+.uiux-design-page .uiux-solution-card h3 {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--uiux-white);
 }
 
-.uiux-solution-card p {
+.uiux-design-page .uiux-solution-card p {
   font-size: 1rem;
   line-height: 1.7;
   color: var(--uiux-gray-text);
   margin-bottom: 24px;
 }
 
-.uiux-solution-metrics {
+.uiux-design-page .uiux-solution-metrics {
   display: flex;
   gap: 24px;
   margin-bottom: 24px;
@@ -405,25 +444,25 @@
   border-bottom: 1px solid rgba(239, 90, 22, 0.2);
 }
 
-.uiux-metric {
+.uiux-design-page .uiux-metric {
   flex: 1;
 }
 
-.uiux-metric-value {
+.uiux-design-page .uiux-metric-value {
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--uiux-orange);
   margin-bottom: 4px;
 }
 
-.uiux-metric-label {
+.uiux-design-page .uiux-metric-label {
   font-size: 0.8rem;
   color: var(--uiux-light-gray-text);
   text-transform: capitalize;
   font-weight: 600;
 }
 
-.uiux-solution-link {
+.uiux-design-page .uiux-solution-link {
   background: transparent;
   color: var(--uiux-orange);
   border: none;
@@ -438,23 +477,20 @@
   text-decoration: none;
 }
 
-.uiux-solution-link:hover {
+.uiux-design-page .uiux-solution-link:hover {
   gap: 12px;
 }
 
-/* ===== SHOWCASE SECTION ===== */
-.uiux-showcase {
-  padding: 80px 40px;
-  background: var(--uiux-dark-navy);
-}
-
-.uiux-showcase-grid {
+/* ============================================
+   SHOWCASE SECTION
+   ============================================ */
+.uiux-design-page .uiux-showcase-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 32px;
 }
 
-.uiux-showcase-card {
+.uiux-design-page .uiux-showcase-card {
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(239, 90, 22, 0.3);
   border-radius: 16px;
@@ -462,20 +498,20 @@
   transition: all 0.3s ease;
 }
 
-.uiux-showcase-card:hover {
+.uiux-design-page .uiux-showcase-card:hover {
   border-color: rgba(239, 90, 22, 0.6);
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
 }
 
-.uiux-showcase-image {
+.uiux-design-page .uiux-showcase-image {
   position: relative;
   height: 240px;
   overflow: hidden;
   background: var(--uiux-darker-navy);
 }
 
-.uiux-showcase-image img {
+.uiux-design-page .uiux-showcase-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -483,12 +519,12 @@
   opacity: 0.8;
 }
 
-.uiux-showcase-card:hover .uiux-showcase-image img {
+.uiux-design-page .uiux-showcase-card:hover .uiux-showcase-image img {
   transform: scale(1.05);
   opacity: 1;
 }
 
-.uiux-showcase-overlay {
+.uiux-design-page .uiux-showcase-overlay {
   position: absolute;
   top: 20px;
   right: 20px;
@@ -499,15 +535,15 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-.uiux-showcase-icon {
+.uiux-design-page .uiux-showcase-icon {
   font-size: 2rem;
 }
 
-.uiux-showcase-content {
+.uiux-design-page .uiux-showcase-content {
   padding: 32px;
 }
 
-.uiux-showcase-category {
+.uiux-design-page .uiux-showcase-category {
   display: inline-block;
   background: rgba(239, 90, 22, 0.2);
   border: 1px solid rgba(239, 90, 22, 0.4);
@@ -521,21 +557,21 @@
   margin-bottom: 12px;
 }
 
-.uiux-showcase-content h3 {
+.uiux-design-page .uiux-showcase-content h3 {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--uiux-white);
   margin-bottom: 12px;
 }
 
-.uiux-showcase-content p {
+.uiux-design-page .uiux-showcase-content p {
   font-size: 1rem;
   color: var(--uiux-gray-text);
   line-height: 1.7;
   margin-bottom: 16px;
 }
 
-.uiux-showcase-result {
+.uiux-design-page .uiux-showcase-result {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -544,23 +580,20 @@
   font-weight: 600;
 }
 
-.uiux-showcase-result svg {
+.uiux-design-page .uiux-showcase-result svg {
   flex-shrink: 0;
 }
 
-/* ===== TOOLS SECTION ===== */
-.uiux-tools {
-  padding: 80px 40px;
-  background: linear-gradient(135deg, var(--uiux-navy) 0%, var(--uiux-darker-navy) 100%);
-}
-
-.uiux-tools-grid {
+/* ============================================
+   TOOLS SECTION
+   ============================================ */
+.uiux-design-page .uiux-tools-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 20px;
 }
 
-.uiux-tool-card {
+.uiux-design-page .uiux-tool-card {
   background: rgba(15, 23, 42, 0.6);
   border: 1px solid rgba(239, 90, 22, 0.3);
   border-radius: 12px;
@@ -569,49 +602,46 @@
   transition: all 0.3s ease;
 }
 
-.uiux-tool-card:hover {
+.uiux-design-page .uiux-tool-card:hover {
   border-color: rgba(239, 90, 22, 0.6);
   transform: translateY(-4px);
   box-shadow: 0 8px 20px rgba(239, 90, 22, 0.3);
 }
 
-.uiux-tool-name {
+.uiux-design-page .uiux-tool-name {
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--uiux-white);
   margin-bottom: 6px;
 }
 
-.uiux-tool-category {
+.uiux-design-page .uiux-tool-category {
   font-size: 0.875rem;
   color: var(--uiux-light-gray-text);
   font-weight: 500;
 }
 
-/* ===== PROCESS SECTION ===== */
-.uiux-process {
-  padding: 80px 40px;
-  background: var(--uiux-dark-navy);
-}
-
-.uiux-process-timeline {
+/* ============================================
+   PROCESS SECTION
+   ============================================ */
+.uiux-design-page .uiux-process-timeline {
   max-width: 900px;
   margin: 0 auto;
   position: relative;
 }
 
-.uiux-process-step {
+.uiux-design-page .uiux-process-step {
   display: flex;
   gap: 32px;
   margin-bottom: 48px;
   position: relative;
 }
 
-.uiux-process-step:last-child {
+.uiux-design-page .uiux-process-step:last-child {
   margin-bottom: 0;
 }
 
-.uiux-process-line {
+.uiux-design-page .uiux-process-line {
   position: absolute;
   left: 36px;
   top: 72px;
@@ -620,11 +650,11 @@
   background: rgba(239, 90, 22, 0.3);
 }
 
-.uiux-process-step:last-child .uiux-process-line {
+.uiux-design-page .uiux-process-step:last-child .uiux-process-line {
   display: none;
 }
 
-.uiux-process-number {
+.uiux-design-page .uiux-process-number {
   width: 72px;
   height: 72px;
   background: linear-gradient(135deg, var(--uiux-orange), var(--uiux-light-orange));
@@ -641,38 +671,38 @@
   z-index: 1;
 }
 
-.uiux-process-step:hover .uiux-process-number {
+.uiux-design-page .uiux-process-step:hover .uiux-process-number {
   transform: scale(1.1) rotate(5deg);
   box-shadow: 0 12px 28px rgba(239, 90, 22, 0.6);
 }
 
-.uiux-process-content {
+.uiux-design-page .uiux-process-content {
   flex: 1;
   padding-top: 8px;
 }
 
-.uiux-process-content h3 {
+.uiux-design-page .uiux-process-content h3 {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--uiux-white);
   margin-bottom: 12px;
 }
 
-.uiux-process-content p {
+.uiux-design-page .uiux-process-content p {
   font-size: 1rem;
   color: var(--uiux-gray-text);
   line-height: 1.7;
   margin-bottom: 16px;
 }
 
-.uiux-deliverables {
+.uiux-design-page .uiux-deliverables {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.uiux-deliverables li {
+.uiux-design-page .uiux-deliverables li {
   display: flex;
   align-items: center;
   gap: 10px;
@@ -681,44 +711,29 @@
   font-weight: 500;
 }
 
-.uiux-deliverables svg {
+.uiux-design-page .uiux-deliverables svg {
   color: var(--uiux-orange);
   flex-shrink: 0;
 }
 
-/* ===== CTA SECTION ===== */
-.uiux-cta {
-  padding: 80px 40px;
-  background: linear-gradient(135deg, var(--uiux-navy) 0%, var(--uiux-darker-navy) 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.uiux-cta::before {
-  content: '';
-  position: absolute;
-  top: -30%;
-  right: -10%;
-  width: 600px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(239, 90, 22, 0.15) 0%, transparent 70%);
-}
-
-.uiux-cta-container {
+/* ============================================
+   CTA SECTION
+   ============================================ */
+.uiux-design-page .uiux-cta-container {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
   z-index: 2;
 }
 
-.uiux-cta-content {
+.uiux-design-page .uiux-cta-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
   align-items: center;
 }
 
-.uiux-cta-badge {
+.uiux-design-page .uiux-cta-badge {
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -732,7 +747,7 @@
   margin-bottom: 20px;
 }
 
-.uiux-cta-left h2 {
+.uiux-design-page .uiux-cta-left h2 {
   font-size: 2.5rem;
   font-weight: 900;
   color: var(--uiux-white);
@@ -740,21 +755,21 @@
   line-height: 1.2;
 }
 
-.uiux-cta-left p {
+.uiux-design-page .uiux-cta-left p {
   font-size: 1.125rem;
   color: var(--uiux-gray-text);
   line-height: 1.7;
   margin-bottom: 24px;
 }
 
-.uiux-cta-benefits {
+.uiux-design-page .uiux-cta-benefits {
   list-style: none;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.uiux-cta-benefits li {
+.uiux-design-page .uiux-cta-benefits li {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -762,12 +777,12 @@
   color: var(--uiux-white);
 }
 
-.uiux-cta-benefits svg {
+.uiux-design-page .uiux-cta-benefits svg {
   color: var(--uiux-orange);
   flex-shrink: 0;
 }
 
-.uiux-cta-btn {
+.uiux-design-page .uiux-cta-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -787,18 +802,18 @@
   text-decoration: none;
 }
 
-.uiux-cta-btn:hover {
+.uiux-design-page .uiux-cta-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 12px 32px rgba(239, 90, 22, 0.6);
 }
 
-.uiux-cta-trust {
+.uiux-design-page .uiux-cta-trust {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.uiux-trust-item {
+.uiux-design-page .uiux-trust-item {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -811,137 +826,142 @@
   backdrop-filter: blur(10px);
 }
 
-.uiux-trust-item svg {
+.uiux-design-page .uiux-trust-item svg {
   color: var(--uiux-orange);
   flex-shrink: 0;
 }
 
-/* ===== RESPONSIVE DESIGN ===== */
-@media (max-width: 1200px) {
-  .uiux-hero-title {
-    font-size: 40px;
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+/* Tablet - 1024px */
+@media (max-width: 1024px) {
+  .uiux-design-page .uiux-full-hero {
+    min-height: 550px;
   }
 
-  .uiux-hero-content-wrapper {
-    gap: 40px;
+  .uiux-design-page .uiux-main-title {
+    font-size: 48px;
   }
 
-  .uiux-hero-image-container {
-    height: 400px;
+  .uiux-design-page .uiux-subtitle {
+    font-size: 18px;
   }
 
-  .uiux-capabilities-grid {
+  .uiux-design-page .uiux-capabilities-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .uiux-tools-grid {
+  .uiux-design-page .uiux-tools-grid {
     grid-template-columns: repeat(3, 1fr);
   }
 }
 
+/* Mobile - 768px */
 @media (max-width: 768px) {
-  .uiux-hero {
-    padding: 60px 20px;
+  .uiux-design-page .uiux-full-hero {
+    min-height: 500px;
   }
 
-  .uiux-hero-content-wrapper {
-    grid-template-columns: 1fr;
-    gap: 32px;
+  .uiux-design-page .uiux-hero-content-center {
+    padding: 40px 20px;
   }
 
-  .uiux-hero-title {
+  .uiux-design-page .uiux-main-title {
     font-size: 36px;
   }
 
-  .uiux-hero-subtitle {
-    font-size: 18px;
+  .uiux-design-page .uiux-subtitle {
+    font-size: 16px;
+    margin-bottom: 32px;
   }
 
-  .uiux-hero-image-container {
-    height: 300px;
-  }
-
-  .uiux-hero-buttons {
+  .uiux-design-page .uiux-cta-buttons {
     flex-direction: column;
+    align-items: center;
   }
 
-  .uiux-btn-primary,
-  .uiux-btn-secondary {
+  .uiux-design-page .btn-speak-now,
+  .uiux-design-page .btn-secondary-outline {
     width: 100%;
-    justify-content: center;
+    max-width: 300px;
+    text-align: center;
   }
 
-  .uiux-capabilities-grid,
-  .uiux-solutions-grid,
-  .uiux-showcase-grid {
+  .uiux-design-page .uiux-capabilities,
+  .uiux-design-page .uiux-solutions,
+  .uiux-design-page .uiux-showcase,
+  .uiux-design-page .uiux-tools,
+  .uiux-design-page .uiux-process,
+  .uiux-design-page .uiux-cta {
+    padding: 60px 20px;
+  }
+
+  .uiux-design-page .uiux-section-title {
+    font-size: 2rem;
+  }
+
+  .uiux-design-page .uiux-capabilities-grid,
+  .uiux-design-page .uiux-solutions-grid,
+  .uiux-design-page .uiux-showcase-grid {
     grid-template-columns: 1fr;
     gap: 24px;
   }
 
-  .uiux-tools-grid {
+  .uiux-design-page .uiux-tools-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .uiux-section-title {
-    font-size: 2rem;
-  }
-
-  .uiux-cta-content {
+  .uiux-design-page .uiux-cta-content {
     grid-template-columns: 1fr;
     gap: 40px;
   }
 
-  .uiux-cta-left h2 {
+  .uiux-design-page .uiux-cta-left h2 {
     font-size: 2rem;
   }
 
-  .uiux-process-step {
+  .uiux-design-page .uiux-process-step {
     flex-direction: column;
     gap: 20px;
   }
 
-  .uiux-process-line {
+  .uiux-design-page .uiux-process-line {
     left: 36px;
     top: 90px;
   }
-
-  /* All sections */
-  .uiux-capabilities,
-  .uiux-solutions,
-  .uiux-showcase,
-  .uiux-tools,
-  .uiux-process,
-  .uiux-cta {
-    padding: 60px 20px;
-  }
 }
 
+/* Small Mobile - 480px */
 @media (max-width: 480px) {
-  .uiux-hero-title {
+  .uiux-design-page .uiux-main-title {
     font-size: 28px;
   }
 
-  .uiux-hero-subtitle {
-    font-size: 16px;
+  .uiux-design-page .uiux-subtitle {
+    font-size: 15px;
   }
 
-  .uiux-hero-image-container {
-    height: 250px;
+  .uiux-design-page .btn-speak-now,
+  .uiux-design-page .btn-secondary-outline {
+    padding: 14px 32px;
+    font-size: 14px;
   }
 
-  .uiux-section-title {
+  .uiux-design-page .uiux-section-title {
     font-size: 1.75rem;
   }
 
-  .uiux-tools-grid {
+  .uiux-design-page .uiux-tools-grid {
     grid-template-columns: 1fr;
   }
 
-  .uiux-cta-left h2 {
+  .uiux-design-page .uiux-cta-left h2 {
     font-size: 1.75rem;
   }
 
-  .uiux-showcase-image {
+  .uiux-design-page .uiux-showcase-image {
     height: 180px;
   }
 }

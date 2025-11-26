@@ -16,7 +16,8 @@ import {
   Package,
   Cpu,
   ShieldCheck,
-  LineChart
+  LineChart,
+  Sparkles
 } from 'lucide-react';
 import './CustomProductDevelopment.css';
 import Checkout from '../components/Checkout';
@@ -25,13 +26,6 @@ const CustomProductDevelopment = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const heroStats = [
-    { value: '200+', label: 'Products Launched', icon: <Rocket /> },
-    { value: '95%', label: 'Success Rate', icon: <Target /> },
-    { value: '$50M+', label: 'Revenue Generated', icon: <TrendingUp /> },
-    { value: '50+', label: 'Industries Served', icon: <Award /> }
-  ];
 
   const solutions = [
     {
@@ -114,73 +108,58 @@ const CustomProductDevelopment = () => {
     'GraphQL', 'TensorFlow', 'Stripe', 'Twilio'
   ];
 
+  const heroStats = [
+    { value: '200+', label: 'Products Launched', icon: <Rocket /> },
+    { value: '95%', label: 'Success Rate', icon: <Target /> },
+    { value: '$50M+', label: 'Revenue Generated', icon: <TrendingUp /> },
+    { value: '50+', label: 'Industries Served', icon: <Award /> }
+  ];
+
   return (
     <div className="custom-product-page">
-      {/* Hero Section - Split Grid Layout */}
-      <section className="custom-product-hero">
-        <div className="custom-product-hero-grid">
-          <div className="custom-product-hero-content">
-            <div className="cp-hero-badge">
-              <Package size={18} />
-              <span>End-to-End Product Development</span>
-            </div>
-            <h1 className="custom-product-hero-title">
-              Build Products That
-              <span className="custom-product-gradient-text"> Scale & Succeed</span>
-            </h1>
-            <p className="custom-product-hero-desc">
-              From MVP to market leader—we design, develop, and launch custom products that solve real problems,
-              delight users, and drive business growth. Full ownership from concept to continuous improvement.
-            </p>
-            <div className="cp-hero-actions">
-              <Link to="/contact" className="custom-product-btn-primary">
-                <span>Start Your Project</span>
-                <ArrowRight className="btn-arrow" />
-              </Link>
-              <Link to="/portfolio/work" className="custom-product-btn-secondary">
-                <LineChart className="btn-icon-left" />
-                <span>See Case Studies</span>
-              </Link>
-            </div>
+      {/* Full-Width Hero Section */}
+      <section className="cp-full-hero">
+        <div className="cp-hero-background">
+          <img
+            src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1920&q=85"
+            alt="Custom product development workspace with innovative solutions"
+            className="cp-bg-image"
+          />
+          <div className="cp-hero-overlay"></div>
+        </div>
 
-            {/* Hero Stats Grid */}
-            <div className="cp-hero-stats-grid">
-              {heroStats.map((stat, index) => (
-                <div key={index} className="cp-hero-stat-card">
-                  <div className="cp-stat-icon">{stat.icon}</div>
-                  <div className="cp-stat-value">{stat.value}</div>
-                  <div className="cp-stat-label">{stat.label}</div>
-                </div>
-              ))}
-            </div>
+        <div className="cp-hero-content-center">
+          <div className="cp-badge">
+            <Sparkles size={16} />
+            200+ PRODUCTS LAUNCHED | $50M+ REVENUE GENERATED
           </div>
 
-          <div className="custom-product-hero-visual">
-            <div className="cp-hero-image-container">
-              <img
-                src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
-                alt="Custom product development workspace with innovative solutions"
-                className="custom-product-hero-img"
-              />
-              <div className="cp-hero-image-gradient"></div>
-            </div>
-            {/* Floating Metric Cards */}
-            <div className="cp-hero-floating-metrics">
-              <div className="cp-floating-metric cp-floating-metric-1">
-                <Zap size={20} />
-                <div>
-                  <div className="cp-metric-value">6x</div>
-                  <div className="cp-metric-label">Faster to Market</div>
-                </div>
+          <h1 className="cp-main-title">
+            Custom Product <span className="cp-highlight-text">Development</span>
+          </h1>
+
+          <p className="cp-subtitle">
+            From MVP to market leader—we design, develop, and launch custom products that solve real problems and drive business growth
+          </p>
+
+          <div className="cp-cta-buttons">
+            <Link to="/contact" className="cp-btn-speak-now">Start Your Project</Link>
+            <Link to="/portfolio/work" className="cp-btn-secondary-outline">View Portfolio</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Hero Stats Grid */}
+      <section className="cp-hero-stats-section">
+        <div className="custom-product-container">
+          <div className="cp-hero-stats-grid">
+            {heroStats.map((stat, index) => (
+              <div key={index} className="cp-hero-stat-card">
+                <div className="cp-stat-icon">{stat.icon}</div>
+                <div className="cp-stat-value">{stat.value}</div>
+                <div className="cp-stat-label">{stat.label}</div>
               </div>
-              <div className="cp-floating-metric cp-floating-metric-2">
-                <Users size={20} />
-                <div>
-                  <div className="cp-metric-value">100K+</div>
-                  <div className="cp-metric-label">Active Users</div>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
