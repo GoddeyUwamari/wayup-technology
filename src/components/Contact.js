@@ -37,6 +37,20 @@ const Contact = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
+
+  // Prevent body scroll when success modal is open
+  useEffect(() => {
+    if (formSubmitted) {
+      document.body.classList.add('modal-open');
+    } else {
+      document.body.classList.remove('modal-open');
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.classList.remove('modal-open');
+    };
+  }, [formSubmitted]);
   
   // Test connection when component mounts
   useEffect(() => {
@@ -274,22 +288,23 @@ const Contact = () => {
             <p className="form-intro">Fill out our form and a software expert will contact you within 24hrs.</p>
             
             {formSubmitted ? (
-              // Enhanced success message
+              // Full-screen success modal overlay
               <div className="success-message">
-                <div className="checkmark"></div>
                 <div className="success-content">
+                  <div className="checkmark"></div>
                   <h3>Thank you for contacting us!</h3>
                   <p>We've received your inquiry and will get back to you within 24 hours.</p>
-                  <p className="success-details">
-                    Your submission has been recorded with session ID: <br />
-                    <code style={{ fontSize: '12px', color: '#666' }}>
+                  <div className="success-details">
+                    <p>Your submission has been recorded with session ID:</p>
+                    <code>
                       {sessionId}
                     </code>
-                  </p>
-                  <button 
+                  </div>
+                  <button
                     className="send-another-button"
                     onClick={handleSendAnother}
                     type="button"
+                    aria-label="Send another inquiry"
                   >
                     Send Another Inquiry
                   </button>
