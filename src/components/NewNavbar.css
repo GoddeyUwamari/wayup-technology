@@ -897,12 +897,55 @@ section:first-child {
   .top-header {
     height: auto;
     min-height: var(--top-header-height);
-    padding: var(--spacing-xs) var(--spacing-sm);
+    padding: 8px 16px !important;
   }
 
-  .phone-number,
+  .heading-container {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    flex-wrap: nowrap !important;
+    gap: 8px !important;
+    width: 100%;
+  }
+
+  /* Left side: Flag + Phone together */
+  .usa-image {
+    width: 20px !important;
+    height: 20px !important;
+    padding-right: 0 !important;
+    margin-bottom: 0 !important;
+    top: 0 !important;
+    order: 0;
+    flex-shrink: 0;
+  }
+
+  .phone-number {
+    font-size: 13px !important;
+    margin-right: 0 !important;
+    padding-top: 0 !important;
+    height: auto !important;
+    order: 1;
+    flex-shrink: 0;
+    white-space: nowrap;
+  }
+
+  /* Right side: Keep "How can we help" visible */
   .help {
-    font-size: 0.8em;
+    display: flex !important;
+    font-size: 12px !important;
+    margin-left: auto !important;
+    padding-top: 0 !important;
+    top: 0 !important;
+    order: 3;
+    flex-shrink: 0;
+    white-space: nowrap;
+    gap: 6px !important;
+  }
+
+  .shopping-cart-icon {
+    font-size: 16px !important;
   }
 
   .logo-text {
@@ -918,58 +961,72 @@ section:first-child {
     font-size: 14px;
     margin-top: var(--spacing-sm);
   }
-
-  /* Hide "How can we help" text on small mobile */
-  .help {
-    display: none;
-  }
 }
 
 /* Small Mobile (< 576px) */
 @media (max-width: 575px) {
-  .top-info-right {
-    display: none;
-  }
-
-  .phone-number {
-    font-size: 0.75em;
-  }
-
   .top-header {
-    min-height: 35px !important;
+    min-height: 36px !important;
+    padding: 6px 12px !important;
   }
 
-  .nvbr {
-    height: 75px !important;
-  }
-
-  body {
-    padding-top: 110px !important;
-  }
-
-  .phone-number,
-  .help {
-    font-size: 0.75em;
+  .heading-container {
+    gap: 6px !important;
   }
 
   .usa-image {
-    width: 25px;
-    height: 20px;
+    width: 18px !important;
+    height: 18px !important;
+  }
+
+  .phone-number {
+    font-size: 12px !important;
+  }
+
+  .help {
+    font-size: 11px !important;
+    gap: 5px !important;
+  }
+
+  .shopping-cart-icon {
+    font-size: 14px !important;
+  }
+
+  .nvbr {
+    height: 70px !important;
+  }
+
+  body {
+    padding-top: 106px !important;
   }
 }
 
 /* Extra Small Mobile (< 400px) */
 @media (max-width: 399px) {
-  .phone-number,
-  .help {
-    font-size: 0.7em;
-    margin-right:0px ;
+  .top-header {
+    padding: 6px 10px !important;
+  }
+
+  .heading-container {
+    gap: 4px !important;
   }
 
   .usa-image {
-    width: 22px;
-    height: 18px;
-    margin-left: -4px;
+    width: 16px !important;
+    height: 16px !important;
+  }
+
+  .phone-number {
+    font-size: 11px !important;
+  }
+
+  .help {
+    font-size: 10px !important;
+    gap: 4px !important;
+  }
+
+  .shopping-cart-icon {
+    font-size: 12px !important;
   }
 
   .logo-text-content {
