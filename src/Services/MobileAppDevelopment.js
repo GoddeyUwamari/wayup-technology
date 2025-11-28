@@ -182,11 +182,11 @@ const MobileAppDevelopment = () => {
       {/* Full-Width Hero Section */}
       <section className="mobile-full-hero">
         <div className="mobile-hero-background">
-          <img
-            src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=1920&q=85"
-            alt="Professional team working on mobile app development"
-            className="mobile-bg-image"
-          />
+         <img
+  src="https://images.pexels.com/photos/30688592/pexels-photo-30688592.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=1"
+  alt="Professional team working on mobile app development"
+  className="mobile-bg-image"
+/>
           <div className="mobile-hero-overlay"></div>
         </div>
 
