@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './NewNavbar.css';
 import { FaEnvelope, FaShoppingCart } from 'react-icons/fa';
+import { ChevronDown } from 'lucide-react';
 
 const NewNavbar = () => {
   const [showBurger, setShowBurger] = useState(false);
@@ -123,10 +124,10 @@ const NewNavbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className={`nvbr-link dropdown-trigger ${isActive('/services') ? 'active' : ''}`}
+              className={`nvbr-link dropdown-trigger ${isActive('/services') ? 'active' : ''} ${activeDropdown === 'services' ? 'open' : ''}`}
               onClick={(e) => toggleDropdown('services', e)}
             >
-              SERVICES <span className="dropdown-arrow">▼</span>
+              SERVICES <ChevronDown className="chevron-icon" size={18} />
             </div>
             {activeDropdown === 'services' && (
               <ul className="dropdown-menu">
@@ -150,10 +151,10 @@ const NewNavbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className={`nvbr-link dropdown-trigger ${isActive('/industries') ? 'active' : ''}`}
+              className={`nvbr-link dropdown-trigger ${isActive('/industries') ? 'active' : ''} ${activeDropdown === 'industries' ? 'open' : ''}`}
               onClick={(e) => toggleDropdown('industries', e)}
             >
-              INDUSTRIES <span className="dropdown-arrow">▼</span>
+              INDUSTRIES <ChevronDown className="chevron-icon" size={18} />
             </div>
             {activeDropdown === 'industries' && (
               <ul className="dropdown-menu">
@@ -177,10 +178,10 @@ const NewNavbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className={`nvbr-link dropdown-trigger ${isActive('/solution') ? 'active' : ''}`}
+              className={`nvbr-link dropdown-trigger ${isActive('/solution') ? 'active' : ''} ${activeDropdown === 'solutions' ? 'open' : ''}`}
               onClick={(e) => toggleDropdown('solutions', e)}
             >
-              SOLUTIONS <span className="dropdown-arrow">▼</span>
+              SOLUTIONS <ChevronDown className="chevron-icon" size={18} />
             </div>
             {activeDropdown === 'solutions' && (
               <ul className="dropdown-menu">
@@ -204,10 +205,10 @@ const NewNavbar = () => {
             onMouseLeave={handleMouseLeave}
           >
             <div
-              className={`nvbr-link dropdown-trigger ${isActive('/portfolio') ? 'active' : ''}`}
+              className={`nvbr-link dropdown-trigger ${isActive('/portfolio') ? 'active' : ''} ${activeDropdown === 'portfolio' ? 'open' : ''}`}
               onClick={(e) => toggleDropdown('portfolio', e)}
             >
-              PORTFOLIO <span className="dropdown-arrow">▼</span>
+              PORTFOLIO <ChevronDown className="chevron-icon" size={18} />
             </div>
             {activeDropdown === 'portfolio' && (
               <ul className="dropdown-menu">

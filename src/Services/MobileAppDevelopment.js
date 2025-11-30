@@ -32,6 +32,13 @@ const MobileAppDevelopment = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const heroStats = [
+    { value: '500+', label: 'Apps Delivered', icon: <Rocket /> },
+    { value: '10M+', label: 'Active Users', icon: <Users /> },
+    { value: '4.8★', label: 'Average Rating', icon: <Star /> },
+    { value: '15+', label: 'Years Experience', icon: <Award /> }
+  ];
+
   const capabilities = [
     {
       icon: <Apple />,
@@ -179,34 +186,53 @@ const MobileAppDevelopment = () => {
 
   return (
     <div className="mobile-app-page">
-      {/* Full-Width Hero Section */}
-      <section className="mobile-full-hero">
-        <div className="mobile-hero-background">
-         <img
-  src="https://images.pexels.com/photos/30688592/pexels-photo-30688592.jpeg?auto=compress&cs=tinysrgb&w=1920&dpr=1"
-  alt="Professional team working on mobile app development"
-  className="mobile-bg-image"
-/>
-          <div className="mobile-hero-overlay"></div>
-        </div>
+      {/* Hero Section - Split Grid Layout */}
+      <section className="mobile-hero">
+        <div className="mobile-hero-grid">
+          <div className="mobile-hero-content">
+            <div className="mobile-hero-badge">
+              <Smartphone size={18} />
+              <span>Expert Mobile App Development Solutions</span>
+            </div>
+            <h1 className="mobile-hero-title">
+              Build Apps That
+              <span className="mobile-gradient-text"> Users Love</span>
+            </h1>
+            <p className="mobile-hero-desc">
+              Build powerful iOS and Android apps that engage users and drive business growth.
+              We create exceptional mobile experiences with cutting-edge technology and user-centric design.
+            </p>
+            <div className="mobile-hero-actions">
+              <Link to="/contact" state={{ scrollToTop: true }} className="mobile-btn-primary">
+                <span>Get Free Consultation</span>
+                <ArrowRight className="btn-arrow" />
+              </Link>
+              <Link to="/portfolio/work" className="mobile-btn-secondary">
+                <Smartphone className="btn-icon-left" />
+                <span>View Portfolio</span>
+              </Link>
+            </div>
 
-        <div className="mobile-hero-content-center">
-          <div className="mobile-badge">
-            <Sparkles size={16} />
-            500+ APPS DELIVERED | 10M+ ACTIVE USERS
+            {/* Hero Stats Grid */}
+            <div className="mobile-hero-stats-grid">
+              {heroStats.map((stat, index) => (
+                <div key={index} className="mobile-hero-stat-card">
+                  <div className="mobile-stat-icon">{stat.icon}</div>
+                  <div className="mobile-stat-value">{stat.value}</div>
+                  <div className="mobile-stat-label">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <h1 className="mobile-main-title">
-            Mobile App <span className="mobile-highlight-text">Development</span>
-          </h1>
-
-          <p className="mobile-subtitle">
-            Build powerful iOS and Android apps that engage users and drive business growth
-          </p>
-
-          <div className="mobile-cta-buttons">
-            <Link to="/contact" className="mobile-btn-speak-now">Start Your Project</Link>
-            <Link to="/portfolio/work" className="mobile-btn-secondary-outline">View Portfolio</Link>
+          <div className="mobile-hero-visual">
+            <div className="mobile-hero-image-wrapper">
+              <img
+                src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Mobile App Development Team Working Together"
+                className="mobile-hero-image"
+              />
+            </div>
           </div>
         </div>
       </section>

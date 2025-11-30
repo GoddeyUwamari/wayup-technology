@@ -34,6 +34,13 @@ const UIUXDesign = () => {
     window.scrollTo(0, 0);
   }, []);
 
+  const heroStats = [
+    { value: '500+', label: 'Designs Delivered', icon: <Award /> },
+    { value: '4.9★', label: 'Average Rating', icon: <Heart /> },
+    { value: '95%', label: 'Client Satisfaction', icon: <Target /> },
+    { value: '12+', label: 'Years Experience', icon: <TrendingUp /> }
+  ];
+
   const capabilities = [
     {
       icon: <Palette />,
@@ -185,34 +192,53 @@ const UIUXDesign = () => {
 
   return (
     <div className="uiux-design-page">
-      {/* Full-Width Hero Section */}
-      <section className="uiux-full-hero">
-        <div className="uiux-hero-background">
-          <img
-            src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&q=85"
-            alt="Professional UX designers collaborating on user interface design"
-            className="uiux-bg-image"
-          />
-          <div className="uiux-hero-overlay"></div>
-        </div>
+      {/* Hero Section - Split Grid Layout */}
+      <section className="uiux-hero">
+        <div className="uiux-hero-grid">
+          <div className="uiux-hero-content">
+            <div className="uiux-hero-badge">
+              <Palette size={18} />
+              <span>Award-Winning UI/UX Design Excellence</span>
+            </div>
+            <h1 className="uiux-hero-title">
+              Design Experiences That
+              <span className="uiux-gradient-text"> Users Love</span>
+            </h1>
+            <p className="uiux-hero-desc">
+              Transform your digital presence with exceptional UI/UX design that delights users and drives business results.
+              We create intuitive, beautiful interfaces that engage audiences and exceed expectations.
+            </p>
+            <div className="uiux-hero-actions">
+              <Link to="/contact" state={{ scrollToTop: true }} className="uiux-btn-primary">
+                <span>Get Free Consultation</span>
+                <ArrowRight className="btn-arrow" />
+              </Link>
+              <Link to="/portfolio/work" className="uiux-btn-secondary">
+                <Eye className="btn-icon-left" />
+                <span>View Portfolio</span>
+              </Link>
+            </div>
 
-        <div className="uiux-hero-content-center">
-          <div className="uiux-badge">
-            <Award size={16} />
-            AWARD-WINNING DESIGN EXCELLENCE
+            {/* Hero Stats Grid */}
+            <div className="uiux-hero-stats-grid">
+              {heroStats.map((stat, index) => (
+                <div key={index} className="uiux-hero-stat-card">
+                  <div className="uiux-stat-icon">{stat.icon}</div>
+                  <div className="uiux-stat-value">{stat.value}</div>
+                  <div className="uiux-stat-label">{stat.label}</div>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <h1 className="uiux-main-title">
-            UI/UX <span className="highlight-text">Design</span>
-          </h1>
-
-          <p className="uiux-subtitle">
-            Create exceptional user experiences that delight users and drive business results
-          </p>
-
-          <div className="uiux-cta-buttons">
-            <Link to="/contact" className="btn-speak-now">Start Your Project</Link>
-            <Link to="/portfolio/work" className="btn-secondary-outline">View Portfolio</Link>
+          <div className="uiux-hero-visual">
+            <div className="uiux-hero-image-wrapper">
+              <img
+                src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="Professional Executive Team Meeting"
+                className="uiux-hero-image"
+              />
+            </div>
           </div>
         </div>
       </section>

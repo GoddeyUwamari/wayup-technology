@@ -26,153 +26,203 @@
 }
 
 /* ============================================
-   FULL-WIDTH HERO SECTION - CENTERED TEXT
+   HERO SECTION - SPLIT GRID LAYOUT
    ============================================ */
-.uiux-design-page .uiux-full-hero {
+.uiux-design-page .uiux-hero {
   position: relative;
-  width: 100vw;
-  margin-left: calc(-50vw + 50%);
-  min-height: 650px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: linear-gradient(135deg, var(--uiux-navy) 0%, var(--uiux-darker-navy) 100%);
+  padding: 80px 0 60px;
   overflow: hidden;
 }
 
-.uiux-design-page .uiux-hero-background {
+.uiux-design-page .uiux-hero::before {
+  content: '';
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(239, 90, 22, 0.1) 0%, transparent 50%);
+  pointer-events: none;
+}
+
+.uiux-design-page .uiux-hero-grid {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+  position: relative;
   z-index: 1;
 }
 
-.uiux-design-page .uiux-bg-image {
+.uiux-design-page .uiux-hero-content {
+  color: var(--uiux-white);
+}
+
+.uiux-design-page .uiux-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 20px;
+  background: rgba(239, 90, 22, 0.15);
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  border-radius: 50px;
+  color: var(--uiux-orange);
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 24px;
+  backdrop-filter: blur(10px);
+}
+
+.uiux-design-page .uiux-hero-title {
+  font-size: 54px;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+  color: var(--uiux-white);
+}
+
+.uiux-design-page .uiux-gradient-text {
+  display: block;
+  background: linear-gradient(135deg, var(--uiux-orange) 0%, var(--uiux-light-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.uiux-design-page .uiux-hero-desc {
+  font-size: 18px;
+  color: var(--uiux-gray-text);
+  line-height: 1.7;
+  margin-bottom: 32px;
+  max-width: 540px;
+}
+
+.uiux-design-page .uiux-hero-actions {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 48px;
+  flex-wrap: wrap;
+}
+
+.uiux-design-page .uiux-btn-primary,
+.uiux-design-page .uiux-btn-secondary {
+  padding: 15px 32px;
+  font-size: 16px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  text-decoration: none;
+}
+
+.uiux-design-page .uiux-btn-primary {
+  background: linear-gradient(135deg, var(--uiux-orange), var(--uiux-light-orange));
+  color: var(--uiux-white);
+  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.3);
+}
+
+.uiux-design-page .uiux-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.5);
+}
+
+.uiux-design-page .uiux-btn-secondary {
+  background: transparent;
+  color: var(--uiux-white);
+  border: 2px solid var(--uiux-orange);
+}
+
+.uiux-design-page .uiux-btn-secondary:hover {
+  background: rgba(239, 90, 22, 0.1);
+  transform: translateY(-2px);
+}
+
+.uiux-design-page .btn-arrow {
+  transition: transform 0.3s ease;
+}
+
+.uiux-design-page .uiux-btn-primary:hover .btn-arrow {
+  transform: translateX(5px);
+}
+
+/* Hero Stats Grid */
+.uiux-design-page .uiux-hero-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.uiux-design-page .uiux-hero-stat-card {
+  text-align: center;
+  padding: 20px 16px;
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(239, 90, 22, 0.3);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.uiux-design-page .uiux-hero-stat-card:hover {
+  background: rgba(15, 23, 42, 0.8);
+  transform: translateY(-4px);
+  border-color: rgba(239, 90, 22, 0.6);
+  box-shadow: 0 8px 20px rgba(239, 90, 22, 0.3);
+}
+
+.uiux-design-page .uiux-stat-icon {
+  color: var(--uiux-orange);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+.uiux-design-page .uiux-stat-value {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--uiux-white);
+  margin-bottom: 4px;
+  line-height: 1;
+}
+
+.uiux-design-page .uiux-stat-label {
+  font-size: 13px;
+  color: var(--uiux-gray-text);
+  font-weight: 500;
+}
+
+/* Hero Visual - Right Side - Sharp Image */
+.uiux-design-page .uiux-hero-visual {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uiux-design-page .uiux-hero-image-wrapper {
+  width: 100%;
+  height: 500px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+.uiux-design-page .uiux-hero-image {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
-}
-
-.uiux-design-page .uiux-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 72, 0.75) 0%,
-    rgba(30, 41, 59, 0.70) 50%,
-    rgba(0, 0, 72, 0.75) 100%
-  );
-  z-index: 2;
-}
-
-.uiux-design-page .uiux-hero-content-center {
-  position: relative;
-  z-index: 3;
-  text-align: center;
-  max-width: 900px;
-  padding: 40px;
-}
-
-/* Badge - Centered */
-.uiux-design-page .uiux-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 10px 24px;
-  background: rgba(239, 90, 22, 0.15);
-  border: 1px solid rgba(239, 90, 22, 0.5);
-  border-radius: 24px;
-  color: var(--uiux-orange);
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  margin-bottom: 32px;
-  animation: fadeInDown 0.8s ease;
-}
-
-/* Main Title - Centered with Yellow Highlight */
-.uiux-design-page .uiux-main-title {
-  font-size: 64px;
-  font-weight: 800;
-  color: white;
-  margin-bottom: 24px;
-  line-height: 1.2;
-  text-align: center;
-  animation: fadeInUp 0.8s ease 0.2s both;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
-}
-
-.uiux-design-page .highlight-text {
-  color: var(--uiux-yellow);
-  position: relative;
-  text-shadow: 0 0 30px rgba(251, 191, 36, 0.6);
-}
-
-/* Subtitle - Centered */
-.uiux-design-page .uiux-subtitle {
-  font-size: 20px;
-  color: #ffffff;
-  line-height: 1.6;
-  margin-bottom: 40px;
-  text-align: center;
-  animation: fadeInUp 0.8s ease 0.4s both;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-/* CTA Buttons - Centered */
-.uiux-design-page .uiux-cta-buttons {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  animation: fadeInUp 0.8s ease 0.6s both;
-}
-
-.uiux-design-page .btn-speak-now {
-  padding: 16px 48px;
-  background: transparent;
-  color: white;
-  border: 3px solid var(--uiux-orange);
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  text-decoration: none;
-  display: inline-block;
-}
-
-.uiux-design-page .btn-speak-now:hover {
-  background: rgba(239, 90, 22, 0.2);
-  border-color: var(--uiux-light-orange);
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
-}
-
-.uiux-design-page .btn-secondary-outline {
-  padding: 16px 48px;
-  background: linear-gradient(135deg, var(--uiux-orange), var(--uiux-light-orange));
-  color: white;
-  border: none;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 8px 24px rgba(239, 90, 22, 0.4);
-  text-decoration: none;
-  display: inline-block;
-}
-
-.uiux-design-page .btn-secondary-outline:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 32px rgba(239, 90, 22, 0.6);
+  display: block;
 }
 
 /* ============================================
@@ -837,16 +887,28 @@
 
 /* Tablet - 1024px */
 @media (max-width: 1024px) {
-  .uiux-design-page .uiux-full-hero {
-    min-height: 550px;
+  .uiux-design-page .uiux-hero {
+    padding: 60px 0 40px;
   }
 
-  .uiux-design-page .uiux-main-title {
-    font-size: 48px;
+  .uiux-design-page .uiux-hero-grid {
+    gap: 60px;
   }
 
-  .uiux-design-page .uiux-subtitle {
-    font-size: 18px;
+  .uiux-design-page .uiux-hero-title {
+    font-size: 44px;
+  }
+
+  .uiux-design-page .uiux-hero-desc {
+    font-size: 16px;
+  }
+
+  .uiux-design-page .uiux-hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .uiux-design-page .uiux-hero-image-wrapper {
+    height: 400px;
   }
 
   .uiux-design-page .uiux-capabilities-grid {
@@ -860,33 +922,41 @@
 
 /* Mobile - 768px */
 @media (max-width: 768px) {
-  .uiux-design-page .uiux-full-hero {
-    min-height: 500px;
+  .uiux-design-page .uiux-hero {
+    padding: 40px 0 30px;
   }
 
-  .uiux-design-page .uiux-hero-content-center {
-    padding: 40px 20px;
+  .uiux-design-page .uiux-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 20px;
   }
 
-  .uiux-design-page .uiux-main-title {
+  .uiux-design-page .uiux-hero-title {
     font-size: 36px;
   }
 
-  .uiux-design-page .uiux-subtitle {
+  .uiux-design-page .uiux-hero-desc {
     font-size: 16px;
-    margin-bottom: 32px;
+    max-width: 100%;
   }
 
-  .uiux-design-page .uiux-cta-buttons {
+  .uiux-design-page .uiux-hero-actions {
     flex-direction: column;
-    align-items: center;
   }
 
-  .uiux-design-page .btn-speak-now,
-  .uiux-design-page .btn-secondary-outline {
+  .uiux-design-page .uiux-btn-primary,
+  .uiux-design-page .uiux-btn-secondary {
     width: 100%;
-    max-width: 300px;
-    text-align: center;
+    justify-content: center;
+  }
+
+  .uiux-design-page .uiux-hero-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .uiux-design-page .uiux-hero-image-wrapper {
+    height: 300px;
   }
 
   .uiux-design-page .uiux-capabilities,
@@ -935,18 +1005,27 @@
 
 /* Small Mobile - 480px */
 @media (max-width: 480px) {
-  .uiux-design-page .uiux-main-title {
+  .uiux-design-page .uiux-hero-title {
     font-size: 28px;
   }
 
-  .uiux-design-page .uiux-subtitle {
+  .uiux-design-page .uiux-hero-desc {
     font-size: 15px;
   }
 
-  .uiux-design-page .btn-speak-now,
-  .uiux-design-page .btn-secondary-outline {
-    padding: 14px 32px;
+  .uiux-design-page .uiux-hero-badge {
+    font-size: 11px;
+    padding: 8px 16px;
+  }
+
+  .uiux-design-page .uiux-btn-primary,
+  .uiux-design-page .uiux-btn-secondary {
+    padding: 14px 24px;
     font-size: 14px;
+  }
+
+  .uiux-design-page .uiux-hero-image-wrapper {
+    height: 250px;
   }
 
   .uiux-design-page .uiux-section-title {

@@ -92,6 +92,11 @@ section:first-child {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
+
+  .chevron-icon,
+  .dropdown-arrow {
+    transition: none !important;
+  }
 }
 
 /* ============================================
@@ -356,15 +361,93 @@ section:first-child {
   border-radius: 2px;
 }
 
+/* Chevron icon styling */
+.chevron-icon {
+  width: 18px !important;
+  height: 18px !important;
+  color: #ef5a16 !important;
+  stroke: #ef5a16 !important;
+  fill: none !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  flex-shrink: 0;
+  display: inline-block !important;
+  vertical-align: middle;
+  margin-left: 8px;
+  pointer-events: none;
+}
+
+/* Ensure SVG paths inherit the orange color */
+.chevron-icon svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  stroke: inherit !important;
+  color: inherit !important;
+}
+
+.chevron-icon svg path,
+.chevron-icon svg line,
+.chevron-icon svg polyline {
+  stroke: #ef5a16 !important;
+  color: #ef5a16 !important;
+}
+
+.dropdown-arrow svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Dropdown arrow (legacy support) */
 .dropdown-arrow {
   font-size: 12px;
   transition: all var(--transition-normal);
-  color: var(--accent-orange);
+  color: var(--text-white);
 }
 
+/* Hover state - icon changes color with text */
+.nvbr-link:hover .chevron-icon,
+.nvbr-link:hover .dropdown-arrow {
+  color: var(--accent-gold) !important;
+  stroke: var(--accent-gold) !important;
+}
+
+.nvbr-link:hover .chevron-icon svg path,
+.nvbr-link:hover .chevron-icon svg line,
+.nvbr-link:hover .chevron-icon svg polyline {
+  stroke: var(--accent-gold) !important;
+}
+
+/* Active/Open state - rotate chevron 180° */
+.nvbr-link.open .chevron-icon,
+.nvbr-link.open .dropdown-arrow,
+.dropdown-container:hover .chevron-icon,
 .dropdown-container:hover .dropdown-arrow {
   transform: rotate(180deg);
-  color: var(--accent-gold);
+  color: var(--accent-gold) !important;
+  stroke: var(--accent-gold) !important;
+}
+
+.nvbr-link.open .chevron-icon svg path,
+.nvbr-link.open .chevron-icon svg line,
+.nvbr-link.open .chevron-icon svg polyline,
+.dropdown-container:hover .chevron-icon svg path,
+.dropdown-container:hover .chevron-icon svg line,
+.dropdown-container:hover .chevron-icon svg polyline {
+  stroke: var(--accent-gold) !important;
+}
+
+/* Active state */
+.nvbr-link.active .chevron-icon,
+.nvbr-link.active .dropdown-arrow {
+  color: #f97316 !important;
+  stroke: #f97316 !important;
+}
+
+.nvbr-link.active .chevron-icon svg path,
+.nvbr-link.active .chevron-icon svg line,
+.nvbr-link.active .chevron-icon svg polyline {
+  stroke: #f97316 !important;
 }
 
 /* ============================================
@@ -719,10 +802,62 @@ section:first-child {
     display: none !important;
   }
 
-  /* Dropdown arrow in mobile menu */
-  .dropdown-arrow {
-    font-size: 16px;
-    color: var(--primary-orange);
+  /* Dropdown arrow and chevron in mobile menu */
+  .dropdown-arrow,
+  .chevron-icon {
+    font-size: 18px;
+    width: 22px !important;
+    height: 22px !important;
+    color: #ef5a16 !important;
+    stroke: #ef5a16 !important;
+    transition: all var(--transition-normal);
+    flex-shrink: 0;
+  }
+
+  /* Mobile chevron SVG elements */
+  .chevron-icon svg path,
+  .chevron-icon svg line,
+  .chevron-icon svg polyline {
+    stroke: #ef5a16 !important;
+  }
+
+  /* Mobile menu link hover with chevron */
+  .nvbr-link:hover .chevron-icon,
+  .nvbr-link:hover .dropdown-arrow {
+    color: #f97316 !important;
+    stroke: #f97316 !important;
+  }
+
+  .nvbr-link:hover .chevron-icon svg path,
+  .nvbr-link:hover .chevron-icon svg line,
+  .nvbr-link:hover .chevron-icon svg polyline {
+    stroke: #f97316 !important;
+  }
+
+  /* Mobile menu open state */
+  .nvbr-link.open .chevron-icon,
+  .nvbr-link.open .dropdown-arrow {
+    transform: rotate(180deg);
+    color: #f97316 !important;
+    stroke: #f97316 !important;
+  }
+
+  .nvbr-link.open .chevron-icon svg path,
+  .nvbr-link.open .chevron-icon svg line,
+  .nvbr-link.open .chevron-icon svg polyline {
+    stroke: #f97316 !important;
+  }
+
+  /* Mobile menu active state */
+  .nvbr-link.active .chevron-icon {
+    color: #f97316 !important;
+    stroke: #f97316 !important;
+  }
+
+  .nvbr-link.active .chevron-icon svg path,
+  .nvbr-link.active .chevron-icon svg line,
+  .nvbr-link.active .chevron-icon svg polyline {
+    stroke: #f97316 !important;
   }
 
   /* Mobile dropdown menus */
