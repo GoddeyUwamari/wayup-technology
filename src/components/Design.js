@@ -188,15 +188,7 @@ function Design() {
           </div>
         </div>
       </div>
-bashgit restore .
-Option 2: Undo changes to a specific file
-bashgit restore src/components/Client.css
-Option 3: See what you've changed first
-bashgit status
-git diff
-Option 4: Undo ALL changes and clean untracked files
-bashgit reset --hard HEAD
-git clean -fd
+
       {/* Checkout */}
       <Checkout />
 

@@ -65,7 +65,7 @@ const OurWork = () => {
       industry: 'Manufacturing',
       category: 'ai',
       description: 'ML-powered predictive maintenance reducing downtime by 85%',
-      image: 'https://images.unsplash.com/photo-1581092918484-8313e1f6e3ef?w=600&q=80',
+      image: 'https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&q=80',
       alt: 'Industrial machinery with AI-powered monitoring and predictive analytics',
       tech: ['Python', 'TensorFlow', 'IoT', 'AWS'],
       results: '$6M annual savings'
@@ -183,17 +183,24 @@ const OurWork = () => {
     : projects.filter(project => project.category === activeFilter);
 
   return (
-    <div className="work-page">
-      {/* Hero Section */}
-      <section className="work-hero">
-        <div className="work-hero-bg-grid"></div>
-        <div className="work-hero-container">
+    <div className="our-work-page">
+      {/* Hero Section with Background Image */}
+      <section className="our-work-hero">
+        <div className="work-hero-background">
+          <img
+            src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1920&q=85"
+            alt="Portfolio of Professional Work"
+            className="work-hero-bg-image"
+          />
+          <div className="work-hero-overlay"></div>
+        </div>
+
+        <div className="work-hero-content">
           <h1 className="work-hero-title">
-            Our <span className="work-gradient-text">Portfolio</span>
+            Our <span className="highlight-yellow">Work</span>
           </h1>
-          <p className="work-hero-desc">
-            Delivering excellence across industries with cutting-edge solutions
-            that transform businesses and drive measurable results.
+          <p className="work-hero-subtitle">
+            Explore our portfolio of successful projects and digital transformations
           </p>
         </div>
       </section>
@@ -222,8 +229,9 @@ const OurWork = () => {
           <div className="work-projects-grid">
             {filteredProjects.map((project) => (
               <div key={project.id} className="work-project-card">
-                <div className="work-project-image">
-                  <img src={project.image} alt={project.alt} />
+                <div className="work-project-image-container">
+                  <img src={project.image} alt={project.alt} className="work-project-image" />
+                  <div className="work-project-image-overlay"></div>
                   <div className="work-project-overlay">
                     <div className="work-project-overlay-content">
                       <h3>{project.title}</h3>

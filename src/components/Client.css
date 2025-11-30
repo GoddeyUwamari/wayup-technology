@@ -102,7 +102,7 @@ body {
   animation: gradientShift 4s ease-in-out infinite;
   
   /* Spacing & Layout */
-  text-align: center;
+  text-align: left;
   margin: 2rem auto;
   padding: 1rem 2rem;
   max-width: 900px;
@@ -228,6 +228,7 @@ body {
 
 .benefit-text {
   color: white;
+  text-align: left;
   line-height: 1.6;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
@@ -591,8 +592,9 @@ body {
 
 .success-benefit-title {
   color: var(--primary-yellow);
-  font-size: clamp(1.2rem, 3.5vw, 1.6rem);
+  font-size: clamp(1.2rem, 3.5vw, 1.4rem);
   margin-bottom: 15px;
+  line-height: 1.4;
   font-weight: var(--font-weight-bold);
   transition: color var(--transition-normal);
 }
@@ -603,6 +605,7 @@ body {
 
 .success-benefit-text {
   color: white;
+  text-align: left;
   line-height: 1.6;
   font-size: clamp(0.9rem, 2.5vw, 1rem);
 }
@@ -1008,7 +1011,7 @@ body {
   }
 
   .benefit-text {
-    font-size: 13px;
+    font-size: 16px;
   }
 }
 
@@ -1018,7 +1021,7 @@ body {
   font-size: clamp(1rem, 3vw, 1.3rem);
   margin-top: 20px;
   font-weight: var(--font-weight-normal);
-  text-align: center;
+  text-align: left;
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
@@ -1199,7 +1202,7 @@ body {
   
   .success-titleR, .success-title, .success-benefit-title, .benefit-title{
     text-align: center;
-    font-size: 28px !important;
+    font-size: 26px !important;
     margin-top: 40px;
   }
 
@@ -1300,7 +1303,7 @@ body {
 
   .success-titleR, .success-title, .success-benefit-title, .benefit-title{
     text-align: center;
-    font-size: 33px !important;
+    font-size: 30px !important;
     margin-top: 40px;
   }
 

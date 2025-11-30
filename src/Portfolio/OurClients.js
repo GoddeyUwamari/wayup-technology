@@ -155,9 +155,17 @@ const OurClients = () => {
 
   return (
     <div className="clients-page">
-      {/* Hero Section */}
+      {/* Hero Section with Background Image */}
       <section className="clients-hero">
-        <div className="clients-hero-bg-grid"></div>
+        <div className="clients-hero-background">
+          <img
+            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&q=85"
+            alt="Our Trusted Clients"
+            className="clients-hero-bg-image"
+          />
+          <div className="clients-hero-overlay"></div>
+        </div>
+
         <div className="clients-hero-container">
           <h1 className="clients-hero-title">
             Our <span className="clients-gradient-text">Trusted Clients</span>
