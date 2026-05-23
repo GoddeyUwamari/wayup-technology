@@ -538,9 +538,9 @@ const Contact = () => {
                   <div className="location-content">
                     <div>
                       <p className="bold-text">Headquarters & Delivery Center</p>
-                      <p><MapPin size={16} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />116 E 124th St</p>
-                      <p>Cellar Level New York</p>
-                      <p>NY 10035, USA</p>
+                      <p><MapPin size={16} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />852 S 20th Street</p>
+                      <p>Newark</p>
+                      <p>NJ07108, USA</p>
                     </div>
                     <div className="york-image">
   <img src='images/York.png' alt="" />
@@ -576,7 +576,7 @@ const Contact = () => {
                       <p className="bold-text">New Jersey Office</p>
 <p>
   <MapPin size={16} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />
-  30 Montgomery Street, Jersey City, New Jersey 07302
+  852 S 20th Street, Newark, NJ 07108
 </p>
                     </div>
                    <div className="york-image">

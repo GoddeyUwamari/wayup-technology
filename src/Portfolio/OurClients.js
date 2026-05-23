@@ -155,17 +155,8 @@ const OurClients = () => {
 
   return (
     <div className="clients-page">
-      {/* Hero Section with Background Image */}
+      {/* Hero Section - Clean Animated Gradient */}
       <section className="clients-hero">
-        <div className="clients-hero-background">
-          <img
-            src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=1920&q=85"
-            alt="Our Trusted Clients"
-            className="clients-hero-bg-image"
-          />
-          <div className="clients-hero-overlay"></div>
-        </div>
-
         <div className="clients-hero-container">
           <h1 className="clients-hero-title">
             Our <span className="clients-gradient-text">Trusted Clients</span>

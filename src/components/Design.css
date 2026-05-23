@@ -44,52 +44,50 @@
 
 .top-text {
   text-align: center;
-  font-size: 2rem !important;
-  font-weight: 600;
+  font-size: 3rem;
+  font-weight: 700;
   color: yellow;
-  margin: 20px 0;
-  padding: 0 10px;
-  line-height: 1.4;
-  /* font-size: 1.2rem!important; */
-  font-weight: bold;
-  margin-bottom: 2rem;
+  margin: 0 auto;
+  padding: 0 20px;
+  line-height: 1.2;
+  max-width: 1200px;
   position: relative;
-  left: 6%;
-  top: -10%;
-  /* color:white; */
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+  letter-spacing: 0.5px;
 } 
 
 
 .cta-container {
-  position: absolute;
-  bottom: 20%; 
-  left: 0;
-  right: 0;
+  position: relative;
+  margin-top: 3rem;
   text-align: center;
   width: 100%;
+  z-index: 2;
 }
 
 .design-rebuild-btn {
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color:black;
-  border: 4px solid #ef5a16;
+  padding: 1.1rem 2.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: white;
+  border: 3px solid #ef5a16;
   border-radius: 50px;
   cursor: pointer;
   text-transform: uppercase;
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
   background: transparent;
   transition: all 0.3s ease;
-  display: inline-block; 
-  margin: 0 auto; 
-  transform: translateY(80%);
+  display: inline-block;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(239, 90, 22, 0.3);
 }
 
 .design-rebuild-btn:hover {
   background-color: #ef5a16;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: white;
+  box-shadow: 0 6px 20px rgba(239, 90, 22, 0.5);
+  transform: translateY(-2px);
 }
 
 

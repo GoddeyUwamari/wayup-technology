@@ -17,9 +17,9 @@ const HeroSection = () => {
       <LazyVideo src={New} />
       <div className="hero-overlay"></div>
       <div className="hero-content">
-        <h1 className="hero-title">Custom Software <span className="highlight-word">Solutions</span> for Modern Businesses</h1>
+        <h1 className="hero-title">Professional Websites & <span className="highlight-word">Software</span> That Help Local Businesses Get More Customers</h1>
         <p className="hero-subtitle">
-          Transforming ideas into powerful digital experiences with cutting-edge technology
+          Web, mobile, and AWS infrastructure built by a 16+ year senior engineering team. We ship production-ready code that scales, stays secure, and doesn't break on launch day.
         </p>
         <div className="hero-cta-container">
           <Link to="/contact" className="hero-cta-primary">

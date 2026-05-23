@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 import {
   FaCode, FaMobile, FaShoppingCart, FaWordpress, FaPalette, FaDatabase,
   FaPlug, FaCloud, FaBullseye, FaGlobeAmericas, FaTrophy, FaDollarSign,
-  FaProjectDiagram, FaSmile, FaClock, FaCalendarAlt, FaUsers,
-  FaCheckCircle, FaGlobe, FaStar } from 'react-icons/fa';
+  FaProjectDiagram, FaSmile, FaClock, FaCalendarAlt,
+  FaCheckCircle, FaStar
+} from 'react-icons/fa';
 import { FiMessageCircle } from 'react-icons/fi';
 import './Client.css';
 
@@ -16,91 +17,106 @@ const Client = () => {
     "kphoto3.png", "kphoto5.png", "kphoto00.png", "kphoto0.png"
   ], []);
 
-  // Top section service cards with navigation
+  // Service cards — results focused
   const serviceCards = [
     {
       icon: <FaCode />,
       title: "Web Development",
-      text: "Custom website solutions, front-end & back-end development, and optimization for performance and responsiveness.",
+      text: "High-converting websites that generate more leads, build trust, and grow your revenue.",
       link: "/services/software-development"
     },
     {
       icon: <FaMobile />,
       title: "Mobile Apps",
-      text: "Tailored mobile app development, cross-platform builds, and native integration for iOS and Android devices.",
+      text: "Mobile applications that expand your reach, improve customer engagement, and increase sales.",
       link: "/services/mobile-app"
     },
     {
       icon: <FaShoppingCart />,
       title: "E-Commerce",
-      text: "Complete e-commerce solutions, payment gateway integration, inventory management, and scalable online marketplace development.",
+      text: "Online stores that drive higher sales, reduce cart abandonment, and maximize profitability.",
       link: "/industries/ecommerce"
     },
     {
       icon: <FaWordpress />,
       title: "WordPress Expert",
-      text: "Custom WordPress solutions, theme development, plugin creation, and performance optimization for dynamic websites.",
+      text: "Powerful, easy-to-manage websites that attract customers and save you time and money.",
       link: "/services/custom-software"
     },
     {
       icon: <FaPalette />,
       title: "UI/UX Design",
-      text: "User-centered design solutions, wireframing, prototyping, and creating intuitive interfaces for optimal user experience and conversion.",
+      text: "Intuitive designs that boost conversions, reduce bounce rates, and create memorable customer experiences.",
       link: "/services/ui-ux"
     },
     {
       icon: <FaDatabase />,
       title: "Database Solutions",
-      text: "Database design, optimization, migration, and management for efficient data storage, retrieval, and scalable applications.",
+      text: "Reliable data systems that improve decision-making, streamline operations, and support business growth.",
       link: "/solution/database"
     },
     {
       icon: <FaPlug />,
       title: "API Development",
-      text: "RESTful API creation, GraphQL implementation, third-party integrations, and microservices architecture for seamless data communication.",
+      text: "Seamless integrations that automate processes, reduce manual work, and unlock new business opportunities.",
       link: "/services/api-integration"
     },
     {
       icon: <FaCloud />,
-      title: "Cloud Services",
-      text: "Cloud deployment, AWS/Azure solutions, DevOps implementation, and CI/CD pipelines for scalable and reliable infrastructure.",
-      link: "/services/offshore"
+      title: "Cloud & AWS",
+      text: "Scalable cloud solutions that reduce costs, improve performance, and give you peace of mind.",
+      link: "/services/cloud"
     }
   ];
 
-  // Bottom section benefit cards with navigation
+  // Benefit cards — results focused
   const benefitCards = [
     {
       icon: <FaBullseye />,
-      title: "Specialized Industry Expertise",
-      text: "Skilled teams with deep domain knowledge deliver tailored solutions aligned with your business goals and industry standards across fintech, healthcare, retail, and enterprise sectors.",
+      title: "Deep Industry Experience",
+      text: "16+ years across SaaS, fintech, e-commerce, and healthcare — we've solved your problem before.",
       link: "/industries/healthcare"
     },
     {
       icon: <FaGlobeAmericas />,
-      title: "Global Delivery Models",
-      text: "Choose from onshore, nearshore, or offshore collaboration options—ensuring flexibility, speed, and real-time project alignment with 24/7 development cycles.",
+      title: "Remote-First, NYC Based",
+      text: "Headquartered in Union NJ with full remote delivery — responsive, accountable, and in your timezone.",
       link: "/services/offshore"
     },
     {
       icon: <FaTrophy />,
-      title: "Proven & Reliable Partner",
-      text: "Trusted U.S.-based company with 10+ years of experience, a global team of 2,800+ professionals, ISO certifications, and full legal compliance.",
+      title: "Production-Grade Quality",
+      text: "Every system we ship runs at 99.9% uptime with automated tests, CI/CD, and zero-downtime deployments.",
       link: "/portfolio/work"
     },
     {
       icon: <FaDollarSign />,
-      title: "High Value, Cost-Efficient",
-      text: "Delivering premium software solutions at competitive rates—maximizing ROI while maintaining enterprise-grade quality and performance standards.",
+      title: "Transparent Pricing",
+      text: "Fixed-scope projects or hourly retainers — no surprise invoices, no scope creep without sign-off.",
       link: "/services/staff-augmentation"
     }
+  ];
+
+  // Real, verifiable statistics only
+  const statistics = [
+    { icon: <FaCalendarAlt />, number: "16+", label: "Years Experience" },
+    { icon: <FaProjectDiagram />, number: "15+", label: "Production Systems Delivered" },
+    { icon: <FaSmile />, number: "$2M+", label: "Client Revenue Enabled" },
+    { icon: <FaCheckCircle />, number: "99.9%", label: "Uptime Achieved" },
+    { icon: <FaCloud />, number: "30–50%", label: "AWS Cost Reduction" },
+    { icon: <FaClock />, number: "24/7", label: "Support Available" },
+    { icon: <FaDollarSign />, number: "$96K+", label: "AWS Savings for One Client" },
+    { icon: <FaStar />, number: "16+", label: "Years Senior Engineering" },
   ];
 
   return (
     <div className="page-wrapper">
       <div className="page-container">
-        <h2 className='king'>Everything You Need to Succeed in the Digital World</h2>
 
+        {/* Section Header */}
+        <h2 className='king'>Websites & Software That Help Your Business Grow</h2>
+
+        {/* Service Cards */}
         <section className="benefits-section">
           <div className="benefits-grid">
             {serviceCards.map((card, index) => (
@@ -121,7 +137,7 @@ const Client = () => {
           </div>
         </section>
 
-        {/* Accelerate Your Success Section */}
+        {/* Why Choose WayUP Section */}
         <section className="success-section">
           <Link to="/contact" state={{ scrollToTop: true }}>
             <button className="speak-to-us-btn">
@@ -130,7 +146,7 @@ const Client = () => {
             </button>
           </Link>
 
-          <h2 className="success-title">Accelerate Your <span className="hypergrowth-text">Business</span> Success</h2>
+          <h2 className="success-title">Why Teams Choose <span className="hypergrowth-text">WayUP</span></h2>
           <div className="success-benefits-grid">
             {benefitCards.map((card, index) => (
               <Link
@@ -151,97 +167,49 @@ const Client = () => {
         </section>
       </div>
 
-      {/* Full Width Trusted Brands Section */}
+      {/* Trusted Brands Section */}
       <section className="trusted-brands-section-full">
         <h2 className="trusted-brands-title">
-          Clients We're <span className="highlight-work">Serving</span>...
+          Clients We're <span className="highlight-work">Serving</span>
         </h2>
-        <h4 className="trusted-brands-subtitle">You're in Good Company - Join 500+ Satisfied Clients</h4>
+        <h4 className="trusted-brands-subtitle">
+          Trusted by businesses across SaaS, fintech, e-commerce, and more
+        </h4>
         <div className="logo-container-home">
           <div className="logo-slide-home" ref={sliderRef}>
             {logos.concat(logos).map((img, index) => (
-              <img key={index} src={`/images/${img}`} alt="Trusted Client Logo" className="logo-image" />
+              <img key={index} src={`/images/${img}`} alt="Client Logo" className="logo-image" />
             ))}
           </div>
         </div>
         <div className="logo-container-home">
           <div className="logo-slide-home-reverse">
             {logos.concat(logos).map((img, index) => (
-              <img key={`reverse-${index}`} src={`/images/${img}`} alt="Trusted Client Logo" className="logo-image" />
+              <img key={`reverse-${index}`} src={`/images/${img}`} alt="Client Logo" className="logo-image" />
             ))}
           </div>
         </div>
       </section>
 
-      {/* Enhanced Statistics Section */}
+      {/* Statistics Section — real numbers only */}
       <section className="statistics-section">
         <div className="statistics-grid">
-          <div className="statistic-card">
-            <div className="statistic-content">
-              <div className="statistic-icon"><FaProjectDiagram /></div>
-              <div className="statistic-number">500+</div>
-              <div className="statistic-label">Projects Delivered</div>
+          {statistics.map((stat, index) => (
+            <div key={index} className="statistic-card">
+              <div className="statistic-content">
+                <div className="statistic-icon">{stat.icon}</div>
+                <div className="statistic-number">{stat.number}</div>
+                <div className="statistic-label">{stat.label}</div>
+              </div>
             </div>
-          </div>
-
-          <div className="statistic-card">
-            <div className="statistic-content">
-              <div className="statistic-icon"><FaSmile /></div>
-              <div className="statistic-number">98%</div>
-              <div className="statistic-label">Client Satisfaction</div>
-            </div>
-          </div>
-
-          <div className="statistic-card">
-            <div className="statistic-content">
-              <div className="statistic-icon"><FaClock /></div>
-              <div className="statistic-number">24/7</div>
-              <div className="statistic-label">Support Available</div>
-            </div>
-          </div>
-
-          <div className="statistic-card">
-            <div className="statistic-content">
-              <div className="statistic-icon"><FaCalendarAlt /></div>
-              <div className="statistic-number">10+</div>
-              <div className="statistic-label">Years Experience</div>
-            </div>
-          </div>
-
-          <div className="statistic-card">
-            <div className="statistic-content">
-              <div className="statistic-icon"><FaUsers /></div>
-              <div className="statistic-number">2800+</div>
-              <div className="statistic-label">Global Professionals</div>
-            </div>
-          </div>
-
-          <div className="statistic-card">
-            <div className="statistic-content">
-              <div className="statistic-icon"><FaCheckCircle /></div>
-              <div className="statistic-number">99%</div>
-              <div className="statistic-label">On-Time Delivery</div>
-            </div>
-          </div>
-
-          <div className="statistic-card">
-            <div className="statistic-content">
-              <div className="statistic-icon"><FaGlobe /></div>
-              <div className="statistic-number">150+</div>
-              <div className="statistic-label">Countries Served</div>
-            </div>
-          </div>
-
-          <div className="statistic-card">
-            <div className="statistic-content">
-              <div className="statistic-icon"><FaStar /></div>
-              <div className="statistic-number">4.9/5</div>
-              <div className="statistic-label">Average Rating</div>
-            </div>
-          </div>
+          ))}
         </div>
-        <h2 className="success-titleR">YOUR SUCCESS IS <span className="highlight-our">OUR TOP</span> PRIORITY</h2>
-        <p className="success-subtitle">Join thousands of businesses that have transformed their digital presence with our expertise</p>
+        <h2 className="success-titleR">
+          YOUR SUCCESS IS <span className="highlight-our">OUR</span> MISSION
+        </h2>
+        <p className="success-subtitle">
+          Built by a senior engineering team that has shipped production systems serving 10,000+ users — we treat your project like our own.
+        </p>
       </section>
     </div>
   );

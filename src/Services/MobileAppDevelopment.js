@@ -228,7 +228,7 @@ const MobileAppDevelopment = () => {
           <div className="mobile-hero-visual">
             <div className="mobile-hero-image-wrapper">
               <img
-                src="https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg?auto=compress&cs=tinysrgb&w=800"
+                src="/images/ui4.png"
                 alt="Mobile App Development Team Working Together"
                 className="mobile-hero-image"
               />

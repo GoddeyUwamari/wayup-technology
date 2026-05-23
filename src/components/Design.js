@@ -23,7 +23,7 @@ function Design() {
     <>
       <div className='real-commander'>
         <div className='top-image'>
-          <img src="/images/vphoto1.png" alt="" />
+          <img src="/images/photo8.png" alt="" />
           <p className='top-text'>
             Expert Custom Software Development for Modern Enterprises 
           </p>
@@ -60,7 +60,7 @@ function Design() {
         </p>
         <div className='second-digital-flex'>
           <div className="image-left">
-            <img className="digital-image1" src="/images/hitpaw.png" alt="Digital Marketing Solutions" />
+            <img className="digital-image1" src="/images/rphoto3.png" alt="Digital Marketing Solutions" />
             <img className="digital-image2" src="/images/rphoto15.png" alt="Digital Marketing Solutions" />
           </div>
           <div className="content-right">

@@ -29,7 +29,11 @@
   padding: 0 40px;
 }
 
-/* ==================== HERO SECTION WITH BACKGROUND IMAGE ==================== */
+/* ============================================
+   HERO SECTION - CLEAN ANIMATED GRADIENT
+   ============================================ */
+
+/* Main hero container with gradient background */
 .clients-hero {
   position: relative;
   width: 100vw;
@@ -39,66 +43,88 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background: linear-gradient(135deg, #000048 0%, #0f172a 50%, #1e293b 100%);
 }
 
-.clients-hero-background {
+/* Animated pattern overlay for visual interest */
+.clients-hero::before {
+  content: '';
   position: absolute;
   inset: 0;
+  background-image:
+    radial-gradient(circle at 20% 50%, rgba(239, 90, 22, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 80%, rgba(251, 191, 36, 0.08) 0%, transparent 50%),
+    radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 40px 40px;
+  opacity: 0.6;
+  animation: patternFloat 25s ease-in-out infinite;
   z-index: 1;
+  pointer-events: none;
+}
+
+@keyframes patternFloat {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(30px, 30px) scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+/* Remove old background image elements - NO LONGER NEEDED */
+.clients-hero-background {
+  display: none;
 }
 
 .clients-hero-bg-image {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
+  display: none;
 }
 
 .clients-hero-overlay {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(0, 0, 72, 0.85) 0%,
-    rgba(30, 41, 59, 0.75) 100%
-  );
-  z-index: 2;
+  display: none;
 }
 
+/* Hero content container */
 .clients-hero-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 60px 40px;
+  padding: 80px 40px;
   position: relative;
   z-index: 3;
   text-align: center;
 }
 
+/* Hero title - enhanced for better visibility */
 .clients-hero-title {
-  font-size: 4rem;
+  font-size: 56px;
   font-weight: 900;
   color: var(--clients-white);
   line-height: 1.1;
-  margin-bottom: 28px;
+  margin-bottom: 32px;
   letter-spacing: -0.02em;
-  text-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
+/* Gradient text for "Trusted Clients" */
 .clients-gradient-text {
   background: linear-gradient(135deg, var(--clients-orange) 0%, var(--clients-orange-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-shadow: none;
+  filter: drop-shadow(0 0 30px rgba(239, 90, 22, 0.3));
 }
 
+/* Hero description - improved readability */
 .clients-hero-desc {
-  font-size: 1.25rem;
+  font-size: 20px;
   line-height: 1.7;
-  color: var(--clients-gray-text);
-  max-width: 800px;
+  color: #e2e8f0;
+  max-width: 850px;
   margin: 0 auto;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  font-weight: 400;
 }
 
 /* ==================== STATS SECTION ==================== */
@@ -560,19 +586,32 @@
 /* ==================== RESPONSIVE DESIGN ==================== */
 
 /* Large Tablets (1024px - 1279px) */
-@media (max-width: 1279px) {
-  .clients-hero-title {
-    font-size: 3.5rem;
+/* Tablet (≤1024px) */
+@media (max-width: 1024px) {
+  .clients-hero {
+    min-height: 400px;
   }
 
-  .clients-section-title {
-    font-size: 2.25rem;
+  .clients-hero-container {
+    padding: 70px 40px;
+  }
+
+  .clients-hero-title {
+    font-size: 48px;
+  }
+
+  .clients-hero-desc {
+    font-size: 19px;
   }
 
   .clients-stats-grid,
   .clients-logos-grid,
   .clients-industries-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .clients-section-title {
+    font-size: 2.25rem;
   }
 }
 
@@ -583,24 +622,12 @@
     padding: 0 20px;
   }
 
-  .clients-hero {
-    min-height: 350px;
-  }
-
-  .clients-hero-container {
-    padding: 50px 20px;
-  }
-
   .clients-stats,
   .clients-logos,
   .clients-testimonials,
   .clients-industries,
   .clients-cta {
     padding: 50px 20px;
-  }
-
-  .clients-hero-title {
-    font-size: 2.75rem;
   }
 
   .clients-section-title {
@@ -618,14 +645,23 @@
   }
 }
 
-/* Mobile (max-width: 767px) */
-@media (max-width: 767px) {
+/* Tablet Portrait (≤768px) */
+@media (max-width: 768px) {
   .clients-hero {
-    min-height: 300px;
+    min-height: 350px;
   }
 
   .clients-hero-container {
-    padding: 40px 20px;
+    padding: 60px 30px;
+  }
+
+  .clients-hero-title {
+    font-size: 40px;
+  }
+
+  .clients-hero-desc {
+    font-size: 18px;
+    margin-bottom: 28px;
   }
 
   .clients-stats,
@@ -634,14 +670,6 @@
   .clients-industries,
   .clients-cta {
     padding: 40px 20px;
-  }
-
-  .clients-hero-title {
-    font-size: 2rem;
-  }
-
-  .clients-hero-desc {
-    font-size: 1.05rem;
   }
 
   .clients-section-title {
@@ -690,18 +718,27 @@
   }
 }
 
-/* Small Mobile (max-width: 480px) */
+/* Mobile (≤480px) */
 @media (max-width: 480px) {
-  .clients-container {
-    padding: 0 16px;
+  .clients-hero {
+    min-height: 320px;
+  }
+
+  .clients-hero-container {
+    padding: 50px 20px;
   }
 
   .clients-hero-title {
-    font-size: 1.75rem;
+    font-size: 32px;
   }
 
   .clients-hero-desc {
-    font-size: 0.95rem;
+    font-size: 16px;
+    margin-bottom: 24px;
+  }
+
+  .clients-container {
+    padding: 0 16px;
   }
 
   .clients-section-title {
@@ -714,5 +751,23 @@
 
   .clients-cta-content h2 {
     font-size: 1.75rem;
+  }
+}
+
+/* Small Mobile (≤360px) */
+@media (max-width: 360px) {
+  .clients-hero-title {
+    font-size: 28px;
+  }
+
+  .clients-hero-desc {
+    font-size: 15px;
+  }
+}
+
+/* Accessibility - Reduce motion */
+@media (prefers-reduced-motion: reduce) {
+  .clients-hero::before {
+    animation: none;
   }
 }
