@@ -7,14 +7,12 @@ import io from 'socket.io-client';
 const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
 // API URL configuration  
-const API_URL = isLocalhost
-  ? 'http://localhost:8000/api'         // LOCAL: Use HTTP
-  : 'https://www.wayuptechn.com/api';   // PRODUCTION: Use domain with HTTPS
+const API_URL = process.env.REACT_APP_API_URL || 
+  (isLocalhost ? 'http://localhost:8000/api' : 'https://wayup-backend-production.up.railway.app/api');
 
-const SOCKET_URL = isLocalhost
-  ? 'http://localhost:8000'             // LOCAL: Use HTTP  
-  : 'https://www.wayuptechn.com';       // PRODUCTION: Use domain with HTTPS
-
+const SOCKET_URL = process.env.REACT_APP_SOCKET_URL || 
+  (isLocalhost ? 'http://localhost:8000' : 'https://wayup-backend-production.up.railway.app');
+  
 console.log('=== CHAT WIDGET API Configuration ===');
 console.log('Environment:', isLocalhost ? 'LOCAL DEVELOPMENT' : 'PRODUCTION');
 console.log('API_URL:', API_URL);
