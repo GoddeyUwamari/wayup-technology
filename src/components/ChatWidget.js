@@ -18,7 +18,7 @@ const getSocketConfig = () => {
   if (isLocalhost) {
     // LOCAL DEVELOPMENT - Use HTTP (not HTTPS)
     return {
-      url: 'http://localhost:8000',  // Note: HTTP not HTTPS
+      url: 'http://localhost:8000',
       options: {
         transports: ['websocket', 'polling'],
         path: '/socket.io',
@@ -32,9 +32,9 @@ const getSocketConfig = () => {
       }
     };
   } else {
-    // PRODUCTION
+    // PRODUCTION - Use Railway backend via env var
     return {
-      url: 'https://www.wayuptechn.com',  // ADD "url: " here
+      url: process.env.REACT_APP_SOCKET_URL || 'https://wayup-backend-production.up.railway.app',
       options: {
         transports: ['websocket', 'polling'],
         path: '/socket.io',
@@ -49,7 +49,6 @@ const getSocketConfig = () => {
     };
   }
 };
-
 // Initialize Socket.IO connection
 const { url, options } = getSocketConfig();
 console.log('💬 Connecting to Socket.IO:', url);
