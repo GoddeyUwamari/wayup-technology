@@ -4,8 +4,9 @@ import axios from 'axios';
 // Environment detection
 const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
 
-const API_URL = process.env.REACT_APP_API_URL || 
-  (isLocalhost ? 'http://localhost:8000/api' : 'https://wayup-backend-production.up.railway.app/api');
+const API_URL = isLocalhost 
+  ? 'http://localhost:8000/api' 
+  : 'https://wayup-backend-production.up.railway.app/api';
   
 console.log('=== CONTACT FORM API Configuration ===');
 console.log('Environment:', isLocalhost ? 'LOCAL DEVELOPMENT' : 'PRODUCTION');
