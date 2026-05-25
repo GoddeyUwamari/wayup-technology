@@ -17,96 +17,94 @@ const Client = () => {
     "kphoto3.png", "kphoto5.png", "kphoto00.png", "kphoto0.png"
   ], []);
 
-  // Service cards — results focused
+  // Updated Service Cards — Better balance between premium SaaS and local business
   const serviceCards = [
+    {
+      icon: <FaCloud />,
+      title: "AWS Cost Optimization",
+      text: "Reduce AWS bills by 30–50%. Identify idle resources, over-provisioning, and hidden waste.",
+      link: "/services/cloud"
+    },
+    {
+      icon: <FaProjectDiagram />,
+      title: "Multi-Tenant SaaS",
+      text: "Scalable, secure platforms with proper tenant isolation, billing, and observability.",
+      link: "/services/custom-software"
+    },
     {
       icon: <FaCode />,
       title: "Web Development",
-      text: "High-converting websites that generate more leads, build trust, and grow your revenue.",
+      text: "High-converting websites that generate more leads and grow your revenue.",
       link: "/services/software-development"
     },
     {
       icon: <FaMobile />,
       title: "Mobile Apps",
-      text: "Mobile applications that expand your reach, improve customer engagement, and increase sales.",
+      text: "Mobile applications that expand your reach and increase customer engagement.",
       link: "/services/mobile-app"
     },
     {
       icon: <FaShoppingCart />,
       title: "E-Commerce",
-      text: "Online stores that drive higher sales, reduce cart abandonment, and maximize profitability.",
+      text: "Online stores that drive higher sales and reduce cart abandonment.",
       link: "/industries/ecommerce"
-    },
-    {
-      icon: <FaWordpress />,
-      title: "WordPress Expert",
-      text: "Powerful, easy-to-manage websites that attract customers and save you time and money.",
-      link: "/services/custom-software"
     },
     {
       icon: <FaPalette />,
       title: "UI/UX Design",
-      text: "Intuitive designs that boost conversions, reduce bounce rates, and create memorable customer experiences.",
+      text: "Intuitive designs that boost conversions and create great user experiences.",
       link: "/services/ui-ux"
-    },
-    {
-      icon: <FaDatabase />,
-      title: "Database Solutions",
-      text: "Reliable data systems that improve decision-making, streamline operations, and support business growth.",
-      link: "/solution/database"
     },
     {
       icon: <FaPlug />,
       title: "API Development",
-      text: "Seamless integrations that automate processes, reduce manual work, and unlock new business opportunities.",
+      text: "Seamless integrations that automate processes and unlock new opportunities.",
       link: "/services/api-integration"
     },
     {
-      icon: <FaCloud />,
-      title: "Cloud & AWS",
-      text: "Scalable cloud solutions that reduce costs, improve performance, and give you peace of mind.",
-      link: "/services/cloud"
+      icon: <FaWordpress />,
+      title: "WordPress Expert",
+      text: "Powerful, easy-to-manage websites that attract customers and save time.",
+      link: "/services/custom-software"
     }
   ];
 
-  // Benefit cards — results focused
+  // Updated Benefit Cards
   const benefitCards = [
     {
-      icon: <FaBullseye />,
-      title: "Deep Industry Experience",
-      text: "16+ years across SaaS, fintech, e-commerce, and healthcare — we've solved your problem before.",
-      link: "/industries/healthcare"
-    },
-    {
-      icon: <FaGlobeAmericas />,
-      title: "Remote-First, NYC Based",
-      text: "Headquartered in Union NJ with full remote delivery — responsive, accountable, and in your timezone.",
-      link: "/services/offshore"
-    },
-    {
       icon: <FaTrophy />,
-      title: "Production-Grade Quality",
-      text: "Every system we ship runs at 99.9% uptime with automated tests, CI/CD, and zero-downtime deployments.",
+      title: "Production-Grade Delivery",
+      text: "16+ years shipping systems with 99.9% uptime, CI/CD, and automated testing.",
       link: "/portfolio/work"
     },
     {
       icon: <FaDollarSign />,
-      title: "Transparent Pricing",
-      text: "Fixed-scope projects or hourly retainers — no surprise invoices, no scope creep without sign-off.",
-      link: "/services/staff-augmentation"
+      title: "AWS Cost Reduction",
+      text: "Proven 30–50% savings on cloud infrastructure for growing companies.",
+      link: "/services/cloud"
+    },
+    {
+      icon: <FaGlobeAmericas />,
+      title: "Remote-First, NYC Based",
+      text: "Headquartered in Union, NJ with reliable remote delivery across timezones.",
+      link: "/contact"
+    },
+    {
+      icon: <FaBullseye />,
+      title: "SaaS & Local Business Experience",
+      text: "From Series A SaaS platforms to high-converting websites for local businesses.",
+      link: "/industries"
     }
   ];
 
-  // Real, verifiable statistics only
+  // Statistics — Real & Strong
   const statistics = [
     { icon: <FaCalendarAlt />, number: "16+", label: "Years Experience" },
     { icon: <FaProjectDiagram />, number: "15+", label: "Production Systems Delivered" },
-    { icon: <FaSmile />, number: "$2M+", label: "Client Revenue Enabled" },
+    { icon: <FaSmile />, number: "$2M+", label: "Client Revenue Supported" },
     { icon: <FaCheckCircle />, number: "99.9%", label: "Uptime Achieved" },
     { icon: <FaCloud />, number: "30–50%", label: "AWS Cost Reduction" },
-    { icon: <FaClock />, number: "24/7", label: "Support Available" },
-    { icon: <FaDollarSign />, number: "$96K+", label: "AWS Savings for One Client" },
-    { icon: <FaStar />, number: "16+", label: "Years Senior Engineering" },
+    { icon: <FaDollarSign />, number: "$96K+", label: "Annual Savings (One Client)" },
   ];
 
   return (
@@ -167,13 +165,13 @@ const Client = () => {
         </section>
       </div>
 
-      {/* Trusted Brands Section */}
+      {/* Trusted Brands & Statistics sections remain unchanged */}
       <section className="trusted-brands-section-full">
         <h2 className="trusted-brands-title">
           Clients We're <span className="highlight-work">Serving</span>
         </h2>
         <h4 className="trusted-brands-subtitle">
-          Trusted by businesses across SaaS, fintech, e-commerce, and more
+          Trusted by businesses across SaaS, fintech, e-commerce, and local operations
         </h4>
         <div className="logo-container-home">
           <div className="logo-slide-home" ref={sliderRef}>
@@ -191,7 +189,6 @@ const Client = () => {
         </div>
       </section>
 
-      {/* Statistics Section — real numbers only */}
       <section className="statistics-section">
         <div className="statistics-grid">
           {statistics.map((stat, index) => (
@@ -208,7 +205,7 @@ const Client = () => {
           YOUR SUCCESS IS <span className="highlight-our">OUR</span> MISSION
         </h2>
         <p className="success-subtitle">
-          Built by a senior engineering team that has shipped production systems serving 10,000+ users — we treat your project like our own.
+          Built by a senior engineering team that has shipped production systems serving 10,000+ users.
         </p>
       </section>
     </div>

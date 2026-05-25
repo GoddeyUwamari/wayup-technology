@@ -16,18 +16,29 @@ const HeroSection = () => {
     <div className="hero-container">
       <LazyVideo src={New} />
       <div className="hero-overlay"></div>
+      
       <div className="hero-content">
-        <h1 className="hero-title">Professional Websites & <span className="highlight-word">Software</span> That Help Local Businesses Get More Customers</h1>
+        <h1 className="hero-title">
+          Production-Grade <span className="highlight-word">Software</span> & AWS Infrastructure
+        </h1>
+        
         <p className="hero-subtitle">
-          Web, mobile, and AWS infrastructure built by a 16+ year senior engineering team. We ship production-ready code that scales, stays secure, and doesn't break on launch day.
+          From high-converting websites for local businesses to scalable multi-tenant SaaS platforms and AWS cost optimization — 
+          built by a 16+ year senior engineering team.
         </p>
+
         <div className="hero-cta-container">
           <Link to="/contact" className="hero-cta-primary">
             Start Your Project
           </Link>
           <Link to="/portfolio/work" className="hero-cta-secondary">
-            View Portfolio
+            View Our Work
           </Link>
+        </div>
+
+        {/* Trust signals */}
+        <div className="hero-trust">
+          <p>✓ 30–50% AWS Cost Reduction • ✓ 99.9% Uptime • ✓ 15+ Production Systems Delivered</p>
         </div>
       </div>
     </div>
