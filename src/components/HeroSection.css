@@ -473,3 +473,80 @@
 .hero-cta-secondary {
   animation-fill-mode: both;
 }
+
+
+/* Trust Signals */
+.hero-trust {
+  margin-top: 50px;
+  text-align: center;
+  opacity: 0.95;
+  animation: fadeInUp 1s ease-out 1s both;
+}
+
+.hero-trust p {
+  font-size: 1.05rem;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Bottom Floating Buttons Area */
+.hero-bottom-buttons {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  z-index: 10;
+}
+
+/* Need Help Chat Button */
+.Need-help {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.Need-help:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Scroll to Next Arrow */
+.scroll-down {
+  position: absolute;
+  bottom: 45px;
+  right: 40px;
+  color: white;
+  font-size: 28px;
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-trust {
+    margin-top: 40px;
+  }
+  
+  .hero-bottom-buttons {
+    bottom: 30px;
+  }
+  
+  .scroll-down {
+    right: 25px;
+    bottom: 35px;
+  }
+}
