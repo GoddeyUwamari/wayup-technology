@@ -100,7 +100,7 @@ const Client = () => {
   // Statistics — Real & Strong
   const statistics = [
     { icon: <FaCalendarAlt />, number: "16+", label: "Years Experience" },
-    { icon: <FaProjectDiagram />, number: "15+", label: "Production Systems Delivered" },
+    { icon: <FaProjectDiagram />, number: "400+", label: "Production Systems Delivered" },
     { icon: <FaSmile />, number: "$2M+", label: "Client Revenue Supported" },
     { icon: <FaCheckCircle />, number: "99.9%", label: "Uptime Achieved" },
     { icon: <FaCloud />, number: "30–50%", label: "AWS Cost Reduction" },
