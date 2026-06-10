@@ -19,12 +19,12 @@ const HeroSection = () => {
       
       <div className="hero-content">
         <h1 className="hero-title">
-          Production-Grade <span className="highlight-word">Software</span> & AWS Infrastructure
+          Scalable <span className="highlight-word">Software</span> & Cloud Infrastructure That Grows With Your Business
         </h1>
         
         <p className="hero-subtitle">
-          From high-converting websites for local businesses to scalable multi-tenant SaaS platforms and AWS cost optimization — 
-          built by a 16+ year senior engineering team.
+          High-converting websites for local businesses • Multi-tenant SaaS platforms • 
+AWS cost optimization (30–50% savings) — built by a 16+ year senior engineering team.
         </p>
 
         <div className="hero-cta-container">
