@@ -151,7 +151,7 @@ function Footer() {
               <InstagramIcon style={{ fontSize: '20px' }} />
             </a>
             <a
-          href="https://www.linkedin.com/in/goddeyuwamri"
+          href="https://www.linkedin.com/in/goddey-uwamari"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon"
