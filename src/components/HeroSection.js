@@ -19,12 +19,11 @@ const HeroSection = () => {
       
       <div className="hero-content">
         <h1 className="hero-title">
-          Scalable <span className="highlight-word">Software</span> & Cloud Infrastructure That Grows With Your Business
+          Reliable <span className="highlight-word">Software</span> Solutions Built for Growing Businesses
         </h1>
         
         <p className="hero-subtitle">
-          High-converting websites for local businesses • Multi-tenant SaaS platforms • 
-AWS cost optimization (30–50% savings) — built by a 16+ year senior engineering team.
+          Websites, eCommerce, automation, and custom software designed to help businesses attract customers, save time, and scale.
         </p>
 
         <div className="hero-cta-container">
@@ -38,7 +37,7 @@ AWS cost optimization (30–50% savings) — built by a 16+ year senior engineer
 
         {/* Trust signals */}
         <div className="hero-trust">
-          <p>✓ 30–50% AWS Cost Reduction • ✓ 99.9% Uptime • ✓ 15+ Production Systems Delivered</p>
+          <p>✓ 16+ Years Experience • ✓ Secure Cloud Solutions • ✓ 15+ Production Systems Delivered</p>
         </div>
       </div>
     </div>
