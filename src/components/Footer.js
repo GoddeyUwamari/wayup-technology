@@ -151,7 +151,7 @@ function Footer() {
               <InstagramIcon style={{ fontSize: '20px' }} />
             </a>
             <a
-              href="https://www.linkedin.com/in/goddeyuwamri"
+          href="https://www.linkedin.com/in/goddeyuwamri"
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon"
@@ -166,7 +166,7 @@ function Footer() {
 
       <div className="footer-bottom">
         <div className="footer-bottom-content">
-          <p className="footer-copyright">© 2024 WayUP Technology. All Rights Reserved.</p>
+          <p className="footer-copyright">© 2026 WayUP Technology. All Rights Reserved.</p>
           <p className="footer-tagline-bottom">Proudly Built With ♥ by WayUP Technology</p>
         </div>
       </div>
