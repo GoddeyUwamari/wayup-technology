@@ -1,11 +1,15 @@
+
 .pricing-section {
   background: linear-gradient(135deg, #000048 0%, #0f172a 100%);
   padding: 80px 40px;
+  position: relative;
+  overflow: hidden;
 }
 .pricing-container { max-width: 1200px; margin: 0 auto; }
 .pricing-header { text-align: center; margin-bottom: 60px; }
 .pricing-badge {
   display: inline-block;
+  position: relative;
   padding: 8px 20px;
   background: rgba(239, 90, 22, 0.15);
   border: 1px solid rgba(239, 90, 22, 0.4);
