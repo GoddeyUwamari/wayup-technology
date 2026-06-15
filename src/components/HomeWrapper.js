@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import HeroSection from './HeroSection'
 import Home from './Home';
-import Section from './Section';
+import PricingSection from './PricingSection';
+// import Section from './Section';
 import Link from './Link';
 import Product from './Product';
 import Language from './Language';
@@ -21,7 +22,8 @@ const HomeWrapper = () => {
       <HeroSection />
       <Client />
       {/* <Home /> */}
-      <Section />
+      <PricingSection />
+      {/* <Section /> */}
       <Services/>
       <Link />
       <Product />
