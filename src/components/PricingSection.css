@@ -1,9 +1,10 @@
 
 .pricing-section {
   background: linear-gradient(135deg, #000048 0%, #0f172a 100%);
-  padding: 80px 40px;
+  padding: 100px 40px 80px 40px;
   position: relative;
   overflow: hidden;
+  margin-top: -2px;
 }
 .pricing-container { max-width: 1200px; margin: 0 auto; }
 .pricing-header { text-align: center; margin-bottom: 60px; }
@@ -24,7 +25,7 @@
 .pricing-title { font-size: 42px; font-weight: 800; color: #ffffff; margin-bottom: 16px; line-height: 1.2; }
 .pricing-highlight { color: #ef5a16; }
 .pricing-subtitle { font-size: 18px; color: #94a3b8; max-width: 600px; margin: 0 auto; line-height: 1.7; }
-.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; padding-top: 30px; }
 .pricing-card {
   background: rgba(15, 23, 42, 0.8);
   border: 1px solid rgba(255, 255, 255, 0.1);
