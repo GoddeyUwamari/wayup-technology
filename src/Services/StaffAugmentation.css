@@ -678,7 +678,7 @@
   box-shadow: 0 12px 32px rgba(239, 90, 22, 0.3);
 }
 
-.pricing-badge {
+.staff-pricing-card .pricing-badge {
   position: absolute;
   top: -12px;
   right: 24px;
