@@ -37,7 +37,7 @@ const HeroSection = () => {
 
         {/* Trust signals */}
         <div className="hero-trust">
-          <p>✓ 16+ Years Experience • ✓ Secure Cloud Solutions • ✓ 15+ Production Systems Delivered</p>
+          <p>✓ 16+ Years Experience • ✓ Secure Cloud Solutions • ✓ 200+ Production Systems Delivered</p>
         </div>
       </div>
     </div>

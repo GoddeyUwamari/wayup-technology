@@ -697,9 +697,12 @@ body {
 /* Statistics Section Container */
 .statistics-section {
   background-color: var(--primary-bg);
-  max-width: 1400px;
-  margin: 80px auto;
-  padding: 0 40px;
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 40px;
+  position: relative;
+  overflow: hidden;
 }
 
 /* Statistics Grid */
