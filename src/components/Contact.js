@@ -1,39 +1,36 @@
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, Mail, Printer, Phone, MapPin } from 'lucide-react';
 import { submitContactForm, testConnection, contactHelpers } from '../ContactApiServices';
-import { useLocation } from 'react-router-dom'; 
-import Checkout from './Checkout';
+import { useLocation } from 'react-router-dom';
 import './Contact.css';
 
 const Contact = () => {
-   const location = useLocation();
-  
+  const location = useLocation();
+
   useEffect(() => {
     if (location.state?.scrollToTop) {
-      window.scrollTo({
-        top: 0,
-      behavior: 'instant',
-      });
+      window.scrollTo({ top: 0, behavior: 'instant' });
     }
   }, [location]);
 
+  const [sessionId, setSessionId] = useState(
+    () => contactHelpers.generateSessionId()
+  );
 
-  // Generate unique session ID for this contact form instance
-  const [sessionId] = useState(() => contactHelpers.generateSessionId());
-  
   const [expandedSection, setExpandedSection] = useState('HEADQUARTERS');
+
   const [formData, setFormData] = useState({
-    sessionId: sessionId,
+    sessionId,
     type: 'contact_form',
     fullName: '',
     email: '',
     phoneNumber: '',
     company: '',
+    projectType: '',
     howCanWeHelp: '',
-    seenAtTradeshow: null,
-    source: 'contact_form'
+    source: '',
   });
-  
+
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState(null);
@@ -45,108 +42,89 @@ const Contact = () => {
     } else {
       document.body.classList.remove('modal-open');
     }
-
-    // Cleanup on unmount
     return () => {
       document.body.classList.remove('modal-open');
     };
   }, [formSubmitted]);
-  
-  // Test connection when component mounts
+
+  // Only test connection in development
   useEffect(() => {
-    const testAPI = async () => {
-      console.log('📝 Testing Contact Form API connection...');
-      const result = await testConnection();
-      console.log('📝 Connection test result:', result);
-    };
-    testAPI();
+    if (process.env.NODE_ENV === 'development') {
+      const testAPI = async () => {
+        console.log('📝 Testing Contact Form API connection...');
+        const result = await testConnection();
+        console.log('📝 Connection test result:', result);
+      };
+      testAPI();
+    }
   }, []);
-  
+
   const onChange = (e) => {
-    setFormData((prevState) => ({
-      ...prevState,
-      [e.target.name]: e.target.value,
-    }));
-    // Clear error when user starts typing
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
     if (error) setError(null);
   };
-  
-  const handleRadioChange = (value) => {
-    setFormData({
-      ...formData,
-      seenAtTradeshow: value
-    });
-    // Clear error when user makes selection
-    if (error) setError(null);
-  };
-  
+
   const validateForm = () => {
-    // Use the contact helpers validation
-    const validation = contactHelpers.validateContactForm({
-      ...formData,
-      description: formData.howCanWeHelp // Map howCanWeHelp to description for validation
-    });
-    
-    if (!validation.isValid) {
-      setError(validation.errors[0]); // Show first error
+    if (!formData.fullName.trim()) {
+      setError('Please enter your full name');
       return false;
     }
-    
-    // Additional validation for tradeshow question
-    if (formData.seenAtTradeshow === null) {
-      setError('Please answer the tradeshow question');
+
+    if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) {
+      setError('Please enter a valid email address');
       return false;
     }
-    
+
+    const phoneRegex = /^[+]?[\d\s()-]{10,}$/;
+    if (!formData.phoneNumber.trim() || !phoneRegex.test(formData.phoneNumber)) {
+      setError('Please enter a valid phone number (at least 10 digits)');
+      return false;
+    }
+
+    if (!formData.projectType) {
+      setError('Please select a project type');
+      return false;
+    }
+
+    if (!formData.howCanWeHelp.trim()) {
+      setError('Please tell us how we can help you');
+      return false;
+    }
+
+    if (!formData.source) {
+      setError('Please let us know how you heard about us');
+      return false;
+    }
+
     return true;
   };
-  
+
   const onSubmit = async (e) => {
     e.preventDefault();
-    
-    console.log('=== CONTACT FORM SUBMISSION START ===');
-    console.log('📝 Session ID:', sessionId);
-    console.log('📝 Form data:', formData);
-    
-    // Client-side validation
-    if (!validateForm()) {
-      console.log('📝 Form validation failed');
-      return;
-    }
-    
+
+    if (!validateForm()) return;
+
     setSubmitting(true);
     setError(null);
-    
+
     try {
-      console.log('📝 Calling submitContactForm...');
-      
-      // Format form data using contact helpers
       const formattedData = contactHelpers.formatContactFormData({
         ...formData,
-        description: formData.howCanWeHelp, // Map howCanWeHelp to description
-        projectType: 'General Inquiry' // Default project type
+        description: formData.howCanWeHelp,
+        projectType: formData.projectType || 'General Inquiry',
       });
-      
-      // Add unique request ID for duplicate prevention
+
       const submissionData = {
         ...formattedData,
         id: `submission_${sessionId}_${Date.now()}`,
-        seenAtTradeshow: formData.seenAtTradeshow,
-        timestamp: new Date().toISOString()
+        timestamp: new Date().toISOString(),
       };
-      
-      console.log('📝 Enhanced submission data:', submissionData);
-      
-      // Submit form using contact-only API service
+
       const result = await submitContactForm(submissionData);
-      
-      console.log('=== CONTACT FORM API RESPONSE ===');
-      console.log('📝 Result:', result);
-      
+
       if (result.success) {
-        console.log('✅ Contact form submitted successfully!');
-        // Success - reset form and show success message
         const newSessionId = contactHelpers.generateSessionId();
+        setSessionId(newSessionId);
         setFormData({
           sessionId: newSessionId,
           type: 'contact_form',
@@ -154,35 +132,29 @@ const Contact = () => {
           email: '',
           phoneNumber: '',
           company: '',
+          projectType: '',
           howCanWeHelp: '',
-          seenAtTradeshow: null,
-          source: 'contact_form'
+          source: '',
         });
         setFormSubmitted(true);
       } else {
-        console.log('❌ Contact form submission failed:', result.message);
-        // Error - show error message
         setError(result.message || 'There was an error submitting your form. Please try again.');
       }
     } catch (err) {
-      console.error('❌ Unexpected error during contact form submission:', err);
+      console.error('Contact form submission error:', err);
       setError('An unexpected error occurred. Please try again.');
+    } finally {
+      setSubmitting(false);
     }
-    
-    setSubmitting(false);
-    console.log('=== CONTACT FORM SUBMISSION END ===');
   };
-  
+
   const toggleSection = (section) => {
     setExpandedSection(expandedSection === section ? null : section);
   };
-  
-  // Enhanced reset form function
+
   const handleSendAnother = () => {
     const newSessionId = contactHelpers.generateSessionId();
-    
-    console.log('📝 Creating new contact form session:', newSessionId);
-    
+    setSessionId(newSessionId);
     setFormSubmitted(false);
     setError(null);
     setFormData({
@@ -192,113 +164,56 @@ const Contact = () => {
       email: '',
       phoneNumber: '',
       company: '',
+      projectType: '',
       howCanWeHelp: '',
-      seenAtTradeshow: null,
-      source: 'contact_form'
+      source: '',
     });
-    
-    // Scroll back to top of form for better UX
-    document.querySelector('.form-container')?.scrollIntoView({ 
-      behavior: 'smooth' 
-    });
-  };
-  
-  // Keep the old resetForm for backward compatibility
-  const resetForm = () => {
-    handleSendAnother();
-  };
-  
-  // Test function for debugging
-  const handleTestConnection = async () => {
-    console.log('📝 Manual connection test...');
-    const result = await testConnection();
-    console.log('📝 Manual test result:', result);
-    alert(`Contact Form API Connection: ${result.success ? 'SUCCESS' : 'FAILED'}\nCheck console for details.`);
+    document.querySelector('.form-container')?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  // Location image placeholder component
-  const LocationImagePlaceholder = ({ location }) => (
-    <div 
-      className="location-image-placeholder" 
-      style={{
-        width: '100px',
-        height: '80px',
-        background: 'linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%)',
-        border: '1px solid #ddd',
-        borderRadius: '4px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        color: '#888',
-        fontSize: '10px',
-        textAlign: 'center'
-      }}
-    >
-      <span style={{ fontSize: '20px', marginBottom: '4px' }}>🏢</span>
-      <span>{location}</span>
-    </div>
-  );
-  
+  const projectTypes = [
+    'Website Design & Development',
+    'E-Commerce Store',
+    'Mobile App Development',
+    'Business Automation',
+    'Custom Software Development',
+    'Digital Marketing',
+    'Cloud & Infrastructure',
+    'Technical Consulting',
+    'General Inquiry',
+  ];
+
+  const sourceOptions = [
+    'Google Search',
+    'Social Media',
+    'Referral from a friend',
+    'LinkedIn',
+    'Facebook',
+    'Advertisement',
+    'Other',
+  ];
+
   return (
     <>
-      
-      {/* {process.env.NODE_ENV === 'development' && (
-        <div style={{
-          position: 'fixed',
-          top: '10px',
-          left: '10px',
-          background: 'rgba(0,128,0,0.8)', 
-          color: 'white',
-          padding: '8px',
-          fontSize: '11px',
-          zIndex: 10000,
-          borderRadius: '4px'
-        }}>
-          📝 Contact Form Session: {sessionId.substring(0, 25)}...
-          <br />
-          Type: contact_form
-          <br />
-          Status: contact-only (no chat widget)
-          <br />
-          <button 
-            onClick={handleTestConnection}
-            style={{
-              background: 'white',
-              color: 'green',
-              border: 'none',
-              padding: '2px 6px',
-              fontSize: '10px',
-              borderRadius: '2px',
-              cursor: 'pointer',
-              marginTop: '4px'
-            }}
-          >
-            Test API
-          </button>
-        </div>
-      )} */}
-
       {/* Contact Section */}
       <div className="contact-container">
         <div className="contact-grid">
           {/* Left side - Contact Form */}
           <div>
             <h1>CONTACT US</h1>
-            <p className="form-intro">Fill out our form and a software expert will contact you within 24hrs.</p>
-            
+            <p className="form-intro">
+              Tell us what you're building. A software expert will review your project and contact you within 24 hours.
+            </p>
+
             {formSubmitted ? (
-              // Full-screen success modal overlay
               <div className="success-message">
                 <div className="success-content">
                   <div className="checkmark"></div>
-                  <h3>Thank you for contacting us!</h3>
+                  <h3>Thank you for reaching out!</h3>
                   <p>We've received your inquiry and will get back to you within 24 hours.</p>
                   <div className="success-details">
                     <p>Your submission has been recorded with session ID:</p>
-                    <code>
-                      {sessionId}
-                    </code>
+                    <code>{sessionId}</code>
                   </div>
                   <button
                     className="send-another-button"
@@ -313,126 +228,110 @@ const Contact = () => {
             ) : (
               <form className="form-container" onSubmit={onSubmit} noValidate>
                 <div>
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="fullName"
                     value={formData.fullName}
                     onChange={onChange}
-                    placeholder="FULL NAME *" 
+                    placeholder="FULL NAME *"
                     className={`input-field ${error && !formData.fullName.trim() ? 'error' : ''}`}
                     required
                     autoComplete="name"
+                    aria-label="Full name"
                   />
                 </div>
-                
+
                 <div>
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
                     name="email"
                     value={formData.email}
                     onChange={onChange}
-                    placeholder="EMAIL *" 
+                    placeholder="EMAIL *"
                     className={`input-field ${error && (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) ? 'error' : ''}`}
                     required
                     autoComplete="email"
+                    aria-label="Email address"
                   />
                 </div>
-                
+
                 <div className="input-grid">
-                  <input 
-                    type="tel" 
+                  <input
+                    type="tel"
                     name="phoneNumber"
                     value={formData.phoneNumber}
                     onChange={onChange}
-                    placeholder="PHONE *" 
+                    placeholder="PHONE *"
                     className={`input-field ${error && !formData.phoneNumber.trim() ? 'error' : ''}`}
                     required
                     autoComplete="tel"
+                    aria-label="Phone number"
                   />
-                  
-                  <input 
-                    type="text" 
+                  <input
+                    type="text"
                     name="company"
                     value={formData.company}
                     onChange={onChange}
-                    placeholder="COMPANY (OPTIONAL)" 
+                    placeholder="BUSINESS NAME (OPTIONAL)"
                     className="input-field"
                     autoComplete="organization"
+                    aria-label="Business name"
                   />
                 </div>
-                
-<div>
-  <select 
-    name="projectType"
-    value={formData.projectType || ''}
-    onChange={onChange}
-    className="input-field"
-    required
-  >
-   <option value="">SELECT PROJECT TYPE *</option>
-<option value="Website Development">Website Development</option>
-<option value="Mobile App Development">Mobile App Development</option>
-<option value="Custom Software Development">Custom Software Development</option>
-<option value="E-commerce Development">E-commerce Development</option>
-<option value="Enterprise Software">Enterprise Software</option>
-<option value="Cloud Solutions">Cloud Solutions</option>
-<option value="API Development">API Development</option>
-<option value="Database Solutions">Database Solutions</option>
-<option value="AI/ML Integration">AI/ML Integration</option>
-<option value="System Integration">System Integration</option>
-<option value="Legacy Modernization">Legacy Modernization</option>
-<option value="Technical Consulting">Technical Consulting</option>
-<option value="General Inquiry">General Inquiry</option>
-  </select>
-</div>
 
                 <div>
-                  <input 
-                    type="text" 
+                  <select
+                    name="projectType"
+                    value={formData.projectType}
+                    onChange={onChange}
+                    className={`input-field ${error && !formData.projectType ? 'error' : ''}`}
+                    required
+                    aria-label="Project type"
+                  >
+                    <option value="">WHAT DO YOU NEED? *</option>
+                    {projectTypes.map((type) => (
+                      <option key={type} value={type}>{type}</option>
+                    ))}
+                  </select>
+                </div>
+
+                <div>
+                  <input
+                    type="text"
                     name="howCanWeHelp"
                     value={formData.howCanWeHelp}
                     onChange={onChange}
-                    placeholder="HOW CAN WE HELP YOU? *" 
+                    placeholder="BRIEFLY DESCRIBE YOUR PROJECT *"
                     className={`input-field ${error && !formData.howCanWeHelp.trim() ? 'error' : ''}`}
                     required
+                    aria-label="Project description"
                   />
                 </div>
-                
+
                 <div>
-                  <p>Have you seen us at any tradeshow? *</p>
-                  <div className="radio-group" style={{ display: 'flex', gap: '1.5rem', marginTop: '0.5rem' }}>
-                    <label className="radio-label" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <input 
-                        type="radio" 
-                        name="seenAtTradeshow"
-                        checked={formData.seenAtTradeshow === true}
-                        onChange={() => handleRadioChange(true)}
-                        style={{ accentColor: '#f97316' }}
-                        required
-                      />
-                      <span>Yes</span>
-                    </label>
-                    <label className="radio-label" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <input 
-                        type="radio" 
-                        name="seenAtTradeshow"
-                        checked={formData.seenAtTradeshow === false}
-                        onChange={() => handleRadioChange(false)}
-                        style={{ accentColor: '#f97316' }}
-                      />
-                      <span>No</span>
-                    </label>
-                  </div>
+                  <select
+                    name="source"
+                    value={formData.source}
+                    onChange={onChange}
+                    className={`input-field ${error && !formData.source ? 'error' : ''}`}
+                    required
+                    aria-label="How did you hear about us"
+                  >
+                    <option value="">HOW DID YOU HEAR ABOUT US? *</option>
+                    {sourceOptions.map((option) => (
+                      <option key={option} value={option}>{option}</option>
+                    ))}
+                  </select>
                 </div>
-                
+
                 {error && (
                   <div className="error-message" role="alert">
                     {error}
                   </div>
                 )}
-                
+
                 <div>
-                  <button 
+                  <button
                     type="submit"
                     className="submit-button"
                     disabled={submitting}
@@ -441,35 +340,38 @@ const Contact = () => {
                     {submitting ? (
                       <>
                         <span>SUBMITTING...</span>
-                        <span className="loading-spinner" style={{
-                          display: 'inline-block',
-                          width: '14px',
-                          height: '14px',
-                          border: '2px solid #ffffff40',
-                          borderTop: '2px solid #ffffff',
-                          borderRadius: '50%',
-                          animation: 'spin 1s linear infinite',
-                          marginLeft: '8px'
-                        }}></span>
+                        <span
+                          className="loading-spinner"
+                          style={{
+                            display: 'inline-block',
+                            width: '14px',
+                            height: '14px',
+                            border: '2px solid #ffffff40',
+                            borderTop: '2px solid #ffffff',
+                            borderRadius: '50%',
+                            animation: 'spin 1s linear infinite',
+                            marginLeft: '8px',
+                          }}
+                        ></span>
                       </>
                     ) : (
-                      'SPEAK TO A SOFTWARE PRO'
+                      'SPEAK TO A SOFTWARE EXPERT'
                     )}
                   </button>
                 </div>
-                
+
                 <div className="legal-text">
-                  <p>* By requesting a consult you agree to the terms of WayUP Technology's 
-                    <a href="/privacy-policy" target="_blank" rel="noopener noreferrer"> privacy policy</a>.
-                    This site is protected by reCAPTCHA and the Google 
-                    <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer"> Privacy Policy</a> and 
-                    <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer"> Terms of Service</a> apply.
+                  <p>
+                    * By submitting this form you agree to WayUP Technology's{' '}
+                    <a href="/privacy-policy" target="_blank" rel="noopener noreferrer">
+                      privacy policy
+                    </a>.
                   </p>
                 </div>
               </form>
             )}
           </div>
-          
+
           {/* Right side - Contact Info & Locations */}
           <div>
             <div className="contact-info">
@@ -478,28 +380,34 @@ const Contact = () => {
                   <Phone size={20} color="#f97316" />
                 </div>
                 <div>
-                  <a href="tel:8482289890" className="contact-text">Phone: 848 228 9890</a>
+                  <a href="tel:8482289890" className="contact-text">
+                    Phone: 848 228 9890
+                  </a>
                 </div>
               </div>
-              
+
               <div className="contact-item">
                 <div className="icon-container">
                   <Phone size={20} color="#f97316" />
                 </div>
                 <div>
-                  <a href="tel:+18482289890" className="contact-text">International: +1848-228-9890</a>
+                  <a href="tel:+18482289890" className="contact-text">
+                    International: +1 848-228-9890
+                  </a>
                 </div>
               </div>
-              
+
               <div className="contact-item">
                 <div className="icon-container">
                   <Mail size={20} className="mail-icon" />
                 </div>
                 <div>
-                  <a href="mailto:positiveimpactmakers@yahoo.com" className="contact-link">positiveimpactmakers@yahoo.com</a>
+                  <a href="mailto:projectmanager@wayuptechn.com" className="contact-link">
+                    projectmanager@wayuptechn.com
+                  </a>
                 </div>
               </div>
-              
+
               <div className="contact-item">
                 <div className="icon-container">
                   <Printer size={20} className="print-icon" />
@@ -509,13 +417,13 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
+
             <div className="locations-container">
               <h2>LOCATIONS</h2>
-              
+
               {/* Headquarters Section */}
               <div className="location-section">
-                <div 
+                <div
                   className="location-header"
                   onClick={() => toggleSection('HEADQUARTERS')}
                   role="button"
@@ -528,30 +436,33 @@ const Contact = () => {
                   }}
                 >
                   <h3>GLOBAL HEADQUARTER</h3>
-                  <ChevronDown 
+                  <ChevronDown
                     size={22}
-                    className={`chevron-icon ${expandedSection === 'HEADQUARTERS' ? 'chevron-rotated' : ''}`} 
+                    className={`chevron-icon ${expandedSection === 'HEADQUARTERS' ? 'chevron-rotated' : ''}`}
                   />
                 </div>
-                
+
                 {expandedSection === 'HEADQUARTERS' && (
                   <div className="location-content">
                     <div>
                       <p className="bold-text">Headquarters & Delivery Center</p>
-                      <p><MapPin size={16} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />852 S 20th Street</p>
+                      <p>
+                        <MapPin size={16} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />
+                        852 S 20th Street
+                      </p>
                       <p>Newark</p>
-                      <p>NJ07108, USA</p>
+                      <p>NJ 07108, USA</p>
                     </div>
                     <div className="york-image">
-  <img src='images/York.png' alt="" />
-</div>
+                      <img src="images/York.png" alt="Newark NJ office location" />
+                    </div>
                   </div>
                 )}
               </div>
-              
+
               {/* United States Section */}
               <div className="location-section">
-                <div 
+                <div
                   className="location-header"
                   onClick={() => toggleSection('UNITED STATES')}
                   role="button"
@@ -564,24 +475,24 @@ const Contact = () => {
                   }}
                 >
                   <h3>UNITED STATES</h3>
-                  <ChevronDown 
+                  <ChevronDown
                     size={22}
-                    className={`chevron-icon ${expandedSection === 'UNITED STATES' ? 'chevron-rotated' : ''}`} 
+                    className={`chevron-icon ${expandedSection === 'UNITED STATES' ? 'chevron-rotated' : ''}`}
                   />
                 </div>
-                
+
                 {expandedSection === 'UNITED STATES' && (
                   <div className="location-content">
                     <div>
                       <p className="bold-text">New Jersey Office</p>
-<p>
-  <MapPin size={16} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />
-  852 S 20th Street, Newark, NJ 07108
-</p>
+                      <p>
+                        <MapPin size={16} style={{ marginRight: '8px', display: 'inline', verticalAlign: 'middle' }} />
+                        852 S 20th Street, Newark, NJ 07108
+                      </p>
                     </div>
-                   <div className="york-image">
-  <img src='images/York.png' alt="" />
-</div>
+                    <div className="york-image">
+                      <img src="images/York.png" alt="New Jersey office location" />
+                    </div>
                   </div>
                 )}
               </div>
@@ -590,11 +501,8 @@ const Contact = () => {
         </div>
       </div>
 
-      {/* Checkout Component */}
-      <Checkout />
-      
-      {/* Add loading spinner CSS */}
-      <style jsx>{`
+      {/* Spinner keyframe — add @keyframes spin to Contact.css */}
+      <style>{`
         @keyframes spin {
           0% { transform: rotate(0deg); }
           100% { transform: rotate(360deg); }
