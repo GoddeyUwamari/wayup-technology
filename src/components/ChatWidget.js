@@ -1,22 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import io from 'socket.io-client';
-import { 
-  sendChatMessage, 
-  submitChatClientData, 
-  scheduleChatCall, 
-  markChatMessagesAsRead, 
+import {
+  submitChatClientData,
+  scheduleChatCall,
+  markChatMessagesAsRead,
   closeChatSession,
-  chatHelpers 
+  chatHelpers
 } from '../chatApiServices';
 import './ChatWidget.css';
 
-
-// Environment-based Socket.IO configuration
+// Socket configuration
 const getSocketConfig = () => {
-  const isLocalhost = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1';
-  
+  const isLocalhost =
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1';
+
   if (isLocalhost) {
-    // LOCAL DEVELOPMENT - Use HTTP (not HTTPS)
     return {
       url: 'http://localhost:8000',
       options: {
@@ -28,76 +27,47 @@ const getSocketConfig = () => {
         reconnectionDelay: 1000,
         reconnectionAttempts: 5,
         timeout: 20000,
-        forceNew: true
-      }
-    };
-  } else {
-    // PRODUCTION - Use Railway backend via env var
-    return {
-      url: process.env.REACT_APP_SOCKET_URL || 'https://wayup-backend-production.up.railway.app',
-      options: {
-        transports: ['websocket', 'polling'],
-        path: '/socket.io',
-        pingTimeout: 60000,
-        pingInterval: 25000,
-        reconnection: true,
-        reconnectionDelay: 1000,
-        reconnectionAttempts: 5,
-        timeout: 20000,
-        forceNew: true
+        forceNew: false
       }
     };
   }
+
+  return {
+    url:
+      process.env.REACT_APP_SOCKET_URL ||
+      'https://wayup-backend-production.up.railway.app',
+    options: {
+      transports: ['websocket', 'polling'],
+      path: '/socket.io',
+      pingTimeout: 60000,
+      pingInterval: 25000,
+      reconnection: true,
+      reconnectionDelay: 1000,
+      reconnectionAttempts: 5,
+      timeout: 20000,
+      forceNew: false
+    }
+  };
 };
-// Initialize Socket.IO connection
-const { url, options } = getSocketConfig();
-console.log('💬 Connecting to Socket.IO:', url);
-const socket = io(url, options);
-
-
-// const SOCKET_URL = window.location.hostname === 'localhost'
-//   ? 'https://localhost:8000'
-//   : 'https://wayuptechn.com';    
-
-
-// const socket = io(SOCKET_URL, {
-//   transports: ['websocket', 'polling'],
-//   path: '/socket.io',
-//   pingTimeout: 60000,
-//   pingInterval: 25000,
-//   reconnection: true,
-//   reconnectionDelay: 1000,
-//   reconnectionAttempts: 5
-// });
 
 const ChatWidget = () => {
-  // Generate unique session ID for this chat instance
-  const [sessionId] = useState(() => chatHelpers.generateSessionId());
+  const socketRef = useRef(null);
+
+  // Persistent session — survives page refresh
+  const getSessionId = () => {
+    let id = localStorage.getItem('wayup_chat_session_id');
+    if (!id) {
+      id = chatHelpers.generateSessionId();
+      localStorage.setItem('wayup_chat_session_id', id);
+    }
+    return id;
+  };
+
+  const [sessionId] = useState(getSessionId);
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
-  
-  // Add welcome message only once
-  useEffect(() => {
-    const welcomeMessage = {
-      id: `msg_${Date.now()}_welcome`,
-      type: 'system',
-      content: 'Hello! Welcome to WayUP Technology. How can we help you today?',
-      timestamp: new Date(),
-      sender: 'Support Team'
-    };
-    
-    setMessages(prev => {
-      // Only add if no messages exist yet
-      if (prev.length === 0) {
-        return [welcomeMessage];
-      }
-      return prev;
-    });
-  }, []);
-  
-  // Enhanced client data collection with session tracking
   const [clientData, setClientData] = useState({
-    sessionId: sessionId,
+    sessionId,
     type: 'chat_widget',
     name: '',
     email: '',
@@ -111,7 +81,6 @@ const ChatWidget = () => {
     source: 'chat_widget',
     priority: 'normal'
   });
-  
   const [currentMessage, setCurrentMessage] = useState('');
   const [showClientForm, setShowClientForm] = useState(false);
   const [formStep, setFormStep] = useState(1);
@@ -121,154 +90,159 @@ const ChatWidget = () => {
   const [showQuickActions, setShowQuickActions] = useState(true);
   const [submissionPending, setSubmissionPending] = useState(false);
   const [dataSubmitted, setDataSubmitted] = useState(false);
-  
+
   const messagesEndRef = useRef(null);
   const messageInputRef = useRef(null);
   const messageIdCounter = useRef(1);
 
-  // Generate unique message ID
   const generateMessageId = () => {
     messageIdCounter.current += 1;
     return `msg_${sessionId}_${messageIdCounter.current}_${Date.now()}`;
   };
 
-  // Reset submission function
-  const resetSubmission = () => {
-    setDataSubmitted(false);
-    setSubmissionPending(false);
-    setFormStep(1);
-    
-    const resetMessage = {
-      id: generateMessageId(),
-      type: 'system',
-      content: '🔄 Form reset. You can now submit your information again.',
-      timestamp: new Date(),
-      sender: 'System',
-      sessionId: sessionId
-    };
-    setMessages(prev => [...prev, resetMessage]);
-  };
-
-  // Socket connection and event handling
+  // Welcome message — only once
   useEffect(() => {
-    socket.removeAllListeners();
-    
-    socket.on('connect', () => {
-      console.log('💬 Chat Widget Connected with Socket ID:', socket.id);
-      console.log('💬 Chat Session ID:', sessionId);
+    setMessages(prev => {
+      if (prev.length === 0) {
+        return [{
+          id: `msg_${Date.now()}_welcome`,
+          type: 'system',
+          content: 'Hi 👋 Looking for a website, e-commerce store, or custom software? Tell us what you need and we\'ll connect you with the right specialist.',
+          timestamp: new Date(),
+          sender: 'Support Team'
+        }];
+      }
+      return prev;
+    });
+  }, []);
+
+  // Socket.IO connection and event handling
+  useEffect(() => {
+    const { url, options } = getSocketConfig();
+
+    if (!socketRef.current) {
+      console.log('💬 Initializing Socket.IO:', url);
+      socketRef.current = io(url, options);
+    }
+
+    const socket = socketRef.current;
+
+    const handleConnect = () => {
+      console.log('💬 Socket connected:', socket.id);
       setConnectionStatus('connected');
-      
-      // Register this chat session with the server
       socket.emit('register chat session', {
-        sessionId: sessionId,
+        sessionId,
         type: 'chat_widget',
         socketId: socket.id,
         timestamp: new Date().toISOString()
       });
-    });
-    
-    socket.on('disconnect', (reason) => {
-      console.log('💬 Chat Widget Disconnected:', reason);
-      setConnectionStatus('disconnected');
-      if (reason === 'io server disconnect') {
-        setTimeout(() => socket.connect(), 1000);
-      }
-    });
-    
-    socket.on('connect_error', (error) => {
-      console.error('💬 Chat Widget Connection error:', error.message);
-      setConnectionStatus('error');
-      setTimeout(() => socket.connect(), 5000);
-    });
+    };
 
-    socket.on('chat message', (data) => {
-      // Ensure this message is for our session
-      if (data.sessionId && data.sessionId !== sessionId) {
-        console.log('💬 Ignoring message for different session:', data.sessionId);
-        return;
-      }
-      
+    const handleDisconnect = (reason) => {
+      console.log('💬 Socket disconnected:', reason);
+      setConnectionStatus('disconnected');
+    };
+
+    const handleConnectError = (error) => {
+      console.error('💬 Socket error:', error.message);
+      setConnectionStatus('error');
+    };
+
+    const handleChatMessage = (data) => {
+      if (data.sessionId && data.sessionId !== sessionId) return;
+
       const newMessage = {
         id: generateMessageId(),
         type: 'received',
         content: data.message || data,
         timestamp: new Date(),
         sender: data.sender || 'Support Team',
-        sessionId: sessionId
+        sessionId
       };
-      
-      setMessages(prev => {
-        // Prevent duplicate messages
-        const isDuplicate = prev.some(msg => 
-          msg.content === newMessage.content && 
-          msg.sender === newMessage.sender &&
-          Math.abs(new Date(msg.timestamp) - new Date(newMessage.timestamp)) < 1000
+
+      setMessages(previous => {
+        const duplicate = previous.some(
+          msg =>
+            msg.content === newMessage.content &&
+            msg.sender === newMessage.sender
         );
-        
-        if (isDuplicate) {
-          console.log('💬 Duplicate message prevented:', newMessage.content);
-          return prev;
-        }
-        
-        return [...prev, newMessage];
+        if (duplicate) return previous;
+        return [...previous, newMessage];
       });
-      
+
       if (!isOpen) {
-        setUnreadCount(prev => prev + 1);
+        setUnreadCount(count => count + 1);
       }
-    });
+    };
 
-    socket.on('agent typing', (data) => {
-      if (data.sessionId === sessionId) {
-        setIsTyping(true);
-      }
-    });
-    
-    socket.on('agent stop typing', (data) => {
-      if (data.sessionId === sessionId) {
-        setIsTyping(false);
-      }
-    });
+    const handleAgentTyping = (data) => {
+      if (data.sessionId === sessionId) setIsTyping(true);
+    };
 
-    // REMOVED: socket.on('client data received') - preventing duplicate messages
+    const handleAgentStopTyping = (data) => {
+      if (data.sessionId === sessionId) setIsTyping(false);
+    };
 
-    socket.on('call scheduled', (response) => {
-      // Ensure this response is for our session
-      if (response.sessionId !== sessionId) {
-        return;
-      }
-      
-      const message = {
-        id: generateMessageId(),
-        type: 'system',
-        content: response.success 
-          ? '📞 Call scheduled successfully! We\'ll contact you soon.' 
-          : `❌ Failed to schedule call: ${response.error}`,
-        timestamp: new Date(),
-        sender: 'System',
-        sessionId: sessionId
-      };
-      
-      setMessages(prev => [...prev, message]);
-    });
+    const handleCallScheduled = (response) => {
+      if (response.sessionId !== sessionId) return;
+      setMessages(previous => [
+        ...previous,
+        {
+          id: generateMessageId(),
+          type: 'system',
+          content: response.success
+            ? '📞 Call scheduled successfully! We will contact you soon.'
+            : `❌ Failed to schedule call: ${response.error}`,
+          timestamp: new Date(),
+          sender: 'System',
+          sessionId
+        }
+      ]);
+    };
 
-    socket.on('chat session registered', (response) => {
+    const handleSessionRegistered = (response) => {
       console.log('💬 Chat session registered:', response);
-    });
+    };
 
-    if (socket.disconnected) {
-      socket.connect();
-    }
+    // Register targeted listeners
+    socket.on('connect', handleConnect);
+    socket.on('disconnect', handleDisconnect);
+    socket.on('connect_error', handleConnectError);
+    socket.on('chat message', handleChatMessage);
+    socket.on('agent typing', handleAgentTyping);
+    socket.on('agent stop typing', handleAgentStopTyping);
+    socket.on('call scheduled', handleCallScheduled);
+    socket.on('chat session registered', handleSessionRegistered);
 
+    if (socket.disconnected) socket.connect();
+
+    // Remove only our listeners on cleanup
     return () => {
-      socket.removeAllListeners();
+      socket.off('connect', handleConnect);
+      socket.off('disconnect', handleDisconnect);
+      socket.off('connect_error', handleConnectError);
+      socket.off('chat message', handleChatMessage);
+      socket.off('agent typing', handleAgentTyping);
+      socket.off('agent stop typing', handleAgentStopTyping);
+      socket.off('call scheduled', handleCallScheduled);
+      socket.off('chat session registered', handleSessionRegistered);
     };
   }, [sessionId, isOpen]);
+
+  // Disconnect socket on unmount
+  useEffect(() => {
+    return () => {
+      if (socketRef.current) {
+        socketRef.current.disconnect();
+        socketRef.current = null;
+      }
+    };
+  }, []);
 
   // Auto-scroll to bottom
   useEffect(() => {
     if (messagesEndRef.current) {
-      messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
+      messagesEndRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   }, [messages]);
 
@@ -279,232 +253,144 @@ const ChatWidget = () => {
     }
     if (isOpen) {
       setUnreadCount(0);
-      // Mark messages as read when chat opens
       markChatMessagesAsRead(sessionId).catch(console.error);
     }
   }, [isOpen, showClientForm, sessionId]);
 
-  // FIXED handleSendMessage function
+  // Send chat message — Socket.IO only (backend handles persistence)
   const handleSendMessage = async (e) => {
     e.preventDefault();
-    
     if (!currentMessage.trim() || connectionStatus !== 'connected') return;
 
-    const messageId = generateMessageId();
-    const userMessage = {
-      id: messageId,
-      type: 'sent',
-      content: currentMessage.trim(),
-      timestamp: new Date(),
-      sender: clientData.name || 'You',
-      sessionId: sessionId
-    };
-    
-    setMessages(prev => [...prev, userMessage]);
+    const messageText = currentMessage.trim();
 
-    // Send via Socket.IO (real-time) - FIXED
-    const socketMessageData = chatHelpers.formatChatMessage({
-      message: currentMessage.trim(),
+    setMessages(previous => [
+      ...previous,
+      {
+        id: generateMessageId(),
+        type: 'sent',
+        content: messageText,
+        timestamp: new Date(),
+        sender: clientData.name || 'You',
+        sessionId
+      }
+    ]);
+
+    socketRef.current?.emit('chat message', {
+      message: messageText,
       sender: clientData.name || 'User',
-      sessionId: sessionId,
+      sessionId,
       messageType: 'user'
     });
 
-    console.log('💬 Sending chat message via Socket.IO:', socketMessageData);
-    socket.emit('chat message', socketMessageData);
-
-    // Also send via HTTP as fallback
-    try {
-      const httpMessageData = {
-        sessionId: sessionId,
-        message: currentMessage.trim(),
-        sender: clientData.name || 'User',
-        messageType: 'user',
-        clientData: clientData
-      };
-
-      console.log('💬 Sending chat message via HTTP fallback:', httpMessageData);
-      await sendChatMessage(httpMessageData);
-    } catch (error) {
-      console.error('💬 HTTP fallback failed:', error);
-    }
+    socketRef.current?.emit('user stop typing', { sessionId });
 
     setCurrentMessage('');
   };
 
   const handleClientDataChange = (field, value) => {
-    setClientData(prev => ({
-      ...prev,
-      [field]: value
-    }));
+    setClientData(prev => ({ ...prev, [field]: value }));
   };
 
-  // FIXED handleClientFormSubmit function - UPDATED WITH BETTER DUPLICATE HANDLING
+  // Submit lead form
   const handleClientFormSubmit = async (e) => {
     e.preventDefault();
-    
-    // Validate required fields based on step
+
     if (formStep === 1) {
       if (!clientData.name || !clientData.email) return;
       setFormStep(2);
       return;
     }
-    
+
     if (formStep === 2) {
       if (!clientData.projectType) return;
       setFormStep(3);
       return;
     }
-    
-    // IMPROVED: Better duplicate submission handling
-    if (submissionPending) {
-      console.log('💬 Submission already in progress');
-      
-      // Show user-friendly message instead of error
-      const message = {
-        id: generateMessageId(),
-        type: 'system',
-        content: '⏳ Your submission is being processed. Please wait...',
-        timestamp: new Date(),
-        sender: 'System',
-        sessionId: sessionId
-      };
-      setMessages(prev => [...prev, message]);
-      return;
-    }
-    
+
+    if (submissionPending) return;
+
     if (dataSubmitted) {
-      console.log('💬 Data already submitted');
-      
-      // Show helpful message instead of error
-      const message = {
-        id: generateMessageId(),
-        type: 'system',
-        content: '✅ You have already submitted your information. Our team will contact you within 24 hours!',
-        timestamp: new Date(),
-        sender: 'System',
-        sessionId: sessionId
-      };
-      setMessages(prev => [...prev, message]);
-      
+      setMessages(previous => [
+        ...previous,
+        {
+          id: generateMessageId(),
+          type: 'system',
+          content: '✅ Your information has already been submitted. Our team will contact you soon.',
+          timestamp: new Date(),
+          sender: 'System',
+          sessionId
+        }
+      ]);
       setShowClientForm(false);
       return;
     }
-    
+
     setSubmissionPending(true);
-    
+
     try {
-      // Format data using chat helpers
       const formattedData = chatHelpers.formatChatClientData({
         ...clientData,
-        sessionId: sessionId
+        sessionId
       });
-      
-      // ONLY submit via HTTP (remove duplicate Socket.IO submission)
-      console.log('💬 Submitting client data via HTTP:', formattedData);
+
       const result = await submitChatClientData(formattedData);
-      
+
       if (result.success) {
-        console.log('✅ Chat client data submitted successfully');
         setDataSubmitted(true);
-        
-        // Show success message
-        const successMessage = {
-          id: generateMessageId(),
-          type: 'system',
-          content: '✅ Thank you! Your information has been received. Our team will contact you within 24 hours.',
-          timestamp: new Date(),
-          sender: 'System',
-          sessionId: sessionId
-        };
-        setMessages(prev => [...prev, successMessage]);
-        
+        setMessages(previous => [
+          ...previous,
+          {
+            id: generateMessageId(),
+            type: 'system',
+            content: '✅ Thank you! Your project details have been received. Our team will contact you within 24 hours.',
+            timestamp: new Date(),
+            sender: 'System',
+            sessionId
+          }
+        ]);
       } else {
-        console.error('❌ Chat client data submission failed:', result.message);
-        
-        // Show specific error message
-        const errorMessage = {
-          id: generateMessageId(),
-          type: 'system',
-          content: `❌ Submission failed: ${result.message || 'Please try again'}`,
-          timestamp: new Date(),
-          sender: 'System',
-          sessionId: sessionId
-        };
-        setMessages(prev => [...prev, errorMessage]);
+        throw new Error(result.message || 'Submission failed');
       }
     } catch (error) {
-      console.error('💬 Client data submission error:', error);
-      
-      // Show user-friendly error message
-      const errorMessage = {
-        id: generateMessageId(),
-        type: 'system',
-        content: '❌ Something went wrong. Please try again or contact support.',
-        timestamp: new Date(),
-        sender: 'System',
-        sessionId: sessionId
-      };
-      setMessages(prev => [...prev, errorMessage]);
-      
+      console.error('Lead submission error:', error);
+      setMessages(previous => [
+        ...previous,
+        {
+          id: generateMessageId(),
+          type: 'system',
+          content: '❌ Unable to submit your information. Please try again.',
+          timestamp: new Date(),
+          sender: 'System',
+          sessionId
+        }
+      ]);
+    } finally {
       setSubmissionPending(false);
+      setShowClientForm(false);
+      setShowQuickActions(false);
     }
-
-    setShowClientForm(false);
-    setShowQuickActions(false);
-    
-    const welcomeMessage = {
-      id: generateMessageId(),
-      type: 'system',
-      content: `Thank you ${clientData.name}! I've received your project details. Let me connect you with the right specialist for ${clientData.projectType}.`,
-      timestamp: new Date(),
-      sender: 'Support Team',
-      sessionId: sessionId
-    };
-    setMessages(prev => [...prev, welcomeMessage]);
   };
 
-  // UPDATED startClientForm function with reset option
   const startClientForm = () => {
     if (dataSubmitted) {
-      const message = {
-        id: generateMessageId(),
-        type: 'system',
-        content: (
-          <div>
-            You have already submitted your information. Our team will contact you soon!
-            <br />
-            <button 
-              onClick={resetSubmission}
-              style={{
-                marginTop: '10px',
-                padding: '8px 15px',
-                background: '#ff8c00',
-                color: 'white',
-                border: 'none',
-                borderRadius: '6px',
-                cursor: 'pointer',
-                fontSize: '12px',
-                fontWeight: '600'
-              }}
-            >
-              Submit Different Information
-            </button>
-          </div>
-        ),
-        timestamp: new Date(),
-        sender: 'System',
-        sessionId: sessionId
-      };
-      setMessages(prev => [...prev, message]);
+      setMessages(previous => [
+        ...previous,
+        {
+          id: generateMessageId(),
+          type: 'system',
+          content: '✅ Your information has already been submitted. Our team will contact you within 24 hours.',
+          timestamp: new Date(),
+          sender: 'System',
+          sessionId
+        }
+      ]);
       return;
     }
-    
     setShowClientForm(true);
     setFormStep(1);
   };
 
-  // FIXED scheduleCall function
   const scheduleCall = async () => {
     if (!clientData.name || !clientData.email) {
       startClientForm();
@@ -512,81 +398,64 @@ const ChatWidget = () => {
     }
 
     try {
-      // Format call request - FIXED (create data manually)
       const callData = {
-        sessionId: sessionId,
-        clientData: clientData,
+        sessionId,
+        clientData,
         preferredTime: 'ASAP',
         notes: 'Call requested from chat widget'
       };
-
-      console.log('💬 Scheduling call via Socket.IO:', callData);
-      socket.emit('schedule call', callData);
-
-      // Also schedule via HTTP as fallback
-      console.log('💬 Scheduling call via HTTP fallback:', callData);
-      const result = await scheduleChatCall(callData);
-      
-      if (result.success) {
-        console.log('✅ Call scheduled successfully');
-      } else {
-        console.error('❌ Call scheduling failed:', result.message);
-      }
+      await scheduleChatCall(callData);
+      setMessages(previous => [
+        ...previous,
+        {
+          id: generateMessageId(),
+          type: 'system',
+          content: '📞 Consultation request received. We will contact you shortly.',
+          timestamp: new Date(),
+          sender: 'System',
+          sessionId
+        }
+      ]);
     } catch (error) {
-      console.error('💬 Call scheduling error:', error);
+      console.error('Call scheduling error:', error);
     }
-
-    const callMessage = {
-      id: generateMessageId(),
-      type: 'sent',
-      content: '📞 I\'d like to schedule a consultation call',
-      timestamp: new Date(),
-      sender: clientData.name,
-      sessionId: sessionId
-    };
-    setMessages(prev => [...prev, callMessage]);
   };
 
   const askQuestion = () => {
-    const questionMessage = {
-      id: generateMessageId(),
-      type: 'system',
-      content: 'What would you like to know about our services? Feel free to ask about web design, mobile apps, digital marketing, or any other technology solutions.',
-      timestamp: new Date(),
-      sender: 'Support Team',
-      sessionId: sessionId
-    };
-    setMessages(prev => [...prev, questionMessage]);
-    if (messageInputRef.current) {
-      messageInputRef.current.focus();
-    }
+    setMessages(previous => [
+      ...previous,
+      {
+        id: generateMessageId(),
+        type: 'system',
+        content: 'What would you like to know? Feel free to ask about websites, e-commerce, mobile apps, automation, or any other software solution.',
+        timestamp: new Date(),
+        sender: 'Support Team',
+        sessionId
+      }
+    ]);
+    if (messageInputRef.current) messageInputRef.current.focus();
   };
 
-  const toggleChat = () => {
-    setIsOpen(!isOpen);
-  };
+  const toggleChat = () => setIsOpen(!isOpen);
 
   const closeChat = async () => {
     try {
-      // Close chat session on server
       await closeChatSession(sessionId, 'User closed chat');
-      console.log('💬 Chat session closed');
     } catch (error) {
-      console.error('💬 Error closing chat session:', error);
+      console.error('Error closing chat session:', error);
     }
-    
     setIsOpen(false);
   };
 
   const formatTime = (timestamp) => {
-    return new Date(timestamp).toLocaleTimeString([], { 
-      hour: '2-digit', 
-      minute: '2-digit' 
+    return new Date(timestamp).toLocaleTimeString([], {
+      hour: '2-digit',
+      minute: '2-digit'
     });
   };
 
   const getConnectionStatusText = () => {
-    switch(connectionStatus) {
+    switch (connectionStatus) {
       case 'connected': return 'connected';
       case 'connecting': return 'connecting...';
       case 'disconnected': return 'reconnecting...';
@@ -596,23 +465,22 @@ const ChatWidget = () => {
   };
 
   const projectTypes = [
-    'Web Design & Development',
-    'Mobile App Development', 
+    'Website Design & Development',
+    'E-Commerce Store',
+    'Mobile App Development',
+    'Business Automation',
+    'Custom Software',
     'Digital Marketing',
-    'E-commerce Solutions',
-    'Website Hosting',
-    'Graphics & Logo Design',
-    'WordPress Development',
-    'Project Management',
+    'Cloud & Infrastructure',
     'Other'
   ];
 
   const budgetRanges = [
-    'Under $5,000',
-    '$5,000 - $15,000',
-    '$15,000 - $50,000',
-    '$50,000 - $100,000',
-    'Over $100,000',
+    'Under $1,299',
+    '$1,299 - $2,999',
+    '$2,999 - $4,999',
+    '$4,999 - $10,000',
+    'Over $10,000',
     'Not sure yet'
   ];
 
@@ -627,33 +495,11 @@ const ChatWidget = () => {
 
   return (
     <div className="chat-widget">
-      {/* Debug info in development */}
-      {/* {process.env.NODE_ENV === 'development' && (
-        <div style={{
-          position: 'fixed',
-          top: '10px',
-          right: '10px',
-          background: 'rgba(255,140,0,0.9)', // Orange background for chat widget
-          color: 'white',
-          padding: '8px',
-          fontSize: '11px',
-          zIndex: 10000,
-          borderRadius: '4px'
-        }}>
-          💬 Chat Session: {sessionId.substring(0, 20)}...
-          <br />
-          Socket: {socket.id || 'disconnected'}
-          <br />
-          Status: {connectionStatus}
-          <br />
-          Type: chat_widget
-        </div>
-      )}
-       */}
       {/* Chat Toggle Button */}
-      <button 
+      <button
         className={`chat-toggle ${isOpen ? 'open' : ''}`}
         onClick={toggleChat}
+        aria-label="Open chat support"
       >
         {isOpen ? (
           <span className="close-icon">×</span>
@@ -667,23 +513,20 @@ const ChatWidget = () => {
           </>
         )}
       </button>
-      
+
       {/* Chat Window */}
       {isOpen && (
         <div className="chat-window">
           {/* Header */}
           <div className="chat-header">
             <div className="header-info">
-              <h3>Chat Support?</h3>
+              <h3>Chat Support</h3>
               <span className={`connection-status ${connectionStatus}`}>
                 <span className="status-dot"></span>
                 {getConnectionStatusText()}
               </span>
             </div>
-            <button 
-              className="close-btn"
-              onClick={closeChat}
-            >
+            <button className="close-btn" onClick={closeChat}>
               Close Chat
             </button>
           </div>
@@ -704,6 +547,7 @@ const ChatWidget = () => {
                         required
                         autoFocus
                         autoComplete="name"
+                        aria-label="Your name"
                       />
                     </div>
                     <div className="form-row">
@@ -714,6 +558,7 @@ const ChatWidget = () => {
                         onChange={(e) => handleClientDataChange('email', e.target.value)}
                         required
                         autoComplete="email"
+                        aria-label="Email address"
                       />
                     </div>
                     <div className="form-row">
@@ -723,19 +568,21 @@ const ChatWidget = () => {
                         value={clientData.phone}
                         onChange={(e) => handleClientDataChange('phone', e.target.value)}
                         autoComplete="tel"
+                        aria-label="Phone number"
                       />
                     </div>
                     <div className="form-row">
                       <input
                         type="text"
-                        placeholder="Company Name"
+                        placeholder="Business Name"
                         value={clientData.company}
                         onChange={(e) => handleClientDataChange('company', e.target.value)}
                         autoComplete="organization"
+                        aria-label="Business name"
                       />
                     </div>
-                    <button 
-                      type="submit" 
+                    <button
+                      type="submit"
                       disabled={!clientData.name || !clientData.email || submissionPending}
                     >
                       {submissionPending ? 'Processing...' : 'Next Step →'}
@@ -751,8 +598,9 @@ const ChatWidget = () => {
                         value={clientData.projectType}
                         onChange={(e) => handleClientDataChange('projectType', e.target.value)}
                         required
+                        aria-label="Service type"
                       >
-                        <option value="">Select Service Type *</option>
+                        <option value="">What do you need? *</option>
                         {projectTypes.map(type => (
                           <option key={type} value={type}>{type}</option>
                         ))}
@@ -762,6 +610,7 @@ const ChatWidget = () => {
                       <select
                         value={clientData.budget}
                         onChange={(e) => handleClientDataChange('budget', e.target.value)}
+                        aria-label="Budget range"
                       >
                         <option value="">Budget Range</option>
                         {budgetRanges.map(range => (
@@ -773,6 +622,7 @@ const ChatWidget = () => {
                       <select
                         value={clientData.timeline}
                         onChange={(e) => handleClientDataChange('timeline', e.target.value)}
+                        aria-label="Project timeline"
                       >
                         <option value="">Project Timeline</option>
                         {timelineOptions.map(timeline => (
@@ -784,8 +634,8 @@ const ChatWidget = () => {
                       <button type="button" onClick={() => setFormStep(1)} className="btn-secondary">
                         ← Back
                       </button>
-                      <button 
-                        type="submit" 
+                      <button
+                        type="submit"
                         disabled={!clientData.projectType || submissionPending}
                       >
                         {submissionPending ? 'Processing...' : 'Next Step →'}
@@ -796,7 +646,7 @@ const ChatWidget = () => {
 
                 {formStep === 3 && (
                   <>
-                    <h4>Additional details</h4>
+                    <h4>Almost done</h4>
                     <div className="form-row">
                       <input
                         type="url"
@@ -804,20 +654,23 @@ const ChatWidget = () => {
                         value={clientData.website}
                         onChange={(e) => handleClientDataChange('website', e.target.value)}
                         autoComplete="url"
+                        aria-label="Current website"
                       />
                     </div>
                     <div className="form-row">
                       <textarea
-                        placeholder="Project Description & Requirements"
+                        placeholder="Briefly describe what you need"
                         value={clientData.description}
                         onChange={(e) => handleClientDataChange('description', e.target.value)}
                         rows="3"
+                        aria-label="Project description"
                       />
                     </div>
                     <div className="form-row">
                       <select
                         value={clientData.source}
                         onChange={(e) => handleClientDataChange('source', e.target.value)}
+                        aria-label="How did you hear about us"
                       >
                         <option value="">How did you hear about us?</option>
                         <option value="google">Google Search</option>
@@ -831,10 +684,7 @@ const ChatWidget = () => {
                       <button type="button" onClick={() => setFormStep(2)} className="btn-secondary">
                         ← Back
                       </button>
-                      <button 
-                        type="submit"
-                        disabled={submissionPending}
-                      >
+                      <button type="submit" disabled={submissionPending}>
                         {submissionPending ? 'Submitting...' : 'Start Chat 🚀'}
                       </button>
                     </div>
@@ -845,7 +695,7 @@ const ChatWidget = () => {
           )}
 
           {/* Messages */}
-          <div className="chat-messages">
+          <div className="chat-messages" role="log" aria-label="Chat messages">
             {messages.map((msg) => (
               <div key={msg.id} className={`message ${msg.type}`}>
                 <div className="message-content">
@@ -856,7 +706,7 @@ const ChatWidget = () => {
                 </div>
               </div>
             ))}
-            
+
             {isTyping && (
               <div className="message received">
                 <div className="message-content">
@@ -871,31 +721,25 @@ const ChatWidget = () => {
                 </div>
               </div>
             )}
-            
+
             <div ref={messagesEndRef} />
           </div>
 
-          {/* Quick Actions - UPDATED */}
+          {/* Quick Actions */}
           {showQuickActions && (
             <div className="quick-actions">
-              <button 
+              <button
                 onClick={startClientForm}
                 className="quick-action-btn primary"
                 disabled={submissionPending}
               >
-                {submissionPending ? 'Processing...' : dataSubmitted ? 'Update Info' : 'Get Started'}
+                {submissionPending ? 'Processing...' : dataSubmitted ? 'Info Submitted ✅' : '🚀 Get Started'}
               </button>
-              <button 
-                onClick={scheduleCall}
-                className="quick-action-btn"
-              >
-                Schedule a Call
+              <button onClick={scheduleCall} className="quick-action-btn">
+                📞 Book a Call
               </button>
-              <button 
-                onClick={askQuestion}
-                className="quick-action-btn"
-              >
-                Ask a Question
+              <button onClick={askQuestion} className="quick-action-btn">
+                💬 Ask a Question
               </button>
             </div>
           )}
@@ -907,14 +751,18 @@ const ChatWidget = () => {
                 ref={messageInputRef}
                 type="text"
                 value={currentMessage}
-                onChange={(e) => setCurrentMessage(e.target.value)}
+                onChange={(e) => {
+                  setCurrentMessage(e.target.value);
+                  socketRef.current?.emit('user typing', { sessionId });
+                }}
                 placeholder="Type a message..."
                 className="message-input"
                 disabled={connectionStatus !== 'connected' || showClientForm}
                 autoComplete="off"
+                aria-label="Chat message input"
               />
-              <button 
-                type="submit" 
+              <button
+                type="submit"
                 className="send-btn"
                 disabled={!currentMessage.trim() || connectionStatus !== 'connected' || showClientForm}
               >
