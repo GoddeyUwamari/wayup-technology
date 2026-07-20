@@ -19,11 +19,11 @@ const HeroSection = () => {
       
       <div className="hero-content">
         <h1 className="hero-title">
-          Reliable <span className="highlight-word">Software</span> Solutions Built for Growing Businesses
+          High-Converting <span className="highlight-word">Websites & E-Commerce</span> for Growing Businesses
         </h1>
         
         <p className="hero-subtitle">
-          Websites, eCommerce, automation, and custom software designed to help businesses attract customers, save time, and scale.
+          We build fast, modern websites, online stores, and custom business solutions that help you attract more customers, increase sales, and save time through automation.
         </p>
 
         <div className="hero-cta-container">

@@ -107,7 +107,7 @@ const Client = () => {
       <div className="page-container">
 
         {/* Section Header */}
-        <h2 className='king'>Websites & Software Built to Grow Your Business</h2>
+        <h2 className='king'>Everything You Need to Grow Your Business Online</h2>
 
         {/* Service Cards */}
         <section className="benefits-section">
