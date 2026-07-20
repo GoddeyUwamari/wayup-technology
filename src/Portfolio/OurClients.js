@@ -1,28 +1,22 @@
 import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import {
-  Building2,
-  Hospital,
-  ShoppingCart,
-  Landmark,
-  Factory,
-  GraduationCap,
-  Plane,
-  Truck,
-  Zap,
-  Globe,
+  Utensils,
+  Scissors,
+  Scale,
+  Home,
+  HardHat,
+  ShoppingBag,
   Users,
-  Award,
   Star,
   CheckCircle,
   Rocket,
   Shield,
   TrendingUp,
-  Target,
-  Heart,
-  Cpu,
-  Briefcase,
-  Coffee,
-  User
+  Clock,
+  Award,
+  User,
+  MessageSquare
 } from 'lucide-react';
 import './OurClients.css';
 
@@ -32,138 +26,117 @@ const OurClients = () => {
   }, []);
 
   const stats = [
-    { icon: <Users />, value: '150+', label: 'Active Clients' },
-    { icon: <TrendingUp />, value: '98%', label: 'Client Retention Rate' },
-    { icon: <Globe />, value: '25+', label: 'Countries Served' },
-    { icon: <Star />, value: '4.9/5', label: 'Average Rating' }
+    { icon: <Award />, value: '16+', label: 'Years Experience' },
+    { icon: <CheckCircle />, value: '100%', label: 'Client Satisfaction' },
+    { icon: <Clock />, value: '2 Weeks', label: 'Average Launch Time' },
+    { icon: <Shield />, value: '$1,299', label: 'Starting Price' }
   ];
 
   const clientLogos = [
-    { icon: <Building2 />, name: 'TechCorp', industry: 'Technology' },
-    { icon: <Hospital />, name: 'MediCare Plus', industry: 'Healthcare' },
-    { icon: <ShoppingCart />, name: 'RetailHub', industry: 'E-Commerce' },
-    { icon: <Landmark />, name: 'FinanceFirst', industry: 'Banking' },
-    { icon: <Factory />, name: 'IndustrialMax', industry: 'Manufacturing' },
-    { icon: <GraduationCap />, name: 'EduLearn Pro', industry: 'Education' },
-    { icon: <Plane />, name: 'SkyWings', industry: 'Aviation' },
-    { icon: <Truck />, name: 'LogiTrans', industry: 'Logistics' },
-    { icon: <Cpu />, name: 'AI Dynamics', industry: 'AI Solutions' },
-    { icon: <Briefcase />, name: 'ConsultPro', industry: 'Consulting' },
-    { icon: <Coffee />, name: 'HospitalityHub', industry: 'Hospitality' },
-    { icon: <Zap />, name: 'EnergyCore', industry: 'Energy' },
-    { icon: <Heart />, name: 'HealthFirst', industry: 'Healthcare' },
-    { icon: <Globe />, name: 'GlobalTech', industry: 'Technology' },
-    { icon: <Target />, name: 'MarketReach', industry: 'Marketing' },
-    { icon: <Award />, name: 'EliteServices', industry: 'Premium Services' }
+    { icon: <Utensils />, name: 'Restaurant Client', industry: 'Food & Beverage — New Jersey' },
+    { icon: <Scissors />, name: 'Salon Client', industry: 'Beauty & Wellness — New York' },
+    { icon: <Scale />, name: 'Law Firm Client', industry: 'Legal Services — New Jersey' },
+    { icon: <Home />, name: 'Real Estate Client', industry: 'Real Estate — New York' },
+    { icon: <HardHat />, name: 'Contractor Client', industry: 'Construction & Trades — New Jersey' },
+    { icon: <ShoppingBag />, name: 'Retail Client', industry: 'Retail & E-Commerce — New York' },
+    { icon: <Utensils />, name: 'Cafe Client', industry: 'Food & Beverage — New Jersey' },
+    { icon: <Scale />, name: 'Consulting Firm', industry: 'Professional Services — New York' },
+    { icon: <HardHat />, name: 'Roofing Client', industry: 'Home Services — New Jersey' },
+    { icon: <Home />, name: 'Property Manager', industry: 'Real Estate — New York' },
+    { icon: <Scissors />, name: 'Spa Client', industry: 'Beauty & Wellness — New Jersey' },
+    { icon: <ShoppingBag />, name: 'Boutique Client', industry: 'Fashion Retail — New York' }
   ];
 
   const testimonials = [
     {
-      quote: "WayUP transformed our legacy system into a modern, cloud-based platform. Our operations are now 10x faster and more efficient than ever before!",
-      name: "Sarah Johnson",
-      title: "CTO",
-      company: "TechCorp",
-      rating: 5
+      quote: "WayUP built our restaurant website in under two weeks. We started getting online orders and new customers finding us on Google almost immediately. Best investment we made for the business.",
+      name: "Restaurant Owner",
+      title: "Owner",
+      company: "New Jersey Restaurant",
+      rating: 5,
+      placeholder: true
     },
     {
-      quote: "Their AI solutions reduced our operational costs by 45% within the first quarter. The ROI was incredible and exceeded all our expectations.",
-      name: "Michael Chen",
-      title: "CEO",
-      company: "MediCare Plus",
-      rating: 5
+      quote: "Our salon needed a website that let clients book appointments online. WayUP delivered exactly that — clean, professional, and easy for our clients to use. Our bookings have increased significantly.",
+      name: "Salon Owner",
+      title: "Owner",
+      company: "New York Salon",
+      rating: 5,
+      placeholder: true
     },
     {
-      quote: "Best development partner we've worked with in 15 years. Always on time, on budget, and the quality is consistently exceptional.",
-      name: "Emily Rodriguez",
-      title: "VP of Engineering",
-      company: "RetailHub",
-      rating: 5
+      quote: "As a contractor, I was skeptical about spending money on a website. WayUP convinced me with their straightforward pricing and delivered a site that actually brings in leads. Worth every penny.",
+      name: "Contractor",
+      title: "Owner",
+      company: "New Jersey Contracting",
+      rating: 5,
+      placeholder: true
     },
     {
-      quote: "WayUP's mobile app transformed our customer engagement. Downloads increased 300% and user satisfaction scores jumped to 4.8 stars.",
-      name: "David Thompson",
-      title: "Chief Digital Officer",
-      company: "FinanceFirst",
-      rating: 5
-    },
-    {
-      quote: "The UI/UX redesign they delivered was phenomenal. Our bounce rate dropped 40% and conversions increased by 65%. Game-changing results!",
-      name: "Lisa Martinez",
-      title: "Head of Product",
-      company: "IndustrialMax",
-      rating: 5
-    },
-    {
-      quote: "Outstanding team! They understood our complex requirements and delivered a custom solution that perfectly fits our enterprise needs.",
-      name: "James Wilson",
-      title: "Director of IT",
-      company: "EduLearn Pro",
-      rating: 5
+      quote: "I needed a professional website for my law firm quickly. WayUP was responsive, understood exactly what I needed, and delivered a site that gives our firm the credibility we needed online.",
+      name: "Attorney",
+      title: "Managing Partner",
+      company: "New Jersey Law Firm",
+      rating: 5,
+      placeholder: true
     }
   ];
 
   const industries = [
     {
-      icon: <Hospital />,
-      name: 'Healthcare',
-      clients: '25+',
-      description: 'Digital health platforms & telemedicine'
+      icon: <Utensils />,
+      name: 'Restaurants & Cafes',
+      description: 'Online menus, ordering systems & Google presence'
     },
     {
-      icon: <Landmark />,
-      name: 'Finance & Banking',
-      clients: '30+',
-      description: 'Fintech solutions & digital banking'
+      icon: <Scissors />,
+      name: 'Salons & Spas',
+      description: 'Online booking, client management & branding'
     },
     {
-      icon: <ShoppingCart />,
-      name: 'E-commerce & Retail',
-      clients: '35+',
-      description: 'Online marketplaces & POS systems'
+      icon: <Scale />,
+      name: 'Law Firms',
+      description: 'Professional websites & client intake systems'
     },
     {
-      icon: <Factory />,
-      name: 'Manufacturing',
-      clients: '20+',
-      description: 'Industry 4.0 & IoT solutions'
+      icon: <Home />,
+      name: 'Real Estate',
+      description: 'Property listings & lead generation sites'
     },
     {
-      icon: <GraduationCap />,
-      name: 'Education',
-      clients: '18+',
-      description: 'E-learning platforms & LMS'
+      icon: <HardHat />,
+      name: 'Contractors & Trades',
+      description: 'Portfolio sites, lead capture & job scheduling'
     },
     {
-      icon: <Building2 />,
-      name: 'Government',
-      clients: '12+',
-      description: 'Public sector digital transformation'
+      icon: <ShoppingBag />,
+      name: 'Retail & E-Commerce',
+      description: 'Online stores, inventory & payment systems'
     },
     {
-      icon: <Truck />,
-      name: 'Logistics',
-      clients: '22+',
-      description: 'Supply chain & fleet management'
+      icon: <Users />,
+      name: 'Consultants',
+      description: 'Authority-building sites & lead funnels'
     },
     {
-      icon: <Coffee />,
-      name: 'Hospitality',
-      clients: '15+',
-      description: 'Hotel management & booking systems'
+      icon: <MessageSquare />,
+      name: 'Personal Services',
+      description: 'Booking systems & customer management tools'
     }
   ];
 
   return (
     <div className="clients-page">
-      {/* Hero Section - Clean Animated Gradient */}
+
+      {/* Hero Section */}
       <section className="clients-hero">
         <div className="clients-hero-container">
           <h1 className="clients-hero-title">
-            Our <span className="clients-gradient-text">Trusted Clients</span>
+            Real Businesses, <span className="clients-gradient-text">Real Results</span>
           </h1>
           <p className="clients-hero-desc">
-            Partnering with industry leaders to deliver exceptional digital solutions
-            that drive innovation, efficiency, and transformative business growth.
+            We build websites and software for local businesses across New Jersey and New York.
+            Fast turnaround, honest pricing, and results you can measure.
           </p>
         </div>
       </section>
@@ -187,10 +160,10 @@ const OurClients = () => {
       <section className="clients-logos">
         <div className="clients-container">
           <div className="clients-section-header">
-            <span className="clients-label">Our Partners</span>
-            <h2 className="clients-section-title">Trusted by Leading Brands</h2>
+            <span className="clients-label">Who We Work With</span>
+            <h2 className="clients-section-title">Businesses We've Helped</h2>
             <p className="clients-section-subtitle">
-              From startups to Fortune 500 companies, we deliver excellence
+              Local businesses across New Jersey and New York trusting WayUP to build their online presence
             </p>
           </div>
 
@@ -210,10 +183,10 @@ const OurClients = () => {
       <section className="clients-testimonials">
         <div className="clients-container">
           <div className="clients-section-header">
-            <span className="clients-label">Success Stories</span>
+            <span className="clients-label">Client Feedback</span>
             <h2 className="clients-section-title">What Our Clients Say</h2>
             <p className="clients-section-subtitle">
-              Real feedback from real clients who trusted us with their vision
+              Honest feedback from local business owners we've worked with
             </p>
           </div>
 
@@ -246,10 +219,10 @@ const OurClients = () => {
       <section className="clients-industries">
         <div className="clients-container">
           <div className="clients-section-header">
-            <span className="clients-label">Expertise Across Sectors</span>
-            <h2 className="clients-section-title">Industries We Serve</h2>
+            <span className="clients-label">Industries We Serve</span>
+            <h2 className="clients-section-title">Built for Your Business</h2>
             <p className="clients-section-subtitle">
-              Deep domain expertise delivering tailored solutions for every sector
+              We specialize in websites and software for local service businesses
             </p>
           </div>
 
@@ -258,7 +231,6 @@ const OurClients = () => {
               <div key={index} className="clients-industry-card">
                 <div className="clients-industry-icon">{industry.icon}</div>
                 <h3>{industry.name}</h3>
-                <div className="clients-industry-count">{industry.clients} Clients</div>
                 <p>{industry.description}</p>
               </div>
             ))}
@@ -272,40 +244,49 @@ const OurClients = () => {
           <div className="clients-cta-content">
             <div className="clients-cta-badge">
               <Shield size={20} />
-              <span>Fortune 500 Companies Trust Us</span>
+              <span>Trusted by Local Businesses Across NJ & NY</span>
             </div>
-            <h2>Ready to Join Our Success Stories?</h2>
+            <h2>Ready to Grow Your Business Online?</h2>
             <p>
-              Partner with WayUP and transform your digital vision into reality.
-              Join 150+ satisfied clients who chose excellence.
+              Join local businesses across New Jersey and New York who chose WayUP
+              to build their online presence. Starting at $1,299 — launched in 2 weeks.
             </p>
             <div className="clients-cta-actions">
-              <button className="clients-cta-btn-primary">
-                <span>Start Your Project</span>
+              <Link
+                to="/contact"
+                state={{ scrollToTop: true }}
+                className="clients-cta-btn-primary"
+              >
+                <span>Get a Free Consultation</span>
                 <Rocket size={20} />
-              </button>
-              <button className="clients-cta-btn-secondary">
-                <Users size={20} />
-                <span>Schedule Consultation</span>
-              </button>
+              </Link>
+              <Link
+                to="/contact"
+                state={{ scrollToTop: true }}
+                className="clients-cta-btn-secondary"
+              >
+                <TrendingUp size={20} />
+                <span>See Pricing</span>
+              </Link>
             </div>
             <div className="clients-cta-benefits">
               <div className="clients-cta-benefit">
                 <CheckCircle size={18} />
-                <span>Free project assessment</span>
+                <span>Free project consultation</span>
               </div>
               <div className="clients-cta-benefit">
                 <CheckCircle size={18} />
-                <span>Dedicated account manager</span>
+                <span>No hidden fees</span>
               </div>
               <div className="clients-cta-benefit">
                 <CheckCircle size={18} />
-                <span>24/7 premium support</span>
+                <span>Launched in 2 weeks</span>
               </div>
             </div>
           </div>
         </div>
       </section>
+
     </div>
   );
 };
