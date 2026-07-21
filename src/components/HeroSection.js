@@ -30,9 +30,9 @@ const HeroSection = () => {
           <Link to="/contact" className="hero-cta-primary">
             Start Your Project
           </Link>
-          <Link to="/portfolio/work" className="hero-cta-secondary">
-            View Our Work
-          </Link>
+          <Link to="/portfolio/clients" className="hero-cta-secondary">
+  View Client Results
+</Link>
         </div>
 
         {/* Trust signals */}
